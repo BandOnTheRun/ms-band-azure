@@ -84,6 +84,8 @@ namespace DataSync.ViewModels
         private async Task<object> Connect(object arg)
         {
             IsBusy = true;
+            ((AsyncDelegateCommand<object>)(ConnectCmd)).RaiseCanExecuteChanged();
+
             LoadingText = "Connecting...";
             var item = (ItemClickEventArgs)arg;
             var vm = (BandViewModel)item.ClickedItem;

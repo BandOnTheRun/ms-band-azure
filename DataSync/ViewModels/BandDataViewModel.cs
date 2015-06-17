@@ -65,6 +65,8 @@ namespace DataSync.ViewModels
             }
 
             IsBusy = true;
+            ((AsyncDelegateCommand<object>)(StartCmd)).RaiseCanExecuteChanged();
+
             App.Events.Publish(new BusyProcessing { IsBusy = true, BusyText = "Starting..." });
 
             try
@@ -77,6 +79,7 @@ namespace DataSync.ViewModels
             {
                 App.Events.Publish(new BusyProcessing { IsBusy = false, BusyText = "" });
                 IsBusy = false;
+                ((AsyncDelegateCommand<object>)(StopCmd)).RaiseCanExecuteChanged();
             }
             return _started;
         }

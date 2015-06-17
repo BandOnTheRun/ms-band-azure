@@ -15,6 +15,13 @@ namespace DataSync
             _canExecuteDelegate = CanExecuteDelegate;
         }
 
+        public void RaiseCanExecuteChanged()
+        {
+            var handler = CanExecuteChanged;
+            if (handler == null)
+                return;
+            handler(this, new EventArgs());
+        }
         public event EventHandler CanExecuteChanged;
 
         public bool CanExecute(object parameter)

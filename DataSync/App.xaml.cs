@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Caliburn.Micro;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -51,6 +52,10 @@ namespace DataSync
                 this.DebugSettings.EnableFrameRateCounter = true;
             }
 #endif
+            if (Events == null)
+            {
+                Events = new EventAggregator();
+            }
 
             Frame rootFrame = Window.Current.Content as Frame;
 
@@ -112,6 +117,8 @@ namespace DataSync
             rootFrame.ContentTransitions = this.transitions ?? new TransitionCollection() { new NavigationThemeTransition() };
             rootFrame.Navigated -= this.RootFrame_FirstNavigated;
         }
+
+        public static IEventAggregator Events { get; set; }
 
         /// <summary>
         /// Invoked when application execution is being suspended.  Application state is saved

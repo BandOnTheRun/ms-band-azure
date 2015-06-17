@@ -48,67 +48,57 @@ namespace DataSync
 
         async void MainPage_Unloaded(object sender, RoutedEventArgs e)
         {
-            // stop the HeartRate sensor 
-            try 
-            {     
-                await _bandClient.SensorManager.HeartRate.StopReadingsAsync(); 
-            } 
-            catch (BandException ex) 
-            {     
-                // handle a Band connection exception     
-                throw ex; 
-            }
         }
 
         async void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
-            IBandInfo[] pairedBands = await BandClientManager.Instance.GetBandsAsync(); 
-            try 
-            {
-                _bandClient = await BandClientManager.Instance.ConnectAsync(pairedBands[0]);
+        //    IBandInfo[] pairedBands = await BandClientManager.Instance.GetBandsAsync(); 
+        //    try 
+        //    {
+        //        _bandClient = await BandClientManager.Instance.ConnectAsync(pairedBands[0]);
      
-                // do work after successful connect     
-                // get a list of available reporting intervals 
-                IEnumerable<TimeSpan> supportedHeartBeatReportingIntervals = _bandClient.SensorManager.HeartRate.SupportedReportingIntervals; 
-                foreach (var ri in supportedHeartBeatReportingIntervals) 
-                {     
-                    // do work with each reporting interval (i.e. add them to a list in the UI) 
-                }
-                _bandClient.SensorManager.HeartRate.ReportingInterval = supportedHeartBeatReportingIntervals.First();
+        //        // do work after successful connect     
+        //        // get a list of available reporting intervals 
+        //        IEnumerable<TimeSpan> supportedHeartBeatReportingIntervals = _bandClient.SensorManager.HeartRate.SupportedReportingIntervals; 
+        //        foreach (var ri in supportedHeartBeatReportingIntervals) 
+        //        {     
+        //            // do work with each reporting interval (i.e. add them to a list in the UI) 
+        //        }
+        //        _bandClient.SensorManager.HeartRate.ReportingInterval = supportedHeartBeatReportingIntervals.First();
 
-                // hook up to the HeartRate sensor ReadingChanged event 
-                _bandClient.SensorManager.HeartRate.ReadingChanged += async (s, args) =>  
-                {
-                    _data.Data.HeartRate = args.SensorReading.HeartRate;
-                    _data.Data.Timestamp = args.SensorReading.Timestamp.ToString();
+        //        // hook up to the HeartRate sensor ReadingChanged event 
+        //        _bandClient.SensorManager.HeartRate.ReadingChanged += async (s, args) =>  
+        //        {
+        //            _data.Data.HeartRate = args.SensorReading.HeartRate;
+        //            _data.Data.Timestamp = args.SensorReading.Timestamp.ToString();
 
-                    var resp = await PostTelemetryAsync(_data);
-                    var status = resp.StatusCode;
-                    var res = await resp.Content.ReadAsStringAsync();
+        //            var resp = await PostTelemetryAsync(_data);
+        //            var status = resp.StatusCode;
+        //            var res = await resp.Content.ReadAsStringAsync();
 
-                    Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-                        {
-                            // do work when the reading changes (i.e. update a UI element) 
-                            heartText.Text = args.SensorReading.HeartRate.ToString();
-                            heartTime.Text = args.SensorReading.Timestamp.ToString();
-                        });
-                };
+        //            Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+        //                {
+        //                    // do work when the reading changes (i.e. update a UI element) 
+        //                    heartText.Text = args.SensorReading.HeartRate.ToString();
+        //                    heartTime.Text = args.SensorReading.Timestamp.ToString();
+        //                });
+        //        };
 
-                // start the HeartRate sensor 
-                try
-                {
-                    await _bandClient.SensorManager.HeartRate.StartReadingsAsync();
-                }
-                catch (BandException ex)
-                {
-                    // handle a Band connection exception
-                        throw ex; 
-                }
-            } 
-            catch(BandException ex) 
-            {     // handle a Band connection exception 
-                throw ex;
-            }
+        //        // start the HeartRate sensor 
+        //        try
+        //        {
+        //            await _bandClient.SensorManager.HeartRate.StartReadingsAsync();
+        //        }
+        //        catch (BandException ex)
+        //        {
+        //            // handle a Band connection exception
+        //            throw ex; 
+        //        }
+        //    } 
+        //    catch(BandException ex) 
+        //    {     // handle a Band connection exception 
+        //        throw ex;
+        //    }
         }
 
         private Task<HttpResponseMessage> PostTelemetryAsync(DeviceTelemetry deviceTelemetry)
@@ -143,13 +133,10 @@ namespace DataSync
         /// This parameter is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            // TODO: Prepare page for display here.
+        }
 
-            // TODO: If your application contains multiple pages, ensure that you are
-            // handling the hardware Back button by registering for the
-            // Windows.Phone.UI.Input.HardwareButtons.BackPressed event.
-            // If you are using the NavigationHelper provided by some templates,
-            // this event is handled for you.
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
         }
     }
 }

@@ -15,7 +15,8 @@
         <conv:ConnectedConverter x:Key="ConnectedConverter"></conv:ConnectedConverter>
         <local:SensorDataTemplateSelector x:Key="SensorDataTemplateSelector"
                                           HeartRateTemplate="{StaticResource hrt}"
-                                          SkinTempTemplate="{StaticResource stt}"/>
+                                          SkinTempTemplate="{StaticResource stt}"
+                                          UVTemplate="{StaticResource uvt}"/>
     </Page.Resources>
     <Page.DataContext>
         <vm:MainViewModel/>

@@ -103,7 +103,10 @@
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="ViewModels\BandDataViewModel.cs" />
     <Compile Include="ViewModels\BandViewModel.cs" />
+    <Compile Include="ViewModels\HeartRateViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\SkinTempViewModel.cs" />
+    <Compile Include="ViewModels\UVViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

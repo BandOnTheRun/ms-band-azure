@@ -43,6 +43,7 @@ namespace DataSync.ViewModels
                     {
                         new HeartRateViewModel(_bandClient),
                         new SkinTempViewModel(_bandClient),
+                        new UVViewModel(_bandClient),
                     };
             }
             catch (Exception ex)

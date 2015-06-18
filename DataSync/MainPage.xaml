@@ -12,7 +12,45 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" d:DataContext="{d:DesignData /SampleData/MainViewModelSampleData.xaml}">
     <Page.Resources>
+        <DataTemplate x:Key="hrt">
+            <ContentControl Grid.Row="4" x:Name="content" RenderTransformOrigin="0.5,0.5" 
+                        HorizontalContentAlignment="Stretch">
+        	<ContentControl.RenderTransform>
+        		<CompositeTransform/>
+        	</ContentControl.RenderTransform>
+            <Border x:Name="border" BorderThickness="1" 
+                    BorderBrush="White">
+                <Grid Margin="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="115*"/>
+                        <ColumnDefinition Width="151*"/>
+                        <ColumnDefinition Width="124*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{Binding Hr.Name}" Style="{StaticResource SubheaderTextBlockStyle}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="9,21,11.833,21" Height="73" Width="130" Grid.Column="1">
+                        <TextBlock FontSize="44"
+                                   Text="{Binding Hr.HeartRate}" Style="{StaticResource ControlHeaderTextBlockStyle}" VerticalAlignment="Center" TextAlignment="Center"/>
+                        <TextBlock FontSize="18"
+                                   Text="{Binding Hr.TimeStamp}" VerticalAlignment="Center" TextAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" Margin="4.167,0,0,0">
+                        <Button HorizontalAlignment="Center" 
+                                Content="START"
+                                Command="{Binding Hr.StartCmd}"/>
+                        <Button HorizontalAlignment="Center" Content="STOP"
+                                Command="{Binding Hr.StopCmd}"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </ContentControl>
+        </DataTemplate>
+        <DataTemplate x:Key="stt">
+            <Grid Background="Red"></Grid>
+        </DataTemplate>
         <conv:ConnectedConverter x:Key="ConnectedConverter"></conv:ConnectedConverter>
+        <local:SensorDataTemplateSelector x:Key="SensorDataTemplateSelector"
+                                          HeartRateTemplate="{StaticResource hrt}"
+                                          SkinTempTemplate="{StaticResource stt}"/>
     </Page.Resources>
     <Page.DataContext>
         <vm:MainViewModel/>
@@ -84,7 +122,11 @@
 				</DataTemplate>
 			</ListView.ItemTemplate>
 		</ListView>
-        <ContentControl Grid.Row="4" x:Name="content" RenderTransformOrigin="0.5,0.5" 
+        <ListView ItemsSource="{Binding SensorData}"
+                  ItemTemplateSelector="{StaticResource SensorDataTemplateSelector}">
+            
+        </ListView>
+        <!--<ContentControl Grid.Row="4" x:Name="content" RenderTransformOrigin="0.5,0.5" 
                         HorizontalContentAlignment="Stretch">
         	<ContentControl.RenderTransform>
         		<CompositeTransform/>
@@ -113,6 +155,6 @@
                     </StackPanel>
                 </Grid>
             </Border>
-        </ContentControl>
+        </ContentControl>-->
     </Grid>
 </Page>

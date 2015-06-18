@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TinyIoC;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
@@ -36,6 +37,8 @@ namespace DataSync
         {
             this.InitializeComponent();
             this.Suspending += this.OnSuspending;
+
+            _container.Register<ITelemetry, EventHubsTelemetry>();  
         }
 
         /// <summary>
@@ -118,7 +121,13 @@ namespace DataSync
             rootFrame.Navigated -= this.RootFrame_FirstNavigated;
         }
 
+        private static DeviceTelemetry _data = new DeviceTelemetry { DeviceId = "dxband" };
+
+        public static DeviceTelemetry Data { get { return _data; } }
+        private static ITelemetry _telemetry = new EventHubsTelemetry();
+        public static ITelemetry Telemetry { get { return _telemetry; } }
         public static IEventAggregator Events { get; set; }
+        public TinyIoCContainer _container = new TinyIoCContainer();
 
         /// <summary>
         /// Invoked when application execution is being suspended.  Application state is saved

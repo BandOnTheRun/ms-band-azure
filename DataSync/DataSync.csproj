@@ -91,10 +91,15 @@
     <Compile Include="Converters\ConnectedConverter.cs" />
     <Compile Include="DelegateCommand.cs" />
     <Compile Include="DeviceTelemetry.cs" />
+    <Compile Include="EventHubsTelemetry.cs" />
+    <Compile Include="ITelemetry.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SensorDataTemplateSelector.cs" />
+    <Compile Include="TinyIoC.cs" />
+    <Compile Include="TypeExtender.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="ViewModels\BandDataViewModel.cs" />
     <Compile Include="ViewModels\BandViewModel.cs" />
@@ -153,6 +158,9 @@
   </ItemGroup>
   <ItemGroup>
     <DesignData Include="SampleData\MainViewModelSampleData.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>

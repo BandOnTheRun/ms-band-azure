@@ -23,12 +23,6 @@ using Windows.UI.Xaml.Navigation;
 
 namespace DataSync
 {
-    public class BandData
-    {
-        public int HeartRate { get; set; }
-        public string Timestamp { get; set; }
-    }
-
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>

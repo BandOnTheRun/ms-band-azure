@@ -20,6 +20,7 @@ namespace DataSync.ViewModels
             {
                 return new AsyncDelegateCommand<object>(Connect, CanConnect);
             });
+
         }
 
         private bool CanConnect(object arg)
@@ -38,6 +39,11 @@ namespace DataSync.ViewModels
                 ConnectedText = "Connected";
                 IsConnected = true;
                 App.Events.Publish(this);
+                SensorData = new List<BandDataViewModel>
+                    {
+                        new HeartRateViewModel(_bandClient),
+                        new SkinTempViewModel(_bandClient),
+                    };
             }
             catch (Exception ex)
             {
@@ -75,6 +81,8 @@ namespace DataSync.ViewModels
             set { SetProperty(ref _connectedText, value); }
         }
 
+        public List<BandDataViewModel> SensorData { get; set; }
+         
         private HeartRateViewModel _hr;
 
         public HeartRateViewModel Hr

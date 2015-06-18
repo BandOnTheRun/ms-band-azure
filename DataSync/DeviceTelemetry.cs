@@ -9,9 +9,12 @@ namespace DataSync
     {
         public DeviceTelemetry()
         {
-            Data = new BandData();
         }
         public string DeviceId { get; set; }
-        public BandData Data { get; set; }
+
+        public int HeartRate { get; set; }
+        public double SkinTemp { get; set; }
+
+        public string Timestamp { get; set; }
     }
 }

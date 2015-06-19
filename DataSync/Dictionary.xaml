@@ -220,7 +220,6 @@
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="115*" />
 					<ColumnDefinition Width="151*" />
-					<ColumnDefinition Width="124*" />
 				</Grid.ColumnDefinitions>
 				<TextBlock Text="{Binding Name}"
 					Style="{StaticResource SubheaderTextBlockStyle}"
@@ -243,15 +242,6 @@
 						VerticalAlignment="Center"
 						TextAlignment="Center" />
 				</StackPanel>
-				<StackPanel Grid.Column="2"
-					Margin="4.167,0,0,0">
-					<Button HorizontalAlignment="Center"
-						Content="START"
-						Command="{Binding StartCmd}" />
-					<Button HorizontalAlignment="Center"
-						Content="STOP"
-						Command="{Binding StopCmd}" />
-				</StackPanel>
 			</Grid>
 		</Border>
 	</DataTemplate>
@@ -262,7 +252,6 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="115*" />
                     <ColumnDefinition Width="151*" />
-                    <ColumnDefinition Width="124*" />
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="{Binding Name}"
                            Style="{StaticResource SubheaderTextBlockStyle}"
@@ -285,15 +274,6 @@
                                VerticalAlignment="Center"
                                TextAlignment="Center" />
                 </StackPanel>
-                <StackPanel Grid.Column="2"
-                            Margin="4.167,0,0,0">
-                    <Button HorizontalAlignment="Center"
-                            Content="START"
-                            Command="{Binding StartCmd}" />
-                    <Button HorizontalAlignment="Center"
-                            Content="STOP"
-                            Command="{Binding StopCmd}" />
-                </StackPanel>
             </Grid>
         </Border>
     </DataTemplate>
@@ -304,7 +284,6 @@
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="115*"/>
 					<ColumnDefinition Width="151*"/>
-					<ColumnDefinition Width="124*"/>
 				</Grid.ColumnDefinitions>
 				<TextBlock Text="{Binding Name}" Style="{StaticResource SubheaderTextBlockStyle}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 				<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="9,21,11.833,21" Height="73" Width="130" Grid.Column="1">
@@ -312,13 +291,6 @@
 						Text="{Binding HeartRate}" Style="{StaticResource ControlHeaderTextBlockStyle}" VerticalAlignment="Center" TextAlignment="Center"/>
 					<TextBlock FontSize="18"
 						Text="{Binding TimeStamp}" VerticalAlignment="Center" TextAlignment="Center"/>
-				</StackPanel>
-				<StackPanel Grid.Column="2" Margin="4.167,0,0,0">
-					<Button HorizontalAlignment="Center" 
-						Content="START"
-						Command="{Binding StartCmd}"/>
-					<Button HorizontalAlignment="Center" Content="STOP"
-						Command="{Binding StopCmd}"/>
 				</StackPanel>
 			</Grid>
 		</Border>

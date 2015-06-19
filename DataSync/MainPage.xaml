@@ -18,6 +18,17 @@
                                           SkinTempTemplate="{StaticResource stt}"
                                           UVTemplate="{StaticResource uvt}"/>
     </Page.Resources>
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton Icon="World"
+                          Label="Connect" />
+            <AppBarButton Label="{Binding StartStopLabel}"
+                          Icon="{Binding StartStopIcon}"
+                          Command="{Binding StartStopCmd}"/>
+            <AppBarButton Label="settings"
+                          Icon="Setting" />
+        </CommandBar>
+    </Page.BottomAppBar>
     <Page.DataContext>
         <vm:MainViewModel/>
     </Page.DataContext>

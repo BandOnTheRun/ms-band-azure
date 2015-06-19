@@ -30,6 +30,7 @@ namespace DataSync.ViewModels
         }
 
         protected bool _started;
+        public bool Started { get { return _started; } }
 
         protected virtual bool CanStop(object arg) { return true; }
         protected abstract Task<object> Stop(object arg);

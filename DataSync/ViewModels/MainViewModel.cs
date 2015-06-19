@@ -73,9 +73,88 @@ namespace DataSync.ViewModels
             {
                 return new AsyncDelegateCommand<object>(Connect, CanConnect);
             });
+            _startStopCmd = new Lazy<ICommand>(() =>
+            {
+                return new AsyncDelegateCommand<object>(StartStop, CanStartStop);
+            });
 
             EnumerateBandsCmd.Execute(null);
         }
+
+        private bool CanStartStop(object arg)
+        {
+            return true;
+        }
+
+        private async Task<object> StartStop(object arg)
+        {
+            // if started, then stop, otherwise if stopped then start..
+            if (ConnectedBand == null)
+                return null;
+
+            if (Started == false)
+            {
+                // Could try executing these in parallel - not sure if the band will like it
+                foreach (var data in ConnectedBand.SensorData)
+                {
+                    var asyncCmd = data.StartCmd as IAsyncCommand;
+                    if (asyncCmd != null)
+                    {
+                        try
+                        {
+                            await asyncCmd.ExecuteAsync(null);
+                        }
+                        catch (Exception ex)
+                        { }
+                    }
+                }
+
+                // set up state..
+                Started = true;
+                StartStopLabel = "stop";
+                StartStopIcon = "Stop";
+            }
+            else
+            {
+                foreach (var data in ConnectedBand.SensorData)
+                {
+                    var asyncCmd = data.StopCmd as IAsyncCommand;
+                    if (asyncCmd != null)
+                    {
+                        try
+                        {
+                            await asyncCmd.ExecuteAsync(null);
+                        }
+                        catch (Exception ex)
+                        { }
+                    }
+                }
+                Started = false;
+                StartStopLabel = "start";
+                StartStopIcon = "Go";
+            }
+            return null;
+        }
+
+        public bool Started { get; set; }
+        private string _startStopLabel;
+
+        public string StartStopLabel
+        {
+            get { return _startStopLabel; }
+            set { SetProperty(ref _startStopLabel, value); }
+        }
+
+        private string _startStopIcon;
+
+        public string StartStopIcon
+        {
+            get { return _startStopIcon; }
+            set { SetProperty(ref _startStopIcon, value); }
+        }
+
+        Lazy<ICommand> _startStopCmd;
+        public ICommand StartStopCmd { get { return _startStopCmd.Value; } }
 
         private bool CanConnect(object arg)
         {
@@ -125,7 +204,13 @@ namespace DataSync.ViewModels
         // TODO: fix this async void...
         private async void PostCurrentData(long t)
         {
-            await App.Telemetry.PostTelemetryAsync(App.Data);
+            var resp = await App.Telemetry.PostTelemetryAsync(App.Data);
+            if (resp.IsSuccessStatusCode)
+            {
+                var status = resp.StatusCode;
+                var res = await resp.Content.ReadAsStringAsync();
+            }
+
         }
 
         public void Handle(BusyProcessing message)

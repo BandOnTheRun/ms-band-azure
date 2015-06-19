@@ -23,11 +23,11 @@ namespace DataSync
             var resp = await http.GetAsync(new Uri("http://bandontherun.azurewebsites.net/api/getsastoken/dxband"));
             resp.EnsureSuccessStatusCode();
             _sas = await resp.Content.ReadAsStringAsync();
+            _sas = _sas.Trim('"');
         }
 
         public Task<HttpResponseMessage> PostTelemetryAsync(DeviceTelemetry deviceTelemetry)
         {
-            //var sas = "SharedAccessSignature sr=https%3a%2f%2fbandontherun-ns.servicebus.windows.net%2fmsbands%2fpublishers%2fdxband%2fmessages&sig=WFcnAqZ8OHEp5rh5PBTFxzisF%2bc4rtJ%2bk5pLR68GVgo%3d&se=1434710365&skn=D1";
             var sas = _sas;
 
             // Namespace info.

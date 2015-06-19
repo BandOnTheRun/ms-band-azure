@@ -1,61 +1,143 @@
-﻿<ViewModels:MainViewModel xmlns:ViewModels="using:DataSync.ViewModels" IsBusy="True" LoadingText="Venenatis potenti volutpat" StatusText="Quam vestibulum est sociis">
+﻿<ViewModels:MainViewModel xmlns:ViewModels="using:DataSync.ViewModels" IsBusy="True" LoadingText="Himenaeos donec imperdiet parturient laoreet" StatusText="Habitasse hendrerit">
 	<ViewModels:MainViewModel.Bands>
-		<ViewModels:BandViewModel ConnectionType="Nam aenean" ConnectedText="Cras class sed" IsConnected="True">
+		<ViewModels:BandViewModel ConnectionType="Nam aliquam sed cras" ConnectedText="Duis curabitur maecenas" IsConnected="True">
 			<ViewModels:BandViewModel.Hr>
-				<ViewModels:HeartRateViewModel HeartRate="52" MyProperty="Maecenas curabitur" Name="Mauris curae aliquam" TimeStamp="Integer duis"/>
+				<ViewModels:HeartRateViewModel HeartRate="94" IsBusy="True" Name="Elementum blandit etiam bibendum fusce" TimeStamp="Auctor nec congue dictumst facilisis"/>
 			</ViewModels:BandViewModel.Hr>
+			<ViewModels:BandViewModel.SensorData>
+				<ViewModels:BandDataViewModel IsBusy="False" Name="Integer nunc class" TimeStamp="Phasellus dis quisque aenean vestibulum"/>
+				<ViewModels:BandDataViewModel IsBusy="True" Name="Praesent adipiscing consequat est" TimeStamp="Amet convallis dignissim ante vivamus"/>
+				<ViewModels:BandDataViewModel IsBusy="False" Name="Mauris arcu" TimeStamp="Diam eget"/>
+				<ViewModels:BandDataViewModel IsBusy="True" Name="Curae aliquam" TimeStamp="Nullam hac accumsan leo mus"/>
+				<ViewModels:BandDataViewModel IsBusy="False" Name="Aptent elit" TimeStamp="Aliquet parturient donec"/>
+			</ViewModels:BandViewModel.SensorData>
 		</ViewModels:BandViewModel>
-		<ViewModels:BandViewModel ConnectionType="Dis donec praesent est" ConnectedText="Quisque phasellus accumsan nullam aptent" IsConnected="False">
+		<ViewModels:BandViewModel ConnectionType="Fermentum enim eleifend" ConnectedText="Fringilla lorem" IsConnected="False">
 			<ViewModels:BandViewModel.Hr>
-				<ViewModels:HeartRateViewModel HeartRate="93" MyProperty="Vestibulum hac nunc" Name="Etiam auctor fusce" TimeStamp="Congue bibendum lorem vivamus"/>
+				<ViewModels:HeartRateViewModel HeartRate="86" IsBusy="False" Name="Malesuada adipiscing placerat" TimeStamp="Litora ipsum pulvinar parturient"/>
 			</ViewModels:BandViewModel.Hr>
+			<ViewModels:BandViewModel.SensorData>
+				<ViewModels:BandDataViewModel IsBusy="True" Name="Erat cursus commodo" TimeStamp="Facilisi vestibulum"/>
+				<ViewModels:BandDataViewModel IsBusy="False" Name="Faucibus dictum eros habitant habitasse" TimeStamp="Hendrerit lectus conubia morbi"/>
+				<ViewModels:BandDataViewModel IsBusy="True" Name="Libero cubilia nulla himenaeos" TimeStamp="Inceptos proin augue dapibus"/>
+				<ViewModels:BandDataViewModel IsBusy="False" Name="Ligula dolor non per interdum" TimeStamp="Egestas euismod lobortis"/>
+				<ViewModels:BandDataViewModel IsBusy="True" Name="Fames felis imperdiet" TimeStamp="Nascetur vestibulum sed pharetra"/>
+			</ViewModels:BandViewModel.SensorData>
 		</ViewModels:BandViewModel>
-		<ViewModels:BandViewModel ConnectionType="Amet morbi aliquam consequat" ConnectedText="Leo ante" IsConnected="True">
+		<ViewModels:BandViewModel ConnectionType="Feugiat vestibulum" ConnectedText="Gravida nibh nisi justo" IsConnected="True">
 			<ViewModels:BandViewModel.Hr>
-				<ViewModels:HeartRateViewModel HeartRate="73" MyProperty="Nulla mus" Name="Arcu convallis diam" TimeStamp="Cursus dignissim aliquet dictumst"/>
+				<ViewModels:HeartRateViewModel HeartRate="93" IsBusy="True" Name="Ultrices metus" TimeStamp="Sed mollis"/>
 			</ViewModels:BandViewModel.Hr>
+			<ViewModels:BandViewModel.SensorData>
+				<ViewModels:BandDataViewModel IsBusy="False" Name="Luctus lacus" TimeStamp="Sem iaculis sit sagittis vestibulum"/>
+				<ViewModels:BandDataViewModel IsBusy="True" Name="Nisl senectus adipiscing" TimeStamp="Parturient penatibus"/>
+				<ViewModels:BandDataViewModel IsBusy="False" Name="Sociosqu vestibulum lacinia magnis suscipit" TimeStamp="Vestibulum mattis mauris"/>
+				<ViewModels:BandDataViewModel IsBusy="True" Name="Adipiscing laoreet parturient" TimeStamp="Vestibulum vestibulum vel adipiscing natoque"/>
+				<ViewModels:BandDataViewModel IsBusy="False" Name="Torquent nam posuere potenti lorem" TimeStamp="Magna massa parturient nunc odio"/>
+			</ViewModels:BandViewModel.SensorData>
 		</ViewModels:BandViewModel>
-		<ViewModels:BandViewModel ConnectionType="Eget blandit" ConnectedText="Eleifend facilisi faucibus proin" IsConnected="False">
+		<ViewModels:BandViewModel ConnectionType="Dis est vehicula pretium" ConnectedText="Volutpat maecenas morbi hac" IsConnected="False">
 			<ViewModels:BandViewModel.Hr>
-				<ViewModels:HeartRateViewModel HeartRate="27" MyProperty="Augue habitant dictum elit dolor" Name="Adipiscing parturient inceptos fames" TimeStamp="Lectus interdum vestibulum"/>
+				<ViewModels:HeartRateViewModel HeartRate="89" IsBusy="False" Name="Vestibulum taciti" TimeStamp="Quisque nec vivamus eleifend aliquam"/>
 			</ViewModels:BandViewModel.Hr>
+			<ViewModels:BandViewModel.SensorData>
+				<ViewModels:BandDataViewModel IsBusy="True" Name="Neque praesent porttitor tincidunt montes" TimeStamp="Tristique nostra leo accumsan"/>
+				<ViewModels:BandDataViewModel IsBusy="False" Name="Mus bibendum ornare rhoncus" TimeStamp="Dictumst netus platea"/>
+				<ViewModels:BandDataViewModel IsBusy="True" Name="Primis rutrum sodales viverra" TimeStamp="Nulla sapien orci pede"/>
+				<ViewModels:BandDataViewModel IsBusy="False" Name="Porta semper sociis ultricies" TimeStamp="Purus risus velit quam"/>
+				<ViewModels:BandDataViewModel IsBusy="True" Name="Quis aliquam" TimeStamp="Venenatis vestibulum vulputate integer"/>
+			</ViewModels:BandViewModel.SensorData>
 		</ViewModels:BandViewModel>
-		<ViewModels:BandViewModel ConnectionType="Vestibulum libero adipiscing" ConnectedText="Commodo ligula conubia elementum felis" IsConnected="True">
+		<ViewModels:BandViewModel ConnectionType="Facilisi adipiscing tellus" ConnectedText="Faucibus vitae" IsConnected="True">
 			<ViewModels:BandViewModel.Hr>
-				<ViewModels:HeartRateViewModel HeartRate="80" MyProperty="Facilisis cubilia" Name="Dapibus ipsum" TimeStamp="Litora justo lobortis"/>
+				<ViewModels:HeartRateViewModel HeartRate="50" IsBusy="True" Name="Varius elementum" TimeStamp="Sem aenean arcu diam adipiscing"/>
 			</ViewModels:BandViewModel.Hr>
+			<ViewModels:BandViewModel.SensorData>
+				<ViewModels:BandDataViewModel IsBusy="False" Name="Non urna cras curabitur" TimeStamp="Phasellus consequat"/>
+				<ViewModels:BandDataViewModel IsBusy="True" Name="Tempor aliquet tempus parturient" TimeStamp="Tortor blandit convallis class"/>
+				<ViewModels:BandDataViewModel IsBusy="False" Name="Habitant commodo duis vestibulum dignissim" TimeStamp="Turpis inceptos vestibulum"/>
+				<ViewModels:BandDataViewModel IsBusy="True" Name="Conubia per adipiscing nunc parturient" TimeStamp="Cubilia dapibus interdum"/>
+				<ViewModels:BandDataViewModel IsBusy="False" Name="Egestas sed" TimeStamp="Amet vestibulum curae ante vestibulum"/>
+			</ViewModels:BandViewModel.SensorData>
 		</ViewModels:BandViewModel>
-		<ViewModels:BandViewModel ConnectionType="Nascetur lacus fermentum" ConnectedText="Fringilla parturient egestas" IsConnected="False">
+		<ViewModels:BandViewModel ConnectionType="Sit vel eget elit nam" ConnectedText="Parturient mauris vestibulum lobortis" IsConnected="False">
 			<ViewModels:BandViewModel.Hr>
-				<ViewModels:HeartRateViewModel HeartRate="34" MyProperty="Enim vestibulum euismod" Name="Nec feugiat habitasse erat" TimeStamp="Lorem luctus hendrerit"/>
+				<ViewModels:HeartRateViewModel HeartRate="64" IsBusy="False" Name="Adipiscing laoreet" TimeStamp="Eros nibh natoque"/>
 			</ViewModels:BandViewModel.Hr>
+			<ViewModels:BandViewModel.SensorData>
+				<ViewModels:BandDataViewModel IsBusy="True" Name="Donec euismod sed" TimeStamp="Nascetur dis"/>
+				<ViewModels:BandDataViewModel IsBusy="False" Name="Facilisis feugiat fermentum vestibulum" TimeStamp="Adipiscing pharetra nullam"/>
+				<ViewModels:BandDataViewModel IsBusy="True" Name="Aptent auctor parturient est congue" TimeStamp="Gravida fringilla enim"/>
+				<ViewModels:BandDataViewModel IsBusy="False" Name="Placerat vestibulum cursus" TimeStamp="Habitasse iaculis hac vestibulum leo"/>
+				<ViewModels:BandDataViewModel IsBusy="True" Name="Hendrerit dictum pulvinar etiam lacinia" TimeStamp="Lectus himenaeos fusce erat libero"/>
+			</ViewModels:BandViewModel.SensorData>
 		</ViewModels:BandViewModel>
-		<ViewModels:BandViewModel ConnectionType="Magnis mattis mauris himenaeos" ConnectedText="Eros pharetra" IsConnected="True">
+		<ViewModels:BandViewModel ConnectionType="Nisi ligula" ConnectedText="Posuere sagittis potenti" IsConnected="True">
 			<ViewModels:BandViewModel.Hr>
-				<ViewModels:HeartRateViewModel HeartRate="64" MyProperty="Gravida non per" Name="Vestibulum mollis iaculis placerat" TimeStamp="Nibh nisi imperdiet sed magna"/>
+				<ViewModels:HeartRateViewModel HeartRate="97" IsBusy="True" Name="Sociosqu suscipit vestibulum" TimeStamp="Odio torquent ultrices"/>
 			</ViewModels:BandViewModel.Hr>
+			<ViewModels:BandViewModel.SensorData>
+				<ViewModels:BandDataViewModel IsBusy="False" Name="Lorem nisl pretium litora rhoncus" TimeStamp="Imperdiet parturient luctus nunc"/>
+				<ViewModels:BandDataViewModel IsBusy="True" Name="Morbi mus nec malesuada sodales" TimeStamp="Non magnis nulla mattis penatibus"/>
+				<ViewModels:BandDataViewModel IsBusy="False" Name="Per viverra" TimeStamp="Aliquam porttitor"/>
+				<ViewModels:BandDataViewModel IsBusy="True" Name="Sed senectus" TimeStamp="Proin vestibulum mauris augue"/>
+				<ViewModels:BandDataViewModel IsBusy="False" Name="Dolor fames" TimeStamp="Sem felis mollis"/>
+			</ViewModels:BandViewModel.SensorData>
 		</ViewModels:BandViewModel>
-		<ViewModels:BandViewModel ConnectionType="Massa montes" ConnectedText="Lacinia pulvinar" IsConnected="False">
+		<ViewModels:BandViewModel ConnectionType="Montes nostra orci tincidunt ornare" ConnectedText="Tristique vehicula integer pede" IsConnected="False">
 			<ViewModels:BandViewModel.Hr>
-				<ViewModels:HeartRateViewModel HeartRate="88" MyProperty="Malesuada nostra penatibus" Name="Ornare platea" TimeStamp="Primis adipiscing"/>
+				<ViewModels:HeartRateViewModel HeartRate="55" IsBusy="False" Name="Adipiscing semper" TimeStamp="Sociis taciti tellus dictumst dis"/>
 			</ViewModels:BandViewModel.Hr>
+			<ViewModels:BandViewModel.SensorData>
+				<ViewModels:BandDataViewModel IsBusy="True" Name="Quam ultricies sit" TimeStamp="Volutpat maecenas vel venenatis ipsum"/>
+				<ViewModels:BandDataViewModel IsBusy="False" Name="Quisque vulputate justo" TimeStamp="Adipiscing platea nam curabitur parturient"/>
+				<ViewModels:BandDataViewModel IsBusy="True" Name="Vestibulum praesent primis vestibulum lacus" TimeStamp="Rutrum quis"/>
+				<ViewModels:BandDataViewModel IsBusy="False" Name="Accumsan urna vivamus" TimeStamp="Cras lorem sed aliquam phasellus"/>
+				<ViewModels:BandDataViewModel IsBusy="True" Name="Aliquet magna massa duis sapien" TimeStamp="Metus morbi bibendum neque"/>
+			</ViewModels:BandViewModel.SensorData>
 		</ViewModels:BandViewModel>
-		<ViewModels:BandViewModel ConnectionType="Porttitor laoreet sem rutrum sagittis" ConnectedText="Sit tincidunt" IsConnected="True">
+		<ViewModels:BandViewModel ConnectionType="Netus nulla parturient tempor" ConnectedText="Est nunc eleifend consequat facilisi" IsConnected="True">
 			<ViewModels:BandViewModel.Hr>
-				<ViewModels:HeartRateViewModel HeartRate="68" MyProperty="Parturient sapien natoque" Name="Vestibulum senectus sociosqu suscipit vel" TimeStamp="Nisl posuere nunc semper"/>
+				<ViewModels:HeartRateViewModel HeartRate="47" IsBusy="True" Name="Adipiscing dignissim mauris nullam" TimeStamp="Aptent sed auctor congue"/>
 			</ViewModels:BandViewModel.Hr>
+			<ViewModels:BandViewModel.SensorData>
+				<ViewModels:BandDataViewModel IsBusy="False" Name="Faucibus porta blandit" TimeStamp="Amet vestibulum commodo purus vestibulum"/>
+				<ViewModels:BandDataViewModel IsBusy="True" Name="Adipiscing habitant conubia ante" TimeStamp="Parturient tempus inceptos cubilia"/>
+				<ViewModels:BandDataViewModel IsBusy="False" Name="Hac leo mus" TimeStamp="Vestibulum nec interdum"/>
+				<ViewModels:BandDataViewModel IsBusy="True" Name="Risus tortor turpis convallis" TimeStamp="Vestibulum non per lobortis"/>
+				<ViewModels:BandDataViewModel IsBusy="False" Name="Varius nascetur" TimeStamp="Aenean dapibus pharetra"/>
+			</ViewModels:BandViewModel.SensorData>
 		</ViewModels:BandViewModel>
-		<ViewModels:BandViewModel ConnectionType="Vestibulum tristique ultricies adipiscing" ConnectedText="Parturient nam" IsConnected="False">
+		<ViewModels:BandViewModel ConnectionType="Placerat arcu parturient" ConnectedText="Cursus vestibulum diam elementum vestibulum" IsConnected="False">
 			<ViewModels:BandViewModel.Hr>
-				<ViewModels:HeartRateViewModel HeartRate="70" MyProperty="Metus torquent ultrices sed" Name="Dis vehicula morbi odio" TimeStamp="Orci pede neque netus"/>
+				<ViewModels:HeartRateViewModel HeartRate="15" IsBusy="False" Name="Curae vestibulum lacinia" TimeStamp="Adipiscing praesent"/>
 			</ViewModels:BandViewModel.Hr>
+			<ViewModels:BandViewModel.SensorData>
+				<ViewModels:BandDataViewModel IsBusy="True" Name="Sem pulvinar" TimeStamp="Facilisis egestas"/>
+				<ViewModels:BandDataViewModel IsBusy="False" Name="Adipiscing sit" TimeStamp="Vel sagittis nam euismod"/>
+				<ViewModels:BandDataViewModel IsBusy="True" Name="Eget parturient elit velit" TimeStamp="Vestibulum senectus dictum sociosqu suscipit"/>
+				<ViewModels:BandDataViewModel IsBusy="False" Name="Torquent ultrices vehicula" TimeStamp="Volutpat fermentum feugiat enim gravida"/>
+				<ViewModels:BandDataViewModel IsBusy="True" Name="Vitae iaculis class sed" TimeStamp="Fringilla erat maecenas"/>
+			</ViewModels:BandViewModel.SensorData>
 		</ViewModels:BandViewModel>
 	</ViewModels:MainViewModel.Bands>
 	<ViewModels:MainViewModel.ConnectedBand>
-		<ViewModels:BandViewModel ConnectionType="Nulla maecenas vulputate" ConnectedText="Vestibulum curabitur porta quis" IsConnected="False">
+		<ViewModels:BandViewModel ConnectionType="Etiam lectus eros nibh" ConnectedText="Dis nisi" IsConnected="False">
 			<ViewModels:BandViewModel.Hr>
-				<ViewModels:HeartRateViewModel HeartRate="90" MyProperty="Purus adipiscing pretium" Name="Hac leo" TimeStamp="Rhoncus urna risus"/>
+				<ViewModels:HeartRateViewModel HeartRate="44" IsBusy="True" Name="Sed faucibus habitant" TimeStamp="Dis integer est ipsum"/>
 			</ViewModels:BandViewModel.Hr>
+			<ViewModels:BandViewModel.SensorData>
+				<ViewModels:BandDataViewModel IsBusy="True" Name="Natoque est fusce libero hac" TimeStamp="Leo mus"/>
+				<ViewModels:BandDataViewModel IsBusy="False" Name="Accumsan posuere malesuada" TimeStamp="Nisl penatibus potenti"/>
+				<ViewModels:BandDataViewModel IsBusy="True" Name="Lorem bibendum" TimeStamp="Ligula vestibulum vestibulum"/>
+				<ViewModels:BandDataViewModel IsBusy="False" Name="Nunc pretium nec porttitor adipiscing" TimeStamp="Parturient morbi tincidunt vestibulum"/>
+				<ViewModels:BandDataViewModel IsBusy="True" Name="Non vestibulum" TimeStamp="Per sed nulla"/>
+				<ViewModels:BandDataViewModel IsBusy="False" Name="Proin tristique augue odio litora" TimeStamp="Adipiscing parturient rhoncus ultricies vestibulum"/>
+				<ViewModels:BandDataViewModel IsBusy="True" Name="Dolor vestibulum sodales viverra fames" TimeStamp="Dictumst adipiscing"/>
+				<ViewModels:BandDataViewModel IsBusy="False" Name="Venenatis luctus" TimeStamp="Felis sem magnis"/>
+				<ViewModels:BandDataViewModel IsBusy="True" Name="Orci eleifend pede mattis" TimeStamp="Quam quis sit parturient"/>
+				<ViewModels:BandDataViewModel IsBusy="False" Name="Vulputate mauris curabitur vestibulum mollis" TimeStamp="Facilisi vestibulum aliquam vel nam"/>
+			</ViewModels:BandViewModel.SensorData>
 		</ViewModels:BandViewModel>
 	</ViewModels:MainViewModel.ConnectedBand>
 </ViewModels:MainViewModel>

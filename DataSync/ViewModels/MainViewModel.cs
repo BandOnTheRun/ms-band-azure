@@ -3,6 +3,7 @@ using Microsoft.Band;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reactive.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -116,6 +117,15 @@ namespace DataSync.ViewModels
                 {
                     ConnectedBand = message;
                 });
+
+            // Kick off a timer which will post up the telemetry data...
+            Observable.Timer(TimeSpan.Zero, TimeSpan.FromSeconds(5)).Subscribe(PostCurrentData);
+        }
+
+        // TODO: fix this async void...
+        private async void PostCurrentData(long t)
+        {
+            await App.Telemetry.PostTelemetryAsync(App.Data);
         }
 
         public void Handle(BusyProcessing message)

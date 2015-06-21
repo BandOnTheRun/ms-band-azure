@@ -79,11 +79,13 @@ namespace DataSync.ViewModels
             });
 
             EnumerateBandsCmd.Execute(null);
+            StartStopIcon = new SymbolIcon(Symbol.Play);
+            StartStopLabel = "start";
         }
 
         private bool CanStartStop(object arg)
         {
-            return true;
+            return ConnectedBand != null;
         }
 
         private async Task<object> StartStop(object arg)
@@ -112,7 +114,7 @@ namespace DataSync.ViewModels
                 // set up state..
                 Started = true;
                 StartStopLabel = "stop";
-                StartStopIcon = "Stop";
+                StartStopIcon = new SymbolIcon(Symbol.Stop);
             }
             else
             {
@@ -131,7 +133,7 @@ namespace DataSync.ViewModels
                 }
                 Started = false;
                 StartStopLabel = "start";
-                StartStopIcon = "Go";
+                StartStopIcon = new SymbolIcon(Symbol.Play);
             }
             return null;
         }
@@ -145,9 +147,9 @@ namespace DataSync.ViewModels
             set { SetProperty(ref _startStopLabel, value); }
         }
 
-        private string _startStopIcon;
+        private IconElement _startStopIcon;
 
-        public string StartStopIcon
+        public IconElement StartStopIcon
         {
             get { return _startStopIcon; }
             set { SetProperty(ref _startStopIcon, value); }
@@ -194,7 +196,11 @@ namespace DataSync.ViewModels
             var dispatcher = Windows.UI.Core.CoreWindow.GetForCurrentThread().Dispatcher;
             dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                 {
-                    ConnectedBand = message;
+                    if (ConnectedBand != message)
+                    {
+                        ConnectedBand = message;
+                        ((AsyncDelegateCommand<object>)(StartStopCmd)).RaiseCanExecuteChanged();
+                    }
                 });
 
             // Kick off a timer which will post up the telemetry data...

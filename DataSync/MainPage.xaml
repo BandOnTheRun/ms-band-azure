@@ -21,12 +21,14 @@
     <Page.BottomAppBar>
         <CommandBar>
             <AppBarButton Icon="World"
-                          Label="Connect" />
+                          Label="Connect"
+                          Command="{Binding ConnectionsCmd}"/>
             <AppBarButton Label="{Binding StartStopLabel}"
                           Icon="{Binding StartStopIcon}"
                           Command="{Binding StartStopCmd}"/>
             <AppBarButton Label="settings"
-                          Icon="Setting" />
+                          Icon="Setting"
+                          Command="{Binding SettingsCmd}"/>
         </CommandBar>
     </Page.BottomAppBar>
     <Page.DataContext>

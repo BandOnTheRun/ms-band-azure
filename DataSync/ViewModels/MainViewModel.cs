@@ -18,6 +18,12 @@ namespace DataSync.ViewModels
         Lazy<ICommand> _enumerateBandsCmd;
         public ICommand EnumerateBandsCmd { get { return _enumerateBandsCmd.Value; } }
 
+        Lazy<ICommand> _connectionsCmd;
+        public ICommand ConnectionsCmd { get { return _connectionsCmd.Value; } }
+
+        Lazy<ICommand> _settingsCmd;
+        public ICommand SettingsCmd { get { return _settingsCmd.Value; } }
+
         private List<BandViewModel> _bands;
 
         public List<BandViewModel> Bands
@@ -78,9 +84,36 @@ namespace DataSync.ViewModels
                 return new AsyncDelegateCommand<object>(StartStop, CanStartStop);
             });
 
+            _connectionsCmd = new Lazy<ICommand>(() =>
+            {
+                return new DelegateCommand(Connections, CanConnections);
+            });
+            _settingsCmd = new Lazy<ICommand>(() =>
+            {
+                return new DelegateCommand(Settings, CanSettings);
+            });
+
             EnumerateBandsCmd.Execute(null);
             StartStopIcon = new SymbolIcon(Symbol.Play);
             StartStopLabel = "start";
+        }
+
+        private bool CanSettings(object obj)
+        {
+            return true;
+        }
+
+        private void Settings(object obj)
+        {
+        }
+
+        private bool CanConnections(object obj)
+        {
+            return true;
+        }
+
+        private void Connections(object obj)
+        {
         }
 
         private bool CanStartStop(object arg)

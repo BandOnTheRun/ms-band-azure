@@ -38,7 +38,7 @@ namespace DataSync
             this.InitializeComponent();
             this.Suspending += this.OnSuspending;
 
-            _container.Register<ITelemetry, EventHubsTelemetry>();  
+            //_container.Register<ITelemetry, EventHubsTelemetry>();  
         }
 
         /// <summary>
@@ -127,7 +127,6 @@ namespace DataSync
         private static ITelemetry _telemetry = new EventHubsTelemetry();
         public static ITelemetry Telemetry { get { return _telemetry; } }
         public static IEventAggregator Events { get; set; }
-        public TinyIoCContainer _container = new TinyIoCContainer();
 
         /// <summary>
         /// Invoked when application execution is being suspended.  Application state is saved

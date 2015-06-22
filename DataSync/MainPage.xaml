@@ -39,71 +39,24 @@
                                 Text="{Binding LoadingText}" />
     </i:Interaction.Behaviors>
     <Grid>
-        <i:Interaction.Behaviors>
-            <Core:DataTriggerBehavior Value="0"
-                                      ComparisonCondition="Equal"
-                                      Binding="{Binding ConnectedBand, 
-                                          Converter={StaticResource ConnectedConverter}}">
-                <Core:GoToStateAction StateName="Disconnected"
-                                      UseTransitions="True"
-                                      TargetObject="{Binding ElementName=content}" />
-            </Core:DataTriggerBehavior>
-            <Core:DataTriggerBehavior Value="1"
-                                      ComparisonCondition="Equal"
-                                      Binding="{Binding ConnectedBand, 
-                                          Converter={StaticResource ConnectedConverter}}">
-                <Core:GoToStateAction StateName="Connected"
-                                      UseTransitions="True"
-                                      TargetObject="{Binding ElementName=content}" />
-            </Core:DataTriggerBehavior>
-        </i:Interaction.Behaviors>
-        <VisualStateManager.VisualStateGroups>
-    		<VisualStateGroup x:Name="ConnectedStateGroup">
-    			<VisualState x:Name="Connected"/>
-    			<VisualState x:Name="Disconnected">
-    				<Storyboard>
-    					<DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="content" d:IsOptimized="True"/>
-    				</Storyboard>
-    			</VisualState>
-    		</VisualStateGroup>
-    	</VisualStateManager.VisualStateGroups>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto"/>
 			<RowDefinition Height="Auto"/>
 			<RowDefinition Height="Auto"/>
 			<RowDefinition/>
-			<RowDefinition Height="Auto"/>
-			<RowDefinition Height="0*"/>
 		</Grid.RowDefinitions>
 		<TextBlock FontSize="48"
 			HorizontalAlignment="Center">
 			<Run Text="MS Band Demo"/>
 		</TextBlock>
-		<TextBlock FontSize="16"
+		<TextBlock FontSize="21.333"
 			HorizontalAlignment="Center"
 			Grid.Row="2"
-			Text="{Binding StatusText}" />
-		<ListView Grid.Row="3" 
-			ItemsSource="{Binding Bands}"
-			IsItemClickEnabled="True" >
-			<i:Interaction.Behaviors>
-                <Core:EventTriggerBehavior EventName="ItemClick">
-                    <Core:InvokeCommandAction Command="{Binding ConnectCmd}"/>
-                </Core:EventTriggerBehavior>
-			</i:Interaction.Behaviors>
-			<ListView.ItemTemplate>
-				<DataTemplate>
-                    <StackPanel>
-					    <TextBlock FontSize="48" 
-						    Text="{Binding Info.Name}" />
-                        <TextBlock Text="{Binding ConnectedText}"></TextBlock>
-                    </StackPanel>
-				</DataTemplate>
-			</ListView.ItemTemplate>
-		</ListView>
+            TextWrapping="Wrap"
+			Text="{Binding StatusText}" Style="{StaticResource ControlHeaderTextBlockStyle}" />
         <ListView ItemsSource="{Binding ConnectedBand.SensorData}"
                   ItemTemplateSelector="{StaticResource SensorDataTemplateSelector}"
-                  Grid.Row="4" ItemContainerStyle="{StaticResource ListViewItemStyle}">
+                  Grid.Row="3" ItemContainerStyle="{StaticResource ListViewItemStyle}">
             
         </ListView>
     </Grid>

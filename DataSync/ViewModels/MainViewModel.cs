@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using DataSync.Views;
 using Microsoft.Band;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Reactive.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace DataSync.ViewModels
@@ -15,9 +17,6 @@ namespace DataSync.ViewModels
                                  IHandle<BandViewModel>,
                                  IHandle<BusyProcessing>
     {
-        Lazy<ICommand> _enumerateBandsCmd;
-        public ICommand EnumerateBandsCmd { get { return _enumerateBandsCmd.Value; } }
-
         Lazy<ICommand> _connectionsCmd;
         public ICommand ConnectionsCmd { get { return _connectionsCmd.Value; } }
 
@@ -32,7 +31,7 @@ namespace DataSync.ViewModels
             set { SetProperty(ref _bands, value); }
         }
 
-        private string _statusText;
+        private string _statusText = "No connection: open connections dialog to connect to paired bands";
 
         public string StatusText
         {
@@ -56,9 +55,6 @@ namespace DataSync.ViewModels
             set { SetProperty(ref _isBusy, value); }
         }
 
-        Lazy<ICommand> _connectCmd;
-        public ICommand ConnectCmd { get { return _connectCmd.Value; } }
-
         private BandViewModel _connectedBand;
 
         public BandViewModel ConnectedBand
@@ -71,14 +67,6 @@ namespace DataSync.ViewModels
         {
             App.Events.Subscribe(this);
 
-            _enumerateBandsCmd = new Lazy<ICommand>(() =>
-            {
-                return new AsyncDelegateCommand<object>(EnumerateBands, CanEnumerateBands);
-            });
-            _connectCmd = new Lazy<ICommand>(() =>
-            {
-                return new AsyncDelegateCommand<object>(Connect, CanConnect);
-            });
             _startStopCmd = new Lazy<ICommand>(() =>
             {
                 return new AsyncDelegateCommand<object>(StartStop, CanStartStop);
@@ -86,16 +74,31 @@ namespace DataSync.ViewModels
 
             _connectionsCmd = new Lazy<ICommand>(() =>
             {
-                return new DelegateCommand(Connections, CanConnections);
+                return new AsyncDelegateCommand<object>(Connections, CanConnections);
             });
             _settingsCmd = new Lazy<ICommand>(() =>
             {
                 return new DelegateCommand(Settings, CanSettings);
             });
 
-            EnumerateBandsCmd.Execute(null);
             StartStopIcon = new SymbolIcon(Symbol.Play);
             StartStopLabel = "start";
+        }
+
+        private bool CanConnections(object arg)
+        {
+            return true;
+        }
+
+        private async Task<object> Connections(object arg)
+        {
+            // TODO : move me to a service
+            var cd = new ContentDialog();
+            cd.Content = new DevicesUserControl();
+            cd.FullSizeDesired = true;
+            cd.PrimaryButtonText = "OK";
+            await cd.ShowAsync();
+            return null;
         }
 
         private bool CanSettings(object obj)
@@ -104,15 +107,6 @@ namespace DataSync.ViewModels
         }
 
         private void Settings(object obj)
-        {
-        }
-
-        private bool CanConnections(object obj)
-        {
-            return true;
-        }
-
-        private void Connections(object obj)
         {
         }
 
@@ -191,39 +185,6 @@ namespace DataSync.ViewModels
         Lazy<ICommand> _startStopCmd;
         public ICommand StartStopCmd { get { return _startStopCmd.Value; } }
 
-        private bool CanConnect(object arg)
-        {
-            return ConnectedBand == null && IsBusy == false;
-        }
-
-        private async Task<object> Connect(object arg)
-        {
-            IsBusy = true;
-            ((AsyncDelegateCommand<object>)(ConnectCmd)).RaiseCanExecuteChanged();
-
-            LoadingText = "Connecting...";
-            var item = (ItemClickEventArgs)arg;
-            var vm = (BandViewModel)item.ClickedItem;
-            await vm.Connect(null);
-            IsBusy = false;
-            return arg;
-        }
-
-        private bool CanEnumerateBands(object obj)
-        {
-            return true;
-        }
-
-        private async Task<object> EnumerateBands(object obj)
-        {
-            IsBusy = true;
-            LoadingText = "Enumerating paired bands...";
-            IBandInfo[] pairedBands = await BandClientManager.Instance.GetBandsAsync();
-            Bands = new List<BandViewModel>(pairedBands.Select(b => new BandViewModel(b)));
-            IsBusy = false;
-            return Bands;
-        }
-
         public void Handle(BandViewModel message)
         {
             var dispatcher = Windows.UI.Core.CoreWindow.GetForCurrentThread().Dispatcher;
@@ -232,6 +193,10 @@ namespace DataSync.ViewModels
                     if (ConnectedBand != message)
                     {
                         ConnectedBand = message;
+                        if (ConnectedBand != null)
+                        {
+                            StatusText = string.Format("Connected to {0}", ConnectedBand.Info.Name);
+                        }
                         ((AsyncDelegateCommand<object>)(StartStopCmd)).RaiseCanExecuteChanged();
                     }
                 });

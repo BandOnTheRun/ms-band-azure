@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns="http://schemas.microsoft.com/appx/2010/manifest">
-  <Identity Name="a555dbd0-bc3a-4d2e-bd58-1be508f5d726" Publisher="CN=Peter" Version="1.0.0.0" />
-  <mp:PhoneIdentity PhoneProductId="a555dbd0-bc3a-4d2e-bd58-1be508f5d726" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="fitnesscloud.BandOnTheRun" Publisher="CN=80C96C9D-6EE5-41B3-8A3B-41AF2B12E46F" Version="1.1.0.0" />
+  <mp:PhoneIdentity PhoneProductId="6b306615-c99a-454a-a9da-1f263c0b6615" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>BandOnTheRun</DisplayName>
-    <PublisherDisplayName>Peter</PublisherDisplayName>
+    <PublisherDisplayName>fitness cloud</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Prerequisites>

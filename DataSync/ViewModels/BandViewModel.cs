@@ -16,7 +16,7 @@ namespace DataSync.ViewModels
         public BandViewModel(IBandInfo info)
         {
             _info = info;
-            _connectCmd = new Lazy<ICommand>(() =>
+            _connectCmd = new Lazy<IAsyncCommand>(() =>
             {
                 return new AsyncDelegateCommand<object>(Connect, CanConnect);
             });
@@ -71,8 +71,8 @@ namespace DataSync.ViewModels
 
         private IBandClient _bandClient;
 
-        Lazy<ICommand> _connectCmd;
-        public ICommand ConnectCmd { get { return _connectCmd.Value; } }
+        Lazy<IAsyncCommand> _connectCmd;
+        public IAsyncCommand ConnectCmd { get { return _connectCmd.Value; } }
 
         private string _connectedText;
 

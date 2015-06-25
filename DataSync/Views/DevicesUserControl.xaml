@@ -14,21 +14,13 @@
     <Grid>
         <ListView Grid.Row="3"
                   ItemsSource="{Binding Bands}"
-                  IsItemClickEnabled="True">
+                  IsItemClickEnabled="True"
+                  ItemTemplate="{StaticResource BandItemTemplate}">
             <i:Interaction.Behaviors>
                 <Core:EventTriggerBehavior EventName="ItemClick">
                     <Core:InvokeCommandAction Command="{Binding ConnectCmd}" />
                 </Core:EventTriggerBehavior>
             </i:Interaction.Behaviors>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBlock FontSize="48"
-                                   Text="{Binding Info.Name}" />
-                        <TextBlock Text="{Binding ConnectedText}"></TextBlock>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
         </ListView>
     </Grid>
 </Page>

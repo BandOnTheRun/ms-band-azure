@@ -295,5 +295,11 @@
 			</Grid>
 		</Border>
 	</DataTemplate>
-    
+    <DataTemplate x:Key="BandItemTemplate">
+        <StackPanel>
+            <TextBlock FontSize="48"
+                       Text="{Binding Info.Name}" />
+            <TextBlock Text="{Binding ConnectedText}"></TextBlock>
+        </StackPanel>
+    </DataTemplate>
 </ResourceDictionary>

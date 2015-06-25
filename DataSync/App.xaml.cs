@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using DataSync.Common;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -47,7 +48,7 @@ namespace DataSync
         /// search results, and so forth.
         /// </summary>
         /// <param name="e">Details about the launch request and process.</param>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
@@ -74,7 +75,16 @@ namespace DataSync
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
-                    // TODO: Load state from previously suspended application
+                    // Restore the saved session state only when appropriate.
+                    try
+                    {
+                        await SuspensionManager.RestoreAsync();
+                    }
+                    catch (SuspensionManagerException)
+                    {
+                        // Something went wrong restoring state.
+                        // Assume there is no state and continue.
+                    }
                 }
 
                 // Place the frame in the current Window
@@ -135,11 +145,11 @@ namespace DataSync
         /// </summary>
         /// <param name="sender">The source of the suspend request.</param>
         /// <param name="e">Details about the suspend request.</param>
-        private void OnSuspending(object sender, SuspendingEventArgs e)
+        private async void OnSuspending(object sender, SuspendingEventArgs e)
         {
             var deferral = e.SuspendingOperation.GetDeferral();
 
-            // TODO: Save application state and stop any background activity
+            await SuspensionManager.SaveAsync();
             deferral.Complete();
         }
     }

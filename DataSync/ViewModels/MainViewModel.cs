@@ -23,13 +23,8 @@ namespace DataSync.ViewModels
         Lazy<ICommand> _settingsCmd;
         public ICommand SettingsCmd { get { return _settingsCmd.Value; } }
 
-        private List<BandViewModel> _bands;
-
-        public List<BandViewModel> Bands
-        {
-            get { return _bands; }
-            set { SetProperty(ref _bands, value); }
-        }
+        Lazy<IAsyncCommand> _connectToBandCmd;
+        public IAsyncCommand ConnectToBandCmd { get { return _connectToBandCmd.Value; } }
 
         private string _statusText = "No connection: open connections dialog to connect to paired bands";
 
@@ -80,9 +75,31 @@ namespace DataSync.ViewModels
             {
                 return new DelegateCommand(Settings, CanSettings);
             });
+            _connectToBandCmd = new Lazy<IAsyncCommand>(() =>
+            {
+                return new AsyncDelegateCommand<object>(ConnectToBand, CanConnectToBand);
+            });
 
             StartStopIcon = new SymbolIcon(Symbol.Play);
             StartStopLabel = "start";
+        }
+
+        private bool CanConnectToBand(object arg)
+        {
+            return true;
+        }
+
+        private async Task<object> ConnectToBand(object arg)
+        {
+            string bandName = (string)arg;
+            if (string.IsNullOrEmpty(bandName))
+                return null;
+            
+            // Enumerate bands if there is one that matches name connect to it..
+            var vmLocator = App.Current.Resources["VMLocator"] as VMLocator;
+            var devices = vmLocator.DevicesViewModel;
+            await devices.ConnectToBandAsync(bandName);
+            return null;
         }
 
         private bool CanConnections(object arg)
@@ -112,7 +129,7 @@ namespace DataSync.ViewModels
 
         private bool CanStartStop(object arg)
         {
-            return ConnectedBand != null;
+            return true;
         }
 
         private async Task<object> StartStop(object arg)

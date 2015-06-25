@@ -48,6 +48,18 @@ namespace DataSync.ViewModels
             return arg;
         }
 
+        public async Task ConnectToBandAsync(string bandName)
+        {
+            var bands = await EnumerateBands(null);
+            var bandList = bands as IEnumerable<BandViewModel>;
+            if (bandList == null || bandList.Count() < 1)
+                return;
+            var band = bandList.SingleOrDefault(b => b.Info.Name == bandName);
+            if (band == null)
+                return;
+            await band.ConnectCmd.ExecuteAsync(null);
+        }
+
         private bool CanEnumerateBands(object obj)
         {
             return true;
@@ -63,6 +75,9 @@ namespace DataSync.ViewModels
 
         private async Task<object> EnumerateBands(object obj)
         {
+            if (Bands != null && Bands.Count > 0)
+                Bands.Clear();
+
             IsBusy = true;
             App.Events.Publish(new BusyProcessing { IsBusy = true, BusyText = "Enumerating bands..." });
             IBandInfo[] pairedBands = await BandClientManager.Instance.GetBandsAsync();

@@ -223,6 +223,7 @@ namespace DataSync.ViewModels
                         if (ConnectedBand != null)
                         {
                             StatusText = string.Format("Connected to {0}", ConnectedBand.Info.Name);
+                            App.Data.DeviceId = ConnectedBand.Info.Name;
                         }
                     }
                 });

@@ -114,7 +114,8 @@ namespace DataSync.ViewModels
             cd.Content = new DevicesUserControl();
             cd.FullSizeDesired = true;
             cd.PrimaryButtonText = "OK";
-            await cd.ShowAsync();
+            var cdr = await cd.ShowAsync();
+            ((AsyncDelegateCommand<object>)(StartStopCmd)).RaiseCanExecuteChanged();
             return null;
         }
 
@@ -129,7 +130,7 @@ namespace DataSync.ViewModels
 
         private bool CanStartStop(object arg)
         {
-            return true;
+            return _connectedBand != null;
         }
 
         private async Task<object> StartStop(object arg)
@@ -155,6 +156,9 @@ namespace DataSync.ViewModels
                     }
                 }
 
+                // Kick off a timer which will post up the telemetry data...
+                _timerObservable = Observable.Timer(TimeSpan.Zero, TimeSpan.FromSeconds(5)).Subscribe(PostCurrentData);
+
                 // set up state..
                 Started = true;
                 StartStopLabel = "stop";
@@ -174,6 +178,11 @@ namespace DataSync.ViewModels
                         catch (Exception ex)
                         { }
                     }
+                }
+                if (_timerObservable != null)
+                {
+                    _timerObservable.Dispose();
+                    _timerObservable = null;
                 }
                 Started = false;
                 StartStopLabel = "start";
@@ -200,6 +209,7 @@ namespace DataSync.ViewModels
         }
 
         Lazy<ICommand> _startStopCmd;
+        private IDisposable _timerObservable;
         public ICommand StartStopCmd { get { return _startStopCmd.Value; } }
 
         public void Handle(BandViewModel message)
@@ -214,24 +224,20 @@ namespace DataSync.ViewModels
                         {
                             StatusText = string.Format("Connected to {0}", ConnectedBand.Info.Name);
                         }
-                        ((AsyncDelegateCommand<object>)(StartStopCmd)).RaiseCanExecuteChanged();
                     }
                 });
-
-            // Kick off a timer which will post up the telemetry data...
-            Observable.Timer(TimeSpan.Zero, TimeSpan.FromSeconds(5)).Subscribe(PostCurrentData);
         }
 
         // TODO: fix this async void...
         private async void PostCurrentData(long t)
         {
+            App.Data.Timestamp = DateTime.UtcNow.ToString();
             var resp = await App.Telemetry.PostTelemetryAsync(App.Data);
             if (resp.IsSuccessStatusCode)
             {
                 var status = resp.StatusCode;
                 var res = await resp.Content.ReadAsStringAsync();
             }
-
         }
 
         public void Handle(BusyProcessing message)

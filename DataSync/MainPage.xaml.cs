@@ -31,7 +31,6 @@ namespace DataSync
     public sealed partial class MainPage : Page
     {
         private IBandClient _bandClient;
-        private DeviceTelemetry _data = new DeviceTelemetry { DeviceId = "DXband" };
         private NavigationHelper navigationHelper;
 
         public MainPage()

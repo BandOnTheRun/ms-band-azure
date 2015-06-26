@@ -1,5 +1,5 @@
 ﻿using Caliburn.Micro;
-using DataSync.Views;
+using SharedProject;
 using System;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
@@ -55,7 +55,7 @@ namespace DataSync.ViewModels
 
         public MainViewModel()
         {
-            App.Events.Subscribe(this);
+            AppData.Events.Subscribe(this);
 
             _startStopCmd = new Lazy<ICommand>(() =>
             {
@@ -218,7 +218,7 @@ namespace DataSync.ViewModels
                         if (ConnectedBand != null)
                         {
                             StatusText = string.Format("Connected to {0}", ConnectedBand.Info.Name);
-                            App.Data.DeviceId = ConnectedBand.Info.Name;
+                            AppData.Data.DeviceId = ConnectedBand.Info.Name;
                             ((AsyncDelegateCommand<object>)(StartStopCmd)).RaiseCanExecuteChanged();
                         }
                     }
@@ -228,8 +228,8 @@ namespace DataSync.ViewModels
         // TODO: fix this async void...
         private async void PostCurrentData(long t)
         {
-            App.Data.Timestamp = DateTime.UtcNow.ToString();
-            var resp = await App.Telemetry.PostTelemetryAsync(App.Data);
+            AppData.Data.Timestamp = DateTime.UtcNow.ToString();
+            var resp = await AppData.Telemetry.PostTelemetryAsync(AppData.Data);
             if (resp.IsSuccessStatusCode)
             {
                 var status = resp.StatusCode;

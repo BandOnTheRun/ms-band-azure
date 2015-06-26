@@ -86,9 +86,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AsyncDelegateCommand.cs" />
     <Compile Include="Behaviours\ProgressBehavior.cs" />
-    <Compile Include="BusyProcessing.cs" />
     <Compile Include="Caliburn.Micro\EventAggregator.cs" />
     <Compile Include="Caliburn.Micro\ExtensionMethods.cs" />
     <Compile Include="Common\NavigationHelper.cs" />
@@ -96,26 +94,11 @@
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Common\SuspensionManager.cs" />
     <Compile Include="Converters\ConnectedConverter.cs" />
-    <Compile Include="DelegateCommand.cs" />
-    <Compile Include="DeviceTelemetry.cs" />
-    <Compile Include="EventHubsTelemetry.cs" />
-    <Compile Include="ITelemetry.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SensorDataTemplateSelector.cs" />
-    <Compile Include="TinyIoC.cs" />
-    <Compile Include="TypeExtender.cs" />
-    <Compile Include="ViewModelBase.cs" />
-    <Compile Include="ViewModels\BandDataViewModel.cs" />
-    <Compile Include="ViewModels\BandViewModel.cs" />
-    <Compile Include="ViewModels\DevicesViewModel.cs" />
-    <Compile Include="ViewModels\HeartRateViewModel.cs" />
-    <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\SkinTempViewModel.cs" />
-    <Compile Include="ViewModels\UVViewModel.cs" />
-    <Compile Include="ViewModels\VMLocator.cs" />
     <Compile Include="Views\DevicesUserControl.xaml.cs">
       <DependentUpon>DevicesUserControl.xaml</DependentUpon>
     </Compile>
@@ -168,6 +151,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.3.5.2\lib\portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Band, Version=1.3.10518.1, Culture=neutral, PublicKeyToken=608d7da3159f502b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.Band.1.3.10518\lib\wpa81\Microsoft.Band.dll</HintPath>
@@ -207,10 +194,10 @@
       <Name>Behaviors SDK %28XAML%29</Name>
     </SDKReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <DesignData Include="SampleData\MainViewModelSampleData.xaml" />
   </ItemGroup>
+  <Import Project="..\SharedProject\SharedProject.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>

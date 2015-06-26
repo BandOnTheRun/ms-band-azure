@@ -7,7 +7,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataSync", "DataSync\DataSy
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataSync.UWP", "DataSync.UWP\DataSync.UWP.csproj", "{A5A85FC3-B894-40B2-A986-2AC33CEF9032}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SharedProject", "SharedProject\SharedProject.shproj", "{2B2521D1-E50B-4DAC-80E0-8BBD5CFB5540}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		SharedProject\SharedProject.projitems*{43a3e6bb-68ec-4748-b5f3-00da4d40ce6a}*SharedItemsImports = 4
+		SharedProject\SharedProject.projitems*{a5a85fc3-b894-40b2-a986-2ac33cef9032}*SharedItemsImports = 4
+		SharedProject\SharedProject.projitems*{2b2521d1-e50b-4dac-80e0-8bbd5cfb5540}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|ARM = Debug|ARM

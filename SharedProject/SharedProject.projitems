@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>2b2521d1-e50b-4dac-80e0-8bbd5cfb5540</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>SharedProject</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AppData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AsyncDelegateCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BusyProcessing.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DelegateCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DeviceTelemetry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EventHubsTelemetry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ITelemetry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModelBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BandDataViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BandViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\DevicesViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\HeartRateViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\SkinTempViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\UVViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\VMLocator.cs" />
+  </ItemGroup>
+</Project>

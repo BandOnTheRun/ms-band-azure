@@ -1,14 +1,16 @@
-﻿using TinyIoC;
+﻿using Autofac;
 
 namespace DataSync.ViewModels
 {
     public class VMLocator
     {
-        public TinyIoCContainer _container = new TinyIoCContainer();
+        private readonly IContainer _container;
 
         public VMLocator()
         {
-            _container.Register<DevicesViewModel>().AsSingleton();
+            var builder = new ContainerBuilder();
+            builder.RegisterType<DevicesViewModel>().SingleInstance();
+            _container = builder.Build();
         }
 
         public DevicesViewModel DevicesViewModel

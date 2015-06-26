@@ -130,6 +130,10 @@ publish/
 
 # NuGet Packages Directory
 packages/*
+
+# Asset Bundle Directory
+DataSync/BundleArtifacts/*
+
 ## TODO: If the tool you use requires repositories.config
 ## uncomment the next line
 #!packages/repositories.config

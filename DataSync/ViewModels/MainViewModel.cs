@@ -224,6 +224,7 @@ namespace DataSync.ViewModels
                         {
                             StatusText = string.Format("Connected to {0}", ConnectedBand.Info.Name);
                             App.Data.DeviceId = ConnectedBand.Info.Name;
+                            ((AsyncDelegateCommand<object>)(StartStopCmd)).RaiseCanExecuteChanged();
                         }
                     }
                 });

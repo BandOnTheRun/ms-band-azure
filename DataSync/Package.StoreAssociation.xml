@@ -206,6 +206,7 @@
       <PackageInfo>
         <OsMinVersion>6.3.0.0</OsMinVersion>
         <PackageArchitecture></PackageArchitecture>
+<<<<<<< HEAD
         <PackageMaxArchitectureVersion>1.1.0.2</PackageMaxArchitectureVersion>
       </PackageInfo>
       <PackageInfo>
@@ -217,6 +218,19 @@
         <OsMinVersion>6.3.0.0</OsMinVersion>
         <PackageArchitecture></PackageArchitecture>
         <PackageMaxArchitectureVersion>1.1.0.2</PackageMaxArchitectureVersion>
+=======
+        <PackageMaxArchitectureVersion>1.1.0.1</PackageMaxArchitectureVersion>
+      </PackageInfo>
+      <PackageInfo>
+        <OsMinVersion>6.3.0.0</OsMinVersion>
+        <PackageArchitecture></PackageArchitecture>
+        <PackageMaxArchitectureVersion>1.1.0.1</PackageMaxArchitectureVersion>
+      </PackageInfo>
+      <PackageInfo>
+        <OsMinVersion>6.3.0.0</OsMinVersion>
+        <PackageArchitecture>neutral</PackageArchitecture>
+        <PackageMaxArchitectureVersion>1.1.0.1</PackageMaxArchitectureVersion>
+>>>>>>> d25d86d31deaa2ac8cc41501e89d9992e6e51b4c
       </PackageInfo>
     </BundleInfo>
   </PackageInfoList>

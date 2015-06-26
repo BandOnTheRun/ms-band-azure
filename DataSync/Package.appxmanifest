@@ -1,7 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns="http://schemas.microsoft.com/appx/2010/manifest">
   <Identity Name="fitnesscloud.BandOnTheRun" Publisher="CN=80C96C9D-6EE5-41B3-8A3B-41AF2B12E46F" Version="1.1.0.2" />
+<<<<<<< HEAD
   <mp:PhoneIdentity PhoneProductId="6b306615-c99a-454a-a9da-1f263c0b6615" PhonePublisherId="7f6baf4e-3224-4020-93fc-8affd9670a07" />
+=======
+  <mp:PhoneIdentity PhoneProductId="6b306615-c99a-454a-a9da-1f263c0b6615" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+>>>>>>> d25d86d31deaa2ac8cc41501e89d9992e6e51b4c
   <Properties>
     <DisplayName>BandOnTheRun</DisplayName>
     <PublisherDisplayName>fitness cloud</PublisherDisplayName>

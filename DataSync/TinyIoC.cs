@@ -69,10 +69,8 @@ namespace TinyIoC
 #endif
 
 #if NETFX_CORE
-	using System.Threading.Tasks;
-	using Windows.Storage.Search;
+    using System.Threading.Tasks;
     using Windows.Storage;
-	using Windows.UI.Xaml.Shapes;
 #endif
 
     #region SafeDictionary

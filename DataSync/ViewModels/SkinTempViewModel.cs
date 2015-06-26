@@ -1,9 +1,6 @@
 ﻿using Microsoft.Band;
 using Microsoft.Band.Sensors;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DataSync.ViewModels
@@ -65,13 +62,13 @@ namespace DataSync.ViewModels
             return _started;
         }
 
-        void SkinTemperature_ReadingChanged(object sender, BandSensorReadingEventArgs<IBandSkinTemperatureReading> e)
+        async void SkinTemperature_ReadingChanged(object sender, BandSensorReadingEventArgs<IBandSkinTemperatureReading> e)
         {
-            _dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
-            {
-                SkinTemp = App.Data.SkinTemp = e.SensorReading.Temperature;
-                TimeStamp = e.SensorReading.Timestamp.UtcDateTime.ToString();
-            });
+            await _dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+             {
+                 SkinTemp = App.Data.SkinTemp = e.SensorReading.Temperature;
+                 TimeStamp = e.SensorReading.Timestamp.UtcDateTime.ToString();
+             });
         }
 
         private double _skinTemp;

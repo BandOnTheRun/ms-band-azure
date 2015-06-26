@@ -1,24 +1,6 @@
 ﻿using DataSync.Common;
 using DataSync.ViewModels;
-using Microsoft.Band;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net.Http;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text;
-using System.Threading.Tasks;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Core;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
@@ -30,23 +12,22 @@ namespace DataSync
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private IBandClient _bandClient;
         private NavigationHelper navigationHelper;
 
         public MainPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
-            this.navigationHelper = new NavigationHelper(this);
-            this.navigationHelper.LoadState += navigationHelper_LoadState;
-            this.navigationHelper.SaveState += navigationHelper_SaveState;
+            navigationHelper = new NavigationHelper(this);
+            navigationHelper.LoadState += navigationHelper_LoadState;
+            navigationHelper.SaveState += navigationHelper_SaveState;
 
-            this.NavigationCacheMode = NavigationCacheMode.Required;
+            NavigationCacheMode = NavigationCacheMode.Required;
         }
 
         public NavigationHelper NavigationHelper
         {
-            get { return this.navigationHelper; }
+            get { return navigationHelper; }
         }
 
         void navigationHelper_SaveState(object sender, SaveStateEventArgs e)
@@ -73,19 +54,19 @@ namespace DataSync
                 if (e.PageState != null && e.PageState.TryGetValue("ConnectedBand", out bandName))
                 {
                     // try to connect to the band...
-                    await vm.ConnectToBandCmd.ExecuteAsync((string)bandName);
+                    await vm.ConnectToBandCmd.ExecuteAsync(bandName);
                 }
             }
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            this.navigationHelper.OnNavigatedTo(e);
+            navigationHelper.OnNavigatedTo(e);
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
-            this.navigationHelper.OnNavigatedFrom(e);
+            navigationHelper.OnNavigatedFrom(e);
         }
     }
 }

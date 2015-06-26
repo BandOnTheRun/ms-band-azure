@@ -1,14 +1,9 @@
 ﻿using Caliburn.Micro;
 using DataSync.Views;
-using Microsoft.Band;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reactive.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace DataSync.ViewModels
@@ -151,7 +146,7 @@ namespace DataSync.ViewModels
                         {
                             await asyncCmd.ExecuteAsync(null);
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         { }
                     }
                 }
@@ -175,7 +170,7 @@ namespace DataSync.ViewModels
                         {
                             await asyncCmd.ExecuteAsync(null);
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         { }
                     }
                 }
@@ -212,10 +207,10 @@ namespace DataSync.ViewModels
         private IDisposable _timerObservable;
         public ICommand StartStopCmd { get { return _startStopCmd.Value; } }
 
-        public void Handle(BandViewModel message)
+        public async void Handle(BandViewModel message)
         {
             var dispatcher = Windows.UI.Core.CoreWindow.GetForCurrentThread().Dispatcher;
-            dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            await dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                 {
                     if (ConnectedBand != message)
                     {

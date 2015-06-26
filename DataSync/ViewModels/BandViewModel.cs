@@ -1,10 +1,7 @@
 ﻿using Microsoft.Band;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
 
 namespace DataSync.ViewModels
 {
@@ -46,7 +43,7 @@ namespace DataSync.ViewModels
                         new UVViewModel(_bandClient),
                     };
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 IsConnected = false;
                 ConnectedText = "";

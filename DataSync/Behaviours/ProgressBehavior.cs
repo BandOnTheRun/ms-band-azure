@@ -2,6 +2,7 @@
 using Windows.ApplicationModel;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
+using System;
 
 namespace DataSync
 {
@@ -53,18 +54,18 @@ namespace DataSync
         {
         }
 
-        private static void OnIsVisibleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        private async static void OnIsVisibleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (DesignMode.DesignModeEnabled) { return; }
 
             bool isvisible = (bool)e.NewValue;
             if (isvisible)
             {
-                StatusBar.GetForCurrentView().ProgressIndicator.ShowAsync();
+                await StatusBar.GetForCurrentView().ProgressIndicator.ShowAsync();
             }
             else
             {
-                StatusBar.GetForCurrentView().ProgressIndicator.HideAsync();
+                await StatusBar.GetForCurrentView().ProgressIndicator.HideAsync();
             }
         }
 
@@ -84,5 +85,4 @@ namespace DataSync
             StatusBar.GetForCurrentView().ProgressIndicator.ProgressValue = val;
         }
     }
-
 }

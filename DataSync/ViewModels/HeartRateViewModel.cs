@@ -1,9 +1,6 @@
 ﻿using Microsoft.Band;
 using Microsoft.Band.Sensors;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DataSync.ViewModels
@@ -67,11 +64,11 @@ namespace DataSync.ViewModels
 
         async void HeartRate_ReadingChanged(object sender, BandSensorReadingEventArgs<IBandHeartRateReading> e)
         {
-            _dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
-            {
-                HeartRate = App.Data.HeartRate = e.SensorReading.HeartRate;
-                TimeStamp = e.SensorReading.Timestamp.UtcDateTime.ToString();
-            });
+            await _dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+             {
+                 HeartRate = App.Data.HeartRate = e.SensorReading.HeartRate;
+                 TimeStamp = e.SensorReading.Timestamp.UtcDateTime.ToString();
+             });
         }
 
         private int _heartRate;

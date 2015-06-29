@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataSync", "DataSync\DataSync.csproj", "{43A3E6BB-68EC-4748-B5F3-00DA4D40CE6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BandontheRunWebApp", "website\BandontheRunWebApp\BandontheRunWebApp.csproj", "{4A56933B-6727-4164-8E9F-A941E65A0DDA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BandontheRunWebApp", "BandontheRunWebApp\BandontheRunWebApp.csproj", "{4A56933B-6727-4164-8E9F-A941E65A0DDA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

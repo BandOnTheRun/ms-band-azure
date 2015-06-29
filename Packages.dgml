@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="LeftToRight" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="BandontheRunWebApp" Label="BandontheRunWebApp" Category="Project" />
+    <Node Id="Antlr 3.4.1.9004" Label="Antlr 3.4.1.9004" Category="Package" />
+    <Node Id="bootstrap 3.0.0" Label="bootstrap 3.0.0" Category="Package" />
+    <Node Id="jQuery 1.10.2" Label="jQuery 1.10.2" Category="Package" />
+    <Node Id="Microsoft.ApplicationInsights 0.17.0" Label="Microsoft.ApplicationInsights 0.17.0" Category="Package" />
+    <Node Id="Microsoft.ApplicationInsights.Agent.Intercept 0.17.0" Label="Microsoft.ApplicationInsights.Agent.Intercept 0.17.0" Category="Package" />
+    <Node Id="Microsoft.ApplicationInsights.DependencyCollector 0.17.0" Label="Microsoft.ApplicationInsights.DependencyCollector 0.17.0" Category="Package" />
+    <Node Id="Microsoft.ApplicationInsights.JavaScript 0.15.0-build12287" Label="Microsoft.ApplicationInsights.JavaScript 0.15.0-build12287" Category="Package" />
+    <Node Id="Microsoft.ApplicationInsights.PerfCounterCollector 0.17.0" Label="Microsoft.ApplicationInsights.PerfCounterCollector 0.17.0" Category="Package" />
+    <Node Id="Microsoft.ApplicationInsights.Web 0.17.0" Label="Microsoft.ApplicationInsights.Web 0.17.0" Category="Package" />
+    <Node Id="Microsoft.ApplicationInsights.Web.TelemetryChannel 0.17.0" Label="Microsoft.ApplicationInsights.Web.TelemetryChannel 0.17.0" Category="Package" />
+    <Node Id="Microsoft.AspNet.Mvc 5.2.2" Label="Microsoft.AspNet.Mvc 5.2.2" Category="Package" />
+    <Node Id="Microsoft.AspNet.Razor 3.2.2" Label="Microsoft.AspNet.Razor 3.2.2" Category="Package" />
+    <Node Id="Microsoft.AspNet.Web.Optimization 1.1.3" Label="Microsoft.AspNet.Web.Optimization 1.1.3" Category="Package" />
+    <Node Id="Microsoft.AspNet.WebApi 5.2.2" Label="Microsoft.AspNet.WebApi 5.2.2" Category="Package" />
+    <Node Id="Microsoft.AspNet.WebApi.Client 5.2.2" Label="Microsoft.AspNet.WebApi.Client 5.2.2" Category="Package" />
+    <Node Id="Microsoft.AspNet.WebApi.Core 5.2.2" Label="Microsoft.AspNet.WebApi.Core 5.2.2" Category="Package" />
+    <Node Id="Microsoft.AspNet.WebApi.HelpPage 5.2.2" Label="Microsoft.AspNet.WebApi.HelpPage 5.2.2" Category="Package" />
+    <Node Id="Microsoft.AspNet.WebApi.WebHost 5.2.2" Label="Microsoft.AspNet.WebApi.WebHost 5.2.2" Category="Package" />
+    <Node Id="Microsoft.AspNet.WebPages 3.2.2" Label="Microsoft.AspNet.WebPages 3.2.2" Category="Package" />
+    <Node Id="Microsoft.Azure.ServiceBus.EventProcessorHost 1.2.0" Label="Microsoft.Azure.ServiceBus.EventProcessorHost 1.2.0" Category="Package" />
+    <Node Id="Microsoft.Data.Edm 5.2.0" Label="Microsoft.Data.Edm 5.2.0" Category="Package" />
+    <Node Id="Microsoft.Data.OData 5.2.0" Label="Microsoft.Data.OData 5.2.0" Category="Package" />
+    <Node Id="Microsoft.Web.Infrastructure 1.0.0.0" Label="Microsoft.Web.Infrastructure 1.0.0.0" Category="Package" />
+    <Node Id="Microsoft.WindowsAzure.ConfigurationManager 3.1.0" Label="Microsoft.WindowsAzure.ConfigurationManager 3.1.0" Category="Package" />
+    <Node Id="Modernizr 2.6.2" Label="Modernizr 2.6.2" Category="Package" />
+    <Node Id="Newtonsoft.Json 6.0.4" Label="Newtonsoft.Json 6.0.4" Category="Package" />
+    <Node Id="Respond 1.2.0" Label="Respond 1.2.0" Category="Package" />
+    <Node Id="System.Spatial 5.2.0" Label="System.Spatial 5.2.0" Category="Package" />
+    <Node Id="WebGrease 1.5.2" Label="WebGrease 1.5.2" Category="Package" />
+    <Node Id="WindowsAzure.ServiceBus 2.7.2" Label="WindowsAzure.ServiceBus 2.7.2" Category="Package" />
+    <Node Id="WindowsAzure.Storage 2.1.0.0" Label="WindowsAzure.Storage 2.1.0.0" Category="Package" />
+    <Node Id="DataSync" Label="DataSync" Category="Project" />
+    <Node Id="Caliburn.Micro.EventAggregator 1.5.2" Label="Caliburn.Micro.EventAggregator 1.5.2" Category="Package" />
+    <Node Id="Microsoft.Band 1.3.10518" Label="Microsoft.Band 1.3.10518" Category="Package" />
+    <Node Id="Newtonsoft.Json 6.0.8" Label="Newtonsoft.Json 6.0.8" Category="Package" />
+    <Node Id="Rx-Core 2.2.5" Label="Rx-Core 2.2.5" Category="Package" />
+    <Node Id="Rx-Interfaces 2.2.5" Label="Rx-Interfaces 2.2.5" Category="Package" />
+    <Node Id="Rx-Linq 2.2.5" Label="Rx-Linq 2.2.5" Category="Package" />
+    <Node Id="Rx-Main 2.2.5" Label="Rx-Main 2.2.5" Category="Package" />
+    <Node Id="Rx-PlatformServices 2.2.5" Label="Rx-PlatformServices 2.2.5" Category="Package" />
+    <Node Id="TinyIoC 1.2" Label="TinyIoC 1.2" Category="Package" />
+    <Node Id="TinyIoC.WinRT 1.2" Label="TinyIoC.WinRT 1.2" Category="Package" />
+    <Node Id="WindowsAzure.Messaging.Managed 0.1.7.9" Label="WindowsAzure.Messaging.Managed 0.1.7.9" Category="Package" />
+  </Nodes>
+  <Links>
+    <Link Source="bootstrap 3.0.0" Target="jQuery 1.10.2" Category="Package Dependency" />
+    <Link Source="Microsoft.ApplicationInsights.DependencyCollector 0.17.0" Target="Microsoft.ApplicationInsights 0.17.0" Category="Package Dependency" />
+    <Link Source="Microsoft.ApplicationInsights.DependencyCollector 0.17.0" Target="Microsoft.ApplicationInsights.Agent.Intercept 0.17.0" Category="Package Dependency" />
+    <Link Source="Microsoft.ApplicationInsights.DependencyCollector 0.17.0" Target="Microsoft.ApplicationInsights 0.17.0" Category="Package Dependency" />
+    <Link Source="Microsoft.ApplicationInsights.DependencyCollector 0.17.0" Target="Microsoft.ApplicationInsights.Agent.Intercept 0.17.0" Category="Package Dependency" />
+    <Link Source="Microsoft.ApplicationInsights.PerfCounterCollector 0.17.0" Target="Microsoft.ApplicationInsights 0.17.0" Category="Package Dependency" />
+    <Link Source="Microsoft.ApplicationInsights.PerfCounterCollector 0.17.0" Target="Microsoft.ApplicationInsights 0.17.0" Category="Package Dependency" />
+    <Link Source="Microsoft.ApplicationInsights.Web 0.17.0" Target="Microsoft.ApplicationInsights 0.17.0" Category="Package Dependency" />
+    <Link Source="Microsoft.ApplicationInsights.Web 0.17.0" Target="Microsoft.ApplicationInsights.DependencyCollector 0.17.0" Category="Package Dependency" />
+    <Link Source="Microsoft.ApplicationInsights.Web 0.17.0" Target="Microsoft.ApplicationInsights.Web.TelemetryChannel 0.17.0" Category="Package Dependency" />
+    <Link Source="Microsoft.ApplicationInsights.Web 0.17.0" Target="Microsoft.ApplicationInsights.PerfCounterCollector 0.17.0" Category="Package Dependency" />
+    <Link Source="Microsoft.ApplicationInsights.Web 0.17.0" Target="Microsoft.ApplicationInsights 0.17.0" Category="Package Dependency" />
+    <Link Source="Microsoft.ApplicationInsights.Web 0.17.0" Target="Microsoft.ApplicationInsights.DependencyCollector 0.17.0" Category="Package Dependency" />
+    <Link Source="Microsoft.ApplicationInsights.Web 0.17.0" Target="Microsoft.ApplicationInsights.Web.TelemetryChannel 0.17.0" Category="Package Dependency" />
+    <Link Source="Microsoft.ApplicationInsights.Web 0.17.0" Target="Microsoft.ApplicationInsights.PerfCounterCollector 0.17.0" Category="Package Dependency" />
+    <Link Source="Microsoft.ApplicationInsights.Web.TelemetryChannel 0.17.0" Target="Microsoft.ApplicationInsights 0.17.0" Category="Package Dependency" />
+    <Link Source="Microsoft.ApplicationInsights.Web.TelemetryChannel 0.17.0" Target="Microsoft.ApplicationInsights 0.17.0" Category="Package Dependency" />
+    <Link Source="Microsoft.AspNet.Mvc 5.2.2" Target="Microsoft.AspNet.WebPages 3.2.2" Category="Package Dependency" />
+    <Link Source="Microsoft.AspNet.Mvc 5.2.2" Target="Microsoft.AspNet.Razor 3.2.2" Category="Package Dependency" />
+    <Link Source="Microsoft.AspNet.Web.Optimization 1.1.3" Target="Microsoft.Web.Infrastructure 1.0.0.0" Category="Package Dependency" />
+    <Link Source="Microsoft.AspNet.Web.Optimization 1.1.3" Target="WebGrease 1.5.2" Category="Package Dependency" />
+    <Link Source="Microsoft.AspNet.WebApi 5.2.2" Target="Microsoft.AspNet.WebApi.WebHost 5.2.2" Category="Package Dependency" />
+    <Link Source="Microsoft.AspNet.WebApi.Client 5.2.2" Target="Newtonsoft.Json 6.0.4" Category="Package Dependency" />
+    <Link Source="Microsoft.AspNet.WebApi.Client 5.2.2" Target="Newtonsoft.Json 6.0.4" Category="Package Dependency" />
+    <Link Source="Microsoft.AspNet.WebApi.Core 5.2.2" Target="Microsoft.AspNet.WebApi.Client 5.2.2" Category="Package Dependency" />
+    <Link Source="Microsoft.AspNet.WebApi.HelpPage 5.2.2" Target="Microsoft.AspNet.WebApi.WebHost 5.2.2" Category="Package Dependency" />
+    <Link Source="Microsoft.AspNet.WebApi.HelpPage 5.2.2" Target="Microsoft.AspNet.Mvc 5.2.2" Category="Package Dependency" />
+    <Link Source="Microsoft.AspNet.WebApi.HelpPage 5.2.2" Target="Microsoft.AspNet.Razor 3.2.2" Category="Package Dependency" />
+    <Link Source="Microsoft.AspNet.WebApi.WebHost 5.2.2" Target="Microsoft.AspNet.WebApi.Core 5.2.2" Category="Package Dependency" />
+    <Link Source="Microsoft.AspNet.WebPages 3.2.2" Target="Microsoft.Web.Infrastructure 1.0.0.0" Category="Package Dependency" />
+    <Link Source="Microsoft.AspNet.WebPages 3.2.2" Target="Microsoft.AspNet.Razor 3.2.2" Category="Package Dependency" />
+    <Link Source="Microsoft.Azure.ServiceBus.EventProcessorHost 1.2.0" Target="WindowsAzure.Storage 2.1.0.0" Category="Package Dependency" />
+    <Link Source="Microsoft.Azure.ServiceBus.EventProcessorHost 1.2.0" Target="Newtonsoft.Json 6.0.4" Category="Package Dependency" />
+    <Link Source="Microsoft.Azure.ServiceBus.EventProcessorHost 1.2.0" Target="WindowsAzure.ServiceBus 2.7.2" Category="Package Dependency" />
+    <Link Source="Microsoft.Data.OData 5.2.0" Target="System.Spatial 5.2.0" Category="Package Dependency" />
+    <Link Source="Microsoft.Data.OData 5.2.0" Target="Microsoft.Data.Edm 5.2.0" Category="Package Dependency" />
+    <Link Source="WebGrease 1.5.2" Target="Antlr 3.4.1.9004" Category="Package Dependency" />
+    <Link Source="WebGrease 1.5.2" Target="Newtonsoft.Json 6.0.4" Category="Package Dependency" />
+    <Link Source="WindowsAzure.ServiceBus 2.7.2" Target="Microsoft.WindowsAzure.ConfigurationManager 3.1.0" Category="Package Dependency" />
+    <Link Source="WindowsAzure.Storage 2.1.0.0" Target="Microsoft.Data.OData 5.2.0" Category="Package Dependency" />
+    <Link Source="WindowsAzure.Storage 2.1.0.0" Target="Microsoft.WindowsAzure.ConfigurationManager 3.1.0" Category="Package Dependency" />
+    <Link Source="BandontheRunWebApp" Target="bootstrap 3.0.0" Category="Installed Package" />
+    <Link Source="BandontheRunWebApp" Target="Microsoft.ApplicationInsights.JavaScript 0.15.0-build12287" Category="Installed Package" />
+    <Link Source="BandontheRunWebApp" Target="Microsoft.ApplicationInsights.Web 0.17.0" Category="Installed Package" />
+    <Link Source="BandontheRunWebApp" Target="Microsoft.AspNet.Web.Optimization 1.1.3" Category="Installed Package" />
+    <Link Source="BandontheRunWebApp" Target="Microsoft.AspNet.WebApi 5.2.2" Category="Installed Package" />
+    <Link Source="BandontheRunWebApp" Target="Microsoft.AspNet.WebApi.HelpPage 5.2.2" Category="Installed Package" />
+    <Link Source="BandontheRunWebApp" Target="Microsoft.Azure.ServiceBus.EventProcessorHost 1.2.0" Category="Installed Package" />
+    <Link Source="BandontheRunWebApp" Target="Modernizr 2.6.2" Category="Installed Package" />
+    <Link Source="BandontheRunWebApp" Target="Respond 1.2.0" Category="Installed Package" />
+    <Link Source="Rx-Core 2.2.5" Target="Rx-Interfaces 2.2.5" Category="Package Dependency" />
+    <Link Source="Rx-Linq 2.2.5" Target="Rx-Interfaces 2.2.5" Category="Package Dependency" />
+    <Link Source="Rx-Linq 2.2.5" Target="Rx-Core 2.2.5" Category="Package Dependency" />
+    <Link Source="Rx-Main 2.2.5" Target="Rx-Interfaces 2.2.5" Category="Package Dependency" />
+    <Link Source="Rx-Main 2.2.5" Target="Rx-Core 2.2.5" Category="Package Dependency" />
+    <Link Source="Rx-Main 2.2.5" Target="Rx-Linq 2.2.5" Category="Package Dependency" />
+    <Link Source="Rx-Main 2.2.5" Target="Rx-PlatformServices 2.2.5" Category="Package Dependency" />
+    <Link Source="Rx-PlatformServices 2.2.5" Target="Rx-Interfaces 2.2.5" Category="Package Dependency" />
+    <Link Source="Rx-PlatformServices 2.2.5" Target="Rx-Core 2.2.5" Category="Package Dependency" />
+    <Link Source="TinyIoC.WinRT 1.2" Target="TinyIoC 1.2" Category="Package Dependency" />
+    <Link Source="DataSync" Target="Caliburn.Micro.EventAggregator 1.5.2" Category="Installed Package" />
+    <Link Source="DataSync" Target="Microsoft.Band 1.3.10518" Category="Installed Package" />
+    <Link Source="DataSync" Target="Newtonsoft.Json 6.0.8" Category="Installed Package" />
+    <Link Source="DataSync" Target="Rx-Main 2.2.5" Category="Installed Package" />
+    <Link Source="DataSync" Target="TinyIoC.WinRT 1.2" Category="Installed Package" />
+    <Link Source="DataSync" Target="WindowsAzure.Messaging.Managed 0.1.7.9" Category="Installed Package" />
+  </Links>
+  <Categories>
+    <Category Id="Project" />
+    <Category Id="Package" />
+  </Categories>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Project" ValueLabel="True">
+      <Condition Expression="HasCategory('Project')" />
+      <Setter Property="Background" Value="Blue" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Package Dependency" ValueLabel="True">
+      <Condition Expression="HasCategory('Package Dependency')" />
+      <Setter Property="Background" Value="Yellow" />
+    </Style>
+  </Styles>
+</DirectedGraph>

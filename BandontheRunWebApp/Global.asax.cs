@@ -28,8 +28,7 @@ namespace BandontheRunWebApp
         public EventProcessorHost processorHost { get; set; } 
 
     }
-
-
+    
 
 
     public class WebApiApplication : System.Web.HttpApplication

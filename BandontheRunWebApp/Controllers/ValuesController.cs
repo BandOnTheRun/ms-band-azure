@@ -21,7 +21,7 @@ namespace BandontheRunWebApp.Controllers
         // GET api/values
 
 
-
+        // create a SAS token
         [Route("api/GetSasToken/{deviceId}")]
         [HttpGet]
         public string GetSasToken(string deviceId)
@@ -44,6 +44,23 @@ namespace BandontheRunWebApp.Controllers
 
             return sas;
         }
+
+
+        [Route("api/GetDevicesInfo")]
+        [HttpGet]
+        public List<DeviceTelemetry> GetDevicesInfo()
+        {
+            List<DeviceTelemetry> r = new List<DeviceTelemetry>();
+
+            foreach (KeyValuePair<string, DeviceTelemetry> kvp in WebsiteEventProcessor._devices)
+            {
+                // do we need to check anything before returning?
+                r.Add(kvp.Value);
+            }
+            
+            return r;
+        }
+
 
 
         public static string CreateForHttpSender(string senderKeyName, string senderKey, string serviceNamespace, string hubName, string publisherName, TimeSpan tokenTimeToLive)

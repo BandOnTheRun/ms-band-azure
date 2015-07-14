@@ -1,8 +1,33 @@
-﻿<div class="jumbotron">
+﻿
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        setInterval(function () {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                console.log(xhr);
+                if (xhr.readyState == 4) {
+                    var el = document.getElementById('my-data');
+                    var currentdate = new Date();
+                    var datetime = "Last Sync: " + currentdate.getDay() + "/" + currentdate.getMonth()
+                    + "/" + currentdate.getFullYear() + " "
+                    + currentdate.getHours() + ":"
+                    + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+                    el.innerText = xhr.responseText + ' ' + datetime;
+                }
+            }
+            xhr.open('GET', 'http://bandontherun.azurewebsites.net/api/GetDevicesInfo', true);
+            xhr.send(null);
+        }, 1000);
+    }, true);
+
+</script>
+
+<div class="jumbotron">
     <h1>Band On The Run</h1>
     <p class="lead">
         Band on the Run - track your Microsoft Band data via Microsoft Azure.
     </p>
+    <p id="my-data">no data</p>
 </div>
 <div class="row">
     <div class="col-md-4">

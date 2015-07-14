@@ -31,7 +31,7 @@ namespace DataSync
             // Namespace info.
             var serviceNamespace = "bandontherun-ns";
             var hubName = "msbands";
-            var url = string.Format("{0}/publishers/{1}/messages", hubName, deviceTelemetry.DeviceId);
+            var url = string.Format("{0}/publishers/{1}/messages", hubName, "dxband"/*deviceTelemetry.DeviceId*/);
 
             // Create client.
             var httpClient = new HttpClient

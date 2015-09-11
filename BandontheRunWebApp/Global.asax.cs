@@ -23,7 +23,7 @@ namespace BandontheRunWebApp
         public string SendKeyName { get; set; }
         public string SendKeyValue { get; set; }
         public string consumerGroup { get; set; }
-        public string ehConnectionString { get; set; }
+        public string eventHubConnectionString { get; set; }
         public string storageConnectionString { get; set; } 
         public EventProcessorHost processorHost { get; set; } 
 
@@ -54,22 +54,22 @@ namespace BandontheRunWebApp
         }
 
 
-
+        // create the EventProcessorHost consumer group that we will listen to data from our event hub
         private void CreateEventProcessorHostClient(ref EventHubConfigInfo eventHubSettings)
         {
-          try
+            try
             {
+                // we use the EventProcessorHost class to processes data from the Event Hub
+                
                 eventHubSettings.processorHost = new EventProcessorHost(
                         this.Server.MachineName,
                         eventHubSettings.eventHubPath,
                         eventHubSettings.consumerGroup.ToLowerInvariant(),
-                        eventHubSettings.ehConnectionString,
+                        eventHubSettings.eventHubConnectionString,
                         eventHubSettings.storageConnectionString);
-
-
-                // could now set eventHubSettings.processorHostOptions 
-
-
+                
+                // could now add eventHubSettings.processorHostOptions if needed
+                
                 // wire up our class to handle events from event hub
                 eventHubSettings.processorHost.RegisterEventProcessorAsync<WebsiteEventProcessor>().Wait();
             }
@@ -82,15 +82,16 @@ namespace BandontheRunWebApp
 
 
 
+        // read the BandontheRun.XXX related config from Azure portal or web.config
         private void GetEventHubConsumerGroupConfig(ref EventHubConfigInfo eventHubSettings)
         {
-            eventHubSettings.eventHubNamespace = CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.eventHubNamespace");
-            eventHubSettings.eventHubPath = CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.eventHubPath");
-            eventHubSettings.SendKeyName = CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.SendKeyName");
-            eventHubSettings.SendKeyValue = CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.SendKeyValue");
-            eventHubSettings.consumerGroup = CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.consumerGroup");
-            eventHubSettings.ehConnectionString = CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ehConnectionString");
-            eventHubSettings.storageConnectionString = CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.storageConnectionString");
+            eventHubSettings.eventHubNamespace = System.Configuration.ConfigurationManager.AppSettings["BandontheRun.eventHubNamespace"];
+            eventHubSettings.eventHubPath = System.Configuration.ConfigurationManager.AppSettings["BandontheRun.eventHubPath"];
+            eventHubSettings.SendKeyName = System.Configuration.ConfigurationManager.AppSettings["BandontheRun.SendKeyName"];
+            eventHubSettings.SendKeyValue = System.Configuration.ConfigurationManager.AppSettings["BandontheRun.SendKeyValue"];
+            eventHubSettings.consumerGroup = System.Configuration.ConfigurationManager.AppSettings["BandontheRun.consumerGroup"];
+            eventHubSettings.eventHubConnectionString = System.Configuration.ConfigurationManager.AppSettings["BandontheRun.eventHubConnectionString"];
+            eventHubSettings.storageConnectionString = System.Configuration.ConfigurationManager.AppSettings["BandontheRun.storageConnectionString"];
         }
     }
 }

@@ -8,7 +8,7 @@
                 if (xhr.readyState == 4) {
                     var el = document.getElementById('my-data');
                     var currentdate = new Date();
-                    var datetime = "Last Sync: " + currentdate.getDay() + "/" + currentdate.getMonth()
+                    var datetime = "as of: " + currentdate.getDay() + "/" + currentdate.getMonth()
                     + "/" + currentdate.getFullYear() + " "
                     + currentdate.getHours() + ":"
                     + currentdate.getMinutes() + ":" + currentdate.getSeconds();
@@ -27,15 +27,6 @@
     <p class="lead">
         Band on the Run - track your Microsoft Band data via Microsoft Azure.
     </p>
-    <p id="my-data">no data</p>
+    <p id="my-data">waiting for data</p>
 </div>
-<div class="row">
-    <div class="col-md-4">
-        <h2>Web API</h2>
-        <p>ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
-        a broad range of clients, including browsers and mobile devices. ASP.NET Web API
-        is an ideal platform for building RESTful applications on the .NET Framework.</p>
-        </p>
-   </div>
 
-</div>

@@ -63,11 +63,14 @@ namespace BandontheRunWebApp
             {
                 foreach (EventData eventData in events)
                 {
+                    // throw away out of date messages 
+
                     //if (eventData.EnqueuedTimeUtc.CompareTo(DateTime.UtcNow.AddMinutes(-15)) < 0)
                     DateTime x = DateTime.UtcNow;
                     if (eventData.EnqueuedTimeUtc.CompareTo(new DateTime(2015, 6, 25, 16, 30, 0)) < 0)
                             continue;  // enqueued date is earlier, so throw away old messages 
 
+                    // grab payload, and this latest version in our array under the band name 
 
                     var newDeviceTelemetry = JsonConvert.DeserializeObject<DeviceTelemetry>(Encoding.UTF8.GetString(eventData.GetBytes()));
                     //var newData = this.DeserializeEventData(eventData);
@@ -78,7 +81,8 @@ namespace BandontheRunWebApp
 
                 }
 
-                //Call checkpoint every 5 minutes, so that worker can resume processing from the 5 minutes back if it restarts.
+                //Call checkpoint every 5 minutes, so that worker can resume processing from the 5 minutes back if it restarts
+
                 if (this.checkpointStopWatch.Elapsed > TimeSpan.FromMinutes(5))
                 {
                     await context.CheckpointAsync();

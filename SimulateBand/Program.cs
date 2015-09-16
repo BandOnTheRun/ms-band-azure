@@ -28,10 +28,11 @@ namespace SimulateBand
 
     class Program
     {
-        static int interations = 10;
-        static int sendIntervalms = 2000;
-        static string bandName = "BandTest1";
-        static int randomSeed = 0;
+        static int _interations = 10;
+        static int _sendIntervalms = 2000;
+        static string _bandName = "BandTest1";
+        static int _randomSeed = 0;
+        static int _stepSize = 1;
 
         static string sas = "";
 
@@ -41,18 +42,18 @@ namespace SimulateBand
 
             foreach (var arg in args)
             {
-                bandName = arg;
+                _bandName = arg;
             }
 
 
             // set up read to simulate band
 
             Random rnd = new Random();
-            if (randomSeed > 0)
-                rnd = new Random(randomSeed);
+            if (_randomSeed > 0)
+                rnd = new Random(_randomSeed);
 
             DeviceTelemetry telemetry = new DeviceTelemetry();
-            telemetry.DeviceId = bandName;
+            telemetry.DeviceId = _bandName;
             telemetry.UVIndex = 0;
             telemetry.SkinTemp = 0;
             telemetry.HeartRate = 70;
@@ -66,22 +67,22 @@ namespace SimulateBand
 
             // send data
 
-            for (int i = 0; i < interations; i++)
+            for (int i = 0; i < _interations; i++)
             {
                 // update telemetry
 
-                int step = rnd.Next(-1, 1);
+                int step = rnd.Next(0 - _stepSize, _stepSize + 1);
                 telemetry.HeartRate += step;
                 telemetry.Timestamp = DateTime.Now.ToString();
 
                 // transmit telemetry 
 
-                Console.WriteLine("sending data #{0} for band {2} = '{1}'", i, JsonConvert.SerializeObject(telemetry), bandName);
+                Console.WriteLine("sending data #{0} for band {2} = '{1}'", i, JsonConvert.SerializeObject(telemetry), _bandName);
                 PostTelemetryAsync(telemetry).Wait();
 
                 // wait
 
-                Thread.Sleep(sendIntervalms);
+                Thread.Sleep(_sendIntervalms);
             }
         }
 
@@ -89,7 +90,7 @@ namespace SimulateBand
         static async Task GetSasTokenAsync()
         {
             var http = new HttpClient();
-            var resp = await http.GetAsync(new Uri("http://bandontherun.azurewebsites.net/api/getsastoken/" + bandName));
+            var resp = await http.GetAsync(new Uri("http://bandontherun.azurewebsites.net/api/getsastoken/" + _bandName));
             resp.EnsureSuccessStatusCode();
             sas = await resp.Content.ReadAsStringAsync();
             sas = sas.Trim('"');
@@ -103,7 +104,7 @@ namespace SimulateBand
             // Namespace info.
             var serviceNamespace = "bandontherun-ns";
             var hubName = "msbands";
-            var url = string.Format("{0}/publishers/{1}/messages", hubName, bandName);
+            var url = string.Format("{0}/publishers/{1}/messages", hubName, _bandName);
 
             // Create client.
             var httpClient = new HttpClient

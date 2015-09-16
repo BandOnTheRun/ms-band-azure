@@ -24,6 +24,7 @@
     <ApplicationInsightsResourceId>/subscriptions/30674c5e-f5c5-4863-90e6-050cd8a0d01b/resourcegroups/Default-ApplicationInsights-CentralUS/providers/microsoft.insights/components/BandontheRunWebApp</ApplicationInsightsResourceId>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -234,7 +235,6 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="ApplicationInsights.config" />
-    <Content Include="DummyWeb.config" />
     <None Include="Properties\PublishProfiles\bandontherun.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

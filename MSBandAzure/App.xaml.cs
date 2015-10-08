@@ -5,6 +5,8 @@ using MSBandAzure.Services.SettingsServices;
 using Windows.ApplicationModel.Activation;
 using MSBandAzure.Mvvm;
 using MSBandAzure.ViewModels;
+using Microsoft.ApplicationInsights;
+
 
 namespace MSBandAzure
 {
@@ -23,7 +25,12 @@ namespace MSBandAzure
 
         public App()
         {
+            // initialize application insights
+            WindowsAppInitializer.InitializeAsync();
+
+            // then init the components for the app
             InitializeComponent();
+
             CacheMaxDuration = TimeSpan.FromDays(2);
             ShowShellBackButton = SettingsService.Instance.UseShellBackButton;
             SplashFactory = (e) => new Views.Splash(e);

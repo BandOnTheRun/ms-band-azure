@@ -28,6 +28,7 @@ namespace MSBandAzure.Mvvm
 #else
             builder.RegisterType<MSBandService>( ).As<IBandService>().SingleInstance();
 #endif
+            builder.RegisterType<EventHubsTelemetry>().As<ITelemetry>().SingleInstance();
             builder.RegisterType<Band>().InstancePerDependency();
             builder.RegisterType<EventAggregator>().As<IEventAggregator>().SingleInstance();
 

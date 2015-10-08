@@ -9,6 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BandontheRunWebApp", "Bando
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSBandAzure", "MSBandAzure\MSBandAzure.csproj", "{9A82F6E0-3AC8-440C-AA37-714920D8FB85}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5E507E62-3BB1-4B48-93EA-66976D9D4D5F}"
+	ProjectSection(SolutionItems) = preProject
+		stream analystics query.txt = stream analystics query.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +59,7 @@ Global
 		{4A56933B-6727-4164-8E9F-A941E65A0DDA}.Release|x86.ActiveCfg = Release|Any CPU
 		{4A56933B-6727-4164-8E9F-A941E65A0DDA}.Release|x86.Build.0 = Release|Any CPU
 		{9A82F6E0-3AC8-440C-AA37-714920D8FB85}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{9A82F6E0-3AC8-440C-AA37-714920D8FB85}.Debug|Any CPU.Build.0 = Debug|x86
 		{9A82F6E0-3AC8-440C-AA37-714920D8FB85}.Debug|ARM.ActiveCfg = Debug|ARM
 		{9A82F6E0-3AC8-440C-AA37-714920D8FB85}.Debug|ARM.Build.0 = Debug|ARM
 		{9A82F6E0-3AC8-440C-AA37-714920D8FB85}.Debug|ARM.Deploy.0 = Debug|ARM

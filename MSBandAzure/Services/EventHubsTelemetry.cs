@@ -46,7 +46,6 @@ namespace MSBandAzure.Services
 
             var postContent = new HttpStringContent(JsonConvert.SerializeObject(deviceTelemetry),
                 Windows.Storage.Streams.UnicodeEncoding.Utf8, "application/json");
-            postContent.Headers.Add("ContentType", "application/atom+xml;type=entry;charset=utf-8");
             var resp = await httpClient.PostAsync(uriBuilder.Uri, postContent);
             return resp;
         }

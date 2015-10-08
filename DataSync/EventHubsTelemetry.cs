@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Web.Http;
 
 namespace DataSync
 {
@@ -16,7 +16,7 @@ namespace DataSync
         private string _sas;
 
         public async Task RefreshTokenAsync()
-        {
+            {
             var http = new HttpClient();
             var resp = await http.GetAsync(new Uri("http://bandontherun.azurewebsites.net/api/getsastoken/dxband"));
             resp.EnsureSuccessStatusCode();
@@ -24,28 +24,29 @@ namespace DataSync
             _sas = _sas.Trim('"');
         }
 
-        public Task<HttpResponseMessage> PostTelemetryAsync(DeviceTelemetry deviceTelemetry)
+        public async Task<HttpResponseMessage> PostTelemetryAsync(DeviceTelemetry deviceTelemetry)
         {
             var sas = _sas;
 
             // Namespace info.
             var serviceNamespace = "bandontherun-ns";
             var hubName = "msbands";
+
             var url = string.Format("{0}/publishers/{1}/messages", hubName, "dxband"/*deviceTelemetry.DeviceId*/);
+            var uriBuilder = new UriBuilder();
+            uriBuilder.Scheme = "https";
+            uriBuilder.Host = string.Format("{0}.servicebus.windows.net/", serviceNamespace);
+            uriBuilder.Path = url;
 
-            // Create client.
-            var httpClient = new HttpClient
-            {
-                BaseAddress = new Uri(string.Format("https://{0}.servicebus.windows.net/", serviceNamespace))
-            };
+            var httpClient = new HttpClient();
 
-            var payload = JsonConvert.SerializeObject(deviceTelemetry);
+            httpClient.DefaultRequestHeaders.TryAppendWithoutValidation("Authorization", sas);
 
-            httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Authorization", sas);
-
-            var content = new StringContent(payload, Encoding.UTF8, "application/json");
-            content.Headers.Add("ContentType", "application/atom+xml;type=entry;charset=utf-8");
-            return httpClient.PostAsync(url, content);
+            var postContent = new HttpStringContent(JsonConvert.SerializeObject(deviceTelemetry), 
+                Windows.Storage.Streams.UnicodeEncoding.Utf8, "application/json");
+            postContent.Headers.Add("ContentType", "application/atom+xml;type=entry;charset=utf-8");
+            var resp = await httpClient.PostAsync(uriBuilder.Uri, postContent);
+            return resp;
         }
     }
 }

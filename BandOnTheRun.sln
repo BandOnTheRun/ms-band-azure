@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimulateBand", "..\SimulateBand\SimulateBand.csproj", "{75CDB769-DD99-482A-8B0F-565B6DEA37C6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimulateBand", "SimulateBand\SimulateBand.csproj", "{75CDB769-DD99-482A-8B0F-565B6DEA37C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BandontheRunWebApp", "..\BandontheRunWebApp\BandontheRunWebApp.csproj", "{4A56933B-6727-4164-8E9F-A941E65A0DDA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BandontheRunWebApp", "BandontheRunWebApp\BandontheRunWebApp.csproj", "{4A56933B-6727-4164-8E9F-A941E65A0DDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSBandAzure", "..\MSBandAzure\MSBandAzure.csproj", "{9A82F6E0-3AC8-440C-AA37-714920D8FB85}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSBandAzure", "MSBandAzure\MSBandAzure.csproj", "{9A82F6E0-3AC8-440C-AA37-714920D8FB85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

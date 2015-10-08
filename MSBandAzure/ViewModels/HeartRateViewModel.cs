@@ -39,6 +39,7 @@ namespace MSBandAzure.ViewModels
         protected override async Task<object> Start(object arg)
         {
             var band = arg as Band;
+            _bandInfo = band.Info;
             _bandClient = band.Client;
             var consent = _bandClient.SensorManager.HeartRate.GetCurrentUserConsent();
             switch (consent)
@@ -81,13 +82,15 @@ namespace MSBandAzure.ViewModels
              });
             await _telemetry.PostTelemetryAsync(new Models.DeviceTelemetry
             {
-                DeviceId = string.Empty,
+                DeviceId = _bandInfo.Name,
                 HeartRate = hr,
                 Timestamp = ts.ToString()
             });
         }
 
         private int _heartRate;
+        private IBandInfo _bandInfo;
+
         public int HeartRate
         {
             get { return _heartRate; }

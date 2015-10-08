@@ -14,6 +14,7 @@ namespace MSBandAzure.Model
         private readonly IComponentContext _container;
 
         public IBandClient Client {  get { return _bandClient; } }
+        public IBandInfo Info { get { return _info; } }
 
         public Band(IBandInfo info, IBandService bandService, IComponentContext container)
         {

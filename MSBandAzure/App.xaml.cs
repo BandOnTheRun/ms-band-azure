@@ -26,7 +26,7 @@ namespace MSBandAzure
         public App()
         {
             // initialize application insights
-            WindowsAppInitializer.InitializeAsync("44aee2b2-7335-4a03-9f91-c817f22dcc19");
+            WindowsAppInitializer.InitializeAsync();
 
             // then init the components for the app
             InitializeComponent();

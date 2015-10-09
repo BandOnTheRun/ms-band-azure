@@ -9,6 +9,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BandontheRunWebApp", "Bando
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSBandAzure", "MSBandAzure\MSBandAzure.csproj", "{9A82F6E0-3AC8-440C-AA37-714920D8FB85}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5E507E62-3BB1-4B48-93EA-66976D9D4D5F}"
+	ProjectSection(SolutionItems) = preProject
+		stream analystics query.txt = stream analystics query.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BandOnTheRunEventHubMonitor", "BandOnTheRunEventHubMonitor\BandOnTheRunEventHubMonitor.csproj", "{BFA1808A-2D3A-4B19-975A-6DC3FC8DA220}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -74,6 +81,22 @@ Global
 		{9A82F6E0-3AC8-440C-AA37-714920D8FB85}.Release|x86.ActiveCfg = Release|x86
 		{9A82F6E0-3AC8-440C-AA37-714920D8FB85}.Release|x86.Build.0 = Release|x86
 		{9A82F6E0-3AC8-440C-AA37-714920D8FB85}.Release|x86.Deploy.0 = Release|x86
+		{BFA1808A-2D3A-4B19-975A-6DC3FC8DA220}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFA1808A-2D3A-4B19-975A-6DC3FC8DA220}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFA1808A-2D3A-4B19-975A-6DC3FC8DA220}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{BFA1808A-2D3A-4B19-975A-6DC3FC8DA220}.Debug|ARM.Build.0 = Debug|Any CPU
+		{BFA1808A-2D3A-4B19-975A-6DC3FC8DA220}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BFA1808A-2D3A-4B19-975A-6DC3FC8DA220}.Debug|x64.Build.0 = Debug|Any CPU
+		{BFA1808A-2D3A-4B19-975A-6DC3FC8DA220}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BFA1808A-2D3A-4B19-975A-6DC3FC8DA220}.Debug|x86.Build.0 = Debug|Any CPU
+		{BFA1808A-2D3A-4B19-975A-6DC3FC8DA220}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFA1808A-2D3A-4B19-975A-6DC3FC8DA220}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFA1808A-2D3A-4B19-975A-6DC3FC8DA220}.Release|ARM.ActiveCfg = Release|Any CPU
+		{BFA1808A-2D3A-4B19-975A-6DC3FC8DA220}.Release|ARM.Build.0 = Release|Any CPU
+		{BFA1808A-2D3A-4B19-975A-6DC3FC8DA220}.Release|x64.ActiveCfg = Release|Any CPU
+		{BFA1808A-2D3A-4B19-975A-6DC3FC8DA220}.Release|x64.Build.0 = Release|Any CPU
+		{BFA1808A-2D3A-4B19-975A-6DC3FC8DA220}.Release|x86.ActiveCfg = Release|Any CPU
+		{BFA1808A-2D3A-4B19-975A-6DC3FC8DA220}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

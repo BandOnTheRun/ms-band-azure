@@ -1,4 +1,5 @@
-﻿using MSBandAzure.Models;
+﻿using Microsoft.ApplicationInsights.DataContracts;
+using MSBandAzure.Models;
 using Newtonsoft.Json;
 using System;
 using System.Text;
@@ -51,8 +52,19 @@ namespace MSBandAzure.Services
 
             var postContent = new HttpStringContent(JsonConvert.SerializeObject(deviceTelemetry),
                 Windows.Storage.Streams.UnicodeEncoding.Utf8, "application/json");
-            postContent.Headers.Add("ContentType", "application/atom+xml;type=entry;charset=utf-8");
-            var resp = await httpClient.PostAsync(uriBuilder.Uri, postContent);
+
+            Microsoft.ApplicationInsights.TelemetryClient client = new Microsoft.ApplicationInsights.TelemetryClient();
+            client.TrackEvent(new EventTelemetry { Name = "Event Hub Post" });
+
+            HttpResponseMessage resp = null;
+            try
+            {
+                resp = await httpClient.PostAsync(uriBuilder.Uri, postContent);
+            }
+            catch (Exception ex)
+            {
+                client.TrackException(new ExceptionTelemetry { Exception = ex });
+            }
             return resp;
         }
     }

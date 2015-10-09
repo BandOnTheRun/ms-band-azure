@@ -47,7 +47,7 @@ namespace MSBandAzure
         // runs only when not restored from state
         public override async Task OnStartAsync(StartKind startKind, IActivatedEventArgs args)
         {
-            await Task.Delay(5000);
+            await Task.Delay(500);
             NavigationService.Navigate(typeof(Views.MainPage));
         }
     }

@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using Windows.Web.Http;
 
 
@@ -10,8 +11,12 @@ namespace MSBandAzure.Services
 {
     public class EventHubsTelemetry : ITelemetry
     {
+        private string bandTokenServiceLocation;
+
         public EventHubsTelemetry()
         {
+            bandTokenServiceLocation = "http://bandontherun.azurewebsites.net/api/getsastoken/dxband";
+
             RefreshTokenAsync().ContinueWith(t => { });
         }
 
@@ -20,7 +25,7 @@ namespace MSBandAzure.Services
         public async Task RefreshTokenAsync()
         {
             var http = new HttpClient();
-            var resp = await http.GetAsync(new Uri("http://bandontherun.azurewebsites.net/api/getsastoken/dxband"));
+            var resp = await http.GetAsync(new Uri(bandTokenServiceLocation));
             resp.EnsureSuccessStatusCode();
             _sas = await resp.Content.ReadAsStringAsync();
             _sas = _sas.Trim('"');

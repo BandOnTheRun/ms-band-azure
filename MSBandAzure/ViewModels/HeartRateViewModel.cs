@@ -2,6 +2,7 @@
 using Microsoft.Band.Sensors;
 using MSBandAzure.Model;
 using MSBandAzure.Mvvm;
+using MSBandAzure.Services;
 using System;
 using System.Threading.Tasks;
 
@@ -9,9 +10,12 @@ namespace MSBandAzure.ViewModels
 {
     public class HeartRateViewModel : DataViewModelBase
     {
-        public HeartRateViewModel(IBandClient bandClient)
+        private ITelemetry _telemetry;
+
+        public HeartRateViewModel(IBandClient bandClient, ITelemetry telemetry)
             : base("Heart Rate", bandClient)
         {
+            _telemetry = telemetry;
         }
 
         protected override bool CanStop(object arg)
@@ -35,6 +39,7 @@ namespace MSBandAzure.ViewModels
         protected override async Task<object> Start(object arg)
         {
             var band = arg as Band;
+            _bandInfo = band.Info;
             _bandClient = band.Client;
             var consent = _bandClient.SensorManager.HeartRate.GetCurrentUserConsent();
             switch (consent)
@@ -68,14 +73,24 @@ namespace MSBandAzure.ViewModels
 
         async void HeartRate_ReadingChanged(object sender, BandSensorReadingEventArgs<IBandHeartRateReading> e)
         {
+            var hr = e.SensorReading.HeartRate;
+            var ts = e.SensorReading.Timestamp;
             await _dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
              {
-                 HeartRate = e.SensorReading.HeartRate;
-                 TimeStamp = e.SensorReading.Timestamp.UtcDateTime.ToString();
+                 HeartRate = hr;
+                 TimeStamp = ts.ToString();
              });
+            await _telemetry.PostTelemetryAsync(new Models.DeviceTelemetry
+            {
+                DeviceId = _bandInfo.Name,
+                HeartRate = hr,
+                Timestamp = ts.ToString()
+            });
         }
 
         private int _heartRate;
+        private IBandInfo _bandInfo;
+
         public int HeartRate
         {
             get { return _heartRate; }

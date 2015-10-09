@@ -28,7 +28,7 @@ namespace DataSync
             this.InitializeComponent();
             this.Suspending += this.OnSuspending;
 
-            //_container.Register<ITelemetry, EventHubsTelemetry>();  
+            _container.Register<ITelemetry, EventHubsTelemetry>();  
         }
 
         /// <summary>

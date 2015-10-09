@@ -1,0 +1,20 @@
+
+
+SELECT
+    DeviceId, Heartrate, EventEnqueuedUtcTime as Time
+INTO
+    TableOutput   
+FROM
+    input
+Timestamp by EventEnqueuedUtcTime
+
+SELECT
+    DeviceId, Cast(AVG(HeartRate) as BIGINT) as HeartRate, Max(EventEnqueuedUtcTime) as Time
+INTO
+    PowerBIOutput
+FROM
+    input
+Timestamp by 
+    EventEnqueuedUtcTime
+GROUP BY 
+    DeviceId, Tumblingwindow(second, 5)

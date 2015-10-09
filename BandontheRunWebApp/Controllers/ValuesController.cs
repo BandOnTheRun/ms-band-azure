@@ -42,6 +42,10 @@ namespace BandontheRunWebApp.Controllers
 
             var sas = CreateForHttpSender(keyName, key, ns, hubName, deviceId, ttl);
 
+            // add app insight
+            var tc = new Microsoft.ApplicationInsights.TelemetryClient();
+            tc.TrackEvent("SasToken dispensed");
+            
             return sas;
         }
 

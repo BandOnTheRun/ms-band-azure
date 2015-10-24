@@ -1,7 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(NuGetPackageRoot)' == ''">
+<<<<<<< HEAD
     <NuGetPackageRoot>C:\Users\pdaukin\.nuget\packages\</NuGetPackageRoot>
+=======
+    <NuGetPackageRoot>C:\Users\mtaulty\.nuget\packages\</NuGetPackageRoot>
+>>>>>>> d6681e127e2d91010e2000e0d15759844d96820d
   </PropertyGroup>
   <ImportGroup>
     <Import Project="$(NuGetPackageRoot)\Template10\1.0.0\build\uap10.0\Template10.targets" Condition="Exists('$(NuGetPackageRoot)\Template10\1.0.0\build\uap10.0\Template10.targets')" />

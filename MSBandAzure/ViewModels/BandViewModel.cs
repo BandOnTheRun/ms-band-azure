@@ -2,6 +2,7 @@
 using MSBandAzure.Mvvm;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace MSBandAzure.ViewModels
@@ -18,6 +19,13 @@ namespace MSBandAzure.ViewModels
 
         public string BandName { get { return _band.Name; } }
 
+        public HeartRateViewModel HeartRate
+        {
+            get
+            {
+                return Connected ? SensorData.OfType<HeartRateViewModel>().First() : null;
+            }
+        }
         private bool _isBusy;
 
         private void UpdateConnectedStatus()

@@ -70,8 +70,7 @@
 
         <Grid Grid.Row="2">
             <GridView ItemsSource="{x:Bind ViewModel.BandViewModel.SensorData}"
-                  ItemTemplateSelector="{StaticResource SensorDataTemplateSelector}"
-                      ></GridView>
+                  ItemTemplateSelector="{StaticResource SensorDataTemplateSelector}"></GridView>
         </Grid>
 
         <!--#endregion-->

@@ -17,8 +17,28 @@
                   Height="220" 
                   Background="#FF5C2D91"
                   Margin="12">
-                <TextBlock Foreground="White" FontSize="32" Text="{x:Bind BandName}">
-                </TextBlock>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="109*"></ColumnDefinition>
+                    <ColumnDefinition Width="71*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Foreground="White" FontSize="32" Text="{x:Bind BandName}" />
+                <Grid Background="Azure" Grid.Row="1"></Grid>
+                <Viewbox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Height="120" Width="171">
+                    <Grid>
+                        <TextBlock FontSize="38" 
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center" 
+                                   Foreground="Red">&#x2665;</TextBlock>
+                        <TextBlock FontSize="8" 
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center" 
+                                   Foreground="White" Text="{x:Bind HeartRate.HeartRate, Mode=OneWay}"></TextBlock>
+                    </Grid>
+                </Viewbox>
             </Grid>
         </DataTemplate>
 
@@ -36,7 +56,7 @@
                     <VisualState.Setters>
                         <Setter Target="narrowList.Visibility" Value="Visible"></Setter>
                         <Setter Target="wideList.Visibility" Value="Collapsed"></Setter>
-                    </VisualState.Setters> 
+                    </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="VisualStateNormal">
                     <VisualState.StateTriggers>
@@ -45,7 +65,7 @@
                     <VisualState.Setters>
                         <Setter Target="narrowList.Visibility" Value="Collapsed"></Setter>
                         <Setter Target="wideList.Visibility" Value="Visible"></Setter>
-                    </VisualState.Setters> 
+                    </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>

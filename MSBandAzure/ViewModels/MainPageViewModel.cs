@@ -1,4 +1,6 @@
-﻿using Caliburn.Micro;
+﻿using Autofac;
+using Caliburn.Micro;
+using MSBandAzure.Model;
 using MSBandAzure.Mvvm;
 using MSBandAzure.Services;
 using System;
@@ -22,10 +24,15 @@ namespace MSBandAzure.ViewModels
         }
 
         private readonly IBandService _bandService;
+        private readonly IComponentContext _container;
         private readonly IEventAggregator _events;
+        private readonly Services.INavigationService _navigation;
 
-        public MainPageViewModel(IBandService bandService, IEventAggregator events)
+        public MainPageViewModel(IBandService bandService, IEventAggregator events, Services.INavigationService naviagtionService,
+            IComponentContext container)
         {
+            _container = container;
+            _navigation = naviagtionService;
             _bandService = bandService;
             _events = events;
             _enumerateBandsCmd = new Lazy<ICommand>(() =>
@@ -75,7 +82,8 @@ namespace MSBandAzure.ViewModels
         public void GotoDetailsPage(object item)
         {
             App.CurrentBand = item as BandViewModel;
-            this.NavigationService.Navigate(typeof(Views.DetailPage), this.Value);
+            //this.NavigationService.Navigate(typeof(Views.DetailPage), this.Value);
+            _navigation.Navigate(typeof(Views.DetailPage), this.Value);
         }
 
         private async Task<object> EnumerateBands(object obj)
@@ -86,7 +94,8 @@ namespace MSBandAzure.ViewModels
             IsBusy = true;
 
             var bands = await _bandService.GetPairedBands();
-            Bands = new ObservableCollection<BandViewModel>(bands.Select(b => new BandViewModel(b)));
+            Bands = new ObservableCollection<BandViewModel>(bands.Select(b => 
+                _container.Resolve<BandViewModel>(new TypedParameter(typeof(Band), b))));
             
             //_events.Publish();
 

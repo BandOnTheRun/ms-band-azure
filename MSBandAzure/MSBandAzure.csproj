@@ -122,6 +122,7 @@
     <Compile Include="Services\Fakes\FakeBandTileManager.cs" />
     <Compile Include="Services\Fakes\FakeHeartRateSensor.cs" />
     <Compile Include="Services\IBandService.cs" />
+    <Compile Include="Services\INavigationService.cs" />
     <Compile Include="Services\ITelemetry.cs" />
     <Compile Include="Services\MSBandService.cs" />
     <Compile Include="Services\SettingsServices\ISettingsService.cs" />

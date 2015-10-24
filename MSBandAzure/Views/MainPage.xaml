@@ -55,12 +55,16 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <!-- header -->
-        <controls:PageHeader Text="Bands" BackButtonVisibility="Collapsed" Frame="{x:Bind Frame, Mode=OneWay}">
+        <!-- header - this hooks into template 10 which I have currently disabled due to incompatibility with the current Band SDK -->
+        <!--<controls:PageHeader Text="Bands" BackButtonVisibility="Collapsed" Frame="{x:Bind Frame, Mode=OneWay}">
             <AppBarButton Icon="Forward" Label="Forward">
                 <Interactivity:Interaction.Behaviors>
                     <Behaviors:NavButtonBehavior Direction="Forward" Frame="{x:Bind Frame, Mode=OneWay}"/>
                 </Interactivity:Interaction.Behaviors>
+            </AppBarButton>
+        </controls:PageHeader>-->
+        <controls:PageHeader Text="Bands" BackButtonVisibility="Collapsed">
+            <AppBarButton Icon="Forward" Label="Forward">
             </AppBarButton>
         </controls:PageHeader>
 

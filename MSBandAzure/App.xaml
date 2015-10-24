@@ -1,4 +1,4 @@
-﻿<common:BootStrapper 
+﻿<Application 
     x:Class="MSBandAzure.App" 
     xmlns:common="using:Template10.Common" 
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
@@ -6,12 +6,12 @@
     xmlns:local="using:MSBandAzure"
     RequestedTheme="Dark">
 
-    <common:BootStrapper.Resources>
+    <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Styles\Custom.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-    </common:BootStrapper.Resources>
+    </Application.Resources>
 
-</common:BootStrapper>
+</Application>

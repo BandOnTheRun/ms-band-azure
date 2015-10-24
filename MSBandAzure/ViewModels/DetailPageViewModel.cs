@@ -23,6 +23,11 @@ namespace MSBandAzure.ViewModels
                 //this.Value = "Designtime value";
                 return;
             }
+
+            Connect().ContinueWith(t =>
+            {
+
+            });
         }
 
         public override async void OnNavigatedTo(object parameter, NavigationMode mode, IDictionary<string, object> state)
@@ -40,6 +45,11 @@ namespace MSBandAzure.ViewModels
                 //Value = parameter?.ToString();
             }
 
+            await Connect();
+        }
+
+        private async Task Connect()
+        {
             if (App.CurrentBand != null)
             {
                 if (App.CurrentBand.Connected == false)

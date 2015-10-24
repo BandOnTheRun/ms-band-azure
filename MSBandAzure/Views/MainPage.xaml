@@ -9,9 +9,15 @@
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" 
     xmlns:Behaviors="using:Template10.Behaviors" 
     xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:charting="using:WinRTXamlToolkit.Controls.DataVisualization.Charting"
     x:Class="MSBandAzure.Views.MainPage"
     mc:Ignorable="d">
     <Page.Resources>
+        <Style TargetType="charting:ColumnDataPoint" x:Key="ModernColumnStyle">
+            <Setter Property="Background" Value="#88ffffff">
+            </Setter>
+        </Style>
+
         <DataTemplate x:Key="BandTemplate" x:DataType="vm:BandViewModel">
             <Grid Width="360"
                   Height="220" 
@@ -26,7 +32,57 @@
                     <ColumnDefinition Width="71*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <TextBlock Foreground="White" FontSize="32" Text="{x:Bind BandName}" />
-                <Grid Background="Azure" Grid.Row="1"></Grid>
+                <charting:Chart Name="columnChart" Grid.Row="1" Grid.Column="1" Background="DarkGray" Foreground="Transparent" >
+                    <charting:Chart.Axes>
+                        <charting:LinearAxis x:Name="LeftAxis" Orientation="Y" 
+                                     Location="Left" Foreground="Transparent" 
+                                     ShowGridLines="False">
+                            <charting:LinearAxis.MajorTickMarkStyle>
+                                <Style TargetType="Line">
+                                    <Setter Property="StrokeThickness" Value="0"/>
+                                </Style>
+                            </charting:LinearAxis.MajorTickMarkStyle>
+                            <charting:LinearAxis.MinorTickMarkStyle>
+                                <Style TargetType="Line">
+                                    <Setter Property="StrokeThickness" Value="0"/>
+                                </Style>
+                            </charting:LinearAxis.MinorTickMarkStyle>
+                        </charting:LinearAxis>
+                        <charting:LinearAxis x:Name="BottomAxis" Orientation="X" Location="Bottom" Foreground="Transparent" 
+                                     ShowGridLines="False">
+                            <charting:LinearAxis.MajorTickMarkStyle>
+                                <Style TargetType="Line">
+                                    <Setter Property="StrokeThickness" Value="0"/>
+                                </Style>
+                            </charting:LinearAxis.MajorTickMarkStyle>
+                            <charting:LinearAxis.MinorTickMarkStyle>
+                                <Style TargetType="Line">
+                                    <Setter Property="StrokeThickness" Value="0"/>
+                                </Style>
+                            </charting:LinearAxis.MinorTickMarkStyle>
+                        </charting:LinearAxis>
+                        <charting:LinearAxis x:Name="TopAxis" Orientation="X" Location="Top" Foreground="Transparent" 
+                                     ShowGridLines="False">
+                            <charting:LinearAxis.MajorTickMarkStyle>
+                                <Style TargetType="Line">
+                                    <Setter Property="StrokeThickness" Value="0"/>
+                                </Style>
+                            </charting:LinearAxis.MajorTickMarkStyle>
+                            <charting:LinearAxis.MinorTickMarkStyle>
+                                <Style TargetType="Line">
+                                    <Setter Property="StrokeThickness" Value="0"/>
+                                </Style>
+                            </charting:LinearAxis.MinorTickMarkStyle>
+                        </charting:LinearAxis>
+                    </charting:Chart.Axes>
+                    <charting:Chart.Series>
+                        <charting:ColumnSeries ItemsSource="{Binding Data}"
+                        DependentValueBinding="{Binding Value}" 
+                        IsSelectionEnabled="False"
+                                       DataPointStyle="{StaticResource ModernColumnStyle}">
+                        </charting:ColumnSeries>
+                    </charting:Chart.Series>
+                </charting:Chart>
                 <Viewbox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Height="120" Width="171">
                     <Grid>
                         <TextBlock FontSize="38" 

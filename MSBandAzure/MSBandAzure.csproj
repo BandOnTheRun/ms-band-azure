@@ -115,15 +115,6 @@
     <Compile Include="SensorDataTemplateSelector.cs" />
     <Compile Include="Services\EventHubsTelemetry.cs" />
     <Compile Include="Services\FakeBandService.cs" />
-    <Compile Include="Services\Fakes\FakeBandClient.cs" />
-    <Compile Include="Services\Fakes\FakeBandHeartReading.cs" />
-    <Compile Include="Services\Fakes\FakeBandInfo.cs" />
-    <Compile Include="Services\Fakes\FakeBandNotificationManager.cs" />
-    <Compile Include="Services\Fakes\FakeBandPersonalizationManager.cs" />
-    <Compile Include="Services\Fakes\FakeBandSensor.cs" />
-    <Compile Include="Services\Fakes\FakeBandSensorManager.cs" />
-    <Compile Include="Services\Fakes\FakeBandTileManager.cs" />
-    <Compile Include="Services\Fakes\FakeHeartRateSensor.cs" />
     <Compile Include="Services\IBandService.cs" />
     <Compile Include="Services\INavigationService.cs" />
     <Compile Include="Services\ITelemetry.cs" />
@@ -191,7 +182,12 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\FakeBand\FakeBand.csproj">
+      <Project>{66ad68f7-8105-45ac-bfb5-d9b54715bd07}</Project>
+      <Name>FakeBand</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <SDKReference Include="BehaviorsXamlSDKManaged, Version=12.0">
       <Name>Behaviors SDK %28XAML%29</Name>

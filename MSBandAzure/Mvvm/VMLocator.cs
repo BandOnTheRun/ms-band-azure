@@ -57,6 +57,11 @@ namespace MSBandAzure.Mvvm
             _container = builder.Build();
         }
 
+        public T Resolve<T>()
+        {
+            return _container.Resolve<T>();
+        }
+
         public MainPageViewModel MainPageViewModel
         {
             get

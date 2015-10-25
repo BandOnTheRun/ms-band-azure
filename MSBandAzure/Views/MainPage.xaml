@@ -9,20 +9,15 @@
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" 
     xmlns:Behaviors="using:Template10.Behaviors" 
     xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
-    xmlns:charting="using:WinRTXamlToolkit.Controls.DataVisualization.Charting"
     x:Class="MSBandAzure.Views.MainPage"
     mc:Ignorable="d">
     <Page.Resources>
-        <Style TargetType="charting:ColumnDataPoint" x:Key="ModernColumnStyle">
-            <Setter Property="Background" Value="#88ffffff">
-            </Setter>
-        </Style>
 
         <DataTemplate x:Key="BandTemplate" x:DataType="vm:BandViewModel">
-            <Grid Width="360"
-                  Height="220" 
+            <Grid Width="380"
+                  Height="240" 
                   Background="#FF5C2D91"
-                  Margin="12">
+                  Margin="4">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition></RowDefinition>
@@ -31,70 +26,18 @@
                     <ColumnDefinition Width="109*"></ColumnDefinition>
                     <ColumnDefinition Width="71*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <TextBlock Foreground="White" FontSize="32" Text="{x:Bind BandName}" />
-                <charting:Chart Name="columnChart" Grid.Row="1" Grid.Column="1" Background="DarkGray" Foreground="Transparent" >
-                    <charting:Chart.Axes>
-                        <charting:LinearAxis x:Name="LeftAxis" Orientation="Y" 
-                                     Location="Left" Foreground="Transparent" 
-                                     ShowGridLines="False">
-                            <charting:LinearAxis.MajorTickMarkStyle>
-                                <Style TargetType="Line">
-                                    <Setter Property="StrokeThickness" Value="0"/>
-                                </Style>
-                            </charting:LinearAxis.MajorTickMarkStyle>
-                            <charting:LinearAxis.MinorTickMarkStyle>
-                                <Style TargetType="Line">
-                                    <Setter Property="StrokeThickness" Value="0"/>
-                                </Style>
-                            </charting:LinearAxis.MinorTickMarkStyle>
-                        </charting:LinearAxis>
-                        <charting:LinearAxis x:Name="BottomAxis" Orientation="X" Location="Bottom" Foreground="Transparent" 
-                                     ShowGridLines="False">
-                            <charting:LinearAxis.MajorTickMarkStyle>
-                                <Style TargetType="Line">
-                                    <Setter Property="StrokeThickness" Value="0"/>
-                                </Style>
-                            </charting:LinearAxis.MajorTickMarkStyle>
-                            <charting:LinearAxis.MinorTickMarkStyle>
-                                <Style TargetType="Line">
-                                    <Setter Property="StrokeThickness" Value="0"/>
-                                </Style>
-                            </charting:LinearAxis.MinorTickMarkStyle>
-                        </charting:LinearAxis>
-                        <charting:LinearAxis x:Name="TopAxis" Orientation="X" Location="Top" Foreground="Transparent" 
-                                     ShowGridLines="False">
-                            <charting:LinearAxis.MajorTickMarkStyle>
-                                <Style TargetType="Line">
-                                    <Setter Property="StrokeThickness" Value="0"/>
-                                </Style>
-                            </charting:LinearAxis.MajorTickMarkStyle>
-                            <charting:LinearAxis.MinorTickMarkStyle>
-                                <Style TargetType="Line">
-                                    <Setter Property="StrokeThickness" Value="0"/>
-                                </Style>
-                            </charting:LinearAxis.MinorTickMarkStyle>
-                        </charting:LinearAxis>
-                    </charting:Chart.Axes>
-                    <charting:Chart.Series>
-                        <charting:ColumnSeries ItemsSource="{Binding Data}"
-                        DependentValueBinding="{Binding Value}" 
-                        IsSelectionEnabled="False"
-                                       DataPointStyle="{StaticResource ModernColumnStyle}">
-                        </charting:ColumnSeries>
-                    </charting:Chart.Series>
-                </charting:Chart>
-                <Viewbox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Height="120" Width="171">
-                    <Grid>
-                        <TextBlock FontSize="38" 
+                <TextBlock Margin="4" Foreground="White" FontSize="32" Text="{x:Bind BandName}" />
+                <local:HeartRateChartControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"></local:HeartRateChartControl>
+                    <Grid VerticalAlignment="Top" Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" Padding="-24">
+                        <TextBlock FontSize="120" 
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center" 
-                                   Foreground="Red">&#x2665;</TextBlock>
-                        <TextBlock FontSize="8" 
+                                   Foreground="#77ffffff">&#x2665;</TextBlock>
+                        <TextBlock FontSize="28" 
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center" 
                                    Foreground="White" Text="{x:Bind HeartRate.HeartRate, Mode=OneWay}"></TextBlock>
                     </Grid>
-                </Viewbox>
             </Grid>
         </DataTemplate>
 

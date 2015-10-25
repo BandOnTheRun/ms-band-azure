@@ -49,7 +49,7 @@ namespace MSBandAzure.ViewModels
         public string TimeStamp
         {
             get { return _timeStamp; }
-            set { Set(ref _timeStamp, value); }
+            set { SetProperty(ref _timeStamp, value); }
         }
 
         private bool _isBusy;
@@ -57,7 +57,7 @@ namespace MSBandAzure.ViewModels
         public bool IsBusy
         {
             get { return _isBusy; }
-            set { Set(ref _isBusy, value); }
+            set { SetProperty(ref _isBusy, value); }
         }
 
         protected IBandClient _bandClient;

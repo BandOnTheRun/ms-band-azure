@@ -9,7 +9,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Template10.Services.NavigationService;
 using Windows.UI.Xaml.Navigation;
 
 namespace MSBandAzure.ViewModels
@@ -20,7 +19,7 @@ namespace MSBandAzure.ViewModels
         public ObservableCollection<BandViewModel> Bands
         {
             get { return _bands; }
-            set { Set(ref _bands, value); }
+            set { SetProperty(ref _bands, value); }
         }
 
         private readonly IBandService _bandService;
@@ -50,39 +49,12 @@ namespace MSBandAzure.ViewModels
             }
         }
 
-        public override void OnNavigatedTo(object parameter, NavigationMode mode, IDictionary<string, object> state)
-        {
-            if (state.Any())
-            {
-                // use cache value(s)
-                if (state.ContainsKey(nameof(Value))) Value = state[nameof(Value)]?.ToString();
-                // clear any cache
-                state.Clear();
-            }
-        }
-
-        public override Task OnNavigatedFromAsync(IDictionary<string, object> state, bool suspending)
-        {
-            if (suspending)
-            {
-                // persist into cache
-                state[nameof(Value)] = Value;
-            }
-            return base.OnNavigatedFromAsync(state, suspending);
-        }
-
-        public override void OnNavigatingFrom(NavigatingEventArgs args)
-        {
-            base.OnNavigatingFrom(args);
-        }
-
         private string _Value = string.Empty;
-        public string Value { get { return _Value; } set { Set(ref _Value, value); } }
+        public string Value { get { return _Value; } set { SetProperty(ref _Value, value); } }
 
         public void GotoDetailsPage(object item)
         {
             App.CurrentBand = item as BandViewModel;
-            //this.NavigationService.Navigate(typeof(Views.DetailPage), this.Value);
             _navigation.Navigate(typeof(Views.DetailPage), this.Value);
         }
 
@@ -96,15 +68,7 @@ namespace MSBandAzure.ViewModels
             var bands = await _bandService.GetPairedBands();
             Bands = new ObservableCollection<BandViewModel>(bands.Select(b => 
                 _container.Resolve<BandViewModel>(new TypedParameter(typeof(Band), b))));
-            
-            //_events.Publish();
-
-            //App.Events.Publish(new BusyProcessing { IsBusy = true, BusyText = "Enumerating bands..." });
-            //IBandInfo[] pairedBands = await BandClientManager.Instance.GetBandsAsync();
-            //Bands = new List<BandViewModel>(pairedBands.Select(b => new BandViewModel(b)));
-            //IsBusy = false;
-            //App.Events.Publish(new BusyProcessing { IsBusy = false, BusyText = "" });
-
+ 
             return Bands;
         }
         private bool CanEnumerateBands(object obj)
@@ -120,7 +84,7 @@ namespace MSBandAzure.ViewModels
         public bool IsBusy
         {
             get { return _isBusy; }
-            set { Set(ref _isBusy, value); }
+            set { SetProperty(ref _isBusy, value); }
         }
     }
 }

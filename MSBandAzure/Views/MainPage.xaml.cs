@@ -10,7 +10,7 @@ namespace MSBandAzure.Views
             InitializeComponent();
             NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Disabled;
 
-            // Note. we must set up the DataContext as tempate 10 relies on it..
+            // Note. we must set up the DataContext as template 10 relies on it..
             DataContext = App.Locator.MainPageViewModel;
         }
 

@@ -1,10 +1,7 @@
-﻿using Microsoft.ApplicationInsights.DataContracts;
-using MSBandAzure.Models;
+﻿using MSBandAzure.Models;
 using Newtonsoft.Json;
 using System;
-using System.Text;
 using System.Threading.Tasks;
-using System.Xml;
 using Windows.Web.Http;
 
 
@@ -22,6 +19,8 @@ namespace MSBandAzure.Services
         }
 
         private string _sas;
+        private HttpClient _httpClient = new HttpClient();
+        private Uri _postUri;
 
         public async Task RefreshTokenAsync()
         {
@@ -30,11 +29,6 @@ namespace MSBandAzure.Services
             resp.EnsureSuccessStatusCode();
             _sas = await resp.Content.ReadAsStringAsync();
             _sas = _sas.Trim('"');
-        }
-
-        public async Task<HttpResponseMessage> PostTelemetryAsync(DeviceTelemetry deviceTelemetry)
-        {
-            var sas = _sas;
 
             // Namespace info.
             var serviceNamespace = "bandontherun-ns";
@@ -45,25 +39,27 @@ namespace MSBandAzure.Services
             uriBuilder.Scheme = "https";
             uriBuilder.Host = string.Format("{0}.servicebus.windows.net/", serviceNamespace);
             uriBuilder.Path = url;
+            _postUri = uriBuilder.Uri;
 
-            var httpClient = new HttpClient();
+            _httpClient.DefaultRequestHeaders.TryAppendWithoutValidation("Authorization", _sas);
+        }
 
-            httpClient.DefaultRequestHeaders.TryAppendWithoutValidation("Authorization", sas);
-
+        public async Task<HttpResponseMessage> PostTelemetryAsync(DeviceTelemetry deviceTelemetry)
+        {
             var postContent = new HttpStringContent(JsonConvert.SerializeObject(deviceTelemetry),
                 Windows.Storage.Streams.UnicodeEncoding.Utf8, "application/json");
 
-            Microsoft.ApplicationInsights.TelemetryClient client = new Microsoft.ApplicationInsights.TelemetryClient();
-            client.TrackEvent(new EventTelemetry { Name = "Event Hub Post" });
+            //Microsoft.ApplicationInsights.TelemetryClient client = new Microsoft.ApplicationInsights.TelemetryClient();
+            //client.TrackEvent(new EventTelemetry { Name = "Event Hub Post" });
 
             HttpResponseMessage resp = null;
             try
             {
-                resp = await httpClient.PostAsync(uriBuilder.Uri, postContent);
+                resp = await _httpClient.PostAsync(_postUri, postContent);
             }
             catch (Exception ex)
             {
-                client.TrackException(new ExceptionTelemetry { Exception = ex });
+                //client.TrackException(new ExceptionTelemetry { Exception = ex });
             }
             return resp;
         }

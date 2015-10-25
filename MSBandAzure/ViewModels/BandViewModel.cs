@@ -36,7 +36,7 @@ namespace MSBandAzure.ViewModels
         public bool IsBusy
         {
             get { return _isBusy; }
-            set { Set(ref _isBusy, value); }
+            set { SetProperty(ref _isBusy, value); }
         }
 
         private string _statusText;
@@ -44,7 +44,7 @@ namespace MSBandAzure.ViewModels
         public string StatusText
         {
             get { return _statusText; }
-            set { Set(ref _statusText, value); }
+            set { SetProperty(ref _statusText, value); }
         }
 
         public bool Connected { get { return _band == null ? false : _band.Connected; } }

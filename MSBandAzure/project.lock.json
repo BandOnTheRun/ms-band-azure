@@ -54,6 +54,18 @@
           "lib/netcore451/Microsoft.Band.Windows.dll": {}
         }
       },
+      "Microsoft.Bcl/1.1.9": {
+        "dependencies": {
+          "Microsoft.Bcl.Build": "[1.0.14, )"
+        },
+        "compile": {
+          "lib/win8/_._": {}
+        },
+        "runtime": {
+          "lib/win8/_._": {}
+        }
+      },
+      "Microsoft.Bcl.Build/1.0.21": {},
       "Microsoft.CSharp/4.0.0": {
         "dependencies": {
           "System.Collections": "[4.0.10, )",
@@ -258,6 +270,19 @@
         },
         "runtime": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        }
+      },
+      "PCLCommandBase/0.2.2": {
+        "dependencies": {
+          "Microsoft.Bcl": "[1.1.9, )",
+          "Microsoft.Bcl.Build": "[1.0.21, )",
+          "Validation": "[2.0.6.15003, )"
+        },
+        "compile": {
+          "lib/portable-net45+sl50+win+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/PCLCommandBase.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+sl50+win+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/PCLCommandBase.dll": {}
         }
       },
       "Rx-Core/2.3.0-beta2": {
@@ -1646,19 +1671,12 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Template10/1.0.0": {
-        "dependencies": {
-          "Newtonsoft.Json": "[7.0.1, )"
-        },
+      "Validation/2.0.6.15003": {
         "compile": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {},
-          "lib/uap10.0/Template10Library.dll": {}
+          "lib/portable-net40+sl50+win+wpa81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/Validation.dll": {}
         },
         "runtime": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {},
-          "lib/uap10.0/Template10Library.dll": {}
+          "lib/portable-net40+sl50+win+wpa81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/Validation.dll": {}
         }
       },
       "WinRTXamlToolkit.Controls.DataVisualization.UWP/1.9.4": {
@@ -1733,6 +1751,18 @@
           "lib/netcore451/Microsoft.Band.Windows.dll": {}
         }
       },
+      "Microsoft.Bcl/1.1.9": {
+        "dependencies": {
+          "Microsoft.Bcl.Build": "[1.0.14, )"
+        },
+        "compile": {
+          "lib/win8/_._": {}
+        },
+        "runtime": {
+          "lib/win8/_._": {}
+        }
+      },
+      "Microsoft.Bcl.Build/1.0.21": {},
       "Microsoft.CSharp/4.0.0": {
         "dependencies": {
           "System.Collections": "[4.0.10, )",
@@ -1980,6 +2010,19 @@
         },
         "runtime": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        }
+      },
+      "PCLCommandBase/0.2.2": {
+        "dependencies": {
+          "Microsoft.Bcl": "[1.1.9, )",
+          "Microsoft.Bcl.Build": "[1.0.21, )",
+          "Validation": "[2.0.6.15003, )"
+        },
+        "compile": {
+          "lib/portable-net45+sl50+win+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/PCLCommandBase.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+sl50+win+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/PCLCommandBase.dll": {}
         }
       },
       "Rx-Core/2.3.0-beta2": {
@@ -3415,19 +3458,12 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Template10/1.0.0": {
-        "dependencies": {
-          "Newtonsoft.Json": "[7.0.1, )"
-        },
+      "Validation/2.0.6.15003": {
         "compile": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {},
-          "lib/uap10.0/Template10Library.dll": {}
+          "lib/portable-net40+sl50+win+wpa81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/Validation.dll": {}
         },
         "runtime": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {},
-          "lib/uap10.0/Template10Library.dll": {}
+          "lib/portable-net40+sl50+win+wpa81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/Validation.dll": {}
         }
       },
       "WinRTXamlToolkit.Controls.DataVisualization.UWP/1.9.4": {
@@ -3502,6 +3538,18 @@
           "lib/netcore451/Microsoft.Band.Windows.dll": {}
         }
       },
+      "Microsoft.Bcl/1.1.9": {
+        "dependencies": {
+          "Microsoft.Bcl.Build": "[1.0.14, )"
+        },
+        "compile": {
+          "lib/win8/_._": {}
+        },
+        "runtime": {
+          "lib/win8/_._": {}
+        }
+      },
+      "Microsoft.Bcl.Build/1.0.21": {},
       "Microsoft.CSharp/4.0.0": {
         "dependencies": {
           "System.Collections": "[4.0.10, )",
@@ -3735,6 +3783,19 @@
         },
         "runtime": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        }
+      },
+      "PCLCommandBase/0.2.2": {
+        "dependencies": {
+          "Microsoft.Bcl": "[1.1.9, )",
+          "Microsoft.Bcl.Build": "[1.0.21, )",
+          "Validation": "[2.0.6.15003, )"
+        },
+        "compile": {
+          "lib/portable-net45+sl50+win+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/PCLCommandBase.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+sl50+win+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/PCLCommandBase.dll": {}
         }
       },
       "Rx-Core/2.3.0-beta2": {
@@ -5156,19 +5217,12 @@
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Template10/1.0.0": {
-        "dependencies": {
-          "Newtonsoft.Json": "[7.0.1, )"
-        },
+      "Validation/2.0.6.15003": {
         "compile": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {},
-          "lib/uap10.0/Template10Library.dll": {}
+          "lib/portable-net40+sl50+win+wpa81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/Validation.dll": {}
         },
         "runtime": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {},
-          "lib/uap10.0/Template10Library.dll": {}
+          "lib/portable-net40+sl50+win+wpa81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/Validation.dll": {}
         }
       },
       "WinRTXamlToolkit.Controls.DataVisualization.UWP/1.9.4": {
@@ -5243,6 +5297,18 @@
           "lib/netcore451/Microsoft.Band.Windows.dll": {}
         }
       },
+      "Microsoft.Bcl/1.1.9": {
+        "dependencies": {
+          "Microsoft.Bcl.Build": "[1.0.14, )"
+        },
+        "compile": {
+          "lib/win8/_._": {}
+        },
+        "runtime": {
+          "lib/win8/_._": {}
+        }
+      },
+      "Microsoft.Bcl.Build/1.0.21": {},
       "Microsoft.CSharp/4.0.0": {
         "dependencies": {
           "System.Collections": "[4.0.10, )",
@@ -5497,6 +5563,19 @@
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
+      "PCLCommandBase/0.2.2": {
+        "dependencies": {
+          "Microsoft.Bcl": "[1.1.9, )",
+          "Microsoft.Bcl.Build": "[1.0.21, )",
+          "Validation": "[2.0.6.15003, )"
+        },
+        "compile": {
+          "lib/portable-net45+sl50+win+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/PCLCommandBase.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+sl50+win+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/PCLCommandBase.dll": {}
+        }
+      },
       "Rx-Core/2.3.0-beta2": {
         "dependencies": {
           "Rx-Interfaces": "[2.3.0-beta2, )"
@@ -6930,19 +7009,12 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Template10/1.0.0": {
-        "dependencies": {
-          "Newtonsoft.Json": "[7.0.1, )"
-        },
+      "Validation/2.0.6.15003": {
         "compile": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {},
-          "lib/uap10.0/Template10Library.dll": {}
+          "lib/portable-net40+sl50+win+wpa81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/Validation.dll": {}
         },
         "runtime": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {},
-          "lib/uap10.0/Template10Library.dll": {}
+          "lib/portable-net40+sl50+win+wpa81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/Validation.dll": {}
         }
       },
       "WinRTXamlToolkit.Controls.DataVisualization.UWP/1.9.4": {
@@ -7017,6 +7089,18 @@
           "lib/netcore451/Microsoft.Band.Windows.dll": {}
         }
       },
+      "Microsoft.Bcl/1.1.9": {
+        "dependencies": {
+          "Microsoft.Bcl.Build": "[1.0.14, )"
+        },
+        "compile": {
+          "lib/win8/_._": {}
+        },
+        "runtime": {
+          "lib/win8/_._": {}
+        }
+      },
+      "Microsoft.Bcl.Build/1.0.21": {},
       "Microsoft.CSharp/4.0.0": {
         "dependencies": {
           "System.Collections": "[4.0.10, )",
@@ -7250,6 +7334,19 @@
         },
         "runtime": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        }
+      },
+      "PCLCommandBase/0.2.2": {
+        "dependencies": {
+          "Microsoft.Bcl": "[1.1.9, )",
+          "Microsoft.Bcl.Build": "[1.0.21, )",
+          "Validation": "[2.0.6.15003, )"
+        },
+        "compile": {
+          "lib/portable-net45+sl50+win+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/PCLCommandBase.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+sl50+win+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/PCLCommandBase.dll": {}
         }
       },
       "Rx-Core/2.3.0-beta2": {
@@ -8671,19 +8768,12 @@
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Template10/1.0.0": {
-        "dependencies": {
-          "Newtonsoft.Json": "[7.0.1, )"
-        },
+      "Validation/2.0.6.15003": {
         "compile": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {},
-          "lib/uap10.0/Template10Library.dll": {}
+          "lib/portable-net40+sl50+win+wpa81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/Validation.dll": {}
         },
         "runtime": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {},
-          "lib/uap10.0/Template10Library.dll": {}
+          "lib/portable-net40+sl50+win+wpa81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/Validation.dll": {}
         }
       },
       "WinRTXamlToolkit.Controls.DataVisualization.UWP/1.9.4": {
@@ -8758,6 +8848,18 @@
           "lib/netcore451/Microsoft.Band.Windows.dll": {}
         }
       },
+      "Microsoft.Bcl/1.1.9": {
+        "dependencies": {
+          "Microsoft.Bcl.Build": "[1.0.14, )"
+        },
+        "compile": {
+          "lib/win8/_._": {}
+        },
+        "runtime": {
+          "lib/win8/_._": {}
+        }
+      },
+      "Microsoft.Bcl.Build/1.0.21": {},
       "Microsoft.CSharp/4.0.0": {
         "dependencies": {
           "System.Collections": "[4.0.10, )",
@@ -9012,6 +9114,19 @@
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
+      "PCLCommandBase/0.2.2": {
+        "dependencies": {
+          "Microsoft.Bcl": "[1.1.9, )",
+          "Microsoft.Bcl.Build": "[1.0.21, )",
+          "Validation": "[2.0.6.15003, )"
+        },
+        "compile": {
+          "lib/portable-net45+sl50+win+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/PCLCommandBase.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+sl50+win+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/PCLCommandBase.dll": {}
+        }
+      },
       "Rx-Core/2.3.0-beta2": {
         "dependencies": {
           "Rx-Interfaces": "[2.3.0-beta2, )"
@@ -10445,19 +10560,12 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Template10/1.0.0": {
-        "dependencies": {
-          "Newtonsoft.Json": "[7.0.1, )"
-        },
+      "Validation/2.0.6.15003": {
         "compile": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {},
-          "lib/uap10.0/Template10Library.dll": {}
+          "lib/portable-net40+sl50+win+wpa81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/Validation.dll": {}
         },
         "runtime": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {},
-          "lib/uap10.0/Template10Library.dll": {}
+          "lib/portable-net40+sl50+win+wpa81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/Validation.dll": {}
         }
       },
       "WinRTXamlToolkit.Controls.DataVisualization.UWP/1.9.4": {
@@ -10532,6 +10640,18 @@
           "lib/netcore451/Microsoft.Band.Windows.dll": {}
         }
       },
+      "Microsoft.Bcl/1.1.9": {
+        "dependencies": {
+          "Microsoft.Bcl.Build": "[1.0.14, )"
+        },
+        "compile": {
+          "lib/win8/_._": {}
+        },
+        "runtime": {
+          "lib/win8/_._": {}
+        }
+      },
+      "Microsoft.Bcl.Build/1.0.21": {},
       "Microsoft.CSharp/4.0.0": {
         "dependencies": {
           "System.Collections": "[4.0.10, )",
@@ -10765,6 +10885,19 @@
         },
         "runtime": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
+        }
+      },
+      "PCLCommandBase/0.2.2": {
+        "dependencies": {
+          "Microsoft.Bcl": "[1.1.9, )",
+          "Microsoft.Bcl.Build": "[1.0.21, )",
+          "Validation": "[2.0.6.15003, )"
+        },
+        "compile": {
+          "lib/portable-net45+sl50+win+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/PCLCommandBase.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+sl50+win+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/PCLCommandBase.dll": {}
         }
       },
       "Rx-Core/2.3.0-beta2": {
@@ -12186,19 +12319,12 @@
           "runtimes/win8-aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Template10/1.0.0": {
-        "dependencies": {
-          "Newtonsoft.Json": "[7.0.1, )"
-        },
+      "Validation/2.0.6.15003": {
         "compile": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {},
-          "lib/uap10.0/Template10Library.dll": {}
+          "lib/portable-net40+sl50+win+wpa81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/Validation.dll": {}
         },
         "runtime": {
-          "lib/uap10.0/Microsoft.Xaml.Interactions.dll": {},
-          "lib/uap10.0/Microsoft.Xaml.Interactivity.dll": {},
-          "lib/uap10.0/Template10Library.dll": {}
+          "lib/portable-net40+sl50+win+wpa81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/Validation.dll": {}
         }
       },
       "WinRTXamlToolkit.Controls.DataVisualization.UWP/1.9.4": {
@@ -12323,6 +12449,122 @@
         "lib/wpa81/Microsoft.Band.Store/Tiles/AddTilePage.xbf",
         "Microsoft.Band.nuspec",
         "package/services/metadata/core-properties/fa6eb5e8aab940dd8fc96c3e4a127bc8.psmdcp"
+      ]
+    },
+    "Microsoft.Bcl/1.1.9": {
+      "sha512": "USQ55innJy8K+tAXvVa1O8dUTp2s7pmJ5cJj6Tl02HtGc2xBDj0P2QH5620HbGXIWKWYhydoeQF8Rm/JRDBGhw==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "content/monoandroid/_._",
+        "content/monotouch/_._",
+        "content/net45/_._",
+        "content/portable-net45+win8+wp8+wpa81/_._",
+        "content/portable-net45+win8+wpa81/_._",
+        "content/portable-net451+win81/_._",
+        "content/portable-net451+win81+wpa81/_._",
+        "content/portable-win81+wp81+wpa81/_._",
+        "content/sl4/_._",
+        "content/sl5/_._",
+        "content/win8/_._",
+        "content/wp8/_._",
+        "content/wpa81/_._",
+        "lib/monoandroid/_._",
+        "lib/monotouch/_._",
+        "lib/net40/ensureRedirect.xml",
+        "lib/net40/System.IO.dll",
+        "lib/net40/System.IO.xml",
+        "lib/net40/System.Runtime.dll",
+        "lib/net40/System.Runtime.xml",
+        "lib/net40/System.Threading.Tasks.dll",
+        "lib/net40/System.Threading.Tasks.xml",
+        "lib/net45/_._",
+        "lib/portable-net40+sl4+win8/ensureRedirect.xml",
+        "lib/portable-net40+sl4+win8/System.IO.dll",
+        "lib/portable-net40+sl4+win8/System.IO.xml",
+        "lib/portable-net40+sl4+win8/System.Runtime.dll",
+        "lib/portable-net40+sl4+win8/System.Runtime.xml",
+        "lib/portable-net40+sl4+win8/System.Threading.Tasks.dll",
+        "lib/portable-net40+sl4+win8/System.Threading.Tasks.xml",
+        "lib/portable-net40+sl4+win8+wp71+wpa81/ensureRedirect.xml",
+        "lib/portable-net40+sl4+win8+wp71+wpa81/System.IO.dll",
+        "lib/portable-net40+sl4+win8+wp71+wpa81/System.IO.xml",
+        "lib/portable-net40+sl4+win8+wp71+wpa81/System.Runtime.dll",
+        "lib/portable-net40+sl4+win8+wp71+wpa81/System.Runtime.xml",
+        "lib/portable-net40+sl4+win8+wp71+wpa81/System.Threading.Tasks.dll",
+        "lib/portable-net40+sl4+win8+wp71+wpa81/System.Threading.Tasks.xml",
+        "lib/portable-net40+sl4+win8+wp8+wpa81/ensureRedirect.xml",
+        "lib/portable-net40+sl4+win8+wp8+wpa81/System.IO.dll",
+        "lib/portable-net40+sl4+win8+wp8+wpa81/System.IO.xml",
+        "lib/portable-net40+sl4+win8+wp8+wpa81/System.Runtime.dll",
+        "lib/portable-net40+sl4+win8+wp8+wpa81/System.Runtime.xml",
+        "lib/portable-net40+sl4+win8+wp8+wpa81/System.Threading.Tasks.dll",
+        "lib/portable-net40+sl4+win8+wp8+wpa81/System.Threading.Tasks.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/ensureRedirect.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/System.IO.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/System.IO.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/System.Runtime.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/System.Runtime.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/System.Threading.Tasks.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/System.Threading.Tasks.xml",
+        "lib/portable-net40+win8/ensureRedirect.xml",
+        "lib/portable-net40+win8/System.IO.dll",
+        "lib/portable-net40+win8/System.IO.xml",
+        "lib/portable-net40+win8/System.Runtime.dll",
+        "lib/portable-net40+win8/System.Runtime.xml",
+        "lib/portable-net40+win8/System.Threading.Tasks.dll",
+        "lib/portable-net40+win8/System.Threading.Tasks.xml",
+        "lib/portable-net40+win8+wp8+wpa81/ensureRedirect.xml",
+        "lib/portable-net40+win8+wp8+wpa81/System.IO.dll",
+        "lib/portable-net40+win8+wp8+wpa81/System.IO.xml",
+        "lib/portable-net40+win8+wp8+wpa81/System.Runtime.dll",
+        "lib/portable-net40+win8+wp8+wpa81/System.Runtime.xml",
+        "lib/portable-net40+win8+wp8+wpa81/System.Threading.Tasks.dll",
+        "lib/portable-net40+win8+wp8+wpa81/System.Threading.Tasks.xml",
+        "lib/portable-net45+win8+wp8+wpa81/_._",
+        "lib/portable-net45+win8+wpa81/_._",
+        "lib/portable-net451+win81/_._",
+        "lib/portable-net451+win81+wpa81/_._",
+        "lib/portable-win81+wp81+wpa81/_._",
+        "lib/sl4/System.IO.dll",
+        "lib/sl4/System.IO.xml",
+        "lib/sl4/System.Runtime.dll",
+        "lib/sl4/System.Runtime.xml",
+        "lib/sl4/System.Threading.Tasks.dll",
+        "lib/sl4/System.Threading.Tasks.xml",
+        "lib/sl4-windowsphone71/ensureRedirect.xml",
+        "lib/sl4-windowsphone71/System.IO.dll",
+        "lib/sl4-windowsphone71/System.IO.xml",
+        "lib/sl4-windowsphone71/System.Runtime.dll",
+        "lib/sl4-windowsphone71/System.Runtime.xml",
+        "lib/sl4-windowsphone71/System.Threading.Tasks.dll",
+        "lib/sl4-windowsphone71/System.Threading.Tasks.xml",
+        "lib/sl5/System.IO.dll",
+        "lib/sl5/System.IO.xml",
+        "lib/sl5/System.Runtime.dll",
+        "lib/sl5/System.Runtime.xml",
+        "lib/sl5/System.Threading.Tasks.dll",
+        "lib/sl5/System.Threading.Tasks.xml",
+        "lib/win8/_._",
+        "lib/wp8/_._",
+        "lib/wpa81/_._",
+        "License-Stable.rtf",
+        "Microsoft.Bcl.nuspec",
+        "package/services/metadata/core-properties/a2c2e4aac469425ea858153a6ad602c0.psmdcp"
+      ]
+    },
+    "Microsoft.Bcl.Build/1.0.21": {
+      "sha512": "sgHu4mIt0+NVGyI12Bj4hLPypNK55UOH+ologj2LqDCjxq3EbIxe/uAtHjY+fEwbE1dtsAHG8SXHf+V/EYbKTg==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "build/Microsoft.Bcl.Build.targets",
+        "build/Microsoft.Bcl.Build.Tasks.dll",
+        "License-Stable.rtf",
+        "Microsoft.Bcl.Build.nuspec",
+        "package/services/metadata/core-properties/642092c96f444452801a3d9f187d628b.psmdcp"
       ]
     },
     "Microsoft.CSharp/4.0.0": {
@@ -12999,6 +13241,18 @@
         "Newtonsoft.Json.nuspec",
         "package/services/metadata/core-properties/49e907fc018c4c7ab632e6d4ad4766f8.psmdcp",
         "tools/install.ps1"
+      ]
+    },
+    "PCLCommandBase/0.2.2": {
+      "sha512": "MPMbta6AzhSoV1jJSpR/n+amaN2bQmpZbaeCGkATKm8BoWqJ9tHJelmyEFqF4w5/nSGbMjmXFvDd5b/ydmshpg==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "lib/portable-net45+sl50+win+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/PCLCommandBase.dll",
+        "lib/portable-net45+sl50+win+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/PCLCommandBase.XML",
+        "package/services/metadata/core-properties/a44231675d594a3480cbdb2507ca5b1c.psmdcp",
+        "PCLCommandBase.nuspec"
       ]
     },
     "Rx-Core/2.3.0-beta2": {
@@ -15818,28 +16072,16 @@
         "System.Xml.XmlSerializer.nuspec"
       ]
     },
-    "Template10/1.0.0": {
-      "sha512": "QB1/ayu5IyhJDY3cEP3yLnZSZCgXvU9UWBZEhiLv9IbaLGzFVTFPL9xjxsJQjXH/ES4cqSvbJ7NpoF1swsgmCg==",
+    "Validation/2.0.6.15003": {
+      "sha512": "8vgCOG9mPeOd3xwyL20OT9RyOKq9PmJb0Iltzwj6eay38Cq2v6ojvpSDbc+sc6YXit+iAVyyvHTS29rBvDpdDQ==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
         "_rels/.rels",
-        "build/Template10.targets",
-        "build/uap10.0/Template10.targets",
-        "lib/uap10.0/Microsoft.Xaml.Interactions.dll",
-        "lib/uap10.0/Microsoft.Xaml.Interactivity.dll",
-        "lib/uap10.0/Template10Library.dll",
-        "lib/uap10.0/Template10Library.pri",
-        "lib/uap10.0/Template10Library/Controls/HamburgerMenu.xaml",
-        "lib/uap10.0/Template10Library/Controls/HamburgerMenu.xbf",
-        "lib/uap10.0/Template10Library/Controls/PageHeader.xaml",
-        "lib/uap10.0/Template10Library/Controls/PageHeader.xbf",
-        "lib/uap10.0/Template10Library/Properties/Template10Library.rd.xml",
-        "lib/uap10.0/Template10Library/Styles/Mdl2.xaml",
-        "lib/uap10.0/Template10Library/Styles/Mdl2.xbf",
-        "lib/uap10.0/Template10Library/Template10Library.xr.xml",
-        "package/services/metadata/core-properties/c06338c54d8045d694a81099912177bb.psmdcp",
-        "Template10.nuspec"
+        "lib/portable-net40+sl50+win+wpa81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/Validation.dll",
+        "lib/portable-net40+sl50+win+wpa81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/Validation.xml",
+        "package/services/metadata/core-properties/3b1340c05ca1419dbf9ab6244fcd0b7c.psmdcp",
+        "Validation.nuspec"
       ]
     },
     "WinRTXamlToolkit.Controls.DataVisualization.UWP/1.9.4": {
@@ -16249,8 +16491,8 @@
       "Microsoft.Band >= 1.3.10702",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
       "Newtonsoft.Json >= 7.0.1",
+      "PCLCommandBase >= 0.2.2",
       "Rx-Main >= 2.3.0-beta2",
-      "Template10 >= 1.0.0",
       "WinRTXamlToolkit.Controls.DataVisualization.UWP >= 1.9.4"
     ],
     "UAP,Version=v10.0": []

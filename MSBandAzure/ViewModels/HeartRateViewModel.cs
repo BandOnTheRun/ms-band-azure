@@ -5,11 +5,40 @@ using MSBandAzure.Model;
 using MSBandAzure.Mvvm;
 using MSBandAzure.Services;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace MSBandAzure.ViewModels
 {
+    public class FixedSizedQueue<T>
+    {
+        private readonly object privateLockObject = new object();
+
+        readonly ConcurrentQueue<T> queue = new ConcurrentQueue<T>();
+
+        public int Size { get; private set; }
+
+        public FixedSizedQueue(int size)
+        {
+            Size = size;
+        }
+
+        public void Enqueue(T obj)
+        {
+            queue.Enqueue(obj);
+
+            lock (privateLockObject)
+            {
+                while (queue.Count > Size)
+                {
+                    T outObj;
+                    queue.TryDequeue(out outObj);
+                }
+            }
+        }
+    }
+
     public class HeartRateViewModel : DataViewModelBase
     {
         private ITelemetry _telemetry;
@@ -20,6 +49,7 @@ namespace MSBandAzure.ViewModels
         {
             _telemetry = telemetry;
             _events = events;
+            _hrv = new HeartRateValueUpdated { ViewModel = this };
         }
 
         protected override bool CanStop(object arg)
@@ -35,6 +65,8 @@ namespace MSBandAzure.ViewModels
             return _started;
         }
 
+        private HeartRateValueUpdated _hrv;
+         
         protected override bool CanStart(object arg)
         {
             return !_started && !IsBusy;
@@ -81,7 +113,7 @@ namespace MSBandAzure.ViewModels
             var ts = e.SensorReading.Timestamp;
 
             UpdateHistory(hr);
-            _events.Publish(new HeartRateValueUpdated { ViewModel = this });
+            _events.Publish(_hrv);
 
             await _dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
              {
@@ -102,7 +134,7 @@ namespace MSBandAzure.ViewModels
         public int HeartRate
         {
             get { return _heartRate; }
-            set { Set(ref _heartRate, value); }
+            set { SetProperty(ref _heartRate, value); }
         }
 
         private List<HeartRateValue> _data = new List<HeartRateValue>()
@@ -132,7 +164,7 @@ namespace MSBandAzure.ViewModels
         public List<HeartRateValue> Data
         {
             get { return _data; }
-            set { Set(ref _data, value); }
+            set { SetProperty(ref _data, value); }
         }
 
         public void UpdateHistory(int newValue)

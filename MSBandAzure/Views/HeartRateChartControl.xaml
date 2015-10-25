@@ -26,7 +26,7 @@
             <charting:Chart.Axes>
                 <charting:LinearAxis x:Name="LeftAxis" Orientation="Y" 
                                      Location="Left" Foreground="Transparent" 
-                                     ShowGridLines="False">
+                                     ShowGridLines="False" Width="0">
                     <charting:LinearAxis.MajorTickMarkStyle>
                         <Style TargetType="Line">
                             <Setter Property="StrokeThickness" Value="0"/>
@@ -39,7 +39,7 @@
                     </charting:LinearAxis.MinorTickMarkStyle>
                 </charting:LinearAxis>
                 <charting:LinearAxis x:Name="BottomAxis" Orientation="X" Location="Bottom" Foreground="Transparent" 
-                                     ShowGridLines="False">
+                                     ShowGridLines="False" Height="0">
                     <charting:LinearAxis.MajorTickMarkStyle>
                         <Style TargetType="Line">
                             <Setter Property="StrokeThickness" Value="0"/>
@@ -52,7 +52,7 @@
                     </charting:LinearAxis.MinorTickMarkStyle>
                 </charting:LinearAxis>
                 <charting:LinearAxis x:Name="TopAxis" Orientation="X" Location="Top" Foreground="Transparent" 
-                                     ShowGridLines="False">
+                                     ShowGridLines="False" Height="0">
                     <charting:LinearAxis.MajorTickMarkStyle>
                         <Style TargetType="Line">
                             <Setter Property="StrokeThickness" Value="0"/>
@@ -60,13 +60,13 @@
                     </charting:LinearAxis.MajorTickMarkStyle>
                     <charting:LinearAxis.MinorTickMarkStyle>
                         <Style TargetType="Line">
-                            <Setter Property="StrokeThickness" Value="0"/>
+                            <Setter Property="Height" Value="0"/>
                         </Style>
                     </charting:LinearAxis.MinorTickMarkStyle>
                 </charting:LinearAxis>
             </charting:Chart.Axes>
             <charting:Chart.Series>
-                <charting:ColumnSeries ItemsSource="{Binding Data}" Title=""
+                <charting:ColumnSeries Title=""
                                        DependentValueBinding="{Binding Value}"
                                        IsSelectionEnabled="False"
                                        DataPointStyle="{StaticResource ModernColumnStyle}">

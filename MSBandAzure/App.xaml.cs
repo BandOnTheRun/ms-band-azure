@@ -1,7 +1,6 @@
 ﻿using System;
 using Windows.UI.Xaml;
 using System.Threading.Tasks;
-using MSBandAzure.Services.SettingsServices;
 using Windows.ApplicationModel.Activation;
 using MSBandAzure.Mvvm;
 using MSBandAzure.ViewModels;

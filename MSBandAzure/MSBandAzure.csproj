@@ -128,14 +128,11 @@
     <Compile Include="Services\INavigationService.cs" />
     <Compile Include="Services\ITelemetry.cs" />
     <Compile Include="Services\MSBandService.cs" />
-    <Compile Include="Services\SettingsServices\ISettingsService.cs" />
-    <Compile Include="Services\SettingsServices\SettingsService.cs" />
     <Compile Include="ViewModels\BandViewModel.cs" />
     <Compile Include="ViewModels\DataViewModelBase.cs" />
     <Compile Include="ViewModels\HeartRateViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\DetailPageViewModel.cs" />
-    <Compile Include="ViewModels\SettingsPageViewModel.cs" />
     <Compile Include="ViewModels\SkinTempViewModel.cs" />
     <Compile Include="ViewModels\UVViewModel.cs" />
     <Compile Include="Views\DetailPage.xaml.cs">
@@ -146,12 +143,6 @@
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\SettingsPage.xaml.cs">
-      <DependentUpon>SettingsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Shell.xaml.cs">
-      <DependentUpon>Shell.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Splash.xaml.cs">
       <DependentUpon>Splash.xaml</DependentUpon>
@@ -194,14 +185,6 @@
     <Page Include="Views\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\SettingsPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Shell.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Splash.xaml">
       <SubType>Designer</SubType>

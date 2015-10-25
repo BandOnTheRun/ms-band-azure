@@ -76,7 +76,7 @@ namespace MSBandAzure.ViewModels
         public double SkinTemp
         {
             get { return _skinTemp; }
-            set { Set(ref _skinTemp, value); }
+            set { SetProperty(ref _skinTemp, value); }
         }
     }
 }

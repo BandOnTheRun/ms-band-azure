@@ -76,7 +76,7 @@ namespace MSBandAzure.ViewModels
         public UVIndexLevel UVIndex
         {
             get { return _uVIndex; }
-            set { Set(ref _uVIndex, value); }
+            set { SetProperty(ref _uVIndex, value); }
         }
     }
 }

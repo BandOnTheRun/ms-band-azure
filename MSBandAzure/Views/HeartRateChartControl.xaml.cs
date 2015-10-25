@@ -64,17 +64,16 @@ namespace MSBandAzure.Views
             await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
             {
                 var band = DataContext as BandViewModel;
-                var data = new List<HeartRateValue>(message.ViewModel.Data);
                 // if the bands match update the chart..
                 if (band.HeartRate == message.ViewModel)
                 {
+                    //var data = new List<HeartRateValue>(message.ViewModel.Data);
                     // copy the data...
                     var cs = (columnChart.Series[0] as ColumnSeries);
                     cs.ItemsSource = null;
-                    cs.ItemsSource = data;
-                    cs.Refresh();
+                    cs.ItemsSource = message.ViewModel.Data;
+                    //cs.Refresh();
                 }
-
             });
         }
     }

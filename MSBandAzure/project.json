@@ -5,8 +5,8 @@
     "Microsoft.Band": "1.3.10702",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
     "Newtonsoft.Json": "7.0.1",
+    "PCLCommandBase": "0.2.2",
     "Rx-Main": "2.3.0-beta2",
-    "Template10": "1.0.0",
     "WinRTXamlToolkit.Controls.DataVisualization.UWP": "1.9.4"
   },
   "frameworks": {

@@ -7,9 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:MSBandAzure.ViewModels"
-    xmlns:controls="using:Template10.Controls"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" 
-    xmlns:Behaviors="using:Template10.Behaviors" 
     xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d" x:Name="ThisPage">
 
@@ -48,8 +46,6 @@
         </Grid.RowDefinitions>
 
         <!-- header -->
-
-        <controls:PageHeader Text="{x:Bind ViewModel.BandViewModel.BandName}" Frame="{x:Bind Frame}" />
 
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>

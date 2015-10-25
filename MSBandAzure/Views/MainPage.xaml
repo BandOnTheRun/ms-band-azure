@@ -5,9 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:MSBandAzure.ViewModels"
-    xmlns:controls="using:Template10.Controls"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" 
-    xmlns:Behaviors="using:Template10.Behaviors" 
     xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     x:Class="MSBandAzure.Views.MainPage"
     mc:Ignorable="d">
@@ -28,16 +26,16 @@
                 </Grid.ColumnDefinitions>
                 <TextBlock Margin="4" Foreground="White" FontSize="32" Text="{x:Bind BandName}" />
                 <local:HeartRateChartControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"></local:HeartRateChartControl>
-                    <Grid VerticalAlignment="Top" Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" Padding="-24">
-                        <TextBlock FontSize="120" 
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center" 
-                                   Foreground="#77ffffff">&#x2665;</TextBlock>
-                        <TextBlock FontSize="28" 
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center" 
-                                   Foreground="White" Text="{x:Bind HeartRate.HeartRate, Mode=OneWay}"></TextBlock>
-                    </Grid>
+                <Grid VerticalAlignment="Top" Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" Padding="-24">
+                    <TextBlock FontSize="120" 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center" 
+                                Foreground="#77ffffff">&#x2665;</TextBlock>
+                    <TextBlock FontSize="28" 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center" 
+                                Foreground="White" Text="{x:Bind HeartRate.HeartRate, Mode=OneWay}"></TextBlock>
+                </Grid>
             </Grid>
         </DataTemplate>
 
@@ -82,14 +80,14 @@
                 </Interactivity:Interaction.Behaviors>
             </AppBarButton>
         </controls:PageHeader>-->
-        <controls:PageHeader Text="Bands" BackButtonVisibility="Collapsed">
+        <!--<controls:PageHeader Text="Bands" BackButtonVisibility="Collapsed">
             <AppBarButton Icon="Forward" Label="Forward">
             </AppBarButton>
-        </controls:PageHeader>
+        </controls:PageHeader>-->
 
         <!--#region content-->
 
-        <GridView Grid.Row="1" 
+        <GridView Grid.Row="1"
                   x:Name="wideList"
                   ItemsSource="{x:Bind ViewModel.Bands, Mode=OneWay}"
                   ItemTemplate="{StaticResource BandTemplate}"

@@ -4,6 +4,7 @@ using Windows.UI.Xaml.Controls;
 using WinRTXamlToolkit.Controls.DataVisualization.Charting;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -56,10 +57,15 @@ namespace MSBandAzure.Views
             IsLoaded = true;
         }
 
+        // Pre-allocate list to store the chart data - note. 
+        private HeartRateValue[] ChartData = new HeartRateValue[HeartRateViewModel.BufferSize];
+         
         public async void Handle(HeartRateValueUpdated message)
         {
             if (IsLoaded == false)
                 return;
+
+            Debug.WriteLine($"Handling HR Changed {DateTime.Now.Second}");
 
             await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
             {
@@ -67,12 +73,13 @@ namespace MSBandAzure.Views
                 // if the bands match update the chart..
                 if (band.HeartRate == message.ViewModel)
                 {
-                    //var data = new List<HeartRateValue>(message.ViewModel.Data);
+                    //message.ViewModel.Data.CopyTo(ChartData);
+
                     // copy the data...
                     var cs = (columnChart.Series[0] as ColumnSeries);
-                    cs.ItemsSource = null;
-                    cs.ItemsSource = message.ViewModel.Data;
-                    //cs.Refresh();
+                    //cs.ItemsSource = null;
+                    cs.ItemsSource = message.ViewModel.HrData;
+                    cs.Refresh();
                 }
             });
         }

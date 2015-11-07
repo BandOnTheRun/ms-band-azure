@@ -8,10 +8,12 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Collections;
+using System.Diagnostics;
 
 namespace MSBandAzure.ViewModels
 {
-    public class FixedSizedQueue<T>
+    public class FixedSizedQueue<T> : IEnumerable<T>
     {
         private readonly object privateLockObject = new object();
 
@@ -37,10 +39,21 @@ namespace MSBandAzure.ViewModels
                 }
             }
         }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return queue.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return queue.GetEnumerator();
+        }
     }
 
     public class HeartRateViewModel : DataViewModelBase
     {
+        public static readonly int BufferSize = 20; 
         private ITelemetry _telemetry;
         private IEventAggregator _events;
 
@@ -50,6 +63,28 @@ namespace MSBandAzure.ViewModels
             _telemetry = telemetry;
             _events = events;
             _hrv = new HeartRateValueUpdated { ViewModel = this };
+
+            // Pre-roll some data..
+            _hrData.Enqueue(new HeartRateValue() { Value = 200 });
+            _hrData.Enqueue(new HeartRateValue() { Value = 193 });
+            _hrData.Enqueue(new HeartRateValue() { Value = 186 });
+            _hrData.Enqueue(new HeartRateValue() { Value = 179 });
+            _hrData.Enqueue(new HeartRateValue() { Value = 172 });
+            _hrData.Enqueue(new HeartRateValue() { Value = 165 });
+            _hrData.Enqueue(new HeartRateValue() { Value = 158 });
+            _hrData.Enqueue(new HeartRateValue() { Value = 151 });
+            _hrData.Enqueue(new HeartRateValue() { Value = 144 });
+            _hrData.Enqueue(new HeartRateValue() { Value = 137 });
+            _hrData.Enqueue(new HeartRateValue() { Value = 130 });
+            _hrData.Enqueue(new HeartRateValue() { Value = 123 });
+            _hrData.Enqueue(new HeartRateValue() { Value = 116 });
+            _hrData.Enqueue(new HeartRateValue() { Value = 109 });
+            _hrData.Enqueue(new HeartRateValue() { Value = 102 });
+            _hrData.Enqueue(new HeartRateValue() { Value = 95 });
+            _hrData.Enqueue(new HeartRateValue() { Value = 88 });
+            _hrData.Enqueue(new HeartRateValue() { Value = 81 });
+            _hrData.Enqueue(new HeartRateValue() { Value = 74 });
+            _hrData.Enqueue(new HeartRateValue() { Value = 67 });
         }
 
         protected override bool CanStop(object arg)
@@ -107,20 +142,28 @@ namespace MSBandAzure.ViewModels
             return _started;
         }
 
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
         async void HeartRate_ReadingChanged(object sender, BandSensorReadingEventArgs<IBandHeartRateReading> e)
+#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
+            Debug.WriteLine($"Change notified {DateTime.Now.Second}");
+
             var hr = e.SensorReading.HeartRate;
             var ts = e.SensorReading.Timestamp;
 
             UpdateHistory(hr);
             _events.Publish(_hrv);
 
-            await _dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
-             {
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+            _dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+            {
                  HeartRate = hr;
                  TimeStamp = ts.ToString();
              });
-            await _telemetry.PostTelemetryAsync(new Models.DeviceTelemetry
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+            _telemetry.PostTelemetryAsync(new Models.DeviceTelemetry
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
             {
                 DeviceId = _bandInfo.Name,
                 HeartRate = hr,
@@ -137,45 +180,17 @@ namespace MSBandAzure.ViewModels
             set { SetProperty(ref _heartRate, value); }
         }
 
-        private List<HeartRateValue> _data = new List<HeartRateValue>()
-        {
-            new HeartRateValue() { Value = 200 },
-            new HeartRateValue() { Value = 193 },
-            new HeartRateValue() { Value = 186 },
-            new HeartRateValue() { Value = 179 },
-            new HeartRateValue() { Value = 172 },
-            new HeartRateValue() { Value = 165 },
-            new HeartRateValue() { Value = 158 },
-            new HeartRateValue() { Value = 151 },
-            new HeartRateValue() { Value = 144 },
-            new HeartRateValue() { Value = 137 },
-            new HeartRateValue() { Value = 130 },
-            new HeartRateValue() { Value = 123 },
-            new HeartRateValue() { Value = 116 },
-            new HeartRateValue() { Value = 109 },
-            new HeartRateValue() { Value = 102 },
-            new HeartRateValue() { Value = 95 },
-            new HeartRateValue() { Value = 88 },
-            new HeartRateValue() { Value = 81 },
-            new HeartRateValue() { Value = 74 },
-            new HeartRateValue() { Value = 67 },
-        };
+        private FixedSizedQueue<HeartRateValue> _hrData = new FixedSizedQueue<HeartRateValue>(BufferSize);
 
-        public List<HeartRateValue> Data
+        public IEnumerable<HeartRateValue> HrData
         {
-            get { return _data; }
-            set { SetProperty(ref _data, value); }
+            get { return _hrData; }
         }
 
         public void UpdateHistory(int newValue)
         {
-            // add a value to the list and move one off...
-            if (Data.Count > 20)
-            {
-                Data.RemoveAt(0);
-            }
-            // FIXME: no need to new these up each time...
-            Data.Add(new HeartRateValue { Value = newValue });
+            _hrData.Enqueue(new HeartRateValue { Value = newValue });
+            return;
         }
     }
 

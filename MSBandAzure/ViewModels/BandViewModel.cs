@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Windows.UI;
+using Windows.UI.Xaml.Media;
 
 namespace MSBandAzure.ViewModels
 {
@@ -47,6 +49,14 @@ namespace MSBandAzure.ViewModels
             set { SetProperty(ref _statusText, value); }
         }
 
+        private Brush _tileColour = new SolidColorBrush(Color.FromArgb(255, 92, 45, 145));
+
+        public Brush TileColour
+        {
+            get { return _tileColour; }
+            set { SetProperty(ref _tileColour, value); }
+        }
+
         public bool Connected { get { return _band == null ? false : _band.Connected; } }
 
         public async Task Connect(object arg)
@@ -58,6 +68,8 @@ namespace MSBandAzure.ViewModels
             try
             {
                 await _band.Connect();
+                var theme = await _band.Client.PersonalizationManager.GetThemeAsync();
+                TileColour = new SolidColorBrush(Color.FromArgb(255, theme.Base.R, theme.Base.G, theme.Base.B));
             }
             finally
             {

@@ -44,7 +44,7 @@ namespace MSBandAzure.Mvvm
             builder.RegisterType<SkinTempViewModel>().InstancePerDependency();
             builder.RegisterType<UVViewModel>().InstancePerDependency();
 
-#if DEBUGBAND
+#if DEBUG
             builder.RegisterType<FakeBandService>().As<IBandService>().SingleInstance();
             builder.RegisterType<FakeBandInfo>().As<IBandInfo>().InstancePerDependency();
 #else

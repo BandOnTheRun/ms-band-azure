@@ -14,7 +14,7 @@
         <DataTemplate x:Key="BandTemplate" x:DataType="vm:BandViewModel">
             <Grid Width="380"
                   Height="240" 
-                  Background="{x:Bind Path=TileColour, Mode=OneWay}"
+                  Background="{x:Bind Path=Theme.TileColour, Mode=OneWay}"
                   Margin="4">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"></RowDefinition>

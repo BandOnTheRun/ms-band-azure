@@ -6,11 +6,87 @@ using System.Linq;
 using System.Threading.Tasks;
 using Windows.UI;
 using Windows.UI.Xaml.Media;
+using Microsoft.Band;
 
 namespace MSBandAzure.ViewModels
 {
+    public class BandThemeViewModel : ViewModelBase
+    {
+        private Brush _tileColour = new SolidColorBrush(Color.FromArgb(255, 92, 45, 145));
+
+        public Brush TileColour
+        {
+            get { return _tileColour; }
+            set { SetProperty(ref _tileColour, value); }
+        }
+
+        private Brush _highlightColour = new SolidColorBrush(Color.FromArgb(255, 92, 45, 145));
+
+        public Brush HighlightColour
+        {
+            get { return _highlightColour; }
+            set { SetProperty(ref _highlightColour, value); }
+        }
+
+        private Brush _lowlightColour = new SolidColorBrush(Color.FromArgb(255, 92, 45, 145));
+
+        public Brush LowlightColour
+        {
+            get { return _lowlightColour; }
+            set { SetProperty(ref _lowlightColour, value); }
+        }
+
+        private Brush _highContrastColour = new SolidColorBrush(Color.FromArgb(255, 92, 45, 145));
+
+        public Brush HighContrastColour
+        {
+            get { return _highContrastColour; }
+            set { SetProperty(ref _highContrastColour, value); }
+        }
+
+        private Brush _mutedColour = new SolidColorBrush(Color.FromArgb(255, 92, 45, 145));
+
+        public Brush MutedColour
+        {
+            get { return _mutedColour; }
+            set { SetProperty(ref _mutedColour, value); }
+        }
+
+        private Brush _secondaryTextColour = new SolidColorBrush(Color.FromArgb(255, 92, 45, 145));
+
+        public Brush SecondaryTextColour
+        {
+            get { return _secondaryTextColour; }
+            set { SetProperty(ref _secondaryTextColour, value); }
+        }
+
+        internal void SetBandTheme(BandTheme theme)
+        {
+            LowlightColour = new SolidColorBrush(Color.FromArgb(255,
+                theme.Lowlight.R, theme.Lowlight.G, theme.Lowlight.B));
+            HighlightColour = new SolidColorBrush(Color.FromArgb(255,
+                theme.Highlight.R, theme.Highlight.G, theme.Highlight.B));
+            TileColour = new SolidColorBrush(Color.FromArgb(255,
+                theme.Base.R, theme.Base.G, theme.Base.B));
+            HighContrastColour = new SolidColorBrush(Color.FromArgb(255,
+                theme.HighContrast.R, theme.HighContrast.G, theme.HighContrast.B));
+            MutedColour = new SolidColorBrush(Color.FromArgb(255,
+                theme.Muted.R, theme.Muted.G, theme.Muted.B));
+            SecondaryTextColour = new SolidColorBrush(Color.FromArgb(255,
+                theme.SecondaryText.R, theme.SecondaryText.G, theme.SecondaryText.B));
+        }
+    }
+
     public class BandViewModel : Mvvm.ViewModelBase
     {
+        private BandThemeViewModel _theme = new BandThemeViewModel();
+
+        public BandThemeViewModel Theme
+        {
+            get { return _theme; }
+            set { _theme = value; }
+        }
+
         private Band _band;
         public BandViewModel(Band band)
         {
@@ -49,13 +125,6 @@ namespace MSBandAzure.ViewModels
             set { SetProperty(ref _statusText, value); }
         }
 
-        private Brush _tileColour = new SolidColorBrush(Color.FromArgb(255, 92, 45, 145));
-
-        public Brush TileColour
-        {
-            get { return _tileColour; }
-            set { SetProperty(ref _tileColour, value); }
-        }
 
         public bool Connected { get { return _band == null ? false : _band.Connected; } }
 
@@ -68,14 +137,31 @@ namespace MSBandAzure.ViewModels
             try
             {
                 await _band.Connect();
-                var theme = await _band.Client.PersonalizationManager.GetThemeAsync();
-                TileColour = new SolidColorBrush(Color.FromArgb(255, theme.Base.R, theme.Base.G, theme.Base.B));
+                await SetupThemeAsync();
+
             }
             finally
             {
                 IsBusy = false;
                 UpdateConnectedStatus();
             }
+        }
+
+        private Task SetupThemeAsync()
+        {
+            var tcs = new TaskCompletionSource<bool>();
+
+            var themeTask = _band.Client.PersonalizationManager.GetThemeAsync();
+            themeTask.ContinueWith(t => 
+                {
+                    var theme = t.Result;
+                    Theme.SetBandTheme(theme);
+                });
+
+            var meTileTask = _band.Client.PersonalizationManager.GetMeTileImageAsync();
+            Task.WhenAll(themeTask, meTileTask);
+
+            return tcs.Task;
         }
 
         private void InitSensors()

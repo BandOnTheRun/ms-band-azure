@@ -151,7 +151,7 @@ namespace MSBandAzure.ViewModels
             var hr = e.SensorReading.HeartRate;
             var ts = e.SensorReading.Timestamp;
 
-            UpdateHistory(hr);
+            //UpdateHistory(hr);
             _events.Publish(_hrv);
 
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed

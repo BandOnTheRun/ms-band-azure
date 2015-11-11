@@ -9,7 +9,7 @@ namespace MSBandAzure.Services.Fakes
 
         public override IBandSensorReading CreateReading()
         {
-            return new FakeBandHeartRateReading(rand.Next(63, 200));
+            return new FakeBandHeartRateReading(rand.Next(63, 130));
         }
     }
 }

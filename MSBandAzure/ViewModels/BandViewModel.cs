@@ -62,18 +62,18 @@ namespace MSBandAzure.ViewModels
 
         internal void SetBandTheme(BandTheme theme)
         {
-            LowlightColour = new SolidColorBrush(Color.FromArgb(255,
-                theme.Lowlight.R, theme.Lowlight.G, theme.Lowlight.B));
-            HighlightColour = new SolidColorBrush(Color.FromArgb(255,
-                theme.Highlight.R, theme.Highlight.G, theme.Highlight.B));
-            TileColour = new SolidColorBrush(Color.FromArgb(255,
-                theme.Base.R, theme.Base.G, theme.Base.B));
-            HighContrastColour = new SolidColorBrush(Color.FromArgb(255,
-                theme.HighContrast.R, theme.HighContrast.G, theme.HighContrast.B));
-            MutedColour = new SolidColorBrush(Color.FromArgb(255,
-                theme.Muted.R, theme.Muted.G, theme.Muted.B));
-            SecondaryTextColour = new SolidColorBrush(Color.FromArgb(255,
-                theme.SecondaryText.R, theme.SecondaryText.G, theme.SecondaryText.B));
+            //LowlightColour = new SolidColorBrush(Color.FromArgb(255,
+            //    theme.Lowlight.R, theme.Lowlight.G, theme.Lowlight.B));
+            //HighlightColour = new SolidColorBrush(Color.FromArgb(255,
+            //    theme.Highlight.R, theme.Highlight.G, theme.Highlight.B));
+            //TileColour = new SolidColorBrush(Color.FromArgb(255,
+            //    theme.Base.R, theme.Base.G, theme.Base.B));
+            //HighContrastColour = new SolidColorBrush(Color.FromArgb(255,
+            //    theme.HighContrast.R, theme.HighContrast.G, theme.HighContrast.B));
+            //MutedColour = new SolidColorBrush(Color.FromArgb(255,
+            //    theme.Muted.R, theme.Muted.G, theme.Muted.B));
+            //SecondaryTextColour = new SolidColorBrush(Color.FromArgb(255,
+            //    theme.SecondaryText.R, theme.SecondaryText.G, theme.SecondaryText.B));
         }
     }
 
@@ -137,7 +137,7 @@ namespace MSBandAzure.ViewModels
             try
             {
                 await _band.Connect();
-                await SetupThemeAsync();
+                //await SetupThemeAsync();
 
             }
             finally

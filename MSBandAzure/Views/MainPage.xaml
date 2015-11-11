@@ -25,7 +25,7 @@
                     <ColumnDefinition Width="71*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <TextBlock Margin="4" Foreground="White" FontSize="32" Text="{x:Bind BandName}" />
-                <local:HeartRateChartControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"></local:HeartRateChartControl>
+                <!--<local:HeartRateChartControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"></local:HeartRateChartControl>-->
                 <Grid VerticalAlignment="Top" Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" Padding="-24">
                     <TextBlock FontSize="120" 
                                 HorizontalAlignment="Center"

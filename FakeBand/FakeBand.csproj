@@ -108,14 +108,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Fakes\FakeBandClient.cs" />
+    <Compile Include="Fakes\FakeBandDistanceReading.cs" />
     <Compile Include="Fakes\FakeBandHeartReading.cs" />
     <Compile Include="Fakes\FakeBandInfo.cs" />
     <Compile Include="Fakes\FakeBandNotificationManager.cs" />
     <Compile Include="Fakes\FakeBandPersonalizationManager.cs" />
     <Compile Include="Fakes\FakeBandSensor.cs" />
     <Compile Include="Fakes\FakeBandSensorManager.cs" />
+    <Compile Include="Fakes\FakeBandSkinTemperatureReading.cs" />
     <Compile Include="Fakes\FakeBandTileManager.cs" />
+    <Compile Include="Fakes\FakeBandUVReading.cs" />
+    <Compile Include="Fakes\FakeDistanceSensor.cs" />
     <Compile Include="Fakes\FakeHeartRateSensor.cs" />
+    <Compile Include="Fakes\FakeSkinTemperatureSensor.cs" />
+    <Compile Include="Fakes\FakeUVSensor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="Properties\FakeBand.rd.xml" />
   </ItemGroup>

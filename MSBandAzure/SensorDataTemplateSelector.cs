@@ -9,6 +9,7 @@ namespace MSBandAzure
         public DataTemplate HeartRateTemplate { get; set; }
         public DataTemplate SkinTempTemplate { get; set; }
         public DataTemplate UVTemplate { get; set; }
+        public DataTemplate DistanceTemplate { get; set; }
 
         protected override DataTemplate SelectTemplateCore(object item, DependencyObject container)
         {
@@ -18,6 +19,8 @@ namespace MSBandAzure
                 return SkinTempTemplate;
             if (item is UVViewModel)
                 return UVTemplate;
+            if (item is DistanceViewModel)
+                return DistanceTemplate;
 
             return base.SelectTemplateCore(item, container);
         }

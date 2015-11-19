@@ -199,6 +199,9 @@ namespace MSBandAzure.ViewModels
             SensorData = new List<DataViewModelBase>
                     {
                         _band.CreateSensorViewModel<HeartRateViewModel>(),
+                        _band.CreateSensorViewModel<SkinTempViewModel>(),
+                        _band.CreateSensorViewModel<UVViewModel>(),
+                        _band.CreateSensorViewModel<DistanceViewModel>()
                     };
         }
 

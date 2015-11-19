@@ -43,6 +43,7 @@ namespace MSBandAzure.Mvvm
             builder.RegisterType<HeartRateViewModel>().InstancePerDependency();
             builder.RegisterType<SkinTempViewModel>().InstancePerDependency();
             builder.RegisterType<UVViewModel>().InstancePerDependency();
+            builder.RegisterType<DistanceViewModel>().InstancePerDependency();
 
 #if DEBUG
             builder.RegisterType<FakeBandService>().As<IBandService>().SingleInstance();

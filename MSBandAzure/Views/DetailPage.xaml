@@ -15,8 +15,9 @@
         <templates:SensorDataTemplateSelector x:Key="SensorDataTemplateSelector"
                                           HeartRateTemplate="{StaticResource hrt}"
                                           SkinTempTemplate="{StaticResource stt}"
-                                          UVTemplate="{StaticResource uvt}"/>
-
+                                          UVTemplate="{StaticResource uvt}"
+                                          DistanceTemplate="{StaticResource dist}">
+        </templates:SensorDataTemplateSelector>
     </Page.Resources>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         

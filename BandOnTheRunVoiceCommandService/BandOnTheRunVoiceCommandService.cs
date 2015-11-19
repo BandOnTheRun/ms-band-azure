@@ -119,8 +119,13 @@ namespace BandOnTheRunVoiceCommands
                     switch (voiceCommand.CommandName)
                     {
                         case "showbandinformation":
-
-                            userMessage.DisplayMessage = "Fake Band 1 is connected, HR: 75bpm";
+                            //hardcoded - needs to be hooked into real data flow.
+                            userMessage.DisplayMessage = "Band 1 \n" +
+                                                         "status: connected\n" +
+                                                          "Motion: Jogging\n" +
+                                                          "Speed: 10kph\n" +
+                                                          "Skin Temp: 37\n" +
+                                                           "UV: medium";
                             userMessage.SpokenMessage = "Showing band information";
 ;
                             var response = VoiceCommandResponse.CreateResponse(userMessage);

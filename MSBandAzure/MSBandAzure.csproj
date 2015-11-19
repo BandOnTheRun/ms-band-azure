@@ -93,6 +93,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\tpoc-heart-logo-hi.png" />
     <Content Include="BandHub.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

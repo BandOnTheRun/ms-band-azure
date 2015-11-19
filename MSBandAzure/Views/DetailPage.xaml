@@ -67,7 +67,16 @@
 
         <Grid Grid.Row="2">
             <GridView ItemsSource="{x:Bind ViewModel.BandViewModel.SensorData}"
-                  ItemTemplateSelector="{StaticResource SensorDataTemplateSelector}"></GridView>
+                  ItemTemplateSelector="{StaticResource SensorDataTemplateSelector}">
+                <GridView.ItemContainerStyle>
+                    <Style TargetType="GridViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+                        <Setter Property="VerticalAlignment" Value="Stretch"/>
+                    </Style>
+                </GridView.ItemContainerStyle>
+            </GridView>
         </Grid>
 
         <!--#endregion-->

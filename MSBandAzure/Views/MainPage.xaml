@@ -63,15 +63,36 @@
                     <TextBlock FontSize="28" 
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center" 
-                                Foreground="White" Text="{x:Bind HeartRate.HeartRate, Mode=OneWay}"></TextBlock>
+                                Foreground="White" 
+                                Text="{x:Bind HeartRate.HeartRate, Mode=OneWay}"></TextBlock>
                 </Grid>
-                <StackPanel Orientation="Horizontal" Grid.Row="1">
-                    <Button Command="{Binding ConnectCmd}">CONNECT</Button>
-                    <ProgressRing IsActive="{x:Bind IsBusy, Mode=OneWay}" 
-                                  IsEnabled="{x:Bind IsBusy, Mode=OneWay}"></ProgressRing>
-                    <TextBlock Text="{x:Bind StatusText, Mode=OneWay}" />
+                <StackPanel  Grid.Row="1">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Command="{Binding ConnectCmd}">CONNECT</Button>
+                        <ProgressRing IsActive="{x:Bind IsBusy, Mode=OneWay}" 
+                                      IsEnabled="{x:Bind IsBusy, Mode=OneWay}"></ProgressRing>
+                        <TextBlock Text="{x:Bind StatusText, Mode=OneWay}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="{x:Bind Distance.CurrentMotion, Mode=OneWay}"
+                                   FontSize="68"></TextBlock>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontSize="32" VerticalAlignment="Center">PACE:</TextBlock>
+                            <TextBlock VerticalAlignment="Center" Text="{x:Bind Distance.Pace, Mode=OneWay}"
+                                       FontSize="32"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontSize="32" VerticalAlignment="Center">DISTANCE:</TextBlock>
+                            <TextBlock VerticalAlignment="Center" Text="{x:Bind Distance.Distance, Mode=OneWay}"
+                                   FontSize="32"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontSize="32" VerticalAlignment="Center">SPEED:</TextBlock>
+                            <TextBlock  VerticalAlignment="Center" Text="{x:Bind Distance.Speed, Mode=OneWay}"
+                                   FontSize="32"></TextBlock>
+                        </StackPanel>
+                    </StackPanel>
                 </StackPanel>
-                
             </Grid>
         </DataTemplate>
 

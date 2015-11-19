@@ -104,6 +104,7 @@ namespace MSBandAzure.ViewModels
         {
             try
             {
+                App.CurrentBand = this;
                 IsBusy = true;
                 await Connect(arg);
                 await StartSensors();
@@ -133,6 +134,15 @@ namespace MSBandAzure.ViewModels
                 return Connected ? SensorData.OfType<HeartRateViewModel>().First() : null;
             }
         }
+
+        public DistanceViewModel Distance
+        {
+            get
+            {
+                return Connected ? SensorData.OfType<DistanceViewModel>().First() : null;
+            }
+        }
+
         private bool _isBusy;
 
         private void UpdateConnectedStatus()

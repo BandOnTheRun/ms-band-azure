@@ -10,6 +10,9 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Collections;
 using System.Diagnostics;
+using Windows.UI.Notifications;
+using Windows.Data.Xml.Dom;
+
 
 namespace MSBandAzure.ViewModels
 {
@@ -56,6 +59,7 @@ namespace MSBandAzure.ViewModels
         public static readonly int BufferSize = 20; 
         private ITelemetry _telemetry;
         private IEventAggregator _events;
+        int NotificationTimer = 0;
 
         public HeartRateViewModel(IBandClient bandClient, ITelemetry telemetry, IEventAggregator events)
             : base("Heart Rate", bandClient)
@@ -160,6 +164,30 @@ namespace MSBandAzure.ViewModels
             {
                  HeartRate = hr;
                  TimeStamp = ts.ToString();
+
+                //increment notification timer
+                NotificationTimer++;
+                if ((NotificationTimer%30)==0)
+                {
+                    //Display notification for heart rate
+                    ToastTemplateType toastTemplate = ToastTemplateType.ToastImageAndText01;
+                    XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
+
+                    XmlNodeList toastTextElements = toastXml.GetElementsByTagName("text");
+                    toastTextElements[0].AppendChild(toastXml.CreateTextNode(_bandInfo.Name + " is working hard!\nHeart Rate: " + HeartRate + " bpm");
+
+                    XmlNodeList toastImageAttributes = toastXml.GetElementsByTagName("image");
+                    ((XmlElement)toastImageAttributes[0]).SetAttribute("src", "ms-appx:///assets/tpoc-heart-logo-hi.png");
+                    ((XmlElement)toastImageAttributes[0]).SetAttribute("alt", "heart");
+
+                    IXmlNode toastNode = toastXml.SelectSingleNode("/toast");
+                    ((XmlElement)toastNode).SetAttribute("duration", "short");
+                    ToastNotification toast = new ToastNotification(toastXml);
+                    ToastNotificationManager.CreateToastNotifier().Show(toast);
+        
+                    NotificationTimer = 0;
+                }
+              
              });
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
             _telemetry.PostTelemetryAsync(new Models.DeviceTelemetry

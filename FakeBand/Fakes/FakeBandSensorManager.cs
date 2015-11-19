@@ -1,4 +1,5 @@
-﻿using Microsoft.Band.Sensors;
+﻿using FakeBand.Fakes;
+using Microsoft.Band.Sensors;
 using System;
 
 namespace MSBandAzure.Services.Fakes
@@ -29,11 +30,14 @@ namespace MSBandAzure.Services.Fakes
             }
         }
 
+        
+        IBandSensor<IBandDistanceReading> _distance = new FakeDistanceSensor();
+
         public IBandSensor<IBandDistanceReading> Distance
         {
             get
             {
-                throw new NotImplementedException();
+                return _distance;
             }
         }
 
@@ -62,19 +66,21 @@ namespace MSBandAzure.Services.Fakes
             }
         }
 
+        public IBandSensor<IBandSkinTemperatureReading> _skinTemperature = new FakeSkinTemperatureSensor();
         public IBandSensor<IBandSkinTemperatureReading> SkinTemperature
         {
             get
             {
-                throw new NotImplementedException();
+                return _skinTemperature;
             }
         }
 
+        public IBandSensor<IBandUVReading> _uv = new FakeUVSensor();
         public IBandSensor<IBandUVReading> UV
         {
             get
             {
-                throw new NotImplementedException();
+                return _uv;
             }
         }
     }

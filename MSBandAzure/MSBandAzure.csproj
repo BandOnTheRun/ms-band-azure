@@ -121,6 +121,7 @@
     <Compile Include="Services\MSBandService.cs" />
     <Compile Include="ViewModels\BandViewModel.cs" />
     <Compile Include="ViewModels\DataViewModelBase.cs" />
+    <Compile Include="ViewModels\DistanceViewModel.cs" />
     <Compile Include="ViewModels\HeartRateViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\DetailPageViewModel.cs" />

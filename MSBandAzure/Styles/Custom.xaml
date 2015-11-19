@@ -94,6 +94,28 @@
                     </Grid>
                 </Border>
             </DataTemplate>
+            <DataTemplate x:Key="dist">
+                <Border x:Name="border" BorderThickness="1" 
+			BorderBrush="White">
+                    <Grid Margin="4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="115*"/>
+                            <ColumnDefinition Width="151*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Name}" Style="{StaticResource SubheaderTextBlockStyle}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="120" Width="280" Grid.Column="1">
+                            <TextBlock FontSize="18"
+						Text="{Binding Pace}" Style="{StaticResource HeaderTextBlockStyle}" VerticalAlignment="Center" TextAlignment="Center"/>
+                            <TextBlock FontSize="18"
+						Text="{Binding Speed}" Style="{StaticResource HeaderTextBlockStyle}" VerticalAlignment="Center" TextAlignment="Center"/>
+                            <TextBlock FontSize="18"
+						Text="{Binding CurrentMotion}" Style="{StaticResource HeaderTextBlockStyle}" VerticalAlignment="Center" TextAlignment="Center"/>
+                            <TextBlock FontSize="18"
+						Text="{Binding TimeStamp}" VerticalAlignment="Center" TextAlignment="Center"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </DataTemplate>
 
         </ResourceDictionary>
 

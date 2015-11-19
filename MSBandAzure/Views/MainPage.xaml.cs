@@ -21,5 +21,12 @@ namespace MSBandAzure.Views
         {
             ViewModel.GotoDetailsPage(e.ClickedItem);
         }
+
+        private void widerListsizeChanged(object sender, Windows.UI.Xaml.SizeChangedEventArgs e)
+        {
+            var panel = (ItemsWrapGrid)widerList.ItemsPanelRoot;
+            panel.ItemWidth = e.NewSize.Width / 2;
+            panel.ItemHeight = e.NewSize.Height / 3;
+        }
     }
 }

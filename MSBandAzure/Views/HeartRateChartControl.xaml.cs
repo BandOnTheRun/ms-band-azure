@@ -73,7 +73,7 @@ namespace MSBandAzure.Views
                 // if the bands match update the chart..
                 if (band.HeartRate == message.ViewModel)
                 {
-                    //message.ViewModel.Data.CopyTo(ChartData);
+                    //message.ViewModel.CopyTo(ChartData);
 
                     // copy the data...
                     var cs = (columnChart.Series[0] as ColumnSeries);

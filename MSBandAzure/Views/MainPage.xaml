@@ -10,7 +10,7 @@
     x:Class="MSBandAzure.Views.MainPage"
     mc:Ignorable="d">
     <Page.Resources>
-
+        
         <DataTemplate x:Key="BandTemplate" x:DataType="vm:BandViewModel">
             <Grid Width="380"
                   Height="240" 
@@ -39,6 +39,70 @@
             </Grid>
         </DataTemplate>
 
+        <DataTemplate x:Key="BandTemplateWide" x:DataType="vm:BandViewModel">
+            <Grid Background="{x:Bind Path=Theme.TileColour, Mode=OneWay}"
+                  Height="300"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch"
+                  Margin="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="109*"></ColumnDefinition>
+                    <ColumnDefinition Width="71*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Margin="4" Foreground="White" FontSize="32" Text="{x:Bind BandName}" />
+                <!--<local:HeartRateChartControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"></local:HeartRateChartControl>-->
+                <Grid VerticalAlignment="Top" Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" Padding="-24">
+                    <TextBlock FontSize="120" 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center" 
+                                Foreground="#77ffffff">&#x2665;</TextBlock>
+                    <TextBlock FontSize="28" 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center" 
+                                Foreground="White" Text="{x:Bind HeartRate.HeartRate, Mode=OneWay}"></TextBlock>
+                </Grid>
+                <StackPanel Orientation="Horizontal" Grid.Row="1">
+                    <Button Command="{Binding ConnectCmd}">CONNECT</Button>
+                    <ProgressRing IsActive="{x:Bind IsBusy, Mode=OneWay}" 
+                                  IsEnabled="{x:Bind IsBusy, Mode=OneWay}"></ProgressRing>
+                    <TextBlock Text="{x:Bind StatusText, Mode=OneWay}" />
+                </StackPanel>
+                
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="BandTemplateNarrow" x:DataType="vm:BandViewModel">
+            <Grid Width="500"
+                  Height="140" 
+                  Background="{x:Bind Path=Theme.TileColour, Mode=OneWay}"
+                  Margin="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="109*"></ColumnDefinition>
+                    <ColumnDefinition Width="71*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Margin="4" Foreground="White" FontSize="32" Text="{x:Bind BandName}" />
+                <!--<local:HeartRateChartControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"></local:HeartRateChartControl>-->
+                <Grid VerticalAlignment="Top" Grid.Row="0" Grid.Column="1" Grid.RowSpan="3" Padding="-24">
+                    <TextBlock FontSize="120" 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center" 
+                                Foreground="#77ffffff">&#x2665;</TextBlock>
+                    <TextBlock FontSize="28" 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center" 
+                                Foreground="White" Text="{x:Bind HeartRate.HeartRate, Mode=OneWay}"></TextBlock>
+                </Grid>
+            </Grid>
+        </DataTemplate>
+        
     </Page.Resources>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -53,6 +117,7 @@
                     <VisualState.Setters>
                         <Setter Target="narrowList.Visibility" Value="Visible"></Setter>
                         <Setter Target="wideList.Visibility" Value="Collapsed"></Setter>
+                        <Setter Target="widerList.Visibility" Value="Collapsed"></Setter>
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="VisualStateNormal">
@@ -62,6 +127,17 @@
                     <VisualState.Setters>
                         <Setter Target="narrowList.Visibility" Value="Collapsed"></Setter>
                         <Setter Target="wideList.Visibility" Value="Visible"></Setter>
+                        <Setter Target="widerList.Visibility" Value="Collapsed"></Setter>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="VisualStateWide">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger x:Name="VisualStateWideTrigger" MinWindowWidth="{StaticResource WideMinWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="narrowList.Visibility" Value="Collapsed"></Setter>
+                        <Setter Target="wideList.Visibility" Value="Collapsed"></Setter>
+                        <Setter Target="widerList.Visibility" Value="Visible"></Setter>
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -88,6 +164,7 @@
         <!--#region content-->
 
         <GridView Grid.Row="1"
+                  HorizontalAlignment="Center"
                   x:Name="wideList"
                   ItemsSource="{x:Bind ViewModel.Bands, Mode=OneWay}"
                   ItemTemplate="{StaticResource BandTemplate}"
@@ -95,14 +172,31 @@
                   IsItemClickEnabled="True">
         </GridView>
 
+        <GridView Grid.Row="1"
+                  x:Name="widerList"
+                  SizeChanged="widerListsizeChanged"
+                  ItemsSource="{x:Bind ViewModel.Bands, Mode=OneWay}"
+                  ItemTemplate="{StaticResource BandTemplateWide}"
+                  IsItemClickEnabled="False">
+            <GridView.ItemContainerStyle>
+                <Style TargetType="GridViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+                    <Setter Property="VerticalAlignment" Value="Stretch"/>
+                </Style>
+            </GridView.ItemContainerStyle>
+        </GridView>
+
         <ListView Grid.Row="1" 
                   x:Name="narrowList" 
                   ItemsSource="{x:Bind ViewModel.Bands, Mode=OneWay}"
-                  ItemTemplate="{StaticResource BandTemplate}"
+                  ItemTemplate="{StaticResource BandTemplateNarrow}"
                   ItemClick="GotoDetailsPage"
                   IsItemClickEnabled="True">
         </ListView>
 
+        
         <!--#endregion-->
 
     </Grid>

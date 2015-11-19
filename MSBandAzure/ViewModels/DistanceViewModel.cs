@@ -77,9 +77,9 @@ namespace MSBandAzure.ViewModels
             await _dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
             {
                 CurrentMotion = e.SensorReading.CurrentMotion.ToString();
-                Distance = e.SensorReading.TotalDistance;
-                Pace = e.SensorReading.Pace;
-                Speed = e.SensorReading.Speed;
+                Distance = Math.Round((double)e.SensorReading.TotalDistance, 2);
+                Pace = Math.Round((double)e.SensorReading.Pace, 2);
+                Speed = Math.Round((double)e.SensorReading.Speed, 2);
             });
         }
 

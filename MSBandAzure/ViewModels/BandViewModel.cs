@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Windows.UI;
 using Windows.UI.Xaml.Media;
 using Microsoft.Band;
+using System.Windows.Input;
 
 namespace MSBandAzure.ViewModels
 {
@@ -93,6 +94,34 @@ namespace MSBandAzure.ViewModels
             _band = band;
             InitSensors();
             UpdateConnectedStatus();
+            _connectCmd = new Lazy<ICommand>(() =>
+            {
+                return new AsyncDelegateCommand<object>(ConnectBand, CanConnect);
+            });
+        }
+
+        private async Task<object> ConnectBand(object arg)
+        {
+            try
+            {
+                IsBusy = true;
+                await Connect(arg);
+                await StartSensors();
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+
+            return arg;
+        }
+
+        Lazy<ICommand> _connectCmd;
+        public ICommand ConnectCmd { get { return _connectCmd.Value; } }
+
+        private bool CanConnect(object arg)
+        {
+            return true;
         }
 
         public string BandName { get { return _band.Name; } }

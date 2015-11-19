@@ -20,6 +20,11 @@
         </uap:DefaultTile>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
+      <Extensions>
+        <uap:Extension Category="windows.appService" EntryPoint="BandOnTheRunVoiceCommands.BandOnTheRunVoiceCommandClass">
+          <uap:AppService Name="BandOnTheRunVoiceCommandService" />
+        </uap:Extension>
+      </Extensions>
     </Application>
   </Applications>
   <Capabilities>

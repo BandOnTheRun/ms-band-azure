@@ -145,6 +145,9 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BandOnTheRunCommands.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -183,6 +186,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BandOnTheRunVoiceCommandService\BandOnTheRunVoiceCommandService.csproj">
+      <Project>{3b2bae04-cd76-41d5-a0b1-5c0130abc68b}</Project>
+      <Name>BandOnTheRunVoiceCommandService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FakeBand\FakeBand.csproj">
       <Project>{66ad68f7-8105-45ac-bfb5-d9b54715bd07}</Project>
       <Name>FakeBand</Name>

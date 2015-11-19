@@ -11,6 +11,8 @@ using Windows.ApplicationModel;
 using Windows.UI.Core;
 using MSBandAzure.Views;
 using MSBandAzure.Services;
+using Windows.Media.SpeechRecognition;
+using Windows.Storage;
 
 namespace MSBandAzure
 {
@@ -107,7 +109,7 @@ namespace MSBandAzure
         /// will be used such as when the application is launched to open a specific file.
         /// </summary>
         /// <param name="e">Details about the launch request and process.</param>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
 
             //#if DEBUG
@@ -149,6 +151,19 @@ namespace MSBandAzure
             }
             // Ensure the current window is active
             Window.Current.Activate();
+
+            try
+            {
+                // Install the main VCD. Since there's no simple way to test that the VCD has been imported, or that it's your most recent
+                // version, it's not unreasonable to do this upon app load.
+                StorageFile vcdStorageFile = await Package.Current.InstalledLocation.GetFileAsync(@"BandOnTheRunCommands.xml");
+
+                await Windows.ApplicationModel.VoiceCommands.VoiceCommandDefinitionManager.InstallCommandDefinitionsFromStorageFileAsync(vcdStorageFile);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Installing Voice Commands Failed: " + ex.ToString());
+            }
         }
 
         private void UpdateBackButtonVisibility()
@@ -205,6 +220,40 @@ namespace MSBandAzure
         public void Navigate(Type target, object param = null)
         {
             _rootFrame.Navigate(target, param);
+        }
+
+        protected override void OnActivated(IActivatedEventArgs args)
+        {
+            base.OnActivated(args);
+
+
+            _rootFrame = Window.Current.Content as Frame;
+
+            // Do not repeat app initialization when the Window already has content,
+            // just ensure that the window is active
+            if (_rootFrame == null)
+            {
+                // Create a Frame to act as the navigation context and navigate to the first page
+                _rootFrame = new Frame();
+
+                _rootFrame.Navigated += OnNavigated;
+                _rootFrame.NavigationFailed += OnNavigationFailed;
+
+                // Place the frame in the current Window
+                Window.Current.Content = _rootFrame;
+
+                // listen for backbutton requests
+                SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
+                UpdateBackButtonVisibility();
+            }
+
+            if (_rootFrame.Content == null)
+            {
+                // navigate to the master page providing the navigation structure
+                _rootFrame.Navigate(typeof(MainPage), null);
+            }
+            // Ensure the current window is active
+            Window.Current.Activate();
         }
     }
 

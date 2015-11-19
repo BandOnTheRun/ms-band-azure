@@ -174,7 +174,7 @@ namespace MSBandAzure.ViewModels
                     XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
 
                     XmlNodeList toastTextElements = toastXml.GetElementsByTagName("text");
-                    toastTextElements[0].AppendChild(toastXml.CreateTextNode(_bandInfo.Name + " is working hard!\nHeart Rate: " + HeartRate + " bpm");
+                    toastTextElements[0].AppendChild(toastXml.CreateTextNode(_bandInfo.Name + " is working hard!\nHeart Rate: " + HeartRate + " bpm"));
 
                     XmlNodeList toastImageAttributes = toastXml.GetElementsByTagName("image");
                     ((XmlElement)toastImageAttributes[0]).SetAttribute("src", "ms-appx:///assets/tpoc-heart-logo-hi.png");

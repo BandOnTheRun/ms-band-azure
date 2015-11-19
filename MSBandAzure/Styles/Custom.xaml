@@ -13,62 +13,75 @@
             <SolidColorBrush x:Key="ExtendedSplashBackground" Color="Black" />
             <SolidColorBrush x:Key="ExtendedSplashForeground" Color="White" />
 
+            <!-- skin temp -->
             <DataTemplate x:Key="stt">
                 <Border BorderThickness="1"
-			BorderBrush="White">
+			            BorderBrush="White">
                     <Grid Margin="4">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="115*" />
                             <ColumnDefinition Width="151*" />
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="{Binding Name}"
-					Style="{StaticResource SubheaderTextBlockStyle}"
-					TextAlignment="Center"
-					HorizontalAlignment="Center"
-					VerticalAlignment="Center" />
-                        <StackPanel HorizontalAlignment="Center"
-					VerticalAlignment="Center"
-					Margin="9,21,11.833,21"
-					Height="73"
-					Width="130"
-					Grid.Column="1">
-                            <TextBlock FontSize="44"
-						Text="{Binding SkinTemp}"
-						Style="{StaticResource HeaderTextBlockStyle}"
-						VerticalAlignment="Center"
-						TextAlignment="Center" />
-                            <TextBlock FontSize="18"
-						Text="{Binding TimeStamp}"
-						VerticalAlignment="Center"
-						TextAlignment="Center" />
-                        </StackPanel>
+                        
+                        <TextBlock 
+                            Text="{Binding Name}"
+					        Style="{StaticResource SubheaderTextBlockStyle}"
+					        TextAlignment="Center"
+					        HorizontalAlignment="Center"
+					        VerticalAlignment="Center" />
+                        
+                            <StackPanel 
+                                HorizontalAlignment="Center"
+					            VerticalAlignment="Center"
+                                Height="120" Width="280" 
+					            Grid.Column="1">
+                                <TextBlock 
+                                    FontSize="44"
+						            Text="{Binding SkinTemp}"
+						            Style="{StaticResource HeaderTextBlockStyle}"
+						            VerticalAlignment="Center"
+						            TextAlignment="Center" />
+                                
+                                <TextBlock 
+                                    FontSize="18"
+						            Text="{Binding TimeStamp}"
+						            VerticalAlignment="Center"
+						            TextAlignment="Center" />
+                            </StackPanel>
                     </Grid>
                 </Border>
             </DataTemplate>
+            
+            <!-- uv -->
             <DataTemplate x:Key="uvt">
-                <Border BorderThickness="1"
-                BorderBrush="White">
+                <Border 
+                    BorderThickness="1"
+                    BorderBrush="White">
                     <Grid Margin="4">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="115*" />
                             <ColumnDefinition Width="151*" />
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="{Binding Name}"
-                           Style="{StaticResource SubheaderTextBlockStyle}"
-                           TextAlignment="Center"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center" />
-                        <StackPanel HorizontalAlignment="Center"
+                        
+                        <TextBlock 
+                            Text="{Binding Name}"
+                            Style="{StaticResource SubheaderTextBlockStyle}"
+                            TextAlignment="Center"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center" />
+                        
+                        <StackPanel 
+                            HorizontalAlignment="Center"
                             VerticalAlignment="Center"
-                            Margin="9,21,11.833,21"
-                            Height="73"
-                            Width="130"
+                            Height="120" Width="280" 
                             Grid.Column="1">
+                            
                             <TextBlock FontSize="44"
                                Text="{Binding UVIndex}"
                                Style="{StaticResource HeaderTextBlockStyle}"
                                VerticalAlignment="Center"
                                TextAlignment="Center" />
+                            
                             <TextBlock FontSize="18"
                                Text="{Binding TimeStamp}"
                                VerticalAlignment="Center"
@@ -77,42 +90,88 @@
                     </Grid>
                 </Border>
             </DataTemplate>
+            
+            <!-- heartrate -->
             <DataTemplate x:Key="hrt">
-                <Border x:Name="border" BorderThickness="1" 
-			BorderBrush="White">
+                <Border 
+                    x:Name="border" 
+                    BorderThickness="1" 
+			        BorderBrush="White">
                     <Grid Margin="4">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="115*"/>
                             <ColumnDefinition Width="151*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="{Binding Name}" Style="{StaticResource SubheaderTextBlockStyle}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="120" Width="280" Grid.Column="1">
+                        
+                        <TextBlock 
+                            Text="{Binding Name}" 
+                            Style="{StaticResource SubheaderTextBlockStyle}" 
+                            TextAlignment="Center" 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center"/>
+                        
+                        <StackPanel 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center" 
+                            Height="120" Width="280" 
+                            Grid.Column="1">
+                            
                             <TextBlock FontSize="44"
-						Text="{Binding HeartRate}" Style="{StaticResource HeaderTextBlockStyle}" VerticalAlignment="Center" TextAlignment="Center"/>
+						        Text="{Binding HeartRate}" 
+                                Style="{StaticResource HeaderTextBlockStyle}" 
+                                VerticalAlignment="Center" 
+                                TextAlignment="Center"/>
+                            
                             <TextBlock FontSize="18"
-						Text="{Binding TimeStamp}" VerticalAlignment="Center" TextAlignment="Center"/>
+						        Text="{Binding TimeStamp}" 
+                                VerticalAlignment="Center" 
+                                TextAlignment="Center"/>
                         </StackPanel>
                     </Grid>
                 </Border>
             </DataTemplate>
+            
+            <!-- distance -->
             <DataTemplate x:Key="dist">
-                <Border x:Name="border" BorderThickness="1" 
-			BorderBrush="White">
+                <Border 
+                    x:Name="border" 
+                    BorderThickness="1" 
+			        BorderBrush="White">
                     <Grid Margin="4">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="115*"/>
                             <ColumnDefinition Width="151*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="{Binding Name}" Style="{StaticResource SubheaderTextBlockStyle}" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="120" Width="280" Grid.Column="1">
-                            <TextBlock FontSize="18"
-						Text="{Binding Pace}" Style="{StaticResource HeaderTextBlockStyle}" VerticalAlignment="Center" TextAlignment="Center"/>
-                            <TextBlock FontSize="18"
-						Text="{Binding Speed}" Style="{StaticResource HeaderTextBlockStyle}" VerticalAlignment="Center" TextAlignment="Center"/>
-                            <TextBlock FontSize="18"
-						Text="{Binding CurrentMotion}" Style="{StaticResource HeaderTextBlockStyle}" VerticalAlignment="Center" TextAlignment="Center"/>
-                            <TextBlock FontSize="18"
-						Text="{Binding TimeStamp}" VerticalAlignment="Center" TextAlignment="Center"/>
+                    
+                        <TextBlock 
+                            Text="{Binding Name}" 
+                            Style="{StaticResource SubheaderTextBlockStyle}" 
+                            TextAlignment="Center" 
+                            HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        
+                            <StackPanel 
+                                HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                Height="120" Width="280" 
+                                Grid.Column="1">
+                            
+                                <TextBlock FontSize="18"
+						            Text="{Binding Pace}" 
+                                    Style="{StaticResource HeaderTextBlockStyle}" 
+                                    VerticalAlignment="Center" 
+                                    TextAlignment="Center"/>
+                            
+                                <TextBlock FontSize="18"
+						            Text="{Binding Speed}" 
+                                    Style="{StaticResource HeaderTextBlockStyle}" 
+                                    VerticalAlignment="Center" 
+                                    TextAlignment="Center"/>
+                            
+                                <TextBlock FontSize="18"
+						            Text="{Binding CurrentMotion}" 
+                                    Style="{StaticResource HeaderTextBlockStyle}" 
+                                    VerticalAlignment="Center" 
+                                    TextAlignment="Center"/>
+
                         </StackPanel>
                     </Grid>
                 </Border>

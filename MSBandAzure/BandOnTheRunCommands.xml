@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.2">
+  <CommandSet xml:lang="en-us" Name="BandOnTheRunCommandSet_en-us">
+    <AppName> Health</AppName>
+    <Example> Show Health</Example>
+
+    <Command Name="showbandinformation">
+      <Example> health check status</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> check status</ListenFor>
+      <Feedback> Checking band status</Feedback>
+      <VoiceCommandService Target="BandOnTheRunVoiceCommandService"/>
+    </Command>
+  
+   <Command Name="launchband">
+      <Example>Health show hub </Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> Show hub</ListenFor>
+      <Feedback> Launching Health Hub</Feedback>
+      <Navigate/>
+    </Command>
+  
+  </CommandSet>
+  
+
+
+  <CommandSet xml:lang="en-gb" Name="BandOnTheRunCommandSet_en-gb">
+     <AppName> Health</AppName>
+    <Example> Show Health</Example>
+
+    <Command Name="showbandinformation">
+      <Example> health check status</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> check status</ListenFor>
+      <Feedback> Checking band status</Feedback>
+      <VoiceCommandService Target="BandOnTheRunVoiceCommandService"/>
+    </Command>
+  
+   <Command Name="launchband">
+      <Example>Health show hub </Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> Show hub</ListenFor>
+      <Feedback> Launching Health Hub</Feedback>
+      <Navigate/>
+    </Command>
+
+  </CommandSet>
+</VoiceCommands>

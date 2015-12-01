@@ -11,6 +11,18 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/Autofac.dll": {}
         }
       },
+      "FakeBand/0.0.1": {
+        "dependencies": {
+          "Microsoft.Band": "[1.3.10929, )",
+          "Rx-Main": "[2.2.5, )"
+        },
+        "compile": {
+          "lib/portable-net45+win+wpa81/FakeBand.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+win+wpa81/FakeBand.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.1.0": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
@@ -42,7 +54,7 @@
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
         }
       },
-      "Microsoft.Band/1.3.10702": {
+      "Microsoft.Band/1.3.10929": {
         "compile": {
           "lib/netcore451/Microsoft.Band.dll": {},
           "lib/netcore451/Microsoft.Band.Store.dll": {},
@@ -1708,6 +1720,18 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/Autofac.dll": {}
         }
       },
+      "FakeBand/0.0.1": {
+        "dependencies": {
+          "Microsoft.Band": "[1.3.10929, )",
+          "Rx-Main": "[2.2.5, )"
+        },
+        "compile": {
+          "lib/portable-net45+win+wpa81/FakeBand.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+win+wpa81/FakeBand.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.1.0": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
@@ -1739,7 +1763,7 @@
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
         }
       },
-      "Microsoft.Band/1.3.10702": {
+      "Microsoft.Band/1.3.10929": {
         "compile": {
           "lib/netcore451/Microsoft.Band.dll": {},
           "lib/netcore451/Microsoft.Band.Store.dll": {},
@@ -3495,6 +3519,18 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/Autofac.dll": {}
         }
       },
+      "FakeBand/0.0.1": {
+        "dependencies": {
+          "Microsoft.Band": "[1.3.10929, )",
+          "Rx-Main": "[2.2.5, )"
+        },
+        "compile": {
+          "lib/portable-net45+win+wpa81/FakeBand.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+win+wpa81/FakeBand.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.1.0": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
@@ -3526,7 +3562,7 @@
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
         }
       },
-      "Microsoft.Band/1.3.10702": {
+      "Microsoft.Band/1.3.10929": {
         "compile": {
           "lib/netcore451/Microsoft.Band.dll": {},
           "lib/netcore451/Microsoft.Band.Store.dll": {},
@@ -5254,6 +5290,18 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/Autofac.dll": {}
         }
       },
+      "FakeBand/0.0.1": {
+        "dependencies": {
+          "Microsoft.Band": "[1.3.10929, )",
+          "Rx-Main": "[2.2.5, )"
+        },
+        "compile": {
+          "lib/portable-net45+win+wpa81/FakeBand.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+win+wpa81/FakeBand.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.1.0": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
@@ -5285,7 +5333,7 @@
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
         }
       },
-      "Microsoft.Band/1.3.10702": {
+      "Microsoft.Band/1.3.10929": {
         "compile": {
           "lib/netcore451/Microsoft.Band.dll": {},
           "lib/netcore451/Microsoft.Band.Store.dll": {},
@@ -7046,6 +7094,18 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/Autofac.dll": {}
         }
       },
+      "FakeBand/0.0.1": {
+        "dependencies": {
+          "Microsoft.Band": "[1.3.10929, )",
+          "Rx-Main": "[2.2.5, )"
+        },
+        "compile": {
+          "lib/portable-net45+win+wpa81/FakeBand.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+win+wpa81/FakeBand.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.1.0": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
@@ -7077,7 +7137,7 @@
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
         }
       },
-      "Microsoft.Band/1.3.10702": {
+      "Microsoft.Band/1.3.10929": {
         "compile": {
           "lib/netcore451/Microsoft.Band.dll": {},
           "lib/netcore451/Microsoft.Band.Store.dll": {},
@@ -8805,6 +8865,18 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/Autofac.dll": {}
         }
       },
+      "FakeBand/0.0.1": {
+        "dependencies": {
+          "Microsoft.Band": "[1.3.10929, )",
+          "Rx-Main": "[2.2.5, )"
+        },
+        "compile": {
+          "lib/portable-net45+win+wpa81/FakeBand.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+win+wpa81/FakeBand.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.1.0": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
@@ -8836,7 +8908,7 @@
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
         }
       },
-      "Microsoft.Band/1.3.10702": {
+      "Microsoft.Band/1.3.10929": {
         "compile": {
           "lib/netcore451/Microsoft.Band.dll": {},
           "lib/netcore451/Microsoft.Band.Store.dll": {},
@@ -10597,6 +10669,18 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/Autofac.dll": {}
         }
       },
+      "FakeBand/0.0.1": {
+        "dependencies": {
+          "Microsoft.Band": "[1.3.10929, )",
+          "Rx-Main": "[2.2.5, )"
+        },
+        "compile": {
+          "lib/portable-net45+win+wpa81/FakeBand.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+win+wpa81/FakeBand.dll": {}
+        }
+      },
       "Microsoft.ApplicationInsights/1.1.0": {
         "compile": {
           "lib/portable-win81+wpa81/Microsoft.ApplicationInsights.dll": {}
@@ -10628,7 +10712,7 @@
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
         }
       },
-      "Microsoft.Band/1.3.10702": {
+      "Microsoft.Band/1.3.10929": {
         "compile": {
           "lib/netcore451/Microsoft.Band.dll": {},
           "lib/netcore451/Microsoft.Band.Store.dll": {},
@@ -12363,6 +12447,17 @@
         "package/services/metadata/core-properties/14b288cae4b6435c88f25cef31d271e1.psmdcp"
       ]
     },
+    "FakeBand/0.0.1": {
+      "sha512": "otOdxYNxfc+Q7uUzKpPLz1mmkxugcS722CJ0dnv0VZW8x+dZuSSUz8fDc0zW/4ZfS4vFfqSDgxl8gFpxkvAhdA==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "FakeBand.nuspec",
+        "lib/portable-net45+win+wpa81/FakeBand.dll",
+        "package/services/metadata/core-properties/1cf790226ade4359aa0fe85406dca60e.psmdcp"
+      ]
+    },
     "Microsoft.ApplicationInsights/1.1.0": {
       "sha512": "X4QBy+VEF+J+H+Cuo1jjo+uUjU5d/ipEVgo4MPddo6sVU899kh6TEhPXri4PiZPsZi9nRn5QSjBJOcsnQsrF5w==",
       "type": "Package",
@@ -12413,8 +12508,8 @@
         "package/services/metadata/core-properties/441e5d0bc7164e089277ae041b2043cc.psmdcp"
       ]
     },
-    "Microsoft.Band/1.3.10702": {
-      "sha512": "YQjHi9OLCvhojp5J6SNO8g32+Il8qtKgVJQUGfSRRbxd1bKtvZxEZ/2sfF1aqkN+jkV3SNEZ3Jc1pV4vY2KLWQ==",
+    "Microsoft.Band/1.3.10929": {
+      "sha512": "ztoDkNixADFGIAM5NZ+h88rWEp7D+c7MPbVgJfhN1OqE7rQSd8OzVGzK5hW3QB9F3yKfmOd9QgRHIgbq5qA87Q==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -12448,7 +12543,7 @@
         "lib/wpa81/Microsoft.Band.Store/Sensors/SensorConsentPage.xbf",
         "lib/wpa81/Microsoft.Band.Store/Tiles/AddTilePage.xbf",
         "Microsoft.Band.nuspec",
-        "package/services/metadata/core-properties/fa6eb5e8aab940dd8fc96c3e4a127bc8.psmdcp"
+        "package/services/metadata/core-properties/5c6cb094dafa492b83ba789fe9d253c8.psmdcp"
       ]
     },
     "Microsoft.Bcl/1.1.9": {
@@ -16487,8 +16582,9 @@
   "projectFileDependencyGroups": {
     "": [
       "Autofac >= 3.5.2",
+      "FakeBand >= 0.0.1",
       "Microsoft.ApplicationInsights.WindowsApps >= 1.1.0",
-      "Microsoft.Band >= 1.3.10702",
+      "Microsoft.Band >= 1.3.10929",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
       "Newtonsoft.Json >= 7.0.1",
       "PCLCommandBase >= 0.2.2",

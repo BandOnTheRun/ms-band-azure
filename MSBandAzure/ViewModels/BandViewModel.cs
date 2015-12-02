@@ -148,6 +148,22 @@ namespace MSBandAzure.ViewModels
             }
         }
 
+        public SkinTempViewModel SkinTemp
+        {
+            get
+            {
+                return SensorData.OfType<SkinTempViewModel>().First();
+            }
+        }
+
+        public UVViewModel UV
+        {
+            get
+            {
+                return SensorData.OfType<UVViewModel>().First();
+            }
+        }
+
         private bool _isBusy;
 
         private void UpdateConnectedStatus()

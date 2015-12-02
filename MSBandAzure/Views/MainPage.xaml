@@ -10,7 +10,7 @@
     x:Class="MSBandAzure.Views.MainPage"
     mc:Ignorable="d">
     <Page.Resources>
-        
+
         <DataTemplate x:Key="BandTemplate" x:DataType="vm:BandViewModel">
             <Grid Width="380"
                   Height="240" 
@@ -47,30 +47,87 @@
                   VerticalAlignment="Stretch"
                   Margin="4">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto" MinHeight="95"></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="109*"></ColumnDefinition>
                     <ColumnDefinition Width="71*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <TextBlock Margin="4" Foreground="White" FontSize="32" Text="{x:Bind BandName}" />
-                <!--<local:HeartRateChartControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"></local:HeartRateChartControl>-->
-                <Grid VerticalAlignment="Top" Grid.Row="0" Grid.Column="1" Grid.RowSpan="3">
-                    <TextBlock FontSize="90" 
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center" 
-                                FontFamily="Segoe MDL2 Assets"
-                                Foreground="#77ffffff">&#57355;</TextBlock>
-                    <TextBlock FontSize="28" 
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center" 
-                                Foreground="White" 
-                                Text="{x:Bind HeartRate.HeartRate, Mode=OneWay}"></TextBlock>
+                <TextBlock Margin="4" Foreground="White" FontSize="37.333" Text="{x:Bind BandName}" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" VerticalAlignment="Center" />
+                <Grid Grid.Column="1" Grid.RowSpan="2" Margin="0,0,15,0" d:LayoutOverrides="TopMargin, BottomMargin">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" d:LayoutOverrides="LeftPosition, RightPosition">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock FontSize="90" 
+                			HorizontalAlignment="Center"
+                			VerticalAlignment="Center" 
+                			FontFamily="Segoe MDL2 Assets"
+                			Foreground="#77ffffff">
+                			<Run Text="&#xE95E;"/>
+                        </TextBlock>
+                        <TextBlock FontSize="28" 
+                			HorizontalAlignment="Center"
+                			VerticalAlignment="Center" 
+                			Foreground="White" 
+                			Text="{x:Bind HeartRate.HeartRate, Mode=OneWay}" Grid.Column="1"/>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock FontSize="90" 
+                    		HorizontalAlignment="Center"
+                    		VerticalAlignment="Center" 
+                    		FontFamily="Segoe MDL2 Assets"
+                    		Foreground="#77ffffff">
+                    		<Run Text="&#xe9ca;"/>
+                        </TextBlock>
+                        <TextBlock FontSize="28" Grid.Column="1" 
+                    		HorizontalAlignment="Center"
+                    		VerticalAlignment="Center" 
+                    		Foreground="White" 
+                    		Text="{x:Bind SkinTemp.SkinTemp, Mode=OneWay}"/>
+                    </Grid>
+                    <Grid Grid.Row="3" d:LayoutOverrides="LeftPosition, RightPosition">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock FontSize="90" 
+                    		HorizontalAlignment="Center"
+                    		VerticalAlignment="Center" 
+                    		FontFamily="Segoe MDL2 Assets"
+                    		Foreground="#77ffffff">
+                    		<Run Text="&#xE706;"/>
+                        </TextBlock>
+                        <TextBlock FontSize="28" Grid.Column="1" 
+                    		HorizontalAlignment="Center"
+                    		VerticalAlignment="Center" 
+                    		Foreground="White" 
+                    		Text="{x:Bind UV.UVIndex, Mode=OneWay}"/>
+                    </Grid>
                 </Grid>
-                <StackPanel  Grid.Row="1" Margin="32">
-                    <StackPanel Orientation="Horizontal">
-                        <Button Command="{Binding ConnectCmd}" VerticalAlignment="Center">CONNECT</Button>
+                <!--<local:HeartRateChartControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"></local:HeartRateChartControl>-->
+                <StackPanel  Grid.Row="1" Margin="4">
+                    <StackPanel Orientation="Horizontal" Margin="4">
+                        <Button Command="{Binding ConnectCmd}" VerticalAlignment="Center">
+                            <TextBlock FontSize="50" 
+                    		    HorizontalAlignment="Center"
+                    		    VerticalAlignment="Center" 
+                    		    FontFamily="Segoe MDL2 Assets"
+                    		    Foreground="#77ffffff">
+                        		<Run Text="&#xEC41;"/>
+                            </TextBlock>
+                        </Button>
                         <ProgressRing IsActive="{x:Bind IsBusy, Mode=OneWay}"  VerticalAlignment="Center" 
                                       IsEnabled="{x:Bind IsBusy, Mode=OneWay}"></ProgressRing>
                         <TextBlock Text="{x:Bind StatusText, Mode=OneWay}"  VerticalAlignment="Center"/>
@@ -137,7 +194,7 @@
                 </Grid>
             </Grid>
         </DataTemplate>
-        
+
     </Page.Resources>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -237,7 +294,7 @@
             </ListView.ItemContainerStyle>
         </ListView>
 
-        
+
         <!--#endregion-->
 
     </Grid>

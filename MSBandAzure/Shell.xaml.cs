@@ -29,8 +29,8 @@ namespace MSBandAzure
                 if (_vm == null)
                 {
                     _vm = App.Locator.ShellViewModel;
-                    _vm.MenuItems.Add(new MenuItem { Icon = "", Title = "Bands", PageType = typeof(MainPage) });
-                    _vm.MenuItems.Add(new MenuItem { Icon = "", Title = "Settings", PageType = typeof(SettingsPage) });
+                    _vm.MenuItems.Add(new MenuItem { Icon = "", Title = "Bands", PageType = typeof(MainPage) });
+                    _vm.MenuItems.Add(new MenuItem { Icon = "", Title = "Settings", PageType = typeof(SettingsPage) });
                     _vm.SelectedMenuItem = _vm.MenuItems.First();
                 }
                 return _vm;

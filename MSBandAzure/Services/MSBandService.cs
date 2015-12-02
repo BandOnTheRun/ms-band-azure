@@ -36,6 +36,7 @@ namespace MSBandAzure.Services
         public async Task<IEnumerable<Band>> GetPairedBands()
         {
             IBandInfo[] pairedBands = await BandClientManager.Instance.GetBandsAsync();
+            
             //_container.Resolve<Band>(new TypedParameter(typeof(IBandInfo), );
             return pairedBands.Select(i => _container.Resolve<Band>(new TypedParameter(typeof(IBandInfo), i))).ToList();
             //return pairedBands.Select(i => new Band(i, this)).ToList();

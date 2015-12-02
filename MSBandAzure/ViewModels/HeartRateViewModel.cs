@@ -165,6 +165,7 @@ namespace MSBandAzure.ViewModels
                  HeartRate = hr;
                  TimeStamp = ts.ToString();
 
+#if USE_NOTIFICATIONS
                 //increment notification timer
                 NotificationTimer++;
                 if ((NotificationTimer%30)==0)
@@ -187,7 +188,7 @@ namespace MSBandAzure.ViewModels
         
                     NotificationTimer = 0;
                 }
-              
+#endif 
              });
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
             _telemetry.PostTelemetryAsync(new Models.DeviceTelemetry

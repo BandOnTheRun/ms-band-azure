@@ -97,6 +97,9 @@
     <Content Include="BandHub.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Minimal_TemporaryKey.pfx" />
     <None Include="project.json" />
   </ItemGroup>

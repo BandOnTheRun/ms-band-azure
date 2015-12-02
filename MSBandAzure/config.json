@@ -1,0 +1,5 @@
+﻿{
+  "ServiceNamespace": "bandontherun-ns",
+  "HubName": "msbands",
+  "SasTokenUrl": "http://bandontherun.azurewebsites.net/api/getsastoken/dxband"
+}

@@ -13,6 +13,7 @@ using MSBandAzure.Views;
 using MSBandAzure.Services;
 using Windows.Media.SpeechRecognition;
 using Windows.Storage;
+using Newtonsoft.Json;
 
 namespace MSBandAzure
 {
@@ -103,6 +104,7 @@ namespace MSBandAzure
         }
 
         private Frame _rootFrame;
+        public static dynamic Settings;
 
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
@@ -118,6 +120,11 @@ namespace MSBandAzure
             //                this.DebugSettings.EnableFrameRateCounter = true;
             //            }
             //#endif
+
+            var file = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///config.json"));
+            //var str = await file.OpenReadAsync();
+            var str = await FileIO.ReadTextAsync(file);
+            Settings = JsonConvert.DeserializeObject(str);
 
             _rootFrame = Window.Current.Content as Frame;
 

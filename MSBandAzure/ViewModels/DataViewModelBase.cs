@@ -13,7 +13,7 @@ namespace MSBandAzure.ViewModels
             _bandClient = bandClient;
 
             _name = name;
-            _dispatcher = Windows.UI.Core.CoreWindow.GetForCurrentThread().Dispatcher;
+
             _startCmd = new Lazy<ICommand>(() =>
             {
                 return new AsyncDelegateCommand<object>(Start, CanStart);
@@ -38,8 +38,6 @@ namespace MSBandAzure.ViewModels
 
         Lazy<ICommand> _stopCmd;
         public ICommand StopCmd { get { return _stopCmd.Value; } }
-
-        protected Windows.UI.Core.CoreDispatcher _dispatcher;
 
         private string _name;
         public string Name { get { return _name; } }

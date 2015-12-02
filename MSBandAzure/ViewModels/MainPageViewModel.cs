@@ -68,9 +68,22 @@ namespace MSBandAzure.ViewModels
             var bands = await _bandService.GetPairedBands();
             Bands = new ObservableCollection<BandViewModel>(bands.Select(b => 
                 _container.Resolve<BandViewModel>(new TypedParameter(typeof(Band), b))));
- 
+
+            // If we know about the band then try to auto-connect 
+            AutoConnectBandsAsync(Bands);
+
             return Bands;
         }
+
+        private async Task AutoConnectBandsAsync(IEnumerable<BandViewModel> bands)
+        {
+            foreach (var band in bands)
+            {
+                if (band.ConnectCmd.CanExecute(null) == true)
+                    band.ConnectCmd.ExecuteAsync(null);
+            }
+        }
+
         private bool CanEnumerateBands(object obj)
         {
             return true;

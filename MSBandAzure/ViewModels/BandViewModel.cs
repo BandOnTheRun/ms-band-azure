@@ -8,6 +8,7 @@ using Windows.UI;
 using Windows.UI.Xaml.Media;
 using Microsoft.Band;
 using System.Windows.Input;
+using System.Diagnostics;
 
 namespace MSBandAzure.ViewModels
 {
@@ -94,7 +95,7 @@ namespace MSBandAzure.ViewModels
             _band = band;
             InitSensors();
             UpdateConnectedStatus();
-            _connectCmd = new Lazy<ICommand>(() =>
+            _connectCmd = new Lazy<AsyncDelegateCommand<object>>(() =>
             {
                 return new AsyncDelegateCommand<object>(ConnectBand, CanConnect);
             });
@@ -109,6 +110,10 @@ namespace MSBandAzure.ViewModels
                 await Connect(arg);
                 await StartSensors();
             }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Exception: {ex.Message}");
+            }
             finally
             {
                 IsBusy = false;
@@ -117,8 +122,8 @@ namespace MSBandAzure.ViewModels
             return arg;
         }
 
-        Lazy<ICommand> _connectCmd;
-        public ICommand ConnectCmd { get { return _connectCmd.Value; } }
+        Lazy<AsyncDelegateCommand<object>> _connectCmd;
+        public AsyncDelegateCommand<object> ConnectCmd { get { return _connectCmd.Value; } }
 
         private bool CanConnect(object arg)
         {
@@ -131,7 +136,7 @@ namespace MSBandAzure.ViewModels
         {
             get
             {
-                return Connected ? SensorData.OfType<HeartRateViewModel>().First() : null;
+                return SensorData.OfType<HeartRateViewModel>().First();
             }
         }
 
@@ -139,7 +144,7 @@ namespace MSBandAzure.ViewModels
         {
             get
             {
-                return Connected ? SensorData.OfType<DistanceViewModel>().First() : null;
+                return SensorData.OfType<DistanceViewModel>().First();
             }
         }
 
@@ -177,6 +182,10 @@ namespace MSBandAzure.ViewModels
             {
                 await _band.Connect();
                 SetupThemeAsync();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Exception: {ex.Message}");
             }
             finally
             {
@@ -230,8 +239,10 @@ namespace MSBandAzure.ViewModels
                     {
                         await asyncCmd.ExecuteAsync(_band);
                     }
-                    catch (Exception)
-                    { }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine($"Exception: {ex.Message}");
+                    }
                 }
             }
         }
@@ -247,8 +258,10 @@ namespace MSBandAzure.ViewModels
                     {
                         await asyncCmd.ExecuteAsync(null);
                     }
-                    catch (Exception)
-                    { }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine($"Exception: {ex.Message}");
+                    }
                 }
             }
         }

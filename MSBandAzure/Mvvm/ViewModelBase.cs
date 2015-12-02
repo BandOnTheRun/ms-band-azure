@@ -12,7 +12,9 @@ namespace MSBandAzure.Mvvm
 
         public ViewModelBase()
         {
-            _dispatcher = Windows.UI.Core.CoreWindow.GetForCurrentThread().Dispatcher;
+            var window = Windows.UI.Core.CoreWindow.GetForCurrentThread();
+            if (window != null)
+                _dispatcher = window.Dispatcher;
         }
         // the only thing that matters here is Template10.Services.NavigationService.INavagable
     }

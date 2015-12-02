@@ -48,6 +48,10 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
+            <TextBlock>SETTINGS</TextBlock>
+            <Grid Grid.Row="1" Margin="16">
+                <ToggleSwitch IsOn="{x:Bind ViewModel.AutoConnect, Mode=TwoWay}">Auto Connect</ToggleSwitch>
+            </Grid>
         </Grid>
     </Grid>
 </Page>

@@ -26,7 +26,7 @@ namespace MSBandAzure.Views
         {
             var panel = (ItemsWrapGrid)widerList.ItemsPanelRoot;
             panel.ItemWidth = e.NewSize.Width / 2;
-            panel.ItemHeight = e.NewSize.Height / 3;
+            //panel.ItemHeight = e.NewSize.Height / 3;
         }
     }
 }

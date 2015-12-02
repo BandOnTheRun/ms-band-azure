@@ -40,7 +40,10 @@ namespace MSBandAzure.Mvvm
             });
 
             builder.RegisterType<DetailPageViewModel>().InstancePerDependency();
-            builder.RegisterType<SettingsViewModel>().InstancePerDependency();
+
+            // Ensure this gets created early on...
+            builder.RegisterInstance(new SettingsViewModel());
+
             builder.RegisterType<ShellViewModel>().InstancePerDependency();
 
             builder.RegisterType<HeartRateViewModel>().InstancePerDependency();

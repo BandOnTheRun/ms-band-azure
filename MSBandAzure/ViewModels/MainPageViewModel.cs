@@ -69,8 +69,11 @@ namespace MSBandAzure.ViewModels
             Bands = new ObservableCollection<BandViewModel>(bands.Select(b => 
                 _container.Resolve<BandViewModel>(new TypedParameter(typeof(Band), b))));
 
-            // If we know about the band then try to auto-connect 
-            AutoConnectBandsAsync(Bands);
+            // If we know about the band then try to auto-connect
+            if (App.Locator.SettingsViewModel.AutoConnect == true)
+            {
+                AutoConnectBandsAsync(Bands);
+            }
 
             return Bands;
         }

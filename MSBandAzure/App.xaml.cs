@@ -154,7 +154,8 @@ namespace MSBandAzure
             if (_rootFrame.Content == null)
             {
                 // navigate to the master page providing the navigation structure
-                _rootFrame.Navigate(typeof(MainPage), null);
+                //_rootFrame.Navigate(typeof(MainPage), null);
+                _rootFrame.Navigate(typeof(Shell), null);
             }
             // Ensure the current window is active
             Window.Current.Activate();
@@ -229,39 +230,39 @@ namespace MSBandAzure
             _rootFrame.Navigate(target, param);
         }
 
-        protected override void OnActivated(IActivatedEventArgs args)
-        {
-            base.OnActivated(args);
+        //protected override void OnActivated(IActivatedEventArgs args)
+        //{
+        //    base.OnActivated(args);
 
 
-            _rootFrame = Window.Current.Content as Frame;
+        //    _rootFrame = Window.Current.Content as Frame;
 
-            // Do not repeat app initialization when the Window already has content,
-            // just ensure that the window is active
-            if (_rootFrame == null)
-            {
-                // Create a Frame to act as the navigation context and navigate to the first page
-                _rootFrame = new Frame();
+        //    // Do not repeat app initialization when the Window already has content,
+        //    // just ensure that the window is active
+        //    if (_rootFrame == null)
+        //    {
+        //        // Create a Frame to act as the navigation context and navigate to the first page
+        //        _rootFrame = new Frame();
 
-                _rootFrame.Navigated += OnNavigated;
-                _rootFrame.NavigationFailed += OnNavigationFailed;
+        //        _rootFrame.Navigated += OnNavigated;
+        //        _rootFrame.NavigationFailed += OnNavigationFailed;
 
-                // Place the frame in the current Window
-                Window.Current.Content = _rootFrame;
+        //        // Place the frame in the current Window
+        //        Window.Current.Content = _rootFrame;
 
-                // listen for backbutton requests
-                SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
-                UpdateBackButtonVisibility();
-            }
+        //        // listen for backbutton requests
+        //        SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
+        //        UpdateBackButtonVisibility();
+        //    }
 
-            if (_rootFrame.Content == null)
-            {
-                // navigate to the master page providing the navigation structure
-                _rootFrame.Navigate(typeof(MainPage), null);
-            }
-            // Ensure the current window is active
-            Window.Current.Activate();
-        }
+        //    if (_rootFrame.Content == null)
+        //    {
+        //        // navigate to the master page providing the navigation structure
+        //        _rootFrame.Navigate(typeof(MainPage), null);
+        //    }
+        //    // Ensure the current window is active
+        //    Window.Current.Activate();
+        //}
     }
 
 #endif

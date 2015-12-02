@@ -7,6 +7,7 @@ using MSBandAzure.Services.Fakes;
 using MSBandAzure.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
+using MSBandAzure.Presentation;
 
 namespace MSBandAzure.Mvvm
 {
@@ -39,6 +40,8 @@ namespace MSBandAzure.Mvvm
             });
 
             builder.RegisterType<DetailPageViewModel>().InstancePerDependency();
+            builder.RegisterType<SettingsViewModel>().InstancePerDependency();
+            builder.RegisterType<ShellViewModel>().InstancePerDependency();
 
             builder.RegisterType<HeartRateViewModel>().InstancePerDependency();
             builder.RegisterType<SkinTempViewModel>().InstancePerDependency();
@@ -77,6 +80,18 @@ namespace MSBandAzure.Mvvm
             {
                 return _container.Resolve<DetailPageViewModel>();
             }
+        }
+        public SettingsViewModel SettingsViewModel
+        {
+            get
+            {
+                return _container.Resolve<SettingsViewModel>();
+            }
+        }
+
+        public ShellViewModel ShellViewModel
+        {
+            get { return _container.Resolve<ShellViewModel>(); }
         }
     }
 }

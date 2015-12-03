@@ -1,0 +1,2 @@
+MainPackage=C:\Users\pdaukin\Documents\Github\ms-band-azure\MSBandAzure\bin\x86\Debug\MSBandAzure_1.0.3.0_x86_Debug.appx
+SymbolPackage=C:\Users\pdaukin\Desktop\Band App Package\MSBandAzure_1.0.3.0_Debug_Test\MSBandAzure_1.0.3.0_x86_Debug.appxsym

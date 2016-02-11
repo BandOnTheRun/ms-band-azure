@@ -28,9 +28,12 @@ namespace SimulateBand
 
     class Program
     {
+        static string _bandName = "BandIoTDevice1";
+        static string _bandIoTHubKey = "4+ZcyUgsuyZx9dSzC7VSoX8gwk1/fNON65EQWn4LPR8=";
+
+
         static int _interations = 10;
         static int _sendIntervalms = 2000;
-        static string _bandName = "BandTest1";
         static int _randomSeed = 0;
         static int _stepSize = 1;
 
@@ -87,6 +90,7 @@ namespace SimulateBand
         }
 
 
+        // old method for Event Hub 
         static async Task GetSasTokenAsync()
         {
             var http = new HttpClient();

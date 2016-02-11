@@ -1,1 +1,2 @@
-project = BandontheRunWebApp
+[config]
+project = BandontheRunWebApp/BandontheRunWebApp.csproj

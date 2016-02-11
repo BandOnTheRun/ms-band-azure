@@ -92,7 +92,7 @@ namespace BandontheRunWebApp
             eventHubSettings.consumerGroup = System.Configuration.ConfigurationManager.AppSettings["BandontheRun.consumerGroup"];
             eventHubSettings.eventHubConnectionString = System.Configuration.ConfigurationManager.AppSettings["BandontheRun.eventHubConnectionString"];
             eventHubSettings.storageConnectionString = System.Configuration.ConfigurationManager.AppSettings["BandontheRun.storageConnectionString"];
-            eventHubSettings.iotHubConnectionString = System.Configuration.ConfigurationManager.AppSettings["iotHubConnectionString"]
+            eventHubSettings.iotHubConnectionString = System.Configuration.ConfigurationManager.AppSettings["iotHubConnectionString"];
  
         }
     }

@@ -1,5 +1,3 @@
-
-
 SELECT
     DeviceId, Heartrate, EventEnqueuedUtcTime as Time
 INTO
@@ -7,6 +5,7 @@ INTO
 FROM
     input
 Timestamp by EventEnqueuedUtcTime
+
 
 SELECT
     DeviceId, Cast(AVG(HeartRate) as BIGINT) as HeartRate, Max(EventEnqueuedUtcTime) as Time
@@ -18,3 +17,12 @@ Timestamp by
     EventEnqueuedUtcTime
 GROUP BY 
     DeviceId, Tumblingwindow(second, 5)
+
+
+//New Query added for SignalR webapp front end
+SELECT DeviceId, Cast(AVG(HeartRate) as BIGINT) as HeartRate, Max(EventEnqueuedUtcTime) as Time 
+INTO sbqueue
+FROM iothub
+Timestamp by EventEnqueuedUtcTime
+GROUP BY DeviceId, TumblingWindow(second, 10)
+HAVING (HeartRate >= 70) AND (HeartRate <= 200)

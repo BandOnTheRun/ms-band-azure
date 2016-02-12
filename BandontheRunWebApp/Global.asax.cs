@@ -25,6 +25,7 @@ namespace BandontheRunWebApp
         public string consumerGroup { get; set; }
         public string eventHubConnectionString { get; set; }
         public string storageConnectionString { get; set; } 
+        public string iotHubConnectionString { get; set; }
         public EventProcessorHost processorHost { get; set; } 
 
     }
@@ -77,7 +78,6 @@ namespace BandontheRunWebApp
             {
                 Debug.Print("Error happened while trying to connect Event Hub - {0}", e.Message);
             }
-
         }
 
 
@@ -92,6 +92,8 @@ namespace BandontheRunWebApp
             eventHubSettings.consumerGroup = System.Configuration.ConfigurationManager.AppSettings["BandontheRun.consumerGroup"];
             eventHubSettings.eventHubConnectionString = System.Configuration.ConfigurationManager.AppSettings["BandontheRun.eventHubConnectionString"];
             eventHubSettings.storageConnectionString = System.Configuration.ConfigurationManager.AppSettings["BandontheRun.storageConnectionString"];
+            eventHubSettings.iotHubConnectionString = System.Configuration.ConfigurationManager.AppSettings["iotHubConnectionString"];
+ 
         }
     }
 }

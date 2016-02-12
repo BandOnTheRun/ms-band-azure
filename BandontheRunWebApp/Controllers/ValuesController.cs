@@ -16,9 +16,47 @@ using Microsoft.ServiceBus;
 
 namespace BandontheRunWebApp.Controllers
 {
+    using Microsoft.Azure.Devices;
+    using Microsoft.Azure.Devices.Common.Exceptions;
+    using System.Threading.Tasks;
+
+
     public class ValuesController : ApiController
     {
         // GET api/values
+
+
+        // IoT Hub device register code
+
+        [Route("api/IoTRegisterDevice/{deviceId}")]
+        [HttpGet]
+        public async Task<string> IoTRegisterDevice(string deviceId)
+        {
+            string connectionString = WebApiApplication.ehWebConsumerGroup.iotHubConnectionString;
+
+            RegistryManager registryManager = RegistryManager.CreateFromConnectionString(connectionString);
+            string key = await AddDeviceAsync(registryManager, deviceId);
+
+            return key;
+        }
+
+
+        private async static Task<string> AddDeviceAsync(RegistryManager registryManager, string deviceId)
+        {
+            Device device;
+
+            try
+            {
+                device = await registryManager.AddDeviceAsync(new Device(deviceId));
+            }
+            catch (DeviceAlreadyExistsException)
+            {
+                device = await registryManager.GetDeviceAsync(deviceId);
+            }
+
+            return device.Authentication.SymmetricKey.PrimaryKey;
+        }
+
 
 
         // create a SAS token

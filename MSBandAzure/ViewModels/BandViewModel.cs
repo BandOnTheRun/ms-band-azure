@@ -9,6 +9,8 @@ using Windows.UI.Xaml.Media;
 using Microsoft.Band;
 using System.Windows.Input;
 using System.Diagnostics;
+using MSBandAzure.Services;
+using Autofac;
 
 namespace MSBandAzure.ViewModels
 {
@@ -101,6 +103,8 @@ namespace MSBandAzure.ViewModels
             });
         }
 
+        private ITelemetry _telemetry;
+
         private async Task<object> ConnectBand(object arg)
         {
             try
@@ -109,6 +113,10 @@ namespace MSBandAzure.ViewModels
                 IsBusy = true;
                 await Connect(arg);
                 await StartSensors();
+
+                //TODO: This needs to have a telemetry instance per-band instance (it is currently a singleton!!)
+                _telemetry = App.Locator.Resolve<ITelemetry>();
+                await _telemetry.RefreshTokenAsync(BandName);
             }
             catch (Exception ex)
             {

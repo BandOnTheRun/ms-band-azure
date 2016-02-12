@@ -132,6 +132,7 @@
     <Compile Include="Services\FakeBandService.cs" />
     <Compile Include="Services\IBandService.cs" />
     <Compile Include="Services\INavigationService.cs" />
+    <Compile Include="Services\IotHubsTelemetry.cs" />
     <Compile Include="Services\ITelemetry.cs" />
     <Compile Include="Services\MSBandService.cs" />
     <Compile Include="Shell.xaml.cs">

@@ -6,6 +6,8 @@ namespace MSBandAzure.Services
 {
     public interface ITelemetry
     {
-        Task<HttpResponseMessage> PostTelemetryAsync(DeviceTelemetry deviceTelemetry);
+        Task RefreshTokenAsync(string deviceId);
+
+        Task PostTelemetryAsync(DeviceTelemetry deviceTelemetry);
     }
 }

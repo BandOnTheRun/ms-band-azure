@@ -54,6 +54,14 @@
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
         }
       },
+      "Microsoft.Azure.Devices.Client/1.0.1": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
+        }
+      },
       "Microsoft.Band/1.3.10929": {
         "compile": {
           "lib/netcore451/Microsoft.Band.dll": {},
@@ -1761,6 +1769,14 @@
         },
         "runtime": {
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
+        }
+      },
+      "Microsoft.Azure.Devices.Client/1.0.1": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
         }
       },
       "Microsoft.Band/1.3.10929": {
@@ -3562,6 +3578,14 @@
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
         }
       },
+      "Microsoft.Azure.Devices.Client/1.0.1": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
+        }
+      },
       "Microsoft.Band/1.3.10929": {
         "compile": {
           "lib/netcore451/Microsoft.Band.dll": {},
@@ -5331,6 +5355,14 @@
         },
         "runtime": {
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
+        }
+      },
+      "Microsoft.Azure.Devices.Client/1.0.1": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
         }
       },
       "Microsoft.Band/1.3.10929": {
@@ -7137,6 +7169,14 @@
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
         }
       },
+      "Microsoft.Azure.Devices.Client/1.0.1": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
+        }
+      },
       "Microsoft.Band/1.3.10929": {
         "compile": {
           "lib/netcore451/Microsoft.Band.dll": {},
@@ -8906,6 +8946,14 @@
         },
         "runtime": {
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
+        }
+      },
+      "Microsoft.Azure.Devices.Client/1.0.1": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
         }
       },
       "Microsoft.Band/1.3.10929": {
@@ -10712,6 +10760,14 @@
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
         }
       },
+      "Microsoft.Azure.Devices.Client/1.0.1": {
+        "compile": {
+          "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
+        }
+      },
       "Microsoft.Band/1.3.10929": {
         "compile": {
           "lib/netcore451/Microsoft.Band.dll": {},
@@ -12506,6 +12562,19 @@
         "lib/wpa81/Microsoft.ApplicationInsights.Extensibility.Windows.XML",
         "Microsoft.ApplicationInsights.WindowsApps.nuspec",
         "package/services/metadata/core-properties/441e5d0bc7164e089277ae041b2043cc.psmdcp"
+      ]
+    },
+    "Microsoft.Azure.Devices.Client/1.0.1": {
+      "sha512": "nKed694xmcwPoXv76SQYMIt69yJUka27B97OFfcXhQ9hrozOX5xaeeVd2J8zTtKqn+WInRWmDkcvi39MTRg//Q==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "lib/net45/Microsoft.Azure.Devices.Client.dll",
+        "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd",
+        "Microsoft.Azure.Devices.Client.nuspec",
+        "package/services/metadata/core-properties/46de89aa47204e3c88aac6fe09be3dd4.psmdcp",
+        "thirdpartynotice.txt"
       ]
     },
     "Microsoft.Band/1.3.10929": {
@@ -16584,6 +16653,7 @@
       "Autofac >= 3.5.2",
       "FakeBand >= 0.0.1",
       "Microsoft.ApplicationInsights.WindowsApps >= 1.1.0",
+      "Microsoft.Azure.Devices.Client >= 1.0.1",
       "Microsoft.Band >= 1.3.10929",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
       "Newtonsoft.Json >= 7.0.1",

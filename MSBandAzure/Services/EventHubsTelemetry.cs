@@ -4,7 +4,6 @@ using System;
 using System.Threading.Tasks;
 using Windows.Web.Http;
 
-
 namespace MSBandAzure.Services
 {
     public class EventHubsTelemetry : ITelemetry
@@ -14,14 +13,14 @@ namespace MSBandAzure.Services
         public EventHubsTelemetry()
         {
             bandTokenServiceLocation = App.Settings.SasTokenUrl;
-            RefreshTokenAsync().ContinueWith(t => { });
+            RefreshSasTokenAsync().ContinueWith(t => { });
         }
 
         private string _sas;
         private HttpClient _httpClient = new HttpClient();
         private Uri _postUri;
 
-        public async Task RefreshTokenAsync()
+        public async Task RefreshSasTokenAsync()
         {
             var http = new HttpClient();
             var resp = await http.GetAsync(new Uri(bandTokenServiceLocation));
@@ -43,10 +42,10 @@ namespace MSBandAzure.Services
             _httpClient.DefaultRequestHeaders.TryAppendWithoutValidation("Authorization", _sas);
         }
 
-        public async Task<HttpResponseMessage> PostTelemetryAsync(DeviceTelemetry deviceTelemetry)
+        public async Task PostTelemetryAsync(DeviceTelemetry deviceTelemetry)
         {
-            var postContent = new HttpStringContent(JsonConvert.SerializeObject(deviceTelemetry),
-                Windows.Storage.Streams.UnicodeEncoding.Utf8, "application/json");
+            var payload = JsonConvert.SerializeObject(deviceTelemetry);
+            var postContent = new HttpStringContent(payload, Windows.Storage.Streams.UnicodeEncoding.Utf8, "application/json");
 
             //Microsoft.ApplicationInsights.TelemetryClient client = new Microsoft.ApplicationInsights.TelemetryClient();
             //client.TrackEvent(new EventTelemetry { Name = "Event Hub Post" });
@@ -60,7 +59,12 @@ namespace MSBandAzure.Services
             {
                 //client.TrackException(new ExceptionTelemetry { Exception = ex });
             }
-            return resp;
+            return;
+        }
+
+        public Task RefreshTokenAsync(string deviceId)
+        {
+            return RefreshSasTokenAsync();
         }
     }
 }

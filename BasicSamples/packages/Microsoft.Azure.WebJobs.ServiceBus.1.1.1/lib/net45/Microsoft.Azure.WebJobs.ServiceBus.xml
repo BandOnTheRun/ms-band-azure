@@ -1,0 +1,615 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Azure.WebJobs.ServiceBus</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Azure.WebJobs.Host.Converters.AsyncConverter`2">
+            <summary>
+            An asynchronous converter that delegates to an inner synchronous converter.
+            </summary>
+            <typeparam name="TInput">The type to convert from.</typeparam>
+            <typeparam name="TOutput">The type to convert to.</typeparam>
+        </member>
+        <member name="T:Microsoft.Azure.WebJobs.Host.Converters.IAsyncConverter`2">
+            <summary>
+            Interface defining methods for performing asynchronous conversion operations.
+            </summary>
+            <typeparam name="TInput">The type to convert from.</typeparam>
+            <typeparam name="TOutput">The type to convert to.</typeparam>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.Host.Converters.IAsyncConverter`2.ConvertAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Convert the specified input value to the output type.
+            </summary>
+            <param name="input">The value to convert.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> to use</param>
+            <returns>A task that returns the converted value.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.Host.Converters.AsyncConverter`2.#ctor(Microsoft.Azure.WebJobs.Host.Converters.IConverter{`0,`1})">
+            <summary>
+            Creates a new instance.
+            </summary>
+            <param name="innerConverter">The inner converter to delegate to.</param>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.Host.Converters.AsyncConverter`2.ConvertAsync(`0,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.Azure.WebJobs.Host.Converters.CompositeObjectToTypeConverter`1">
+            <summary>
+            An object converter that encapsulates a set of inner converters.
+            </summary>
+            <typeparam name="T">The output <see cref="T:System.Type"/></typeparam>
+        </member>
+        <member name="T:Microsoft.Azure.WebJobs.Host.Converters.IObjectToTypeConverter`1">
+            <summary>
+            Defines methods for converting objects to another <see cref="T:System.Type"/>.
+            </summary>
+            <typeparam name="TOutput">The output <see cref="T:System.Type"/>.</typeparam>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.Host.Converters.IObjectToTypeConverter`1.TryConvert(System.Object,`0@)">
+            <summary>
+            Try to convert the specified object to the output <see cref="T:System.Type"/>.
+            </summary>
+            <param name="input">The object to convert.</param>
+            <param name="output">If the conversion was successful, the result of the conversion.</param>
+            <returns>True if the conversion was successful, false otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.Host.Converters.CompositeObjectToTypeConverter`1.#ctor(System.Collections.Generic.IEnumerable{Microsoft.Azure.WebJobs.Host.Converters.IObjectToTypeConverter{`0}})">
+            <summary>
+            Create a new instance.
+            </summary>
+            <param name="converters">The set of converters to encapsulate.</param>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.Host.Converters.CompositeObjectToTypeConverter`1.#ctor(Microsoft.Azure.WebJobs.Host.Converters.IObjectToTypeConverter{`0}[])">
+            <summary>
+            Create a new instance.
+            </summary>
+            <param name="converters">The set of converters to encapsulate.</param>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.Host.Converters.CompositeObjectToTypeConverter`1.TryConvert(System.Object,`0@)">
+            <summary>
+            Try to perform a conversion by attempting each inner converter in order
+            until one succeeds, or all fail.
+            </summary>
+            <param name="input">The value to convert.</param>
+            <param name="output">The converted value if successful.</param>
+            <returns>True if the conversion was successful, false otherwise.</returns>
+        </member>
+        <member name="T:Microsoft.Azure.WebJobs.Host.Converters.ConversionResult`1">
+            <summary>
+            Represents the result of a conversion.
+            </summary>
+            <typeparam name="TResult">The <see cref="T:System.Type"/> of the conversion result.</typeparam>
+        </member>
+        <member name="P:Microsoft.Azure.WebJobs.Host.Converters.ConversionResult`1.Succeeded">
+            <summary>
+            Gets a value indicating whether the conversion succeeded.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.WebJobs.Host.Converters.ConversionResult`1.Result">
+            <summary>
+            Gets the conversion result.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.WebJobs.Host.Converters.IAsyncObjectToTypeConverter`1">
+            <summary>
+            Provides an interface for performing asynchronous conversions from
+            an object to a particular type.
+            </summary>
+            <typeparam name="TOutput">The type to convert to.</typeparam>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.Host.Converters.IAsyncObjectToTypeConverter`1.TryConvertAsync(System.Object,System.Threading.CancellationToken)">
+            <summary>
+            Try to convert the specified input object.
+            </summary>
+            <param name="input">The object to convert.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> to use.</param>
+            <returns>A task that returns the conversion result.</returns>
+        </member>
+        <member name="T:Microsoft.Azure.WebJobs.Host.Converters.IConverter`2">
+            <summary>
+            Defines methods for performing value conversions
+            </summary>
+            <typeparam name="TInput">The input value type.</typeparam>
+            <typeparam name="TOutput">The output value type.</typeparam>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.Host.Converters.IConverter`2.Convert(`0)">
+            <summary>
+            Convert the specified input value.
+            </summary>
+            <param name="input">The value to convert</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="T:Microsoft.Azure.WebJobs.Host.Converters.IdentityConverter`1">
+            <summary>
+            A converter that simply returns the value to be converted,
+            without performing any conversions.
+            </summary>
+            <typeparam name="TValue">The <see cref="T:System.Type"/> being converted.</typeparam>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.Host.Converters.IdentityConverter`1.Convert(`0)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.Azure.WebJobs.Host.Listeners.IListenerFactory">
+            <summary>
+            Interface defining methods used to create <see cref="T:Microsoft.Azure.WebJobs.Host.Listeners.IListener"/>s for
+            trigger parameter bindings.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.Host.Listeners.IListenerFactory.CreateAsync(System.Threading.CancellationToken)">
+            <summary>
+            Creates a listener.
+            </summary>
+            <param name="token">A <see cref="T:System.Threading.CancellationToken"/>.</param>
+            <returns>The listener.</returns>
+        </member>
+        <member name="T:Microsoft.Azure.WebJobs.Host.Triggers.ITriggerDataArgumentBinding`1">
+            <summary>
+            Interface providing the capability to bind to trigger parameter values.
+            </summary>
+            <typeparam name="TTriggerValue">The type of the trigger value.</typeparam>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.Host.Triggers.ITriggerDataArgumentBinding`1.BindAsync(`0,Microsoft.Azure.WebJobs.Host.Bindings.ValueBindingContext)">
+            <summary>
+            Bind to the specified trigger value.
+            </summary>
+            <param name="value">The value to bind to.</param>
+            <param name="context">The binding context.</param>
+            <returns>A task that returns the <see cref="T:Microsoft.Azure.WebJobs.Host.Triggers.ITriggerData"/> for the binding.</returns>
+        </member>
+        <member name="P:Microsoft.Azure.WebJobs.Host.Triggers.ITriggerDataArgumentBinding`1.ValueType">
+            <summary>
+            Gets the type of the trigger value.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.WebJobs.Host.Triggers.ITriggerDataArgumentBinding`1.BindingDataContract">
+            <summary>
+            Gets the binding data contract.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.WebJobs.ServiceBus.Bindings.BindableServiceBusPath">
+            <summary>
+            Utility class with factory method to create an instance of a strategy class implementing <see cref="T:Microsoft.Azure.WebJobs.ServiceBus.Bindings.IBindableServiceBusPath"/> interface.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.ServiceBus.Bindings.BindableServiceBusPath.Create(System.String)">
+            <summary>
+            A factory method detecting parameters in supplied queue or topic name pattern and creating 
+            an instance of relevant strategy class implementing <see cref="T:Microsoft.Azure.WebJobs.ServiceBus.Bindings.IBindableServiceBusPath"/>.
+            </summary>
+            <param name="queueOrTopicNamePattern">Service Bus queue or topic name pattern containing optional binding parameters.</param>
+            <returns>An object implementing <see cref="T:Microsoft.Azure.WebJobs.ServiceBus.Bindings.IBindableServiceBusPath"/></returns>
+        </member>
+        <member name="T:Microsoft.Azure.WebJobs.ServiceBus.Bindings.BoundServiceBusPath">
+            <summary>
+            Bindable queue or topic path strategy implementation for "degenerate" bindable patterns, 
+            i.e. containing no parameters.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.ServiceBus.Bindings.IBindableServiceBusPath.Bind(System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object})">
+            <summary>
+            Bind to the path.
+            </summary>
+            <param name="bindingData">The binding data.</param>
+            <returns>The path binding.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.ServiceBus.Bindings.IBindableServiceBusPath.ToString">
+            <summary>
+            Gets a string representation of the path.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Microsoft.Azure.WebJobs.ServiceBus.Bindings.IBindableServiceBusPath.IsBound">
+            <summary>
+            Gets a value indicating whether this path is bound.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.WebJobs.ServiceBus.Bindings.IBindableServiceBusPath.ParameterNames">
+            <summary>
+            Gets the collection of parameter names for the path.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.WebJobs.ServiceBus.Bindings.ParameterizedServiceBusPath">
+            <summary>
+            Implementation of <see cref="T:Microsoft.Azure.WebJobs.ServiceBus.Bindings.IBindableServiceBusPath"/> strategy for paths 
+            containing one or more parameters.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.ServiceBus.Bindings.BrokeredMessageArgumentBinding.MessageValueBinder.SetValueAsync(System.Object,System.Threading.CancellationToken)">
+            <summary>
+            Sends a BrokeredMessage to the bound queue.
+            </summary>
+            <param name="value">BrokeredMessage instance as retrieved from user's WebJobs method argument.</param>
+            <param name="cancellationToken">a cancellation token</param>
+            <remarks>
+            The out message parameter is processed as follows:
+            <list type="bullet">
+            <item>
+            <description>
+            If the value is <see langword="null"/>, no message will be sent.
+            </description>
+            </item>
+            <item>
+            <description>
+            If the value has empty content, a message with empty content will be sent.
+            </description>
+            </item>
+            <item>
+            <description>
+            If the value has non-empty content, a message with that content will be sent.
+            </description>
+            </item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.ServiceBus.Bindings.ByteArrayArgumentBindingProvider.ByteArrayArgumentBinding.BindAsync(Microsoft.Azure.WebJobs.ServiceBus.Bindings.ServiceBusEntity,Microsoft.Azure.WebJobs.Host.Bindings.ValueBindingContext)">
+            <remarks>
+            The out byte array parameter is processed as follows:
+            <list type="bullet">
+            <item>
+            <description>
+            If the value is <see langword="null"/>, no message will be sent.
+            </description>
+            </item>
+            <item>
+            <description>
+            If the value is an empty byte array, a message with empty content will be sent.
+            </description>
+            </item>
+            <item>
+            <description>
+            If the value is a non-empty byte array, a message with that content will be sent.
+            </description>
+            </item>
+            </list>
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Azure.WebJobs.ServiceBus.Bindings.ServiceBusParameterDescriptor.NamespaceName">
+            <summary>Gets or sets the name of the Service Bus namespace.</summary>
+        </member>
+        <member name="P:Microsoft.Azure.WebJobs.ServiceBus.Bindings.ServiceBusParameterDescriptor.QueueOrTopicName">
+            <summary>Gets or sets the name of the queue or topic.</summary>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.ServiceBus.Bindings.StringArgumentBindingProvider.StringArgumentBinding.BindAsync(Microsoft.Azure.WebJobs.ServiceBus.Bindings.ServiceBusEntity,Microsoft.Azure.WebJobs.Host.Bindings.ValueBindingContext)">
+            <remarks>
+            The out string parameter is processed as follows:
+            <list type="bullet">
+            <item>
+            <description>
+            If the value is <see langword="null"/>, no message will be sent.
+            </description>
+            </item>
+            <item>
+            <description>
+            If the value is an empty string, a message with empty content will be sent.
+            </description>
+            </item>
+            <item>
+            <description>
+            If the value is a non-empty string, a message with that content will be sent.
+            </description>
+            </item>
+            </list>
+            </remarks>
+        </member>
+        <member name="T:Microsoft.Azure.WebJobs.ServiceBusJobHostConfigurationExtensions">
+            <summary>
+            Extension methods for ServiceBus integration
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.ServiceBusJobHostConfigurationExtensions.UseServiceBus(Microsoft.Azure.WebJobs.JobHostConfiguration)">
+            <summary>
+            Enables use of ServiceBus job extensions
+            </summary>
+            <param name="config">The <see cref="T:Microsoft.Azure.WebJobs.JobHostConfiguration"/> to configure.</param>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.ServiceBusJobHostConfigurationExtensions.UseServiceBus(Microsoft.Azure.WebJobs.JobHostConfiguration,Microsoft.Azure.WebJobs.ServiceBus.ServiceBusConfiguration)">
+            <summary>
+            Enables use of ServiceBus job extensions
+            </summary>
+            <param name="config">The <see cref="T:Microsoft.Azure.WebJobs.JobHostConfiguration"/> to configure.</param>
+            <param name="serviceBusConfig">The <see cref="T:Microsoft.Azure.WebJobs.ServiceBus.ServiceBusConfiguration"></see> to use./&gt;</param>
+        </member>
+        <member name="T:Microsoft.Azure.WebJobs.ServiceBus.ServiceBusConfiguration">
+            <summary>
+            Configuration options for the ServiceBus extension.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.ServiceBus.ServiceBusConfiguration.#ctor">
+            <summary>
+            Constructs a new instance.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.WebJobs.ServiceBus.ServiceBusConfiguration.ConnectionString">
+            <summary>
+            Gets or sets the Azure ServiceBus connection string.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.WebJobs.ServiceBus.ServiceBusConfiguration.MessageOptions">
+            <summary>
+            Gets or sets the default <see cref="T:Microsoft.ServiceBus.Messaging.OnMessageOptions"/> that will be used by
+            <see cref="T:Microsoft.ServiceBus.Messaging.MessageReceiver"/>s.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.WebJobs.ServiceBus.ServiceBusConfiguration.PrefetchCount">
+            <summary>
+            Gets or sets the default PrefetchCount that will be used by <see cref="T:Microsoft.ServiceBus.Messaging.MessageReceiver"/>s.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.WebJobs.ServiceBus.ServiceBusConfiguration.MessagingProvider">
+            <summary>
+            Gets or sets the <see cref="P:Microsoft.Azure.WebJobs.ServiceBus.ServiceBusConfiguration.MessagingProvider"/> that will be used to create
+            instances used for message processing.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.WebJobs.ServiceBus.Config.ServiceBusExtensionConfig">
+            <summary>
+            Extension configuration provider used to register ServiceBus triggers and binders
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.ServiceBus.Config.ServiceBusExtensionConfig.#ctor(Microsoft.Azure.WebJobs.ServiceBus.ServiceBusConfiguration)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Azure.WebJobs.ServiceBus.Config.ServiceBusExtensionConfig"/> instance.
+            </summary>
+            <param name="serviceBusConfig">The <see cref="T:Microsoft.Azure.WebJobs.ServiceBus.ServiceBusConfiguration"></see> to use./&gt;</param>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.ServiceBus.Config.ServiceBusExtensionConfig.Initialize(Microsoft.Azure.WebJobs.Host.Config.ExtensionConfigContext)">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Azure.WebJobs.ServiceBus.Config.ServiceBusExtensionConfig.Config">
+            <summary>
+            Gets the <see cref="T:Microsoft.Azure.WebJobs.ServiceBus.ServiceBusConfiguration"/>
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.WebJobs.ServiceBus.MessagingProvider">
+            <summary>
+            This class provides factory methods for the creation of instances
+            used for ServiceBus message processing.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.ServiceBus.MessagingProvider.#ctor(Microsoft.Azure.WebJobs.ServiceBus.ServiceBusConfiguration)">
+            <summary>
+            Constructs a new instance.
+            </summary>
+            <param name="config">The <see cref="T:Microsoft.Azure.WebJobs.ServiceBus.ServiceBusConfiguration"/>.</param>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.ServiceBus.MessagingProvider.CreateNamespaceManager(System.String)">
+            <summary>
+            Creates a <see cref="T:Microsoft.ServiceBus.NamespaceManager"/>.
+            </summary>
+            <param name="connectionStringName">Optional connection string name indicating the connection string to use.
+            If null, the default connection string on the <see cref="T:Microsoft.Azure.WebJobs.ServiceBus.ServiceBusConfiguration"/> will be used.</param>
+            <returns>The <see cref="T:Microsoft.ServiceBus.NamespaceManager"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.ServiceBus.MessagingProvider.CreateMessagingFactory(System.String,System.String)">
+            <summary>
+            Creates a <see cref="T:Microsoft.ServiceBus.Messaging.MessagingFactory"/> for the specified ServiceBus entity.
+            </summary>
+            <param name="entityPath">The ServiceBus entity to create a <see cref="T:Microsoft.ServiceBus.Messaging.MessagingFactory"/> for.</param>
+            <param name="connectionStringName">Optional connection string name indicating the connection string to use.
+            If null, the default connection string on the <see cref="T:Microsoft.Azure.WebJobs.ServiceBus.ServiceBusConfiguration"/> will be used.</param>
+            <returns>A <see cref="T:Microsoft.ServiceBus.Messaging.MessagingFactory"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.ServiceBus.MessagingProvider.CreateMessageProcessor(System.String)">
+            <summary>
+            Creates a <see cref="T:Microsoft.Azure.WebJobs.ServiceBus.MessageProcessor"/> for the specified ServiceBus entity.
+            </summary>
+            <param name="entityPath">The ServiceBus entity to create a <see cref="T:Microsoft.Azure.WebJobs.ServiceBus.MessageProcessor"/> for.</param>
+            <returns>The <see cref="T:Microsoft.Azure.WebJobs.ServiceBus.MessageProcessor"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.ServiceBus.MessagingProvider.CreateMessageReceiver(Microsoft.ServiceBus.Messaging.MessagingFactory,System.String)">
+            <summary>
+            Creates a <see cref="T:Microsoft.ServiceBus.Messaging.MessageReceiver"/> for the specified ServiceBus entity.
+            </summary>
+            <remarks>
+            You can override this method to customize the <see cref="T:Microsoft.ServiceBus.Messaging.MessageReceiver"/>.
+            </remarks>
+            <param name="factory">The <see cref="T:Microsoft.ServiceBus.Messaging.MessagingFactory"/> to use.</param>
+            <param name="entityPath">The ServiceBus entity to create a <see cref="T:Microsoft.ServiceBus.Messaging.MessageReceiver"/> for.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.ServiceBus.MessagingProvider.GetConnectionString(System.String)">
+            <summary>
+            Gets the connection string for the specified connection string name.
+            If no value is specified, the default connection string will be returned.
+            </summary>
+            <param name="connectionStringName">The connection string name.</param>
+            <returns>The ServiceBus connection string.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.ServiceBus.Listeners.NamespaceManagerExtensions.SplitQueuePath(System.String)">
+            <summary>
+            Split queue or subscription path into parent and DLQ parts if the latter exists. 
+            </summary>
+            <param name="path">Not empty string with Azure ServiceBus queue or subscription path.</param>
+            <returns>Array of strings, where the first mandatory element is a parent queue path 
+            if given path ends with the DLQ suffix or the original queue path otherwise.</returns>
+        </member>
+        <member name="T:Microsoft.Azure.WebJobs.ServiceBus.MessageProcessor">
+            <summary>
+            This class defines a strategy used for processing ServiceBus messages.
+            </summary>
+            <remarks>
+            Custom <see cref="T:Microsoft.Azure.WebJobs.ServiceBus.MessageProcessor"/> implementations can be specified by implementing
+            a custom <see cref="T:Microsoft.Azure.WebJobs.ServiceBus.MessagingProvider"/> and setting it via <see cref="P:Microsoft.Azure.WebJobs.ServiceBus.ServiceBusConfiguration.MessagingProvider"/>.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.ServiceBus.MessageProcessor.#ctor(Microsoft.ServiceBus.Messaging.OnMessageOptions)">
+            <summary>
+            Constructs a new instance.
+            </summary>
+            <param name="messageOptions">The <see cref="T:Microsoft.ServiceBus.Messaging.OnMessageOptions"/> to use.</param>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.ServiceBus.MessageProcessor.BeginProcessingMessageAsync(Microsoft.ServiceBus.Messaging.BrokeredMessage,System.Threading.CancellationToken)">
+            <summary>
+            This method is called when there is a new message to process, before the job function is invoked.
+            This allows any preprocessing to take place on the message before processing begins.
+            </summary>
+            <param name="message">The message to process.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> to use.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> that returns true if the message processing should continue, false otherwise.</returns>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.ServiceBus.MessageProcessor.CompleteProcessingMessageAsync(Microsoft.ServiceBus.Messaging.BrokeredMessage,Microsoft.Azure.WebJobs.Host.Executors.FunctionResult,System.Threading.CancellationToken)">
+            <summary>
+            This method completes processing of the specified message, after the job function has been invoked.
+            </summary>
+            <param name="message">The message to complete processing for.</param>
+            <param name="result">The <see cref="T:Microsoft.Azure.WebJobs.Host.Executors.FunctionResult"/> from the job invocation.</param>
+            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken"/> to use</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> that will complete the message processing.</returns>
+        </member>
+        <member name="P:Microsoft.Azure.WebJobs.ServiceBus.MessageProcessor.MessageOptions">
+            <summary>
+            Gets the <see cref="T:Microsoft.ServiceBus.Messaging.OnMessageOptions"/> that will be used by the <see cref="T:Microsoft.ServiceBus.Messaging.MessageReceiver"/>.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.WebJobs.ServiceBusAccountAttribute">
+            <summary>
+            Attribute used to override the default ServiceBus account used by triggers and binders.
+            </summary>
+            <remarks>
+            This attribute can be applied at the parameter/method/class level, and the precedence
+            is in that order.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.ServiceBusAccountAttribute.#ctor(System.String)">
+            <summary>
+            Constructs a new instance.
+            </summary>
+            <param name="account">The name of the ServiceBus connection string to use. This should be the name
+            of one of the connection strings present in the application settings (or environment variables). The
+            connection string name in settings should be prefixed with the standard "AzureWebJobs" prefix, but the
+            value you specify here should not include that prefix.</param>
+        </member>
+        <member name="P:Microsoft.Azure.WebJobs.ServiceBusAccountAttribute.Account">
+            <summary>
+            Gets the name of the ServiceBus connection string to use.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.WebJobs.ServiceBusAttribute">
+            <summary>
+            Attribute used to bind a parameter to Azure ServiceBus Queues and Topics.
+            </summary>
+            <remarks>
+            The method parameter type can be one of the following:
+            <list type="bullet">
+            <item><description>BrokeredMessage (out parameter)</description></item>
+            <item><description><see cref="T:System.String"/> (out parameter)</description></item>
+            <item><description><see cref="T:byte[]"/> (out parameter)</description></item>
+            <item><description>A user-defined type (out parameter, serialized as JSON)</description></item>
+            <item><description>
+            <see cref="T:System.Collections.Generic.ICollection`1"/> of these types (to enqueue multiple messages via <see cref="M:System.Collections.Generic.ICollection`1.Add(`0)"/>
+            </description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.ServiceBusAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Azure.WebJobs.ServiceBusAttribute"/> class.
+            </summary>
+            <param name="queueOrTopicName">The name of the queue or topic to bind to.</param>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.ServiceBusAttribute.#ctor(System.String,Microsoft.ServiceBus.Messaging.AccessRights)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Azure.WebJobs.ServiceBusAttribute"/> class.
+            </summary>
+            <param name="queueOrTopicName">The name of the queue or topic to bind to.</param>
+            <param name="access">The <see cref="T:Microsoft.ServiceBus.Messaging.AccessRights"/> the client has to the queue or topic.</param>
+        </member>
+        <member name="P:Microsoft.Azure.WebJobs.ServiceBusAttribute.QueueOrTopicName">
+            <summary>
+            Gets the name of the queue or topic to bind to.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Azure.WebJobs.ServiceBusAttribute.Access">
+            <summary>
+            Gets the <see cref="T:Microsoft.ServiceBus.Messaging.AccessRights"/> the client has to the queue or topic.
+            The default is "Manage".
+            </summary>
+        </member>
+        <member name="T:Microsoft.Azure.WebJobs.ServiceBusTriggerAttribute">
+            <summary>
+            Attribute used to bind a parameter to a ServiceBus Queue message, causing the function to run when a
+            message is enqueued.
+            </summary>
+            <remarks>
+            The method parameter type can be one of the following:
+            <list type="bullet">
+            <item><description>BrokeredMessage</description></item>
+            <item><description><see cref="T:System.String"/></description></item>
+            <item><description><see cref="T:byte[]"/></description></item>
+            <item><description>A user-defined type (serialized as JSON)</description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.ServiceBusTriggerAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Azure.WebJobs.ServiceBusTriggerAttribute"/> class.
+            </summary>
+            <param name="queueName">The name of the queue to which to bind.</param>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.ServiceBusTriggerAttribute.#ctor(System.String,Microsoft.ServiceBus.Messaging.AccessRights)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Azure.WebJobs.ServiceBusTriggerAttribute"/> class.
+            </summary>
+            <param name="queueName">The name of the queue to which to bind.</param>
+            <param name="access">The <see cref="T:Microsoft.ServiceBus.Messaging.AccessRights"/> the client has to the queue.</param>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.ServiceBusTriggerAttribute.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Azure.WebJobs.ServiceBusTriggerAttribute"/> class.
+            </summary>
+            <param name="topicName">The name of the topic to bind to.</param>
+            <param name="subscriptionName">The name of the subscription in <paramref name="topicName"/> to bind to.</param>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.ServiceBusTriggerAttribute.#ctor(System.String,System.String,Microsoft.ServiceBus.Messaging.AccessRights)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Azure.WebJobs.ServiceBusTriggerAttribute"/> class.
+            </summary>
+            <param name="topicName">The name of the topic to bind to.</param>
+            <param name="subscriptionName">The name of the subscription in <paramref name="topicName"/> to bind to.</param>
+            <param name="access">The <see cref="T:Microsoft.ServiceBus.Messaging.AccessRights"/> the client has to the subscription in the topic.</param>
+        </member>
+        <member name="P:Microsoft.Azure.WebJobs.ServiceBusTriggerAttribute.QueueName">
+            <summary>
+            Gets the name of the queue to which to bind.
+            </summary>
+            <remarks>When binding to a subscription in a topic, returns <see langword="null"/>.</remarks>
+        </member>
+        <member name="P:Microsoft.Azure.WebJobs.ServiceBusTriggerAttribute.TopicName">
+            <summary>
+            Gets the name of the topic to which to bind.
+            </summary>
+            <remarks>When binding to a queue, returns <see langword="null"/>.</remarks>
+        </member>
+        <member name="P:Microsoft.Azure.WebJobs.ServiceBusTriggerAttribute.SubscriptionName">
+            <summary>
+            Gets the name of the subscription in <see cref="P:Microsoft.Azure.WebJobs.ServiceBusTriggerAttribute.TopicName"/> to bind to.
+            </summary>
+            <remarks>When binding to a queue, returns <see langword="null"/>.</remarks>
+        </member>
+        <member name="P:Microsoft.Azure.WebJobs.ServiceBusTriggerAttribute.Access">
+            <summary>
+            Gets the <see cref="T:Microsoft.ServiceBus.Messaging.AccessRights"/> the client has to the queue or topic subscription.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Azure.WebJobs.ServiceBus.Triggers.ServiceBusTriggerParameterDescriptor.GetTriggerReason(System.Collections.Generic.IDictionary{System.String,System.String})">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Azure.WebJobs.ServiceBus.Triggers.ServiceBusTriggerParameterDescriptor.NamespaceName">
+            <summary>Gets or sets the name of the Service Bus namespace.</summary>
+        </member>
+        <member name="P:Microsoft.Azure.WebJobs.ServiceBus.Triggers.ServiceBusTriggerParameterDescriptor.QueueName">
+            <summary>Gets or sets the name of the queue.</summary>
+            <remarks>When binding to a subscription in a topic, returns <see langword="null"/>.</remarks>
+        </member>
+        <member name="P:Microsoft.Azure.WebJobs.ServiceBus.Triggers.ServiceBusTriggerParameterDescriptor.TopicName">
+            <summary>Gets or sets the name of the queue.</summary>
+            <remarks>When binding to a queue, returns <see langword="null"/>.</remarks>
+        </member>
+        <member name="P:Microsoft.Azure.WebJobs.ServiceBus.Triggers.ServiceBusTriggerParameterDescriptor.SubscriptionName">
+            <summary>Gets or sets the name of the subscription in <see cref="P:Microsoft.Azure.WebJobs.ServiceBus.Triggers.ServiceBusTriggerParameterDescriptor.TopicName"/>.</summary>
+            <remarks>When binding to a queue, returns <see langword="null"/>.</remarks>
+        </member>
+    </members>
+</doc>

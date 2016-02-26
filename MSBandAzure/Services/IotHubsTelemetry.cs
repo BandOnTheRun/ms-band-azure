@@ -6,6 +6,7 @@ using Microsoft.Azure.Devices.Client;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Net;
+using System.Diagnostics;
 
 namespace MSBandAzure.Services
 {
@@ -18,7 +19,14 @@ namespace MSBandAzure.Services
             if (_iotHubClient != null)
             {
                 var payload = JsonConvert.SerializeObject(deviceTelemetry);
-                await _iotHubClient.SendEventAsync(new Message(Encoding.UTF8.GetBytes(payload)));
+                try
+                {
+                    await _iotHubClient.SendEventAsync(new Message(Encoding.UTF8.GetBytes(payload)));
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
             }
         }
 

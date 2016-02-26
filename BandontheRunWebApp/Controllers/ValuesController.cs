@@ -1,17 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Security.Cryptography;
-using System.Text;
-using System.Web;
 using System.Web.Http;
-
 using Microsoft.ServiceBus;
-
-
 
 
 namespace BandontheRunWebApp.Controllers
@@ -19,10 +9,14 @@ namespace BandontheRunWebApp.Controllers
     using Microsoft.Azure.Devices;
     using Microsoft.Azure.Devices.Common.Exceptions;
     using System.Threading.Tasks;
-
+    using Newtonsoft.Json;
 
     public class ValuesController : ApiController
     {
+        // track known devices 
+        public static Dictionary<string, string> _IoTRegisteredDevices = new Dictionary<string, string>();
+
+
         // GET api/values
 
 
@@ -32,15 +26,25 @@ namespace BandontheRunWebApp.Controllers
         [HttpGet]
         public async Task<string> IoTRegisterDevice(string deviceId)
         {
+            // register device with IoT Hub
             string connectionString = WebApiApplication.ehWebConsumerGroup.iotHubConnectionString;
 
             RegistryManager registryManager = RegistryManager.CreateFromConnectionString(connectionString);
             string key = await AddDeviceAsync(registryManager, deviceId);
 
+
+            // track list of devices for reporting
+
+            _IoTRegisteredDevices[deviceId] = DateTime.Now.ToLongDateString();
+
+            // TODO: add app insight counter
+
+
             return key;
         }
 
 
+        // internal helper function 
         private async static Task<string> AddDeviceAsync(RegistryManager registryManager, string deviceId)
         {
             Device device;
@@ -88,19 +92,20 @@ namespace BandontheRunWebApp.Controllers
         }
 
 
+        // list out known devices that we manage 
         [Route("api/GetDevicesInfo")]
         [HttpGet]
-        public List<DeviceTelemetry> GetDevicesInfo()
+        public string GetDevicesInfo()
         {
-            List<DeviceTelemetry> r = new List<DeviceTelemetry>();
+            //List<DeviceTelemetry> r = new List<DeviceTelemetry>();
+            //foreach (KeyValuePair<string, DeviceTelemetry> kvp in WebsiteEventProcessor._devices)
+            //{
+            //    // do we need to check anything before returning?
+            //   r.Add(kvp.Value);
+            //
 
-            foreach (KeyValuePair<string, DeviceTelemetry> kvp in WebsiteEventProcessor._devices)
-            {
-                // do we need to check anything before returning?
-                r.Add(kvp.Value);
-            }
-            
-            return r;
+            var json = JsonConvert.SerializeObject(_IoTRegisteredDevices);           
+            return json;
         }
 
 

@@ -15,7 +15,7 @@
                     el.innerText = xhr.responseText + ' ' + datetime;
                 }
             }
-            xhr.open('GET', 'http://bandontherun.azurewebsites.net/api/GetDevicesInfo', true);
+            xhr.open('GET', 'http://bandontherunwebapp.azurewebsites.net/api/GetDevicesInfo/', true);
             xhr.send(null);
         }, 1000);
     }, true);
@@ -25,7 +25,7 @@
 <div class="jumbotron">
     <h1>Band On The Run</h1>
     <p class="lead">
-        Band on the Run - track your Microsoft Band data via Microsoft Azure.
+        Band on the Run - track your Microsoft Band with Microsoft Azure.
     </p>
     <p id="my-data">waiting for data</p>
 </div>

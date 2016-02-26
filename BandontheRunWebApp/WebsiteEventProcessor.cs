@@ -28,7 +28,7 @@ namespace BandontheRunWebApp
 
 
 
-
+    // TODO: may remove all of this, as the website doesn't connect to IoT Hub at present, and Stream Analytics does it all
 
     // this is the class that handles messages from the website consumer group on the event hub
 

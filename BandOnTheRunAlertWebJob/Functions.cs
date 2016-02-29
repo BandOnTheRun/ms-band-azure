@@ -22,7 +22,7 @@ namespace BandOnTheRunAlertWebJob
             var myHub = connection.CreateHubProxy("BandOnTheRunHub");
 
             await connection.Start();
-            await myHub.Invoke<string>("Send", alertInfo.deviceid, alertInfo.heartrate);
+            await myHub.Invoke<string>("Heartrate", alertInfo.deviceid, alertInfo.heartrate);
         }
     }
 

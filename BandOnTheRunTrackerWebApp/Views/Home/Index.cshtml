@@ -26,16 +26,13 @@
             var hub = $.connection.bandOnTheRunHub;
             // Create a function that the hub can call to broadcast messages.
 
-            hub.client.broadcastMessage = function (message) {
-                debugger;
-                document.getElementById("rate").innerText = message;
+            hub.client.broadcastMessage = function (bandName, hrValue) {
+                document.getElementById("rate").innerText = hrValue;
                 heartRate = parseInt(message);
             };
 
             // Start the connection.
             $.connection.hub.start().done(function () {
-                debugger;
-                hub.server.heartrate(190);
             });
         });
 

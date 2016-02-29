@@ -10,7 +10,7 @@ namespace BandOnTheRunTrackerWebApp
 
         public void Heartrate(string bandName, string rate)
         {
-            Clients.All.broadcastMessage(rate);
+            Clients.All.broadcastMessage(bandName, rate);
         }
     }
 }

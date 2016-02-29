@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimulatedBandIotHub", "Simu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BandOnTheRunTrackerWebApp", "BandOnTheRunTrackerWebApp\BandOnTheRunTrackerWebApp.csproj", "{03E3D369-9A1E-4893-A60E-508832BFD48B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimulateSignalR", "SimulateSignalR\SimulateSignalR.csproj", "{B2BA865C-A965-4BA0-AC67-BD1491310A5E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -101,6 +103,22 @@ Global
 		{03E3D369-9A1E-4893-A60E-508832BFD48B}.Release|x64.Build.0 = Release|Any CPU
 		{03E3D369-9A1E-4893-A60E-508832BFD48B}.Release|x86.ActiveCfg = Release|Any CPU
 		{03E3D369-9A1E-4893-A60E-508832BFD48B}.Release|x86.Build.0 = Release|Any CPU
+		{B2BA865C-A965-4BA0-AC67-BD1491310A5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2BA865C-A965-4BA0-AC67-BD1491310A5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2BA865C-A965-4BA0-AC67-BD1491310A5E}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{B2BA865C-A965-4BA0-AC67-BD1491310A5E}.Debug|ARM.Build.0 = Debug|Any CPU
+		{B2BA865C-A965-4BA0-AC67-BD1491310A5E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B2BA865C-A965-4BA0-AC67-BD1491310A5E}.Debug|x64.Build.0 = Debug|Any CPU
+		{B2BA865C-A965-4BA0-AC67-BD1491310A5E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B2BA865C-A965-4BA0-AC67-BD1491310A5E}.Debug|x86.Build.0 = Debug|Any CPU
+		{B2BA865C-A965-4BA0-AC67-BD1491310A5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2BA865C-A965-4BA0-AC67-BD1491310A5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2BA865C-A965-4BA0-AC67-BD1491310A5E}.Release|ARM.ActiveCfg = Release|Any CPU
+		{B2BA865C-A965-4BA0-AC67-BD1491310A5E}.Release|ARM.Build.0 = Release|Any CPU
+		{B2BA865C-A965-4BA0-AC67-BD1491310A5E}.Release|x64.ActiveCfg = Release|Any CPU
+		{B2BA865C-A965-4BA0-AC67-BD1491310A5E}.Release|x64.Build.0 = Release|Any CPU
+		{B2BA865C-A965-4BA0-AC67-BD1491310A5E}.Release|x86.ActiveCfg = Release|Any CPU
+		{B2BA865C-A965-4BA0-AC67-BD1491310A5E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

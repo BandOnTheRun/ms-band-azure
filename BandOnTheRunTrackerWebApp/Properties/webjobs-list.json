@@ -1,0 +1,11 @@
+﻿{
+  "$schema": "http://schemastore.org/schemas/json/webjobs-list.json",
+  "WebJobs": [
+    {
+      "filePath": "../BandOnTheRunAlertWebJob/BandOnTheRunAlertWebJob.csproj"
+    },
+    {
+      "filePath": "../BandOnTheRunAlertWebJob/BandOnTheRunAlertWebJob.csproj"
+    }
+  ]
+}

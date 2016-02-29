@@ -1,0 +1,168 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.heart {
+    position: relative;
+    width: 100px;
+    height: 90px;
+    margin: auto;
+    margin-top: 300px;
+    transform: scale(4);
+}
+
+    .heart.animated-slow {
+        animation-name: pulsate-slow;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+
+    .heart.animated-medium {
+        animation-name: pulsate-medium;
+        animation-duration: 500ms;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+
+    .heart.animated-fast {
+        animation-name: pulsate-fast;
+        animation-duration: 400ms;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+
+    .heart.animated-very-fast {
+        animation-name: pulsate-very-fast;
+        animation-duration: 250ms;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+
+
+    .heart:before,
+    .heart:after {
+        position: absolute;
+        content: "";
+        left: 50px;
+        top: 0;
+        width: 50px;
+        height: 80px;
+        background: rgb(4, 164, 30);
+        border-radius: 50px 50px 0 0;
+        transform: rotate(-45deg);
+        transform-origin: 0 100%;
+        transition: background-color 1000ms linear;
+    }
+
+    .heart:after {
+        left: 0;
+        transform: rotate(45deg);
+        transform-origin: 100% 100%;
+    }
+
+.animated-medium:before,
+.animated-medium:after {
+    background: rgb(255, 216, 0);
+}
+
+.animated-fast:before,
+.animated-fast:after {
+    background: rgb(242, 129, 38);
+}
+
+.animated-very-fast:before,
+.animated-very-fast:after {
+    background: rgb(255,0,0);
+}
+
+@keyframes pulsate-slow {
+    0% {
+        transform: scale(3);
+    }
+
+    50% {
+        transform: scale(3.3);
+    }
+
+    100% {
+        transform: scale(3);
+    }
+}
+
+@keyframes pulsate-medium {
+    0% {
+        transform: scale(3);
+    }
+
+    50% {
+        transform: scale(3.5);
+    }
+
+    100% {
+        transform: scale(3);
+    }
+}
+
+@keyframes pulsate-fast {
+    0% {
+        transform: scale(3);
+    }
+
+    50% {
+        transform: scale(3.8);
+    }
+
+    100% {
+        transform: scale(3);
+    }
+}
+
+@keyframes pulsate-very-fast {
+    0% {
+        transform: scale(3);
+    }
+
+    50% {
+        transform: scale(4);
+    }
+
+    100% {
+        transform: scale(3);
+    }
+}
+
+#rate {
+    font-family: Arial;
+    position: absolute;
+    font-size: 20px;
+    top: 30%;
+    width: 100px;
+    text-align: center;
+    z-index: 300;
+}

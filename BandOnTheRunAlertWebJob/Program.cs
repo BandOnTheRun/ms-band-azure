@@ -1,26 +1,64 @@
-﻿using System.Threading.Tasks;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.ServiceBus;
+﻿using System;
+using System.IO;
+using System.Threading.Tasks;
 using System.Threading;
-using Microsoft.ServiceBus.Messaging;
 
 namespace BandOnTheRunAlertWebJob
 {
+    using Microsoft.Azure.WebJobs;
+    using Microsoft.Azure.WebJobs.ServiceBus;
+    using Microsoft.ServiceBus.Messaging;
+    using Newtonsoft.Json;
+    using Microsoft.AspNet.SignalR.Client;
+
+
     // To learn more about Microsoft Azure WebJobs SDK, please see http://go.microsoft.com/fwlink/?LinkID=320976
-    class Program
+    public class Program
     {
         // Please set the following connection strings in app.config for this WebJob to run:
         // AzureWebJobsDashboard and AzureWebJobsStorage
-        static void Main()
+        public static void Main()
         {
             JobHostConfiguration config = new JobHostConfiguration();
             config.UseServiceBus();
-
             var host = new JobHost();
+
             // The following code ensures that the WebJob will be running continuously
             host.RunAndBlock();
         }
     }
+
+
+    public class Functions
+    {
+        public static void ProcessQueueMessage(
+                [ServiceBusTrigger(queueName: "bandontherunqueue")] BrokeredMessage message, 
+                TextWriter logger)
+        {
+            // get message from service bus
+
+            var body = message.GetBody<string>();
+            var alertInfo = JsonConvert.DeserializeObject<BotrAlert>(body);
+            logger.WriteLine($"BandOnTheRunAlertWebJob: Processed message: {alertInfo.deviceid} - {alertInfo.heartrate}");
+
+            // send message to signalr hub
+
+            var connection = new HubConnection("http://bandontheruntracker.azurewebsites.net/");
+            var hub = connection.CreateHubProxy("BandOnTheRunHub");
+            connection.Start().Wait();
+
+            hub.Invoke<string>("heartrate", alertInfo.deviceid, alertInfo.heartrate);
+        }
+    }
+
+    public class BotrAlert
+    {
+        public string deviceid { get; set; }
+        public int heartrate { get; set; }
+        public DateTime time { get; set; }
+    }
+
+
 
     public class JsonDeserializingMessageProvider : MessagingProvider
     {

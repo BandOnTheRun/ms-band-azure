@@ -18,7 +18,7 @@ namespace SimulateSignalR
             var hub = connection.CreateHubProxy("BandOnTheRunHub");
             connection.Start().Wait();
 
-            // start pumping heartrate data
+            // start pumping heart rate data
 
             int rate = 70;
             Random rnd = new Random();

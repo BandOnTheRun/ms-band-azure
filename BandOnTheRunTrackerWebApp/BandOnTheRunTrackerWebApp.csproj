@@ -199,11 +199,13 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\BandOnTheRunTracker - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\BandOnTheRunTracker.pubxml" />
     <Content Include="Scripts\jquery-2.2.1.js" />
     <Content Include="Scripts\jquery-2.2.1.min.js" />
     <Content Include="Scripts\jquery-2.2.1.min.map" />
     <Content Include="Properties\webjobs-list.json" />
+    <None Include="Properties\PublishProfiles\BandontheRunWebApp - Web Deploy.pubxml" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.signalR-2.2.0.js" />
     <Content Include="Scripts\jquery.signalR-2.2.0.min.js" />

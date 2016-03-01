@@ -2,8 +2,12 @@
     ViewBag.Title = "Home Page";
 }
 
+
+<!-- display heart rate -->
 <div class="container">
-    <div class="heart animated-slow css"><div id="rate">123</div></div>
+    <div class="heart animated-slow css">
+        <div id="rate">0</div>
+    </div>
 </div>
 
 @section scripts
@@ -15,20 +19,22 @@
 
     <!--Add script to update the page and send messages.-->
     <script type="text/javascript">
-        var heartRate;
+
+        // track heart rate
+        var heartRate = 0;
 
         $(document).ready(function () {
         });
 
         $(function () {
-            debugger;
             // Declare a proxy to reference the hub.
             var hub = $.connection.bandOnTheRunHub;
-            // Create a function that the hub can call to broadcast messages.
 
+            // signalr 
+            // this function is called by the server hub via signalr to broadcast the current heart rate
             hub.client.broadcastMessage = function (bandName, hrValue) {
                 document.getElementById("rate").innerText = hrValue;
-                heartRate = parseInt(message);
+                heartRate = parseInt(hrValue);
             };
 
             // Start the connection.
@@ -55,10 +61,6 @@
             else {
                 heart.classList.add('animated-very-fast');
             }
-
-
-
-
         }
 
         function inRange(x, min, max) {

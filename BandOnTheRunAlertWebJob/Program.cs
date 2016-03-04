@@ -19,9 +19,12 @@ namespace BandOnTheRunAlertWebJob
         // AzureWebJobsDashboard and AzureWebJobsStorage
         public static void Main()
         {
+            // set up service bus config
             JobHostConfiguration config = new JobHostConfiguration();
             config.UseServiceBus();
-            var host = new JobHost();
+
+            // set up host job
+            var host = new JobHost(config);
 
             // The following code ensures that the WebJob will be running continuously
             host.RunAndBlock();
@@ -32,7 +35,7 @@ namespace BandOnTheRunAlertWebJob
     public class Functions
     {
         public static void ProcessQueueMessage(
-                [ServiceBusTrigger(queueName: "bandontherunqueue")] BrokeredMessage message, 
+                [ServiceBusTrigger("bandontherunqueue")] BrokeredMessage message, 
                 TextWriter logger)
         {
             // get message from service bus

@@ -14,4 +14,4 @@ http://blogs.msdn.com/b/david_gristwood/
 
 http://peted.azurewebsites.net/
 
-
+Check the Documentation folder for additonal slides, etc

@@ -49,9 +49,9 @@ namespace MSBandAzure.Services
             {
                 CreateBand(_container, "Fake Band 1"),
                 CreateBand(_container, "Fake Band 2"),
-                CreateBand(_container, "Fake Band 3"),
-                CreateBand(_container, "Fake Band 4"),
-                CreateBand(_container, "Fake Band 5"),
+                //CreateBand(_container, "Fake Band 3"),
+                //CreateBand(_container, "Fake Band 4"),
+                //CreateBand(_container, "Fake Band 5"),
             };
         }
     }

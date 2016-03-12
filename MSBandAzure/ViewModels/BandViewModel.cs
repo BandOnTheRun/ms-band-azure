@@ -92,8 +92,9 @@ namespace MSBandAzure.ViewModels
         }
 
         private Band _band;
-        public BandViewModel(Band band)
+        public BandViewModel(Band band, ITelemetry telemetry)
         {
+            _telemetry = telemetry;
             _band = band;
             InitSensors();
             UpdateConnectedStatus();
@@ -115,7 +116,7 @@ namespace MSBandAzure.ViewModels
                 await StartSensors();
 
                 //TODO: This needs to have a telemetry instance per-band instance (it is currently a singleton!!)
-                _telemetry = App.Locator.Resolve<ITelemetry>();
+                //_telemetry = App.Locator.Resolve<ITelemetry>();
                 await _telemetry.RefreshTokenAsync(BandName);
             }
             catch (Exception ex)
@@ -245,10 +246,10 @@ namespace MSBandAzure.ViewModels
             // Initialise the sensor data view models
             SensorData = new List<DataViewModelBase>
                     {
-                        _band.CreateSensorViewModel<HeartRateViewModel>(),
-                        _band.CreateSensorViewModel<SkinTempViewModel>(),
-                        _band.CreateSensorViewModel<UVViewModel>(),
-                        _band.CreateSensorViewModel<DistanceViewModel>()
+                        _band.CreateSensorViewModel<HeartRateViewModel>(_telemetry),
+                        _band.CreateSensorViewModel<SkinTempViewModel>(_telemetry),
+                        _band.CreateSensorViewModel<UVViewModel>(_telemetry),
+                        _band.CreateSensorViewModel<DistanceViewModel>(_telemetry)
                     };
         }
 

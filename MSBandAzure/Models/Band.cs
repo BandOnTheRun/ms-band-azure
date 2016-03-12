@@ -32,9 +32,10 @@ namespace MSBandAzure.Model
             Connected = true;
         }
 
-        internal DataViewModelBase CreateSensorViewModel<T>() where T : DataViewModelBase
+        internal DataViewModelBase CreateSensorViewModel<T>(ITelemetry telemtetry) where T : DataViewModelBase
         {
-            return _container.Resolve<T>(new TypedParameter(typeof(IBandClient), _bandClient));
+            return _container.Resolve<T>(new TypedParameter(typeof(IBandClient), _bandClient),
+                new TypedParameter(typeof(ITelemetry), telemtetry));
         }
     }
 }

@@ -11,7 +11,6 @@ namespace BandOnTheRunAlertWebJob
     using Newtonsoft.Json;
     using Microsoft.AspNet.SignalR.Client;
 
-
     // To learn more about Microsoft Azure WebJobs SDK, please see http://go.microsoft.com/fwlink/?LinkID=320976
     public class Program
     {
@@ -30,7 +29,6 @@ namespace BandOnTheRunAlertWebJob
             host.RunAndBlock();
         }
     }
-
 
     public class Functions
     {
@@ -60,8 +58,6 @@ namespace BandOnTheRunAlertWebJob
         public int heartrate { get; set; }
         public DateTime time { get; set; }
     }
-
-
 
     public class JsonDeserializingMessageProvider : MessagingProvider
     {

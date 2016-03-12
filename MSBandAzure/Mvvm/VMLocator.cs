@@ -34,7 +34,7 @@ namespace MSBandAzure.Mvvm
                 if (_bandCache.TryGetValue(parameter, out outVal))
                     return outVal;
 
-                outVal = new BandViewModel(parameter);
+                outVal = new BandViewModel(parameter, c.Resolve<ITelemetry>());
                 _bandCache[parameter] = outVal;
                 return outVal;
             });
@@ -51,14 +51,14 @@ namespace MSBandAzure.Mvvm
             builder.RegisterType<UVViewModel>().InstancePerDependency();
             builder.RegisterType<DistanceViewModel>().InstancePerDependency();
 
-#if DEBUGbbbb
+#if DEBUG
             builder.RegisterType<FakeBandService>().As<IBandService>().SingleInstance();
             builder.RegisterType<FakeBandInfo>().As<IBandInfo>().InstancePerDependency();
 #else
             builder.RegisterType<MSBandService>( ).As<IBandService>().SingleInstance();
 #endif
             //builder.RegisterType<EventHubsTelemetry>().As<ITelemetry>().SingleInstance();
-            builder.RegisterType<IotHubsTelemetry>().As<ITelemetry>().SingleInstance();
+            builder.RegisterType<IotHubsTelemetry>().As<ITelemetry>().InstancePerDependency();
 
             builder.RegisterType<Band>().InstancePerDependency();
             builder.RegisterType<EventAggregator>().As<IEventAggregator>().SingleInstance();

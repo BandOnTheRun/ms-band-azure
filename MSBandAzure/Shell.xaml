@@ -18,7 +18,7 @@
 
 		<StackPanel Orientation="Horizontal" Background="{ThemeResource SystemChromeMediumColor}">
 			<Button Content="&#xE700;" Command="{x:Bind ViewModel.ToggleSplitViewPaneCommand}" Style="{StaticResource IconButtonStyle}"/>
-			<TextBlock Text="SPLITVIEW TEMPLATE" Style="{StaticResource AppTitleTextBlockStyle}" />
+			<TextBlock Text="BANDS" Style="{StaticResource AppTitleTextBlockStyle}" />
 		</StackPanel>
 
 		<SplitView x:Name="SplitView" Grid.Row="1" IsPaneOpen="{x:Bind ViewModel.IsSplitViewPaneOpen, Mode=TwoWay}" >

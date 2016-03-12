@@ -12,6 +12,8 @@ namespace MSBandAzure.Services
 {
     public class IotHubsTelemetry : ITelemetry
     {
+        private static string _exclusiveDevice = string.Empty;
+
         private DeviceClient _iotHubClient;
 
         public async Task PostTelemetryAsync(DeviceTelemetry deviceTelemetry)
@@ -32,7 +34,15 @@ namespace MSBandAzure.Services
 
         public async Task RefreshIotHubTokenAsync(string deviceId)
         {
-            var http = new HttpClient();
+            // Note. this check is made as we only want one device to send data to iot
+            // hub currently as there is an 8000 message limit on the free tier - to 
+            // remove this behaviour comment out the following line.
+            if (!string.IsNullOrEmpty(_exclusiveDevice))
+                return;
+
+            _exclusiveDevice = deviceId;
+
+            // Construct a uri to register this particular device with iot hub
             UriBuilder builder = new UriBuilder();
             builder.Scheme = "http";
             builder.Host = "bandontherunwebapp.azurewebsites.net";
@@ -42,7 +52,14 @@ namespace MSBandAzure.Services
             deviceId = deviceId.Replace(':', '-');
 
             builder.Path = "api/IoTRegisterDevice/" + WebUtility.UrlEncode(deviceId);
-            var resp = await http.GetAsync(builder.Uri);
+
+            HttpResponseMessage resp;
+
+            using (var http = new HttpClient())
+            {
+                resp = await http.GetAsync(builder.Uri);
+            }
+
             resp.EnsureSuccessStatusCode();
             var deviceToken = await resp.Content.ReadAsStringAsync();
             deviceToken = deviceToken.Trim('"');

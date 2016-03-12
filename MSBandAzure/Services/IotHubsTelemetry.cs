@@ -80,4 +80,9 @@ namespace MSBandAzure.Services
             return RefreshIotHubTokenAsync(deviceId);
         }
     }
+
+    internal class RetryHandler : HttpClientHandler
+    {
+
+    }
 }

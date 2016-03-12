@@ -7,6 +7,7 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using System.Net;
 using System.Diagnostics;
+using System.Threading;
 
 namespace MSBandAzure.Services
 {
@@ -55,7 +56,7 @@ namespace MSBandAzure.Services
 
             HttpResponseMessage resp;
 
-            using (var http = new HttpClient())
+            using (var http = new HttpClient(new RetryHandler(new HttpClientHandler(), 3)))
             {
                 resp = await http.GetAsync(builder.Uri);
             }
@@ -66,7 +67,7 @@ namespace MSBandAzure.Services
 
             try
             {
-                _iotHubClient = DeviceClient.Create("BandOnTheRun-IoTHub.azure-devices.net", 
+                _iotHubClient = DeviceClient.Create("BandOnTheRun-IoTHub.azure-devices.net",
                     new DeviceAuthenticationWithRegistrySymmetricKey(deviceId, deviceToken), TransportType.Http1);
             }
             catch (Exception ex)
@@ -81,8 +82,35 @@ namespace MSBandAzure.Services
         }
     }
 
-    internal class RetryHandler : HttpClientHandler
+    // Really dumb retry handler - please replace me at some future time :-)
+    internal class RetryHandler : DelegatingHandler
     {
+        private int _numRetries;
+        public RetryHandler(HttpClientHandler inner, int NumRetries)
+        {
+            InnerHandler = inner;
+            _numRetries = NumRetries;
+        }
 
+        protected async override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+        {
+            HttpResponseMessage response = null;
+            while (_numRetries-- > 0)
+            {
+                try
+                {
+                    response = await base.SendAsync(request, cancellationToken).ConfigureAwait(false);
+                }
+                catch (Exception ex)
+                {
+
+                }
+                cancellationToken.ThrowIfCancellationRequested();
+                if (response != null && response.IsSuccessStatusCode)
+                    return response;
+            }
+
+            return response;
+        }
     }
 }

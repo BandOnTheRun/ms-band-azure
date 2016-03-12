@@ -59,7 +59,6 @@ namespace MSBandAzure.ViewModels
         public static readonly int BufferSize = 20; 
         private ITelemetry _telemetry;
         private IEventAggregator _events;
-        int NotificationTimer = 0;
 
         public HeartRateViewModel(IBandClient bandClient, ITelemetry telemetry, IEventAggregator events)
             : base("Heart Rate", bandClient)
@@ -154,7 +153,6 @@ namespace MSBandAzure.ViewModels
 
             var hr = e.SensorReading.HeartRate;
             var ts = e.SensorReading.Timestamp;
-
             //UpdateHistory(hr);
             _events.Publish(_hrv);
 
@@ -164,6 +162,9 @@ namespace MSBandAzure.ViewModels
             {
                  HeartRate = hr;
                  TimeStamp = ts.ToString();
+
+                //increment notification timer
+                NotificationTimer++;
 
 #if USE_NOTIFICATIONS
                 //increment notification timer
@@ -188,8 +189,14 @@ namespace MSBandAzure.ViewModels
         
                     NotificationTimer = 0;
                 }
-#endif 
-             });
+#endif
+            });
+
+            // Only post telemetry if the heart rate is currently locked - also, only send every two readings
+            // (limit of 8000 messages per day in IOT hub..)
+            if (e.SensorReading.Quality == HeartRateQuality.Acquiring || (NotificationTimer+1)%2 == 0)
+                return;
+
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
             _telemetry.PostTelemetryAsync(new Models.DeviceTelemetry
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
@@ -215,6 +222,8 @@ namespace MSBandAzure.ViewModels
         {
             get { return _hrData; }
         }
+
+        public long NotificationTimer { get; set; }
 
         public void UpdateHistory(int newValue)
         {

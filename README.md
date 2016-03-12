@@ -1,4 +1,4 @@
-# ms-band-azure aka Band on the Run
+# Band on the Run
 
 # Welcome
 

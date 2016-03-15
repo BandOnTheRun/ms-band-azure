@@ -35,7 +35,7 @@ namespace BandontheRunWebApp.Controllers
 
             // track list of devices for reporting
 
-            _IoTRegisteredDevices[deviceId] = DateTime.Now.ToLongDateString();
+            _IoTRegisteredDevices[deviceId] = DateTime.Now.ToString();
 
             // TODO: add app insight counter
 

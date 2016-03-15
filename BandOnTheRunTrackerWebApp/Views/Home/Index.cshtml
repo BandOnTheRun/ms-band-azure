@@ -22,18 +22,31 @@
 
         // track heart rate
         var heartRate = 0;
+        var live;
 
-        $(document).ready(function () {
+        $(document).ready(function () { 
         });
 
         $(function () {
-            // Declare a proxy to reference the hub.
+            // Declare a proxy to reference the hub
             var hub = $.connection.bandOnTheRunHub;
 
             // signalr 
             // this function is called by the server hub via signalr to broadcast the current heart rate
             hub.client.broadcastMessage = function (bandName, hrValue) {
+                console.log("changed");
+                func = null;
                 document.getElementById("rate").innerText = hrValue;
+                live = new Date();                
+                setTimeout(function () {
+                    _final = new Date();
+                    var seconds = ((_final.getTime() - live.getTime()) / 1000 | 0);
+                    console.log(seconds);
+                    if (seconds > 19) {
+                        heartRate = 1;
+                        document.getElementById("rate").innerText = 1;
+                    }
+                }, 20000)
                 heartRate = parseInt(hrValue);
             };
 
@@ -42,8 +55,10 @@
             });
         });
 
+
+
         function AnimationListener() {
-            console.log("changed");
+            
             heart.classList.remove('animated-slow');
             heart.classList.remove('animated-medium');
             heart.classList.remove('animated-fast');
@@ -52,10 +67,10 @@
             if (inRange(heartRate, 0, 80)) {
                 heart.classList.add('animated-slow');
             }
-            else if (inRange(heartRate, 80, 120)) {
+            else if (inRange(heartRate, 80, 90)) {
                 heart.classList.add('animated-medium');
             }
-            else if (inRange(heartRate, 120, 150)) {
+            else if (inRange(heartRate, 90, 100)) {
                 heart.classList.add('animated-fast');
             }
             else {

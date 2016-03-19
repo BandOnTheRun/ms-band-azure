@@ -11,16 +11,16 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/Autofac.dll": {}
         }
       },
-      "FakeBand/0.0.1": {
+      "FakeBand/0.0.9": {
         "dependencies": {
-          "Microsoft.Band": "[1.3.10929, )",
+          "Microsoft.Band": "[1.3.20307, )",
           "Rx-Main": "[2.2.5, )"
         },
         "compile": {
-          "lib/portable-net45+win+wpa81/FakeBand.dll": {}
+          "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/FakeBand.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+win+wpa81/FakeBand.dll": {}
+          "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/FakeBand.dll": {}
         }
       },
       "Microsoft.ApplicationInsights/1.1.0": {
@@ -62,16 +62,18 @@
           "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
         }
       },
-      "Microsoft.Band/1.3.10929": {
+      "Microsoft.Band/1.3.20307": {
         "compile": {
-          "lib/netcore451/Microsoft.Band.dll": {},
-          "lib/netcore451/Microsoft.Band.Store.dll": {},
-          "lib/netcore451/Microsoft.Band.Windows.dll": {}
+          "lib/uap10.0/Google.Protobuf.dll": {},
+          "lib/uap10.0/Microsoft.Band.dll": {},
+          "lib/uap10.0/Microsoft.Band.Phone_UAP.dll": {},
+          "lib/uap10.0/Microsoft.Band.Store_UAP.dll": {}
         },
         "runtime": {
-          "lib/netcore451/Microsoft.Band.dll": {},
-          "lib/netcore451/Microsoft.Band.Store.dll": {},
-          "lib/netcore451/Microsoft.Band.Windows.dll": {}
+          "lib/uap10.0/Google.Protobuf.dll": {},
+          "lib/uap10.0/Microsoft.Band.dll": {},
+          "lib/uap10.0/Microsoft.Band.Phone_UAP.dll": {},
+          "lib/uap10.0/Microsoft.Band.Store_UAP.dll": {}
         }
       },
       "Microsoft.Bcl/1.1.9": {
@@ -1728,16 +1730,16 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/Autofac.dll": {}
         }
       },
-      "FakeBand/0.0.1": {
+      "FakeBand/0.0.9": {
         "dependencies": {
-          "Microsoft.Band": "[1.3.10929, )",
+          "Microsoft.Band": "[1.3.20307, )",
           "Rx-Main": "[2.2.5, )"
         },
         "compile": {
-          "lib/portable-net45+win+wpa81/FakeBand.dll": {}
+          "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/FakeBand.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+win+wpa81/FakeBand.dll": {}
+          "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/FakeBand.dll": {}
         }
       },
       "Microsoft.ApplicationInsights/1.1.0": {
@@ -1779,16 +1781,18 @@
           "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
         }
       },
-      "Microsoft.Band/1.3.10929": {
+      "Microsoft.Band/1.3.20307": {
         "compile": {
-          "lib/netcore451/Microsoft.Band.dll": {},
-          "lib/netcore451/Microsoft.Band.Store.dll": {},
-          "lib/netcore451/Microsoft.Band.Windows.dll": {}
+          "lib/uap10.0/Google.Protobuf.dll": {},
+          "lib/uap10.0/Microsoft.Band.dll": {},
+          "lib/uap10.0/Microsoft.Band.Phone_UAP.dll": {},
+          "lib/uap10.0/Microsoft.Band.Store_UAP.dll": {}
         },
         "runtime": {
-          "lib/netcore451/Microsoft.Band.dll": {},
-          "lib/netcore451/Microsoft.Band.Store.dll": {},
-          "lib/netcore451/Microsoft.Band.Windows.dll": {}
+          "lib/uap10.0/Google.Protobuf.dll": {},
+          "lib/uap10.0/Microsoft.Band.dll": {},
+          "lib/uap10.0/Microsoft.Band.Phone_UAP.dll": {},
+          "lib/uap10.0/Microsoft.Band.Store_UAP.dll": {}
         }
       },
       "Microsoft.Bcl/1.1.9": {
@@ -3535,16 +3539,16 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/Autofac.dll": {}
         }
       },
-      "FakeBand/0.0.1": {
+      "FakeBand/0.0.9": {
         "dependencies": {
-          "Microsoft.Band": "[1.3.10929, )",
+          "Microsoft.Band": "[1.3.20307, )",
           "Rx-Main": "[2.2.5, )"
         },
         "compile": {
-          "lib/portable-net45+win+wpa81/FakeBand.dll": {}
+          "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/FakeBand.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+win+wpa81/FakeBand.dll": {}
+          "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/FakeBand.dll": {}
         }
       },
       "Microsoft.ApplicationInsights/1.1.0": {
@@ -3586,16 +3590,18 @@
           "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
         }
       },
-      "Microsoft.Band/1.3.10929": {
+      "Microsoft.Band/1.3.20307": {
         "compile": {
-          "lib/netcore451/Microsoft.Band.dll": {},
-          "lib/netcore451/Microsoft.Band.Store.dll": {},
-          "lib/netcore451/Microsoft.Band.Windows.dll": {}
+          "lib/uap10.0/Google.Protobuf.dll": {},
+          "lib/uap10.0/Microsoft.Band.dll": {},
+          "lib/uap10.0/Microsoft.Band.Phone_UAP.dll": {},
+          "lib/uap10.0/Microsoft.Band.Store_UAP.dll": {}
         },
         "runtime": {
-          "lib/netcore451/Microsoft.Band.dll": {},
-          "lib/netcore451/Microsoft.Band.Store.dll": {},
-          "lib/netcore451/Microsoft.Band.Windows.dll": {}
+          "lib/uap10.0/Google.Protobuf.dll": {},
+          "lib/uap10.0/Microsoft.Band.dll": {},
+          "lib/uap10.0/Microsoft.Band.Phone_UAP.dll": {},
+          "lib/uap10.0/Microsoft.Band.Store_UAP.dll": {}
         }
       },
       "Microsoft.Bcl/1.1.9": {
@@ -5314,16 +5320,16 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/Autofac.dll": {}
         }
       },
-      "FakeBand/0.0.1": {
+      "FakeBand/0.0.9": {
         "dependencies": {
-          "Microsoft.Band": "[1.3.10929, )",
+          "Microsoft.Band": "[1.3.20307, )",
           "Rx-Main": "[2.2.5, )"
         },
         "compile": {
-          "lib/portable-net45+win+wpa81/FakeBand.dll": {}
+          "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/FakeBand.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+win+wpa81/FakeBand.dll": {}
+          "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/FakeBand.dll": {}
         }
       },
       "Microsoft.ApplicationInsights/1.1.0": {
@@ -5365,16 +5371,18 @@
           "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
         }
       },
-      "Microsoft.Band/1.3.10929": {
+      "Microsoft.Band/1.3.20307": {
         "compile": {
-          "lib/netcore451/Microsoft.Band.dll": {},
-          "lib/netcore451/Microsoft.Band.Store.dll": {},
-          "lib/netcore451/Microsoft.Band.Windows.dll": {}
+          "lib/uap10.0/Google.Protobuf.dll": {},
+          "lib/uap10.0/Microsoft.Band.dll": {},
+          "lib/uap10.0/Microsoft.Band.Phone_UAP.dll": {},
+          "lib/uap10.0/Microsoft.Band.Store_UAP.dll": {}
         },
         "runtime": {
-          "lib/netcore451/Microsoft.Band.dll": {},
-          "lib/netcore451/Microsoft.Band.Store.dll": {},
-          "lib/netcore451/Microsoft.Band.Windows.dll": {}
+          "lib/uap10.0/Google.Protobuf.dll": {},
+          "lib/uap10.0/Microsoft.Band.dll": {},
+          "lib/uap10.0/Microsoft.Band.Phone_UAP.dll": {},
+          "lib/uap10.0/Microsoft.Band.Store_UAP.dll": {}
         }
       },
       "Microsoft.Bcl/1.1.9": {
@@ -7126,16 +7134,16 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/Autofac.dll": {}
         }
       },
-      "FakeBand/0.0.1": {
+      "FakeBand/0.0.9": {
         "dependencies": {
-          "Microsoft.Band": "[1.3.10929, )",
+          "Microsoft.Band": "[1.3.20307, )",
           "Rx-Main": "[2.2.5, )"
         },
         "compile": {
-          "lib/portable-net45+win+wpa81/FakeBand.dll": {}
+          "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/FakeBand.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+win+wpa81/FakeBand.dll": {}
+          "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/FakeBand.dll": {}
         }
       },
       "Microsoft.ApplicationInsights/1.1.0": {
@@ -7177,16 +7185,18 @@
           "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
         }
       },
-      "Microsoft.Band/1.3.10929": {
+      "Microsoft.Band/1.3.20307": {
         "compile": {
-          "lib/netcore451/Microsoft.Band.dll": {},
-          "lib/netcore451/Microsoft.Band.Store.dll": {},
-          "lib/netcore451/Microsoft.Band.Windows.dll": {}
+          "lib/uap10.0/Google.Protobuf.dll": {},
+          "lib/uap10.0/Microsoft.Band.dll": {},
+          "lib/uap10.0/Microsoft.Band.Phone_UAP.dll": {},
+          "lib/uap10.0/Microsoft.Band.Store_UAP.dll": {}
         },
         "runtime": {
-          "lib/netcore451/Microsoft.Band.dll": {},
-          "lib/netcore451/Microsoft.Band.Store.dll": {},
-          "lib/netcore451/Microsoft.Band.Windows.dll": {}
+          "lib/uap10.0/Google.Protobuf.dll": {},
+          "lib/uap10.0/Microsoft.Band.dll": {},
+          "lib/uap10.0/Microsoft.Band.Phone_UAP.dll": {},
+          "lib/uap10.0/Microsoft.Band.Store_UAP.dll": {}
         }
       },
       "Microsoft.Bcl/1.1.9": {
@@ -8905,16 +8915,16 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/Autofac.dll": {}
         }
       },
-      "FakeBand/0.0.1": {
+      "FakeBand/0.0.9": {
         "dependencies": {
-          "Microsoft.Band": "[1.3.10929, )",
+          "Microsoft.Band": "[1.3.20307, )",
           "Rx-Main": "[2.2.5, )"
         },
         "compile": {
-          "lib/portable-net45+win+wpa81/FakeBand.dll": {}
+          "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/FakeBand.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+win+wpa81/FakeBand.dll": {}
+          "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/FakeBand.dll": {}
         }
       },
       "Microsoft.ApplicationInsights/1.1.0": {
@@ -8956,16 +8966,18 @@
           "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
         }
       },
-      "Microsoft.Band/1.3.10929": {
+      "Microsoft.Band/1.3.20307": {
         "compile": {
-          "lib/netcore451/Microsoft.Band.dll": {},
-          "lib/netcore451/Microsoft.Band.Store.dll": {},
-          "lib/netcore451/Microsoft.Band.Windows.dll": {}
+          "lib/uap10.0/Google.Protobuf.dll": {},
+          "lib/uap10.0/Microsoft.Band.dll": {},
+          "lib/uap10.0/Microsoft.Band.Phone_UAP.dll": {},
+          "lib/uap10.0/Microsoft.Band.Store_UAP.dll": {}
         },
         "runtime": {
-          "lib/netcore451/Microsoft.Band.dll": {},
-          "lib/netcore451/Microsoft.Band.Store.dll": {},
-          "lib/netcore451/Microsoft.Band.Windows.dll": {}
+          "lib/uap10.0/Google.Protobuf.dll": {},
+          "lib/uap10.0/Microsoft.Band.dll": {},
+          "lib/uap10.0/Microsoft.Band.Phone_UAP.dll": {},
+          "lib/uap10.0/Microsoft.Band.Store_UAP.dll": {}
         }
       },
       "Microsoft.Bcl/1.1.9": {
@@ -10717,16 +10729,16 @@
           "lib/portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1/Autofac.dll": {}
         }
       },
-      "FakeBand/0.0.1": {
+      "FakeBand/0.0.9": {
         "dependencies": {
-          "Microsoft.Band": "[1.3.10929, )",
+          "Microsoft.Band": "[1.3.20307, )",
           "Rx-Main": "[2.2.5, )"
         },
         "compile": {
-          "lib/portable-net45+win+wpa81/FakeBand.dll": {}
+          "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/FakeBand.dll": {}
         },
         "runtime": {
-          "lib/portable-net45+win+wpa81/FakeBand.dll": {}
+          "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/FakeBand.dll": {}
         }
       },
       "Microsoft.ApplicationInsights/1.1.0": {
@@ -10768,16 +10780,18 @@
           "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
         }
       },
-      "Microsoft.Band/1.3.10929": {
+      "Microsoft.Band/1.3.20307": {
         "compile": {
-          "lib/netcore451/Microsoft.Band.dll": {},
-          "lib/netcore451/Microsoft.Band.Store.dll": {},
-          "lib/netcore451/Microsoft.Band.Windows.dll": {}
+          "lib/uap10.0/Google.Protobuf.dll": {},
+          "lib/uap10.0/Microsoft.Band.dll": {},
+          "lib/uap10.0/Microsoft.Band.Phone_UAP.dll": {},
+          "lib/uap10.0/Microsoft.Band.Store_UAP.dll": {}
         },
         "runtime": {
-          "lib/netcore451/Microsoft.Band.dll": {},
-          "lib/netcore451/Microsoft.Band.Store.dll": {},
-          "lib/netcore451/Microsoft.Band.Windows.dll": {}
+          "lib/uap10.0/Google.Protobuf.dll": {},
+          "lib/uap10.0/Microsoft.Band.dll": {},
+          "lib/uap10.0/Microsoft.Band.Phone_UAP.dll": {},
+          "lib/uap10.0/Microsoft.Band.Store_UAP.dll": {}
         }
       },
       "Microsoft.Bcl/1.1.9": {
@@ -12503,15 +12517,75 @@
         "package/services/metadata/core-properties/14b288cae4b6435c88f25cef31d271e1.psmdcp"
       ]
     },
-    "FakeBand/0.0.1": {
-      "sha512": "otOdxYNxfc+Q7uUzKpPLz1mmkxugcS722CJ0dnv0VZW8x+dZuSSUz8fDc0zW/4ZfS4vFfqSDgxl8gFpxkvAhdA==",
+    "FakeBand/0.0.9": {
+      "sha512": "ME46w6XpHjzMkHoJL8S/ai2Qs2wEcvtRBJAeKKqbilRzepWYpQPP0YP98bHAM9h+z7xIHo0RAxlwRgHWR3aK2g==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
         "_rels/.rels",
         "FakeBand.nuspec",
-        "lib/portable-net45+win+wpa81/FakeBand.dll",
-        "package/services/metadata/core-properties/1cf790226ade4359aa0fe85406dca60e.psmdcp"
+        "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/FakeBand.dll",
+        "lib/portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10/FakeBand.pdb",
+        "package/services/metadata/core-properties/6d4f8f2b7e1341dcb6ae541fc6bc01ad.psmdcp",
+        "src/FakeBand/BandResource.Designer.cs",
+        "src/FakeBand/Fakes/FakeAccelerometerReading.cs",
+        "src/FakeBand/Fakes/FakeAccelerometerSensor.cs",
+        "src/FakeBand/Fakes/FakeAltimeterReading.cs",
+        "src/FakeBand/Fakes/FakeAltimeterSensor.cs",
+        "src/FakeBand/Fakes/FakeAmbientLightReading.cs",
+        "src/FakeBand/Fakes/FakeAmbientLightSensor.cs",
+        "src/FakeBand/Fakes/FakeBandCaloriesReading.cs",
+        "src/FakeBand/Fakes/FakeBandClient.cs",
+        "src/FakeBand/Fakes/FakeBandClientManager.cs",
+        "src/FakeBand/Fakes/FakeBandDeviceContactReading.cs",
+        "src/FakeBand/Fakes/FakeBandDistanceReading.cs",
+        "src/FakeBand/Fakes/FakeBandHeartReading.cs",
+        "src/FakeBand/Fakes/FakeBandInfo.cs",
+        "src/FakeBand/Fakes/FakeBandNotificationManager.cs",
+        "src/FakeBand/Fakes/FakeBandOneConstants.cs",
+        "src/FakeBand/Fakes/FakeBandPedometerReading.cs",
+        "src/FakeBand/Fakes/FakeBandPersonalizationManager.cs",
+        "src/FakeBand/Fakes/FakeBandRRIntervalReading.cs",
+        "src/FakeBand/Fakes/FakeBandSensor.cs",
+        "src/FakeBand/Fakes/FakeBandSensorManager.cs",
+        "src/FakeBand/Fakes/FakeBandSkinTemperatureReading.cs",
+        "src/FakeBand/Fakes/FakeBandTileManager.cs",
+        "src/FakeBand/Fakes/FakeBandTwoConstants.cs",
+        "src/FakeBand/Fakes/FakeBandUVReading.cs",
+        "src/FakeBand/Fakes/FakeBarometerReading.cs",
+        "src/FakeBand/Fakes/FakeBarometerSensor.cs",
+        "src/FakeBand/Fakes/FakeCaloriesSensor.cs",
+        "src/FakeBand/Fakes/FakeDeviceContactSensor.cs",
+        "src/FakeBand/Fakes/FakeDistanceSensor.cs",
+        "src/FakeBand/Fakes/FakeGsrReading.cs",
+        "src/FakeBand/Fakes/FakeGsrSensor.cs",
+        "src/FakeBand/Fakes/FakeGyroReading.cs",
+        "src/FakeBand/Fakes/FakeGyroSensor.cs",
+        "src/FakeBand/Fakes/FakeHeartRateSensor.cs",
+        "src/FakeBand/Fakes/FakePedometerSensor.cs",
+        "src/FakeBand/Fakes/FakeRrSensor.cs",
+        "src/FakeBand/Fakes/FakeSkinTemperatureSensor.cs",
+        "src/FakeBand/Fakes/FakeTileContainer.cs",
+        "src/FakeBand/Fakes/FakeUVSensor.cs",
+        "src/FakeBand/Fakes/IAppIdProvider.cs",
+        "src/FakeBand/Fakes/IBandConstants.cs",
+        "src/FakeBand/Fakes/ITileContainer.cs",
+        "src/FakeBand/Properties/AssemblyInfo.cs",
+        "src/FakeBand/Utils/BandTileExtensions.cs",
+        "src/FakeBand/Utils/BandTypeConstants.cs",
+        "src/FakeBand/Utils/Bgr565Pbgra32ConversionStream.cs",
+        "src/FakeBand/Utils/ByteArrayProxyStream.cs",
+        "src/FakeBand/Utils/CargoVersion.cs",
+        "src/FakeBand/Utils/CargoVersions.cs",
+        "src/FakeBand/Utils/ColorScale.cs",
+        "src/FakeBand/Utils/Exts.cs",
+        "src/FakeBand/Utils/ImageConversionStreamBase.cs",
+        "src/FakeBand/Utils/RandomNormal.cs",
+        "src/FakeBand/Utils/SubscriptionType.cs",
+        "src/FakeBand/Utils/TileData.cs",
+        "src/FakeBand/Utils/TileRepresentation.cs",
+        "src/FakeBand/Utils/TileRepresentationExtensions.cs",
+        "src/FakeBand/Utils/TileSettings.cs"
       ]
     },
     "Microsoft.ApplicationInsights/1.1.0": {
@@ -12577,42 +12651,39 @@
         "thirdpartynotice.txt"
       ]
     },
-    "Microsoft.Band/1.3.10929": {
-      "sha512": "ztoDkNixADFGIAM5NZ+h88rWEp7D+c7MPbVgJfhN1OqE7rQSd8OzVGzK5hW3QB9F3yKfmOd9QgRHIgbq5qA87Q==",
+    "Microsoft.Band/1.3.20307": {
+      "sha512": "pU8e7mpGi9hPo5GSCCe1HmpQXLX/s7XfuddF8OSbpgzmuDz7ZdDmEH73N3DrMlRC4gG/quAq2reUKakSHukazg==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
         "_rels/.rels",
         "content/netcore451/Package.appxmanifest.transform",
         "content/wpa81/Package.appxmanifest.transform",
+        "lib/netcore451/Google.Protobuf.dll",
         "lib/netcore451/Microsoft.Band.dll",
         "lib/netcore451/Microsoft.Band.Store.dll",
         "lib/netcore451/Microsoft.Band.Store.pri",
-        "lib/netcore451/Microsoft.Band.Store/Microsoft.Band.Store.xr.xml",
-        "lib/netcore451/Microsoft.Band.Store/Sensors/SensorConsentPage.xbf",
-        "lib/netcore451/Microsoft.Band.Store/Tiles/AddTilePage.xbf",
         "lib/netcore451/Microsoft.Band.Windows.dll",
         "lib/netcore451/Microsoft.Band.Windows.pri",
-        "lib/netcore451/Microsoft.Band.Windows/Microsoft.Band.Windows.xr.xml",
-        "lib/netcore451/Microsoft.Band.Windows/Sensors/WindowsSensorConsentPage.xbf",
-        "lib/netcore451/Microsoft.Band.Windows/Tiles/WindowsAddTilePage.xbf",
         "lib/portable-net45+win+wpa81/Microsoft.Band.dll",
+        "lib/portable-win81+wpa81/Google.Protobuf.dll",
         "lib/portable-win81+wpa81/Microsoft.Band.dll",
         "lib/portable-win81+wpa81/Microsoft.Band.Store.dll",
         "lib/portable-win81+wpa81/Microsoft.Band.Store.pri",
+        "lib/uap10.0/Google.Protobuf.dll",
+        "lib/uap10.0/Microsoft.Band.dll",
+        "lib/uap10.0/Microsoft.Band.Phone_UAP.dll",
+        "lib/uap10.0/Microsoft.Band.Phone_UAP.pri",
+        "lib/uap10.0/Microsoft.Band.Store_UAP.dll",
+        "lib/uap10.0/Microsoft.Band.Store_UAP.pri",
+        "lib/wpa81/Google.Protobuf.dll",
         "lib/wpa81/Microsoft.Band.dll",
         "lib/wpa81/Microsoft.Band.Phone.dll",
         "lib/wpa81/Microsoft.Band.Phone.pri",
-        "lib/wpa81/Microsoft.Band.Phone/Microsoft.Band.Phone.xr.xml",
-        "lib/wpa81/Microsoft.Band.Phone/Sensors/PhoneSensorConsentPage.xbf",
-        "lib/wpa81/Microsoft.Band.Phone/Tiles/PhoneAddTilePage.xbf",
         "lib/wpa81/Microsoft.Band.Store.dll",
         "lib/wpa81/Microsoft.Band.Store.pri",
-        "lib/wpa81/Microsoft.Band.Store/Microsoft.Band.Store.xr.xml",
-        "lib/wpa81/Microsoft.Band.Store/Sensors/SensorConsentPage.xbf",
-        "lib/wpa81/Microsoft.Band.Store/Tiles/AddTilePage.xbf",
         "Microsoft.Band.nuspec",
-        "package/services/metadata/core-properties/5c6cb094dafa492b83ba789fe9d253c8.psmdcp"
+        "package/services/metadata/core-properties/59c74f696fd7440da00366686b2c228c.psmdcp"
       ]
     },
     "Microsoft.Bcl/1.1.9": {
@@ -16651,10 +16722,10 @@
   "projectFileDependencyGroups": {
     "": [
       "Autofac >= 3.5.2",
-      "FakeBand >= 0.0.1",
+      "FakeBand >= 0.0.9",
       "Microsoft.ApplicationInsights.WindowsApps >= 1.1.0",
       "Microsoft.Azure.Devices.Client >= 1.0.1",
-      "Microsoft.Band >= 1.3.10929",
+      "Microsoft.Band >= 1.3.20307",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
       "Newtonsoft.Json >= 7.0.1",
       "PCLCommandBase >= 0.2.2",

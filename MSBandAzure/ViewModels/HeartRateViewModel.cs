@@ -132,6 +132,7 @@ namespace MSBandAzure.ViewModels
 
             try
             {
+                //Debug.WriteLine(Task.CurrentId);
                 _bandClient.SensorManager.HeartRate.ReadingChanged += HeartRate_ReadingChanged;
                 // If the user consent was granted
                 _started = await _bandClient.SensorManager.HeartRate.StartReadingsAsync();
@@ -149,8 +150,6 @@ namespace MSBandAzure.ViewModels
         async void HeartRate_ReadingChanged(object sender, BandSensorReadingEventArgs<IBandHeartRateReading> e)
 #pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
-            Debug.WriteLine($"Change notified {DateTime.Now.Second}");
-
             var hr = e.SensorReading.HeartRate;
             var ts = e.SensorReading.Timestamp;
             //UpdateHistory(hr);
@@ -194,8 +193,8 @@ namespace MSBandAzure.ViewModels
 
             // Only post telemetry if the heart rate is currently locked - also, only send every two readings
             // (limit of 8000 messages per day in IOT hub..)
-            if (e.SensorReading.Quality == HeartRateQuality.Acquiring || (NotificationTimer+1)%2 == 0)
-                return;
+            //if (e.SensorReading.Quality == HeartRateQuality.Acquiring || (NotificationTimer+1)%2 == 0)
+            //    return;
 
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
             _telemetry.PostTelemetryAsync(new Models.DeviceTelemetry

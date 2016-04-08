@@ -3,11 +3,11 @@ using Caliburn.Micro;
 using Microsoft.Band;
 using MSBandAzure.Model;
 using MSBandAzure.Services;
-using MSBandAzure.Services.Fakes;
 using MSBandAzure.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
 using MSBandAzure.Presentation;
+using FakeBand.Fakes;
 
 namespace MSBandAzure.Mvvm
 {

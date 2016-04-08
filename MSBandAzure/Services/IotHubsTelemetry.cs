@@ -25,6 +25,7 @@ namespace MSBandAzure.Services
                 try
                 {
                     await _iotHubClient.SendEventAsync(new Message(Encoding.UTF8.GetBytes(payload)));
+                    Debug.WriteLine(payload);
                 }
                 catch (Exception ex)
                 {

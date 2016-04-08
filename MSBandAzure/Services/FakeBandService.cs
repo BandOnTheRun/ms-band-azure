@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using MSBandAzure.Model;
 using Microsoft.Band;
 using Autofac;
-using MSBandAzure.Services.Fakes;
+using FakeBand.Fakes;
 
 namespace MSBandAzure.Services
 {
@@ -19,7 +19,7 @@ namespace MSBandAzure.Services
         public async Task<IBandClient> ConnectBandAsync(IBandInfo band)
         {
             await Task.Delay(1000);
-            return new FakeBandClient();
+            return new FakeBandClient(band);
         }
 
         /// <summary>

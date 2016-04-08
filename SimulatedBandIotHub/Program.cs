@@ -31,9 +31,9 @@ namespace SimulatedDevice
     {
         static DeviceClient deviceClient;
 
-        static string iotHubUri = "xxxxxxxxxxxxxxx.azure-devices.net";
-        static string deviceKey = "xxxxxxx=";
-        static string deviceName = "Device1";
+        static string iotHubUri = "BandontheRun-IoTHub.azure-devices.net";
+        static string deviceKey = "4+ZcyUgsuyZx9dSzC7VSoX8gwk1/fNON65EQWn4LPR8=";
+        static string deviceName = "BandIoTDevice1";
 
         static int _interations = 10;
         static int _sendIntervalms = 2000;

@@ -82,6 +82,8 @@ namespace MSBandAzure.Mvvm
             _container = builder.Build();
         }
 
+        public IContainer Container { get { return _container; } }
+
         public T Resolve<T>()
         {
             return _container.Resolve<T>();

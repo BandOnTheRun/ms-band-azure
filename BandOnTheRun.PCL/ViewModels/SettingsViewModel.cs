@@ -1,6 +1,5 @@
 ﻿using BandOnTheRun.PCL.Services;
 using MSBandAzure.Mvvm;
-//using Windows.Storage;
 
 namespace MSBandAzure.ViewModels
 {
@@ -10,36 +9,19 @@ namespace MSBandAzure.ViewModels
         public SettingsViewModel(ISettingsService settings)
         {
             _settings = settings;
-            var ac = _settings.Values["AutoConnect"];
-            _autoConnect = (ac == null || (bool)ac == false) ? false : true;
-
-            //ApplicationDataContainer roamingSettings = ApplicationData.Current.RoamingSettings;
-            //var ac = roamingSettings.Values["AutoConnect"];
-            //_autoConnect = (ac == null || (bool)ac == false) ? false : true;
-            //ApplicationData.Current.DataChanged += Current_DataChanged;
         }
-
-        //private void Current_DataChanged(ApplicationData sender, object args)
-        //{
-        //    ApplicationDataContainer roamingSettings = ApplicationData.Current.RoamingSettings;
-        //    var ac = roamingSettings.Values["AutoConnect"];
-        //    AutoConnect = (ac == null) ? false : true;
-        //}
-
-        private bool _autoConnect;
 
         public bool AutoConnect
         {
             get
             {
-                return _autoConnect;
+                return _settings.AutoConnect;
             }
             set
             {
-                if (SetProperty(ref _autoConnect, value) == true)
+                if (_settings.AutoConnect != value)
                 {
-                    //ApplicationDataContainer roamingSettings = ApplicationData.Current.RoamingSettings;
-                    _settings.Values["AutoConnect"] = value;
+                    _settings.AutoConnect = value;
                 }
             }
         }

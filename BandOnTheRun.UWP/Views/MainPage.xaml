@@ -7,14 +7,15 @@
     xmlns:vm="using:MSBandAzure.ViewModels"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" 
     xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:conv="using:BandOnTheRun.UWP"
     x:Class="BandOnTheRun.UWP.Views.MainPage"
     mc:Ignorable="d">
     <Page.Resources>
-
+        <conv:ThemeColourToBrushConverter x:Key="ColConverter"></conv:ThemeColourToBrushConverter>
         <DataTemplate x:Key="BandTemplate" x:DataType="vm:BandViewModel">
             <Grid Width="380"
                   Height="240" 
-                  Background="{x:Bind Path=Theme.TileColour, Mode=OneWay}"
+                  Background="{x:Bind Path=Theme.TileColour, Mode=OneWay, Converter={StaticResource ColConverter}}"
                   Margin="4">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"></RowDefinition>
@@ -41,7 +42,7 @@
         </DataTemplate>
 
         <DataTemplate x:Key="BandTemplateWide" x:DataType="vm:BandViewModel">
-            <Grid Background="{x:Bind Path=Theme.TileColour, Mode=OneWay}"
+            <Grid Background="{x:Bind Path=Theme.TileColour, Mode=OneWay, Converter={StaticResource ColConverter}}"
                   Height="300"
                   HorizontalAlignment="Stretch"
                   VerticalAlignment="Stretch"
@@ -169,7 +170,7 @@
 
         <DataTemplate x:Key="BandTemplateNarrow" x:DataType="vm:BandViewModel">
             <Grid Height="140" 
-                  Background="{x:Bind Path=Theme.TileColour, Mode=OneWay}"
+                  Background="{x:Bind Path=Theme.TileColour, Mode=OneWay, Converter={StaticResource ColConverter}}"
                   Margin="4">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"></RowDefinition>

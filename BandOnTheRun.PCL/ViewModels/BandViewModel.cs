@@ -12,7 +12,7 @@ namespace MSBandAzure.ViewModels
 {
     public class Colour
     {
-        private byte a, r, g, b;
+        public byte a, r, g, b;
 
         public static Colour FromArgb(byte a, byte r, byte g, byte b)
         {

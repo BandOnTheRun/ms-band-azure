@@ -10,6 +10,7 @@ namespace MSBandAzure.Mvvm
 
         public ViewModelBase()
         {
+            _dispatcher = VMLocator.Instance.Resolve<IDispatcher>();
         }
         // the only thing that matters here is Template10.Services.NavigationService.INavagable
     }

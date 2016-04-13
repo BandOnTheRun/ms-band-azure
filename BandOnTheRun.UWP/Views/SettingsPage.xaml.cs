@@ -1,23 +1,20 @@
-using System.Threading.Tasks;
-using Windows.UI.Xaml.Controls;
+﻿using MSBandAzure.ViewModels;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Controls;
+using MSBandAzure.Mvvm;
 
 namespace BandOnTheRun.UWP.Views
 {
     public sealed partial class SettingsPage : Page
     {
-        Template10.Services.SerializationService.ISerializationService _SerializationService;
-
         public SettingsPage()
         {
             InitializeComponent();
-            _SerializationService = Template10.Services.SerializationService.SerializationService.Json;
+            NavigationCacheMode = NavigationCacheMode.Disabled;
+            DataContext = VMLocator.Instance.SettingsViewModel;
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            var index = int.Parse(_SerializationService.Deserialize(e.Parameter?.ToString()).ToString());
-            MyPivot.SelectedIndex = index;
-        }
+        // strongly-typed view models enable x:bind
+        public SettingsViewModel ViewModel => VMLocator.Instance.SettingsViewModel;
     }
 }

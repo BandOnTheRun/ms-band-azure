@@ -31,19 +31,27 @@ namespace SimulatedDevice
     {
         static DeviceClient deviceClient;
 
-        static string iotHubUri = "BandontheRun-IoTHub.azure-devices.net";
-        static string deviceKey = "4+ZcyUgsuyZx9dSzC7VSoX8gwk1/fNON65EQWn4LPR8=";
-        static string deviceName = "BandIoTDevice1";
+        static string iotHubUri = "BandontheRunHub.azure-devices.net";
+        static string deviceKey = "<not supplied>";  // passed on command line
+        static string deviceName = "SimulatedDevice1";
 
         static int _interations = 10;
-        static int _sendIntervalms = 2000;
+        static int _sendIntervalms = 2000;  // ms
         static int _randomSeed = 0;
-        static int _stepSize = 1;
+        static int _stepSize = 2;
 
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Simulate Band device {0}\n", deviceName);
+            // check for device key
+            if (args.Length == 0)
+            {
+                System.Console.WriteLine("Please pass a device key as arg[0]");
+                return;
+            }
+            deviceKey = args[0];
+
+            Console.WriteLine("Simulate Band device {0} with device key \n", deviceName, deviceKey);
 
             // connect to IoT Hub
 
@@ -78,6 +86,7 @@ namespace SimulatedDevice
                 Thread.Sleep(_sendIntervalms);
             }
 
+            Console.WriteLine("Press <enter> to exit");
             Console.ReadLine();
         }
 

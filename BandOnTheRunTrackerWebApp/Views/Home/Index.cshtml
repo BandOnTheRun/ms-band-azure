@@ -7,6 +7,7 @@
 <div class="container">
     <div class="heart animated-slow css">
         <div id="rate">0</div>
+        <div id="bandName">-</div>
     </div>
 </div>
 
@@ -37,6 +38,7 @@
                 console.log("changed");
                 func = null;
                 document.getElementById("rate").innerText = hrValue;
+                document.getElementById("bandName").innerText = bandName;
                 live = new Date();                
                 setTimeout(function () {
                     _final = new Date();

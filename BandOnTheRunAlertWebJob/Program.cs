@@ -25,10 +25,18 @@ namespace BandOnTheRunAlertWebJob
             // set up host job
             var host = new JobHost(config);
 
+
+            _connection = new HubConnection("http://bandontheruntracker.azurewebsites.net/");
+            _hub = _connection.CreateHubProxy("BandOnTheRunHub");
+            _connection.Start().Wait();
+
             // The following code ensures that the WebJob will be running continuously
             host.RunAndBlock();
         }
+        public static HubConnection _connection;
+        public static IHubProxy _hub;
     }
+
 
     public class Functions
     {
@@ -37,18 +45,21 @@ namespace BandOnTheRunAlertWebJob
                 TextWriter logger)
         {
             // get message from service bus
+            try
+            {
+                var body = message.GetBody<string>();
+                var alertInfo = JsonConvert.DeserializeObject<BotrAlert>(body);
+                logger.WriteLine($"BandOnTheRunAlertWebJob: Processed message: {alertInfo.deviceid} - {alertInfo.heartrate}");
+                Console.WriteLine($"BandOnTheRunAlertWebJob: Processed message: {alertInfo.deviceid} - {alertInfo.heartrate}");
 
-            var body = message.GetBody<string>();
-            var alertInfo = JsonConvert.DeserializeObject<BotrAlert>(body);
-            logger.WriteLine($"BandOnTheRunAlertWebJob: Processed message: {alertInfo.deviceid} - {alertInfo.heartrate}");
+                // send message to signalr hub
 
-            // send message to signalr hub
-
-            var connection = new HubConnection("http://bandontheruntracker.azurewebsites.net/");
-            var hub = connection.CreateHubProxy("BandOnTheRunHub");
-            connection.Start().Wait();
-
-            hub.Invoke<string>("heartrate", alertInfo.deviceid, alertInfo.heartrate);
+                Program._hub.Invoke<string>("heartrate", alertInfo.deviceid, alertInfo.heartrate);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error {ex.Message}" );
+            }
         }
     }
 

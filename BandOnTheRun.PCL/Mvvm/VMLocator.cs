@@ -67,7 +67,7 @@ namespace MSBandAzure.Mvvm
             builder.RegisterType<UVViewModel>().InstancePerDependency();
             builder.RegisterType<DistanceViewModel>().InstancePerDependency();
 
-#if DEBUG
+#if DEBUGddd
             builder.RegisterType<FakeBandService>().As<IBandService>().SingleInstance();
             builder.RegisterType<FakeBandInfo>().As<IBandInfo>().InstancePerDependency();
 #else

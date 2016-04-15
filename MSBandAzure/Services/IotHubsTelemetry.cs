@@ -68,8 +68,8 @@ namespace MSBandAzure.Services
 
             try
             {
-                _iotHubClient = DeviceClient.Create("BandOnTheRun-IoTHub.azure-devices.net",
-                    new DeviceAuthenticationWithRegistrySymmetricKey(deviceId, deviceToken), TransportType.Http1);
+                _iotHubClient = DeviceClient.Create("BandOnTheRunHub.azure-devices.net",
+                    new DeviceAuthenticationWithRegistrySymmetricKey(deviceId, deviceToken), TransportType.Amqp);
             }
             catch (Exception ex)
             {

@@ -166,3 +166,11 @@ textarea {
     text-align: center;
     z-index: 300;
 }
+
+#bandName {
+    position: absolute;
+    font-size: 20px;
+    top: 100%;
+    text-align: center;
+    z-index: 400;
+}

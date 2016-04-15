@@ -143,21 +143,33 @@ namespace MSBandAzure.ViewModels
             return _started;
         }
 
+        static Models.DeviceTelemetry _data = new Models.DeviceTelemetry();
+
 #pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
         async void HeartRate_ReadingChanged(object sender, BandSensorReadingEventArgs<IBandHeartRateReading> e)
 #pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
             var hr = e.SensorReading.HeartRate;
             var ts = e.SensorReading.Timestamp;
+
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+            _data.DeviceId = _bandInfo.Name;
+            _data.HeartRate = hr;
+            _data.Timestamp = ts.ToString();
+
+            _telemetry.PostTelemetryAsync(
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+                _data);
+
             //UpdateHistory(hr);
-            _events.Publish(_hrv);
+            //_events.Publish(_hrv);
 
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
             _dispatcher.RunAsync(() =>
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
             {
-                 HeartRate = hr;
-                 TimeStamp = ts.ToString();
+                HeartRate = hr;
+                TimeStamp = ts.ToString();
 
                 //increment notification timer
                 NotificationTimer++;
@@ -193,14 +205,6 @@ namespace MSBandAzure.ViewModels
             //if (e.SensorReading.Quality == HeartRateQuality.Acquiring || (NotificationTimer+1)%2 == 0)
             //    return;
 
-#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
-            _telemetry.PostTelemetryAsync(new Models.DeviceTelemetry
-#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
-            {
-                DeviceId = _bandInfo.Name,
-                HeartRate = hr,
-                Timestamp = ts.ToString()
-            });
         }
 
         private int _heartRate;

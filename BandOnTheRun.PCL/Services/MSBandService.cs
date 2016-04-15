@@ -37,10 +37,35 @@ namespace MSBandAzure.Services
         public async Task<IEnumerable<Band>> GetPairedBands()
         {
             var pairedBands = await BandClientManager.Instance.GetPairedBandsAsync();
-            
-            //_container.Resolve<Band>(new TypedParameter(typeof(IBandInfo), );
-            return pairedBands.Select(i => _container.Resolve<Band>(new TypedParameter(typeof(IBandInfo), i))).ToList();
-            //return pairedBands.Select(i => new Band(i, this)).ToList();
+
+            // Convert DeviceBandInfo ojects to IBandInfo..
+            var bands = pairedBands.Select(d => new DeviceInfoWrapper(d));
+            return bands.Select(i => _container.Resolve<Band>(new TypedParameter(typeof(IBandInfo), i))).ToList();
+        }
+    }
+
+    internal class DeviceInfoWrapper : IBandInfo
+    {
+        BandDeviceInfo _dev;
+        public DeviceInfoWrapper(BandDeviceInfo dev)
+        {
+            _dev = dev;
+        }
+
+        public BandConnectionType ConnectionType
+        {
+            get
+            {
+                return BandConnectionType.Bluetooth;
+            }
+        }
+
+        public string Name
+        {
+            get
+            {
+                return _dev.Name;
+            }
         }
     }
 }

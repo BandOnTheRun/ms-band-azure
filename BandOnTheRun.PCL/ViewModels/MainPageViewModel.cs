@@ -33,7 +33,7 @@ namespace MSBandAzure.ViewModels
             _navigation = naviagtionService;
             _bandService = bandService;
             _events = events;
-            _enumerateBandsCmd = new Lazy<ICommand>(() =>
+			_enumerateBandsCmd = new Lazy<AsyncDelegateCommand<object>>(() =>
             {
                 return new AsyncDelegateCommand<object>(EnumerateBands, CanEnumerateBands);
             });
@@ -84,8 +84,8 @@ namespace MSBandAzure.ViewModels
             return true;
         }
 
-        Lazy<ICommand> _enumerateBandsCmd;
-        public ICommand EnumerateBandsCmd { get { return _enumerateBandsCmd.Value; } }
+		Lazy<AsyncDelegateCommand<object>> _enumerateBandsCmd;
+		public AsyncDelegateCommand<object> EnumerateBandsCmd { get { return _enumerateBandsCmd.Value; } }
 
         private bool _isBusy;
 

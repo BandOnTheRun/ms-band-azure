@@ -1,0 +1,17 @@
+﻿<Properties StartupItem="BandontheRunWebApp/BandontheRunWebApp.csproj" RefactoringSettings.EnableRefactorings="True">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.Workbench>
+    <Files>
+      <File FileName="BandOnTheRun.IOS/AppDelegate.cs" Line="1" Column="1" />
+      <File FileName="BandOnTheRun.IOS/Main.cs" Line="1" Column="1" />
+      <File FileName="BandOnTheRun.IOS/ViewController.cs" Line="24" Column="1" />
+      <File FileName="BandOnTheRun.IOS/BandCell.cs" Line="1" Column="1" />
+      <File FileName="BandOnTheRun.IOS/BandsViewController.cs" Line="19" Column="18" />
+      <File FileName="BandOnTheRun.IOS/BandCell.designer.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

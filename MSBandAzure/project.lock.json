@@ -59,8 +59,21 @@
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
         }
       },
-      "Microsoft.Azure.Devices.Client/1.0.1": {
+      "Microsoft.Azure.Amqp/1.1.1": {
         "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Azure.Amqp.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Azure.Amqp.Uwp.dll": {}
+        }
+      },
+      "Microsoft.Azure.Devices.Client/1.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Azure.Amqp": "1.1.1",
+          "PCLCrypto": "1.0.86"
+        },
         "compile": {
           "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
         },
@@ -384,6 +397,18 @@
         },
         "runtime": {
           "lib/portable-net45+sl50+win+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/PCLCommandBase.dll": {}
+        }
+      },
+      "PCLCrypto/1.0.86": {
+        "type": "package",
+        "dependencies": {
+          "Validation": "[2.0.6, 3.0.0)"
+        },
+        "compile": {
+          "lib/win81/PCLCrypto.dll": {}
+        },
+        "runtime": {
+          "lib/win81/PCLCrypto.dll": {}
         }
       },
       "Rx-Core/2.3.0-beta2": {
@@ -2147,8 +2172,21 @@
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
         }
       },
-      "Microsoft.Azure.Devices.Client/1.0.1": {
+      "Microsoft.Azure.Amqp/1.1.1": {
         "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Azure.Amqp.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Azure.Amqp.Uwp.dll": {}
+        }
+      },
+      "Microsoft.Azure.Devices.Client/1.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Azure.Amqp": "1.1.1",
+          "PCLCrypto": "1.0.86"
+        },
         "compile": {
           "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
         },
@@ -2465,6 +2503,18 @@
         },
         "runtime": {
           "lib/portable-net45+sl50+win+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/PCLCommandBase.dll": {}
+        }
+      },
+      "PCLCrypto/1.0.86": {
+        "type": "package",
+        "dependencies": {
+          "Validation": "[2.0.6, 3.0.0)"
+        },
+        "compile": {
+          "lib/win81/PCLCrypto.dll": {}
+        },
+        "runtime": {
+          "lib/win81/PCLCrypto.dll": {}
         }
       },
       "Rx-Core/2.3.0-beta2": {
@@ -4092,8 +4142,21 @@
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
         }
       },
-      "Microsoft.Azure.Devices.Client/1.0.1": {
+      "Microsoft.Azure.Amqp/1.1.1": {
         "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Azure.Amqp.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Azure.Amqp.Uwp.dll": {}
+        }
+      },
+      "Microsoft.Azure.Devices.Client/1.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Azure.Amqp": "1.1.1",
+          "PCLCrypto": "1.0.86"
+        },
         "compile": {
           "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
         },
@@ -4396,6 +4459,18 @@
         },
         "runtime": {
           "lib/portable-net45+sl50+win+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/PCLCommandBase.dll": {}
+        }
+      },
+      "PCLCrypto/1.0.86": {
+        "type": "package",
+        "dependencies": {
+          "Validation": "[2.0.6, 3.0.0)"
+        },
+        "compile": {
+          "lib/win81/PCLCrypto.dll": {}
+        },
+        "runtime": {
+          "lib/win81/PCLCrypto.dll": {}
         }
       },
       "Rx-Core/2.3.0-beta2": {
@@ -6000,8 +6075,21 @@
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
         }
       },
-      "Microsoft.Azure.Devices.Client/1.0.1": {
+      "Microsoft.Azure.Amqp/1.1.1": {
         "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Azure.Amqp.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Azure.Amqp.Uwp.dll": {}
+        }
+      },
+      "Microsoft.Azure.Devices.Client/1.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Azure.Amqp": "1.1.1",
+          "PCLCrypto": "1.0.86"
+        },
         "compile": {
           "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
         },
@@ -6325,6 +6413,18 @@
         },
         "runtime": {
           "lib/portable-net45+sl50+win+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/PCLCommandBase.dll": {}
+        }
+      },
+      "PCLCrypto/1.0.86": {
+        "type": "package",
+        "dependencies": {
+          "Validation": "[2.0.6, 3.0.0)"
+        },
+        "compile": {
+          "lib/win81/PCLCrypto.dll": {}
+        },
+        "runtime": {
+          "lib/win81/PCLCrypto.dll": {}
         }
       },
       "Rx-Core/2.3.0-beta2": {
@@ -7952,8 +8052,21 @@
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
         }
       },
-      "Microsoft.Azure.Devices.Client/1.0.1": {
+      "Microsoft.Azure.Amqp/1.1.1": {
         "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Azure.Amqp.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Azure.Amqp.Uwp.dll": {}
+        }
+      },
+      "Microsoft.Azure.Devices.Client/1.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Azure.Amqp": "1.1.1",
+          "PCLCrypto": "1.0.86"
+        },
         "compile": {
           "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
         },
@@ -8256,6 +8369,18 @@
         },
         "runtime": {
           "lib/portable-net45+sl50+win+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/PCLCommandBase.dll": {}
+        }
+      },
+      "PCLCrypto/1.0.86": {
+        "type": "package",
+        "dependencies": {
+          "Validation": "[2.0.6, 3.0.0)"
+        },
+        "compile": {
+          "lib/win81/PCLCrypto.dll": {}
+        },
+        "runtime": {
+          "lib/win81/PCLCrypto.dll": {}
         }
       },
       "Rx-Core/2.3.0-beta2": {
@@ -9860,8 +9985,21 @@
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
         }
       },
-      "Microsoft.Azure.Devices.Client/1.0.1": {
+      "Microsoft.Azure.Amqp/1.1.1": {
         "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Azure.Amqp.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Azure.Amqp.Uwp.dll": {}
+        }
+      },
+      "Microsoft.Azure.Devices.Client/1.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Azure.Amqp": "1.1.1",
+          "PCLCrypto": "1.0.86"
+        },
         "compile": {
           "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
         },
@@ -10185,6 +10323,18 @@
         },
         "runtime": {
           "lib/portable-net45+sl50+win+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/PCLCommandBase.dll": {}
+        }
+      },
+      "PCLCrypto/1.0.86": {
+        "type": "package",
+        "dependencies": {
+          "Validation": "[2.0.6, 3.0.0)"
+        },
+        "compile": {
+          "lib/win81/PCLCrypto.dll": {}
+        },
+        "runtime": {
+          "lib/win81/PCLCrypto.dll": {}
         }
       },
       "Rx-Core/2.3.0-beta2": {
@@ -11812,8 +11962,21 @@
           "lib/win81/Microsoft.ApplicationInsights.Extensibility.Windows.dll": {}
         }
       },
-      "Microsoft.Azure.Devices.Client/1.0.1": {
+      "Microsoft.Azure.Amqp/1.1.1": {
         "type": "package",
+        "compile": {
+          "lib/uap10.0/Microsoft.Azure.Amqp.Uwp.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Microsoft.Azure.Amqp.Uwp.dll": {}
+        }
+      },
+      "Microsoft.Azure.Devices.Client/1.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Azure.Amqp": "1.1.1",
+          "PCLCrypto": "1.0.86"
+        },
         "compile": {
           "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd": {}
         },
@@ -12116,6 +12279,18 @@
         },
         "runtime": {
           "lib/portable-net45+sl50+win+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/PCLCommandBase.dll": {}
+        }
+      },
+      "PCLCrypto/1.0.86": {
+        "type": "package",
+        "dependencies": {
+          "Validation": "[2.0.6, 3.0.0)"
+        },
+        "compile": {
+          "lib/win81/PCLCrypto.dll": {}
+        },
+        "runtime": {
+          "lib/win81/PCLCrypto.dll": {}
         }
       },
       "Rx-Core/2.3.0-beta2": {
@@ -13800,25 +13975,37 @@
         "package/services/metadata/core-properties/441e5d0bc7164e089277ae041b2043cc.psmdcp"
       ]
     },
-    "Microsoft.Azure.Devices.Client/1.0.1": {
-      "sha512": "nKed694xmcwPoXv76SQYMIt69yJUka27B97OFfcXhQ9hrozOX5xaeeVd2J8zTtKqn+WInRWmDkcvi39MTRg//Q==",
-      "type": "Package",
+    "Microsoft.Azure.Amqp/1.1.1": {
+      "sha512": "obddkKSOmr4SLOgJQbjVC3W2OX+JU51aGnvyNJT0GwMLWUWj2fryLKkc9W+LAzSYrK0u0YoRKaDDHmmTBMs04A==",
+      "type": "package",
       "files": [
+        "Microsoft.Azure.Amqp.1.1.1.nupkg.sha512",
+        "Microsoft.Azure.Amqp.nuspec",
+        "lib/net451/Microsoft.Azure.Amqp.XML",
+        "lib/net451/Microsoft.Azure.Amqp.dll",
+        "lib/uap10.0/Microsoft.Azure.Amqp.Uwp.dll"
+      ]
+    },
+    "Microsoft.Azure.Devices.Client/1.0.5": {
+      "sha512": "j6JHGeuSMrYH6Jpq6qSD8gZLEofcwGEAsPGIr+sbFMKom37G8X1sXwhm/uwP8xpucfiGNRkEQQKFOsIYPS/FJA==",
+      "type": "package",
+      "files": [
+        "Microsoft.Azure.Devices.Client.1.0.5.nupkg.sha512",
         "Microsoft.Azure.Devices.Client.nuspec",
-        "[Content_Types].xml",
-        "_rels/.rels",
+        "build/native/Microsoft.Azure.Devices.Client.targets",
+        "lib/native/Microsoft.Azure.Devices.Client.winmd",
         "lib/net45/Microsoft.Azure.Devices.Client.dll",
         "lib/uap10.0/Microsoft.Azure.Devices.Client.winmd",
-        "package/services/metadata/core-properties/46de89aa47204e3c88aac6fe09be3dd4.psmdcp",
         "thirdpartynotice.txt"
       ]
     },
     "Microsoft.Band/1.3.20307": {
-      "sha512": "V6+Rb5RRBmpdtOWDsjKQgNQ+FAN0wyTKvai3T10nYHrmfnXFHPbITj1w3wLyHNQABdquOqcfSu7xSsgOV8tcnA==",
-      "type": "package",
+      "sha512": "pU8e7mpGi9hPo5GSCCe1HmpQXLX/s7XfuddF8OSbpgzmuDz7ZdDmEH73N3DrMlRC4gG/quAq2reUKakSHukazg==",
+      "type": "Package",
       "files": [
-        "Microsoft.Band.1.3.20307.nupkg.sha512",
         "Microsoft.Band.nuspec",
+        "[Content_Types].xml",
+        "_rels/.rels",
         "content/netcore451/Package.appxmanifest.transform",
         "content/wpa81/Package.appxmanifest.transform",
         "lib/netcore451/Google.Protobuf.dll",
@@ -13843,7 +14030,8 @@
         "lib/wpa81/Microsoft.Band.Phone.pri",
         "lib/wpa81/Microsoft.Band.Store.dll",
         "lib/wpa81/Microsoft.Band.Store.pri",
-        "lib/wpa81/Microsoft.Band.dll"
+        "lib/wpa81/Microsoft.Band.dll",
+        "package/services/metadata/core-properties/59c74f696fd7440da00366686b2c228c.psmdcp"
       ]
     },
     "Microsoft.Bcl/1.1.9": {
@@ -14648,6 +14836,34 @@
         "lib/portable-net45+sl50+win+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/PCLCommandBase.XML",
         "lib/portable-net45+sl50+win+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/PCLCommandBase.dll",
         "package/services/metadata/core-properties/a44231675d594a3480cbdb2507ca5b1c.psmdcp"
+      ]
+    },
+    "PCLCrypto/1.0.86": {
+      "sha512": "rcmxw9Bb5GuEW1ubVBegCCbR7YU8Ptr8tGfmyVHBnK+UQlk29TuBryHXmsTglt64ZNDXpi8rWl8x5l55JylpOw==",
+      "type": "package",
+      "files": [
+        "PCLCrypto.1.0.86.nupkg.sha512",
+        "PCLCrypto.nuspec",
+        "lib/Xamarin.iOS/PCLCrypto.dll",
+        "lib/Xamarin.iOS/PCLCrypto.xml",
+        "lib/monoandroid/PCLCrypto.dll",
+        "lib/monoandroid/PCLCrypto.xml",
+        "lib/monotouch/PCLCrypto.dll",
+        "lib/monotouch/PCLCrypto.xml",
+        "lib/net40-Client/PCLCrypto.dll",
+        "lib/net40-Client/PCLCrypto.xml",
+        "lib/portable-net40+sl50+win+wpa81+wp80+MonoAndroid10+xamarinios10+MonoTouch10/PCLCrypto.dll",
+        "lib/portable-net40+sl50+win+wpa81+wp80+MonoAndroid10+xamarinios10+MonoTouch10/PCLCrypto.xml",
+        "lib/sl5/PCLCrypto.dll",
+        "lib/sl5/PCLCrypto.xml",
+        "lib/win81/PCLCrypto.dll",
+        "lib/win81/PCLCrypto.pri",
+        "lib/win81/PCLCrypto.xml",
+        "lib/wp8/PCLCrypto.dll",
+        "lib/wp8/PCLCrypto.xml",
+        "lib/wpa81/PCLCrypto.dll",
+        "lib/wpa81/PCLCrypto.pri",
+        "lib/wpa81/PCLCrypto.xml"
       ]
     },
     "Rx-Core/2.3.0-beta2": {
@@ -17884,7 +18100,7 @@
       "Autofac >= 3.5.2",
       "FakeBand >= 0.0.9",
       "Microsoft.ApplicationInsights.WindowsApps >= 1.1.0",
-      "Microsoft.Azure.Devices.Client >= 1.0.1",
+      "Microsoft.Azure.Devices.Client >= 1.0.5",
       "Microsoft.Band >= 1.3.20307",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
       "Newtonsoft.Json >= 7.0.1",

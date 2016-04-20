@@ -7,6 +7,7 @@
 <div class="container">
     <div class="heart animated-slow css">
         <div id="rate">0</div>
+        <div id="bandName" style="display:block">-</div>
     </div>
 </div>
 
@@ -34,14 +35,16 @@
             // signalr 
             // this function is called by the server hub via signalr to broadcast the current heart rate
             hub.client.broadcastMessage = function (bandName, hrValue) {
-                console.log("changed");
                 func = null;
                 document.getElementById("rate").innerText = hrValue;
-                live = new Date();                
+                document.getElementById("bandName").innerText = bandName;
+                live = new Date();
+                console.log("hub.client.broadcastMessage " + live.getTime());
+
                 setTimeout(function () {
                     _final = new Date();
                     var seconds = ((_final.getTime() - live.getTime()) / 1000 | 0);
-                    console.log(seconds);
+                    console.log(seconds + ' ' + live.getTime());
                     if (seconds > 19) {
                         heartRate = 1;
                         document.getElementById("rate").innerText = 1;

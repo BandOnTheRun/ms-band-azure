@@ -13976,7 +13976,7 @@
       ]
     },
     "Microsoft.Azure.Amqp/1.1.1": {
-      "sha512": "obddkKSOmr4SLOgJQbjVC3W2OX+JU51aGnvyNJT0GwMLWUWj2fryLKkc9W+LAzSYrK0u0YoRKaDDHmmTBMs04A==",
+      "sha512": "OWz55opvyL9lzTTMwOmKT4MNyQ+QSlAcBlAu57jMYzz9jcwjoLOhCNmT/ORBCrX0CO8aoWvouz2YZw5ZpfPxYw==",
       "type": "package",
       "files": [
         "Microsoft.Azure.Amqp.1.1.1.nupkg.sha512",
@@ -14000,12 +14000,11 @@
       ]
     },
     "Microsoft.Band/1.3.20307": {
-      "sha512": "pU8e7mpGi9hPo5GSCCe1HmpQXLX/s7XfuddF8OSbpgzmuDz7ZdDmEH73N3DrMlRC4gG/quAq2reUKakSHukazg==",
-      "type": "Package",
+      "sha512": "V6+Rb5RRBmpdtOWDsjKQgNQ+FAN0wyTKvai3T10nYHrmfnXFHPbITj1w3wLyHNQABdquOqcfSu7xSsgOV8tcnA==",
+      "type": "package",
       "files": [
+        "Microsoft.Band.1.3.20307.nupkg.sha512",
         "Microsoft.Band.nuspec",
-        "[Content_Types].xml",
-        "_rels/.rels",
         "content/netcore451/Package.appxmanifest.transform",
         "content/wpa81/Package.appxmanifest.transform",
         "lib/netcore451/Google.Protobuf.dll",
@@ -14030,8 +14029,7 @@
         "lib/wpa81/Microsoft.Band.Phone.pri",
         "lib/wpa81/Microsoft.Band.Store.dll",
         "lib/wpa81/Microsoft.Band.Store.pri",
-        "lib/wpa81/Microsoft.Band.dll",
-        "package/services/metadata/core-properties/59c74f696fd7440da00366686b2c228c.psmdcp"
+        "lib/wpa81/Microsoft.Band.dll"
       ]
     },
     "Microsoft.Bcl/1.1.9": {

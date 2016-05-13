@@ -51,7 +51,7 @@ namespace SimulatedDevice
             }
             deviceKey = args[0];
 
-            Console.WriteLine("Simulate Band device {0} with device key \n", deviceName, deviceKey);
+            Console.WriteLine("Simulate Band device {0} with device key {1} pushing data to IoT hub {2}\n", deviceName, deviceKey, iotHubUri);
 
             // connect to IoT Hub
 

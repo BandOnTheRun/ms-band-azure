@@ -22,7 +22,7 @@
     <AppxPackageDir>C:\Users\pdaukin\Desktop\Band App Package\</AppxPackageDir>
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
-    <PackageCertificateThumbprint>BB7CAA0DDCB7ABAA92CA84E7115545BDDD6FF04C</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>3A4039BE80D60D382E4643C6B65CB062F03768B4</PackageCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>

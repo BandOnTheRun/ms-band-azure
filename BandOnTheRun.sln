@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BandontheRunWebApp", "BandontheRunWebApp\BandontheRunWebApp.csproj", "{4A56933B-6727-4164-8E9F-A941E65A0DDA}"
 EndProject
@@ -10,7 +10,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5E507E62-3BB1-4B48-93EA-66976D9D4D5F}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
-		stream analystics query.txt = stream analystics query.txt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimulatedBandIotHub", "SimulatedBandIotHub\SimulatedBandIotHub.csproj", "{2BF151EE-E9FE-4228-ADA4-B6E521859E1A}"

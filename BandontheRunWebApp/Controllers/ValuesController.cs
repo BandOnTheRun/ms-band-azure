@@ -32,13 +32,8 @@ namespace BandontheRunWebApp.Controllers
             RegistryManager registryManager = RegistryManager.CreateFromConnectionString(connectionString);
             string key = await AddDeviceAsync(registryManager, deviceId);
 
-
             // track list of devices for reporting
-
             _IoTRegisteredDevices[deviceId] = DateTime.Now.ToString();
-
-            // TODO: add app insight counter
-
 
             return key;
         }

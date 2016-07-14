@@ -36,6 +36,7 @@ namespace MSBandAzure.Services
 
         public async Task RefreshIotHubTokenAsync(string deviceId)
         {
+#if EXCLUSIVE_DEVICE
             // Note. this check is made as we only want one device to send data to iot
             // hub currently as there is an 8000 message limit on the free tier - to 
             // remove this behaviour comment out the following line.
@@ -43,7 +44,7 @@ namespace MSBandAzure.Services
                 return;
 
             _exclusiveDevice = deviceId;
-
+#endif
             // Construct a uri to register this particular device with iot hub
             UriBuilder builder = new UriBuilder();
             builder.Scheme = "http";

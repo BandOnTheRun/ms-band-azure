@@ -1,0 +1,74 @@
+[
+  {
+    "DeviceId": "SimulatedDevice1",
+    "Room": "room1",
+    "HeartRate": 68,
+    "SkinTemp": 0.0,
+    "UVIndex": 0,
+    "Timestamp": "15/07/2016 17:35:12"
+  },
+  {
+    "DeviceId": "SimulatedDevice1",
+    "Room": "room1",
+    "HeartRate": 69,
+    "SkinTemp": 0.0,
+    "UVIndex": 0,
+    "Timestamp": "15/07/2016 17:35:14"
+  },
+  {
+    "DeviceId": "SimulatedDevice1",
+    "Room": "room1",
+    "HeartRate": 70,
+    "SkinTemp": 0.0,
+    "UVIndex": 0,
+    "Timestamp": "15/07/2016 17:35:16"
+  },
+  {
+    "DeviceId": "SimulatedDevice1",
+    "Room": "room1",
+    "HeartRate": 72,
+    "SkinTemp": 0.0,
+    "UVIndex": 0,
+    "Timestamp": "15/07/2016 17:35:18"
+  },
+  {
+    "DeviceId": "SimulatedDevice1",
+    "Room": "room1",
+    "HeartRate": 74,
+    "SkinTemp": 0.0,
+    "UVIndex": 0,
+    "Timestamp": "15/07/2016 17:35:20"
+  },
+  {
+    "DeviceId": "SimulatedDevice1",
+    "Room": "room1",
+    "HeartRate": 75,
+    "SkinTemp": 0.0,
+    "UVIndex": 0,
+    "Timestamp": "15/07/2016 17:35:22"
+  },
+  {
+    "DeviceId": "SimulatedDevice1",
+    "Room": "room1",
+    "HeartRate": 77,
+    "SkinTemp": 0.0,
+    "UVIndex": 0,
+    "Timestamp": "15/07/2016 17:35:24"
+  },
+  {
+    "DeviceId": "SimulatedDevice1",
+    "Room": "room1",
+    "HeartRate": 76,
+    "SkinTemp": 0.0,
+    "UVIndex": 0,
+    "Timestamp": "15/07/2016 17:35:26"
+  },
+  {
+    "DeviceId": "SimulatedDevice1",
+    "Room": "room1",
+    "HeartRate": 76,
+    "SkinTemp": 0.0,
+    "UVIndex": 0,
+    "Timestamp": "15/07/2016 17:35:29"
+  }
+]

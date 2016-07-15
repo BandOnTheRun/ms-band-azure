@@ -9,7 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSBandAzure", "MSBandAzure\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5E507E62-3BB1-4B48-93EA-66976D9D4D5F}"
 	ProjectSection(SolutionItems) = preProject
+		Documentation\Installation Guide.docx = Documentation\Installation Guide.docx
 		README.md = README.md
+		Stream Aalytics query.txt = Stream Aalytics query.txt
+		stream analytics test data.json = stream analytics test data.json
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimulatedBandIotHub", "SimulatedBandIotHub\SimulatedBandIotHub.csproj", "{2BF151EE-E9FE-4228-ADA4-B6E521859E1A}"

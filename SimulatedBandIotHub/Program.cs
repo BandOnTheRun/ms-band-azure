@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+// this console app simuates telemetry from the band to IoT Hub
+
+
 namespace SimulatedDevice
 {
     using Microsoft.Azure.Devices.Client;
@@ -18,7 +22,7 @@ namespace SimulatedDevice
         {
         }
         public string DeviceId { get; set; }
-
+        public string Room { get; set; }            // acts like a namespace to partition a group of bands into one untit to work with
         public int HeartRate { get; set; }
         public double SkinTemp { get; set; }
         public int UVIndex { get; set; }
@@ -31,9 +35,11 @@ namespace SimulatedDevice
     {
         static DeviceClient deviceClient;
 
+        // set these up globally
         static string iotHubUri = "BandontheRunHub.azure-devices.net";
         static string deviceKey = "<not supplied>";  // passed on command line
         static string deviceName = "SimulatedDevice1";
+        static string room = "room1";
 
         static int _interations = 10;
         static int _sendIntervalms = 2000;  // ms
@@ -65,6 +71,7 @@ namespace SimulatedDevice
 
             DeviceTelemetry telemetry = new DeviceTelemetry();
             telemetry.DeviceId = deviceName;
+            telemetry.Room = room;
             telemetry.UVIndex = 0;
             telemetry.SkinTemp = 0;
             telemetry.HeartRate = 70;

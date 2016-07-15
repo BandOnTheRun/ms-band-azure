@@ -1,0 +1,42 @@
+
+BandontheRunStreamAnalyticsJob
+
+
+/* log to table for debug and post event processing */ 
+SELECT 
+    *
+INTO 
+    TableOutput   
+FROM 
+    input Timestamp by EventEnqueuedUtcTime
+ 
+/* sustained high heart rate gets alert */ 
+SELECT 
+    DeviceId, 
+    Max(Room),
+    Cast(AVG(HeartRate) as BIGINT) as HeartRate, 
+    Max(EventEnqueuedUtcTime) as Time 
+INTO 
+    sbqueueOutput
+FROM 
+    input Timestamp by EventEnqueuedUtcTime
+GROUP BY 
+    DeviceId, TumblingWindow(second, 5)
+HAVING
+	HeartRate > 73 
+
+
+
+BandontheRunPBIStreamAnalyticsJob
+
+
+SELECT 
+    DeviceId, 
+    Cast(AVG(HeartRate) as BIGINT) as HeartRate, 
+    Max(EventEnqueuedUtcTime) as Time
+INTO 
+    PowerBIOutput
+FROM 
+    input Timestamp by EventEnqueuedUtcTime
+GROUP BY 
+    DeviceId, Tumblingwindow(second, 10) 

@@ -16,4 +16,4 @@ http://blogs.msdn.com/b/david_gristwood/
 
 http://peted.azurewebsites.net/
 
-Check the Documentation folder for additonal slides, etc
+Check the Documentation folder for step by step instructions, slides from public events, etc
